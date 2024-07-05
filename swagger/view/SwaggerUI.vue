@@ -61,7 +61,7 @@ export default {
         console.log("TOKEN", event.data.token);
         this.setCookie("authToken", event.data.token, 7);
         this.authToken = event.data.token;
-        this.showIframe = false; // Close the iframe
+        this.showIframe = false; 
         this.initializeSwaggerUI();
       }
     },
@@ -132,14 +132,13 @@ export default {
       const config = { childList: true, subtree: true };
 
       observer.observe(targetNode, config);
-      // document.head.appendChild(script);
     },
     checkForToken() {
       const urlParams = new URLSearchParams(window.location.search);
       const token = urlParams.get("token");
       if (token) {
         this.setCookie("authToken", token, 7); // Set cookie for 7 days
-        window.location.href = window.location.href.split("?")[0]; // Redirect to the home page without query params
+        window.location.href = window.location.href.split("?")[0]; // Redirect to the home page
       }
     },
     setCookie(name, value, days) {
@@ -162,9 +161,6 @@ export default {
       return null;
     },
   },
-  // created() {
-  //  this.checkForToken();
-  // },
 };
 </script>
 
