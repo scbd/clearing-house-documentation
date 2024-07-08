@@ -1,0 +1,107 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Documents API",
+    "description": "API to publish new documents.",
+    "version": "2.13.0"
+  },
+  "servers": [
+    {
+      "url": "https://absch.cbddev.xyz/api/v2013"
+    }
+  ],
+  "paths": {
+    "/documents": {
+      "post": {
+        "summary": "Create a new document",
+        "description": "Publish a new document.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "schema": {
+                    "type": "string",
+                    "description": "Specify the document common-format posted (type / schema)"
+                  }
+                },
+                "required": ["schema"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "document": {
+                      "type": "object",
+                      "properties": {
+                        "uid": {
+                          "type": "string",
+                          "description": "Identifier of the created document"
+                        },
+                        "schema": {
+                          "type": "string",
+                          "description": "Document schema/type"
+                        },
+                        "createdBy": {
+                          "type": "object",
+                          "properties": {
+                            "userID": {
+                              "type": "integer"
+                            },
+                            "firstName": {
+                              "type": "string"
+                            },
+                            "lastName": {
+                              "type": "string"
+                            },
+                            "email": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "TicketAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "TicketAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Authorization token format: 'Ticket {token}'"
+      }
+    }
+  }
+}

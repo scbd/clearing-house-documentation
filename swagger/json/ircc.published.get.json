@@ -1,0 +1,129 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Documents API",
+    "description": "API to fetch documents data in raw format.",
+    "version": "2.13.0"
+  },
+  "servers": [
+    {
+      "url": "https://absch.cbddev.xyz/api/v2013"
+    }
+  ],
+  "paths": {
+    "/documents/{uid}": {
+      "get": {
+        "summary": "Get Document by UID",
+        "description": "Load documents data in raw format.",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["*", "application/json"]
+            },
+            "description": "Result format. * = Raw data as submitted, application/json = Try to cast result to the JSON format."
+          },
+          {
+            "name": "Realm",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["ABS", "CHM"]
+            },
+            "description": "Context in which the Clearing-House request is made."
+          },
+          {
+            "name": "uid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9\\-_]{11,128}$"
+            },
+            "description": "Identifier of the document. The value is case-sensitive."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "government": { "type": "string" },
+                        "userID": { "type": "string" },
+                        "schema": { "type": "string" }
+                      }
+                    },
+                    "createdOn": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "createdBy": {
+                      "type": "object",
+                      "properties": {
+                        "userID": { "type": "integer" },
+                        "firstName": { "type": "string" },
+                        "lastName": { "type": "string" },
+                        "email": { "type": "string" }
+                      }
+                    },
+                    "updatedOn": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "updatedBy": {
+                      "type": "object",
+                      "properties": {
+                        "userID": { "type": "integer" },
+                        "firstName": { "type": "string" },
+                        "lastName": { "type": "string" },
+                        "email": { "type": "string" }
+                      }
+                    },
+                    "submittedOn": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "submittedBy": {
+                      "type": "object",
+                      "properties": {
+                        "userID": { "type": "integer" },
+                        "firstName": { "type": "string" },
+                        "lastName": { "type": "string" },
+                        "email": { "type": "string" }
+                      }
+                    },
+                    "type": { "type": "string" },
+                    "owner": { "type": "string" },
+                    "revision": { "type": "integer" },
+                    "size": { "type": "integer" },
+                    "charset": { "type": "string" },
+                    "title": {
+                      "type": "object",
+                      "properties": {
+                        "fr": { "type": "string" }
+                      }
+                    },
+                    "summary": { "type": "object" },
+                    "realm": { "type": "string" },
+                    "latestRevision": { "type": "integer" },
+                    "isRequest": { "type": "boolean" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

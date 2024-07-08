@@ -8,26 +8,44 @@ export default {
             text: "Introduction",
             link: "/",
           },
+          {
+            text: "Custom Types",
+            link: "/customTypes",
+          },
         ],
       },
       {
-        text: "Routes ABS",
+        text: "IRCC",
         collapsed: false,
         items: [
           {
-            text: "IRCC",
-            collapsed: true,
+            text: "All Published IRCC",
+            collapsed: false,
             items: [
-              {
-                text: "Documents",
-                collapsed: true,
-                items: [
-                  {
-                    text: "GET",
-                    link: "/ircc/documents/get",
-                  },
-                ],
-              },
+                {
+                    text: "List",
+                    link: "/ircc/published/list",
+                },
+                {
+                    text: "Get",
+                    link: "/ircc/published/get",
+                },
+                {
+                    text: "Create",
+                    link: "/ircc/published/create",
+                },
+                {
+                    text: "Update",
+                    link: "/ircc/published/update",
+                },
+                {
+                    text: "Delete",
+                    link: "/ircc/published/delete",
+                },
+                {
+                    text: "Solr",
+                    link: "/ircc/published/solr",
+                },
             ],
           },
     //       {

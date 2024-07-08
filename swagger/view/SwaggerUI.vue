@@ -58,7 +58,6 @@ export default {
     handleMessage(event) {
       if (event.origin !== "http://localhost:8080") return;
       if (event.data.type === "loginSuccess" && event.data.token) {
-        console.log("TOKEN", event.data.token);
         this.setCookie("authToken", event.data.token, 7);
         this.authToken = event.data.token;
         this.showIframe = false; 

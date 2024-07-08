@@ -1,0 +1,119 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Documents API",
+    "description": "API to publish updates to documents.",
+    "version": "2.13.0"
+  },
+  "servers": [
+    {
+      "url": "https://absch.cbddev.xyz/api/v2013"
+    }
+  ],
+  "paths": {
+    "/documents/{uid}": {
+      "put": {
+        "summary": "Update a document",
+        "description": "Publish an update to a document.",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9\\-_]{11,128}$"
+            },
+            "description": "Identifier of the document. The value is case-sensitive."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "schema": {
+                    "type": "string",
+                    "description": "Specify the document common-format posted (type / schema)"
+                  }
+                },
+                "required": ["schema"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "document": {
+                      "type": "object",
+                      "properties": {
+                        "uid": {
+                          "type": "string",
+                          "description": "Identifier of the updated document"
+                        },
+                        "schema": {
+                          "type": "string",
+                          "description": "Document schema/type"
+                        },
+                        "updatedBy": {
+                          "type": "object",
+                          "properties": {
+                            "userID": {
+                              "type": "integer"
+                            },
+                            "firstName": {
+                              "type": "string"
+                            },
+                            "lastName": {
+                              "type": "string"
+                            },
+                            "email": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "TicketAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "TicketAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Authorization token format: 'Ticket {token}'"
+      }
+    }
+  }
+}

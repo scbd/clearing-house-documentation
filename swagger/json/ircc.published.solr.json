@@ -1,0 +1,160 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Index Query API",
+    "description": "API to load information from Solr index.",
+    "version": "2.13.0"
+  },
+  "servers": [
+    {
+      "url": "https://absch.cbddev.xyz/api/v2013"
+    }
+  ],
+  "paths": {
+    "/index": {
+      "get": {
+        "summary": "Query Solr index",
+        "description": "Load information from Solr index.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The q parameter is normally the main query for the request. See Solr query syntax for more information."
+          },
+          {
+            "name": "fl",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "TODO: Solr xxx"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "TODO: Solr xxx"
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "TODO: Solr xxx"
+          },
+          {
+            "name": "rows",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "TODO: Solr xxx",
+            "default": "10"
+          },
+          {
+            "name": "facet",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "TODO: Solr xxx",
+            "default": "false"
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "TODO: facet must be set to true\nTODO: Solr xxx"
+          },
+          {
+            "name": "field",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "TODO: facet must be set to true\nTODO: Solr xxx"
+          },
+          {
+            "name": "prefix",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "TODO: facet must be set to true\nTODO: Solr xxx"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "responseHeader": {
+                      "type": "object",
+                      "properties": {
+                        "status": { "type": "integer" },
+                        "QTime": { "type": "integer" },
+                        "params": {
+                          "type": "object",
+                          "properties": {
+                            "indent": { "type": "string" },
+                            "q": { "type": "string" },
+                            "_": { "type": "string" },
+                            "wt": { "type": "string" }
+                          }
+                        }
+                      }
+                    },
+                    "response": {
+                      "type": "object",
+                      "properties": {
+                        "numFound": { "type": "integer" },
+                        "start": { "type": "integer" },
+                        "docs": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "schema_s": { "type": "string" },
+                              "title_t": { "type": "string" }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "TicketAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "TicketAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Authorization token format: 'Ticket {token}'"
+      }
+    }
+  }
+}
