@@ -1,0 +1,20 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    word-wrap: break-word; /* Ensure long words wrap */
+    white-space: normal; /* Ensure text wraps to the next line */
+  }
+  th {
+    background-color: #f2f2f2;
+    text-align: left;
+  }
+  /* Adjust the width of the columns */
+  colgroup col:nth-child(1) { width: 40%; }
+  colgroup col:nth-child(2) { width: 15%; }
+  colgroup col:nth-child(3) { width: 15%; }
+  colgroup col:nth-child(4) { width: 15%; }
+  colgroup col:nth-child(5) { width: 15%; }
