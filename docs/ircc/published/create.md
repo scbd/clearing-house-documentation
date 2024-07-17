@@ -10,6 +10,23 @@ import swaggerJson from "../../../swagger/json/ircc.published.create.json";
 
 This documentation describes the API endpoint for creating an IRCC (Internationally Recognized Certificate of Compliance) using the POST method. The endpoint allows clients to submit documents to the system.
 
+## Introduction
+
+Permits or their equivalent constituting an internationally recognized certificate of compliance (IRCC) are critical for ensuring that genetic resources are accessed in accordance with prior informed consent (PIC) and that mutually agreed terms (MAT) have been established. The IRCC serves as evidence that these conditions have been met and plays a key role in monitoring and enhancing transparency about the utilization of genetic resources.
+
+To access this API, users must be affiliated with a government entity and possess one of the following roles: National Focal Point (NFP), National Authorized User (NAU), or Government Representative. These roles ensure that the individuals have the authority and responsibility to manage genetic resources and compliance certificates.
+
+Moreover, the API and associated token are restricted to use within the context of a single government. Users cannot use the token for multiple governments or share it for cross-government operations. This restriction ensures that the process remains secure and that each government's compliance is managed independently.
+
+### Key Provisions
+
+1. **Issuance of Permit or Equivalent**: At the time of access, a permit or its equivalent is issued as evidence of the decision to grant PIC and the establishment of MAT.
+2. **Publication to ABS Clearing-House**: This information is made available to the ABS Clearing-House in accordance with relevant articles of the Convention on Biological Diversity (CBD).
+3. **Constitution of IRCC**: Once the information is published in the ABS Clearing-House, an internationally recognized certificate of compliance is constituted.
+4. **Role of IRCC**: The IRCC serves as evidence that the genetic resource covered has been accessed in accordance with PIC and MAT. It includes essential information such as issuing authority, date of issuance, provider, unique identifier, subject-matter or genetic resources covered, and confirmation of MAT and PIC.
+
+Parties are required to fill out the form with mandatory fields to ensure the IRCC is constituted. Confidential information should not be submitted as all information made available to the ABS Clearing-House will be public.
+
 ## Endpoint
 
 **POST** `/api/v2013/documents`
@@ -20,12 +37,12 @@ This is the endpoint to which the POST request should be made to create a new do
 
 | Field            | Type   | Description                                                                       |
 | ---------------- | ------ | --------------------------------------------------------------------------------- |
-| Content-Type     | String | Raw document format mediaType. Allowed values: `application/json`                 |
+| Content-Type     | String  &nbsp;&nbsp;  | Raw document format mediaType. Allowed values: `application/json`                 |
 | Authorization    | String | Token to use to authenticate the request                                          |
-| Realm (optional) | String | Context in which the Clearing-House request is made. Allowed values: `ABS`, `CHM` |
+| Realm | String | Context in which the Clearing-House request is made. Allowed values: `ABS`, `CHM`, `DEV` |
 | Accept           | String | Result format. Allowed values: `application/json`                                 |
 
-Headers required to authenticate and define the context and format of the request and response. The `Authorization` header must contain a valid token, while the `Content-Type` and `Accept` headers specify the format of the document and response, respectively.
+Headers required to authenticate and define the context and format of the request and response. The `Authorization` header must contain a valid token, while the `Content-Type` and `Accept` headers specify the format of the document and response, respectively. [Here are the steps to get the Authorization token](/user/authentication).
 
 ## Query Parameters
 
@@ -43,7 +60,7 @@ Query parameters provide additional options for the request. The `schema` parame
 
 URL parameters include essential identifiers for the document. The `uid` parameter uniquely identifies the document in the system.
 
-<!--@include: ../../../components/sample.md-->
+<!--@include: ../../../components/common/validation-error.md-->
 
 ## Request Table
 
@@ -118,7 +135,7 @@ The table below outlines the structure of the request body, including the fields
       <td><code>"2024-07-02"</code></td>
     </tr>
     <tr>
-        <td colspan="5" style=" fontWeight:bold">The provider</td>
+        <td colspan="5" style=" fontWeight:bold">The provider (Select any of the two from below)</td>
     </tr>
     <tr>
         <td></td>
@@ -160,7 +177,7 @@ The table below outlines the structure of the request body, including the fields
         <td><code>true</code></td>
     </tr>
     <tr>
-        <td colspan="5" style="fontWeight:bold">Subject-matter or genetic resources covered by the permit or its equivalent</td>
+        <td colspan="5" style="fontWeight:bold">Subject-matter or genetic resources covered by the permit or its equivalent (Select any of the two from below)</td>
     </tr>
     <tr>
         <td></td>
@@ -195,8 +212,11 @@ The table below outlines the structure of the request body, including the fields
       <td><a href="/customTypes.html#lstring">lstring</a></td>
       <td></td>
     </tr>
+     <tr>
+        <td colspan="5" style=" fontWeight:bold">Additional subject-matter or genetic resources information (Select any one of the three below)</td>
+    </tr>
     <tr>
-      <td>Specimen data</td>
+      <td><b>1. Specimen data</b></td>
       <td>specimens</td>
       <td></td>
       <td><a href="/customTypes.html#elink">Elink[]</a></td>
@@ -209,7 +229,7 @@ The table below outlines the structure of the request body, including the fields
     ]</code></td>
     </tr>
     <tr>
-      <td>Taxonomy</td>
+      <td><b>2. Taxonomy</b></td>
       <td>taxonomies</td>
       <td></td>
       <td><a href="/customTypes.html#elink">Elink[]</a></td>
@@ -222,7 +242,7 @@ The table below outlines the structure of the request body, including the fields
     ]</code></td>
     </tr>
     <tr>
-      <td>Geographic coordinates</td>
+      <td><b>3. Geographic coordinates</b></td>
       <td>gisFiles</td>
       <td></td>
       <td><a href="/customTypes.html#elink">Elink[]</a></td>

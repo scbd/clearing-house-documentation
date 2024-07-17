@@ -24,7 +24,7 @@ export default defineConfig(({ mode }) => {
     title: "API Documentation",
     appearance: false,
     themeConfig: {
-      aside: false,
+      aside: true,
       logo: false,
       nav: [
         {

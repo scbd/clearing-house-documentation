@@ -12,6 +12,10 @@ export default {
             text: "Custom Types",
             link: "/customTypes",
           },
+          {
+            text: "User Management",
+            link: "/user-management",
+          },
         ],
       },
       {
@@ -70,6 +74,16 @@ export default {
     //       },
         ],
       },
+      {
+        text:"Users",
+        collapsed: true,
+        items:[
+          {
+            text:"Authentication",
+            link: "/user/authentication",
+          }
+        ]
+      }
     ],
   };
   

@@ -71,6 +71,10 @@ export default {
         operationsSorter: "alpha",
         presets: [SwaggerUI.presets.apis, SwaggerUI.SwaggerUIStandalonePreset],
         layout: "BaseLayout",
+        requestInterceptor: (request) => {
+          request.headers["Realm"] = "ABS-DEV";
+          return request;
+        }
       });
       if (this.protected) {
         if (this.authToken) {
