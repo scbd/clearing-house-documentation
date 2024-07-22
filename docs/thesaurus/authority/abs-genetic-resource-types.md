@@ -1,0 +1,23 @@
+<script setup>
+import "../../../style.css"
+import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
+import swaggerJson from "../../../swagger/json/thesaurus.authority.abs-genetic-resource-types.json";
+</script>
+
+# Authority - ABS Genetic Resource Types
+
+## Endpoint
+
+**GET** `/api/v2013/thesaurus/domains/20945FA8-C24C-4AF6-B3D9-367592AFDF48/terms`
+
+## Headers
+
+| Field            | Type   | Description                    |
+| ---------------- | ------ | ------------------------------ |
+| Accept           | String | Result format. Allowed values: `application/json`  |
+| Content-Type     | String | Request format. Allowed values: `application/json` |
+
+
+## Playground
+
+<SwaggerUI :swaggerJson="swaggerJson" />

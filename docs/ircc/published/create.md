@@ -35,12 +35,18 @@ This is the endpoint to which the POST request should be made to create a new do
 
 ## Headers
 
-| Field            | Type   | Description                                                                       |
-| ---------------- | ------ | --------------------------------------------------------------------------------- |
-| Content-Type     | String  &nbsp;&nbsp;  | Raw document format mediaType. Allowed values: `application/json`                 |
-| Authorization    | String | Token to use to authenticate the request                                          |
-| Realm | String | Context in which the Clearing-House request is made. Allowed values: `ABS`, `CHM`, `DEV` |
-| Accept           | String | Result format. Allowed values: `application/json`                                 |
+| Field            | Type    | Description                                                                       |
+| ---------------- | ------- | --------------------------------------------------------------------------------- |
+| Content-Type     | String &nbsp;&nbsp;  | Raw document format mediaType. Allowed values: `application/json`                 |
+| Authorization    | String  | Token to use to authenticate the request                                          |
+| Realm            | String  | Context in which the Clearing-House request is made. Allowed values: `ABS`, `CHM`, `BCH` |
+| Accept           | String  | Result format. Allowed values: `application/json`                                 |
+
+**Realm Values for Development:**
+- `ABS-DEV`: Development environment for ABS
+- `BCH-DEV`: Development environment for BCH
+- `CHM-DEV`: Development environment for CHM
+
 
 Headers required to authenticate and define the context and format of the request and response. The `Authorization` header must contain a valid token, while the `Content-Type` and `Accept` headers specify the format of the document and response, respectively. [Here are the steps to get the Authorization token](/user/authentication).
 
@@ -93,7 +99,7 @@ The table below outlines the structure of the request body, including the fields
           </code></td>
     </tr>
      <tr>
-      <td>Country</td>
+      <td><a href="/thesaurus/general/countries">Country</a></td>
       <td>government</td>
       <td>True</td>
       <td><a href="/customTypes.html#eterm">Eterm</a></td>
@@ -135,10 +141,10 @@ The table below outlines the structure of the request body, including the fields
       <td><code>"2024-07-02"</code></td>
     </tr>
     <tr>
-        <td colspan="5" style=" fontWeight:bold">The provider (Select any of the two from below)</td>
+        <td colspan="5" style=" fontWeight:bold">Prior Informed Consent (PIC) Information (Select any of the two from below)</td>
     </tr>
     <tr>
-        <td></td>
+        <td>The provider</td>
         <td>providers</td>
         <td>True</td>
         <td><a href="/customTypes.html#ereference">Ereference[]</a></td>
@@ -149,7 +155,7 @@ The table below outlines the structure of the request body, including the fields
     ]</code></td>
     </tr>
     <tr>
-        <td></td>
+        <td>This information is confidential</td>
         <td>providersConfidential</td>
         <td></td>
         <td>bool</td>
@@ -170,17 +176,17 @@ The table below outlines the structure of the request body, including the fields
     ]</code></td>
     </tr>
     <tr>
-        <td></td>
+        <td>This information is confidential</td>
         <td>entitiesToWhomPICGrantedConfidential</td>
         <td></td>
         <td>bool</td>
         <td><code>true</code></td>
     </tr>
     <tr>
-        <td colspan="5" style="fontWeight:bold">Subject-matter or genetic resources covered by the permit or its equivalent (Select any of the two from below)</td>
+        <td colspan="5" style="fontWeight:bold">Subject-matter or genetic resource (Select any of the two from below)</td>
     </tr>
     <tr>
-        <td></td>
+        <td><b>1. Subject-matter or genetic resources covered by the permit or its equivalent</b></td>
         <td>subjectMatter</td>
         <td>True</td>
         <td><a href="/customTypes.html#lstring">lstring</a></td>
@@ -188,14 +194,14 @@ The table below outlines the structure of the request body, including the fields
     }</code></td>
     </tr>
     <tr>
-        <td></td>
+        <td><b>2. This information is confidential</b></td>
         <td>subjectMatterConfidential</td>
         <td></td>
         <td>bool</td>
         <td><code>{subjectMatterConfidential: true}</code></td>
     </tr>
     <tr>
-      <td>Keywords to describe the subject-matter or genetic resource(s) covered by the permit or its equivalent</td>
+      <td><a href="/thesaurus/permit/permit-keywords">Keywords to describe the subject-matter or genetic resource(s) covered by the permit or its equivalent</a></td>
       <td>keywords</td>
       <td></td>
       <td><a href="/customTypes.html#eterm">Eterm[]</a></td>
@@ -328,10 +334,10 @@ The table below outlines the structure of the request body, including the fields
     ]</code></td>
     </tr>
     <tr>
-        <td colspan="5" style="fontWeight:bold">Indicate if the permit or its equivalent covers commercial and/or non-commercial use</td>
+        <td colspan="5" style="fontWeight:bold">Information on the utilization of the genetic resource(s) (Select any one of the below)</td>
     </tr>
     <tr>
-        <td></td>
+        <td><b><a href="/thesaurus/permit/permit-usage">1. Indicate if the permit or its equivalent covers commercial and/or non-commercial use</a></b></td>
         <td>usages</td>
         <td>True</td>
         <td><a href="/customTypes.html#eterm">Eterm[]</a></td>
@@ -342,7 +348,7 @@ The table below outlines the structure of the request body, including the fields
     ]</code></td>
     </tr>
     <tr>
-        <td></td>
+        <td><b>2. This information is confidential</b></td>
         <td>usagesConfidential</td>
         <td></td>
         <td>bool</td>

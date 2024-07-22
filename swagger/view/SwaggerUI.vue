@@ -1,6 +1,23 @@
 <template>
   <div v-if="isProtected && !authToken">
-    <button class="btn btn-primary" @click="showLoginIframe">Login</button>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="alert alert-primary" role="alert">
+            <div>
+              <p>
+                This is a protected route. To access this content, you need to
+                be logged in. Logging in will provide you with an authentication
+                token, which is required for making API calls.
+              </p>
+            </div>
+            <button class="btn btn-primary ml-3" @click="showLoginIframe">
+              Login
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div v-if="showIframe" class="login-iframe-container">
       <iframe :src="loginUrl" class="login-iframe"></iframe>
     </div>
@@ -60,7 +77,7 @@ export default {
       if (event.data.type === "loginSuccess" && event.data.token) {
         this.setCookie("authToken", event.data.token, 7);
         this.authToken = event.data.token;
-        this.showIframe = false; 
+        this.showIframe = false;
         this.initializeSwaggerUI();
       }
     },
@@ -74,7 +91,7 @@ export default {
         requestInterceptor: (request) => {
           request.headers["Realm"] = "ABS-DEV";
           return request;
-        }
+        },
       });
       if (this.protected) {
         if (this.authToken) {
