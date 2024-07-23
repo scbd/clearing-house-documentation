@@ -13,8 +13,8 @@
   "paths": {
     "/documents": {
       "get": {
-        "summary": "Get ABS Permits",
-        "description": "Fetches ABS permits with the specified filters and order.",
+        "summary": "Get List of IRCC documents",
+        "description": "Fetches IRCC documents with the specified filters and order.",
         "parameters": [
           {
             "name": "$filter",
