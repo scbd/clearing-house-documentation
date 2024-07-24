@@ -10,11 +10,42 @@
       "url": "https://absch.cbddev.xyz/api/v2013"
     }
   ],
+  "security": [
+    {
+      "BearerAuth": []
+    },
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Add the `Realm` header with value `ABS-DEV`."
+      }
+    }
+  },
   "paths": {
     "/documents/{uid}": {
       "delete": {
         "summary": "Delete a document",
         "description": "Unpublish a document.",
+        "security": [
+          {
+            "BearerAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "uid",
@@ -25,6 +56,15 @@
               "pattern": "^[A-Za-z0-9\\-_]{11,128}$"
             },
             "description": "Identifier of the document. The value is case-sensitive."
+          },
+          {
+            "name": "schema",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "absPermit"
+            }
           }
         ],
         "responses": {
@@ -46,22 +86,7 @@
               }
             }
           }
-        },
-        "security": [
-          {
-            "TicketAuth": []
-          }
-        ]
-      }
-    }
-  },
-  "components": {
-    "securitySchemes": {
-      "TicketAuth": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "Authorization",
-        "description": "Authorization token format: 'Ticket {token}'"
+        }
       }
     }
   }
