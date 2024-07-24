@@ -1,0 +1,23 @@
+<script setup>
+import "../../../style.css"
+import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
+import swaggerJson from "../../../swagger/json/thesaurus.authority.abs-jurisdictions.json";
+</script>
+
+# Authority - ABS Jurisdictions
+
+## Endpoint
+
+**GET** `/api/v2013/thesaurus/domains/51A113E9-071F-440A-83DC-E3499B7C646D/terms`
+
+## Headers
+
+| Field            | Type   | Description                    |
+| ---------------- | ------ | ------------------------------ |
+| Accept           | String | Result format. Allowed values: `application/json`  |
+| Content-Type     | String | Request format. Allowed values: `application/json` |
+
+
+## Playground
+
+<SwaggerUI :swaggerJson="swaggerJson" />
