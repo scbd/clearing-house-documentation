@@ -1,29 +1,24 @@
 <script setup>
+import "../../../style.css"
 import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
 import swaggerJson from "../../../swagger/json/ircc.published.update.json";
 </script>
 
-# Documents - Update
+# IRCC - Update
+
+## Overview
+
+This documentation describes the API endpoint for update an existing IRCC (Internationally Recognized Certificate of Compliance) using the PUT method. The endpoint allows clients to update documents to the system.
+
+<!--@include: ../../../components/ircc/introduction.md-->
 
 ## Endpoint
 
 **PUT** `/api/v2013/documents/:uid`
 
-## Headers
+This is the endpoint to which the PUT request should be made to update an existing document.
 
-| Field            | Type   | Description                                                                       |
-| ---------------- | ------ | --------------------------------------------------------------------------------- |
-| Content-Type     | String | Raw document format mediaType. Allowed values: `application/json`                 |
-| Authorization    | String | Token to use to authenticate the request                                          |
-| Realm (optional) | String | Context in which the Clearing-House request is made. Allowed values: `ABS`, `CHM` |
-| Accept           | String | Result format. Allowed values: `application/json`                                 |
-
-## URL Parameters
-
-| Field | Type   | Description                                                                                   |
-| ----- | ------ | --------------------------------------------------------------------------------------------- |
-| uid   | String | Identifier of the document. The value is case-sensitive. Allowed values: `/^[A-Za-z0-9\-_]{11,128}$/` |
-
+<!--@include: ../../../components/ircc/header-request_body.md-->
 
 ## Playground
 
