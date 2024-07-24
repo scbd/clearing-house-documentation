@@ -27,7 +27,7 @@ Headers required to authenticate and define the context and format of the reques
 
 | Field | Type   | Description                                                                                   |
 | ----- | ------ | --------------------------------------------------------------------------------------------- |
-| uid   | String | Identifier of the document. The value is case-sensitive. Allowed values: `/^[A-Za-z0-9\-_]{11,128}$/` |
+| uid   | String &nbsp; | Identifier of the document. The value is case-sensitive. Allowed values: `/^[A-Za-z0-9\-_]{11,128}$/` |
 
 URL parameters include essential identifiers for the document. The `uid` parameter uniquely identifies the document in the system.
 
