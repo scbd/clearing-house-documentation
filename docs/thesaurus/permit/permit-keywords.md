@@ -12,14 +12,7 @@ The endpoint for retrieving the keywords to describe the subject-matter or genet
 
 **GET** `/api/v2013/thesaurus/domains/1A22EAAB-9BBC-4543-890E-DEF913F59E98/terms`
 
-## Headers
-
-The headers required for making a request to the endpoint. Ensure you use the correct values for `Accept` and `Content-Type`.
-
-| Field            | Type   | Description                    |
-| ---------------- | ------ | ------------------------------ |
-| Accept           | String | Result format. Allowed values: `application/json`  |
-| Content-Type     | String | Request format. Allowed values: `application/json` |
+<!--@include: ../../../components/common/header-content.md-->
 
 ## Usages
 

@@ -11,12 +11,7 @@ import swaggerJson from "../../../swagger/json/thesaurus.general.other.json";
 
 **GET** `/api/v2013/thesaurus/terms/5B6177DD-5E5E-434E-8CB7-D63D67D5EBED`
 
-## Headers
-
-| Field            | Type   | Description                    |
-| ---------------- | ------ | ------------------------------ |
-| Accept           | String | Result format. Allowed values: `application/json`  |
-| Content-Type     | String | Request format. Allowed values: `application/json` |
+<!--@include: ../../../components/common/header-content.md-->
 
 
 ## Playground

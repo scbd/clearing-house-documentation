@@ -10,12 +10,7 @@ import swaggerJson from "../../../swagger/json/thesaurus.checkpoint-communique.c
 
 **GET** `/api/v2013/thesaurus/domains/1A22EAAB-9BBC-4543-890E-DEF913F59E98/terms`
 
-## Headers
-
-| Field            | Type   | Description                    |
-| ---------------- | ------ | ------------------------------ |
-| Accept           | String | Result format. Allowed values: `application/json`  |
-| Content-Type     | String | Request format. Allowed values: `application/json` |
+<!--@include: ../../../components/common/header-content.md-->
 
 ## Playground
 

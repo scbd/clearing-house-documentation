@@ -10,12 +10,7 @@ import swaggerJson from "../../../swagger/json/thesaurus.authority.abs-genetic-r
 
 **GET** `/api/v2013/thesaurus/domains/545CD54C-CFF3-41E8-A003-FDD278426A3A/terms`
 
-## Headers
-
-| Field            | Type   | Description                    |
-| ---------------- | ------ | ------------------------------ |
-| Accept           | String | Result format. Allowed values: `application/json`  |
-| Content-Type     | String | Request format. Allowed values: `application/json` |
+<!--@include: ../../../components/common/header-content.md-->
 
 
 ## Playground

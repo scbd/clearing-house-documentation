@@ -10,12 +10,7 @@ import swaggerJson from "../../../swagger/json/thesaurus.authority.cpb-organism-
 
 **GET** `api.cbd.int/api/v2013/thesaurus/domains/TypeOfOrganisms/terms`
 
-## Headers
-
-| Field            | Type   | Description                    |
-| ---------------- | ------ | ------------------------------ |
-| Accept           | String | Result format. Allowed values: `application/json`  |
-| Content-Type     | String | Request format. Allowed values: `application/json` |
+<!--@include: ../../../components/common/header-content.md-->
 
 
 ## Playground

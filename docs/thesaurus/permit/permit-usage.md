@@ -12,14 +12,7 @@ The endpoint for retrieving the terms that indicate if the permit or its equival
 
 **GET** `/api/v2013/thesaurus/domains/A7B77788-8C90-4849-9327-E181E9522F3A/terms`
 
-## Headers
-
-The headers required for making a request to the endpoint. Ensure you use the correct values for `Accept` and `Content-Type`.
-
-| Field            | Type   | Description                    |
-| ---------------- | ------ | ------------------------------ |
-| Accept           | String | Result format. Allowed values: `application/json`  |
-| Content-Type     | String | Request format. Allowed values: `application/json` |
+<!--@include: ../../../components/common/header-content.md-->
 
 ## Usages
 

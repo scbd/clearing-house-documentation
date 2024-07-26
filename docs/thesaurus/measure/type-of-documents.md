@@ -10,12 +10,7 @@ import swaggerJson from "../../../swagger/json/thesaurus.measure.type-of-documen
 
 **GET** `/api.cbd.int/api/v2013/thesaurus/domains/144CF550-7629-43F3-817E-CACDED34837E/terms`
 
-## Headers
-
-| Field            | Type   | Description                    |
-| ---------------- | ------ | ------------------------------ |
-| Accept           | String | Result format. Allowed values: `application/json`  |
-| Content-Type     | String | Request format. Allowed values: `application/json` |
+<!--@include: ../../../components/common/header-content.md-->
 
 
 ## Playground
