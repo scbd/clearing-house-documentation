@@ -11,14 +11,7 @@ This endpoint allows you to retrieve a specific document identified by its uniqu
 
 **GET** `/api/v2013/documents/:uid`
 
-## Headers
-
-The headers required for making a request to this endpoint are detailed below. These headers are necessary for defining the context and format of the request and response.
-
-| Field            | Type   | Description                                                                                      |
-| ---------------- | ------ | ------------------------------------------------------------------------------------------------ |
-| Accept           | String &nbsp; | Result format. Allowed values: `*`, `application/json`<br>* = Raw data as submitted,<br>application/json = Try to cast result to the JSON format. |
-| Realm (optional) | String | Context in which the Clearing-House request is made. Allowed values: `ABS`, `CHM`                |
+<!--@include: ../../../components/common/header-content-realm.md-->
 
 <!--@include: ../../../components/common/url-uid-parameter-section.md-->
 
