@@ -1,35 +1,12 @@
+# Use a node base image
 FROM node:20
-# -alpine
-# RUN apk update && apk upgrade && \
-#     apk add --no-cache bash git
 
+# Set build arguments and environment variables
 ARG BRANCH='master'
 ENV BRANCH $BRANCH
 
 ARG VERSION
 ENV VERSION $VERSION
-
-RUN echo 'running on branch ' $VERSION
-
-WORKDIR /usr/src/app
-
-COPY package.json .npmrc ./
-
-COPY . ./
-
-RUN yarn install --ignore-scripts --prefer-offline && \
-    yarn cache clean && \
-    rm -rf /usr/src/app/dist \
-    rm -fr /usr/share/doc && rm -fr /usr/share/locale && \
-    rm -fr /usr/local/share/.cache/yarn && rm -rf /var/cache/apk/* && \
-    rm -rf /var/lib/{apt,dpkg,cache,log}/
-
-# run rollup build script 
-RUN yarn run build
-
-ENV PORT 8000
-
-EXPOSE 8000
 
 ARG TAG
 ENV TAG $TAG
@@ -37,4 +14,29 @@ ENV TAG $TAG
 ARG COMMIT
 ENV COMMIT $COMMIT
 
-CMD [ "node", "server" ]
+# Set working directory
+WORKDIR /usr/src/app
+
+# Copy package.json and install dependencies
+COPY package.json ./
+RUN npm install --prefer-offline && \
+    npm cache clean --force
+
+# Copy the rest of the application code
+COPY . .
+
+# Change to the docs directory and run the VitePress build script
+WORKDIR /usr/src/app/docs
+
+# Set the environment variable required by VitePress
+ENV VITE_CLEARING_HOUSE abs
+
+# Build the VitePress site
+RUN npm run build
+
+# Set port and expose it
+ENV PORT 8000
+EXPOSE 8000
+
+# Command to start the VitePress preview
+CMD ["npm", "run", "preview"]

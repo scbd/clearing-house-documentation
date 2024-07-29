@@ -15,7 +15,10 @@ _run:
   testImage: &testImage
     name: Test docker image
     command: |
-      docker run --name clearing-house-documentation -e "VITE_CLEARING_HOUSE=abs" -d -p 8000:8000 output;sleep 10;
+      docker run --name clearing-house-documentation -e "VITE_CLEARING_HOUSE=abs" -d -p 8000:8000 output
+      sleep 30
+      docker ps
+      docker logs clearing-house-documentation
       docker exec clearing-house-documentation curl --retry 10 --retry-delay 5 -v http://localhost:8000/
 
 jobs:
@@ -23,7 +26,8 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - setup_remote_docker
+      - setup_remote_docker:
+        version: 20.10.7
       - run: *buildDocker
       - run: *testImage
 
@@ -31,13 +35,14 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - setup_remote_docker
+      - setup_remote_docker:
+        version: 20.10.7
       - run: *buildDocker
       - run: *testImage
       - deploy:
           name: Deploy build to docker hub
           command: |
-            docker login -u $DOCKER_USER -p $DOCKER_PASS
+            echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
             docker tag output scbd/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BRANCH
             docker push scbd/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BRANCH
 
@@ -45,13 +50,14 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - setup_remote_docker
+      - setup_remote_docker:
+        version: 20.10.7
       - run: *buildDocker
       - run: *testImage
       - deploy:
           name: Deploy release build to docker hub
           command: |
-            docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+            echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
             docker tag output scbd/$CIRCLE_PROJECT_REPONAME:release-${CIRCLE_BRANCH//release\//}
             docker push scbd/$CIRCLE_PROJECT_REPONAME:release-${CIRCLE_BRANCH//release\//}
 
@@ -59,20 +65,20 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - setup_remote_docker
+      - setup_remote_docker:
+        version: 20.10.7
       - run: *buildDocker
       - run: *testImage
       - deploy:
           name: Deploy tag build to docker hub
           command: |
             if [ "${CIRCLE_PROJECT_USERNAME}" == 'scbd' ]; then
-              docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+              echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
               docker tag output scbd/$CIRCLE_PROJECT_REPONAME:${CIRCLE_TAG//v/}
               docker tag output scbd/$CIRCLE_PROJECT_REPONAME:latest
               docker push scbd/$CIRCLE_PROJECT_REPONAME:${CIRCLE_TAG//v/}
               docker push scbd/$CIRCLE_PROJECT_REPONAME:latest
             else
-              eval "echo Branch:"{$CIRCLE_BRANCH}" User:"{$CIRCLE_PROJECT_USERNAME}
               echo "Invalid tag, only scbd tags allowed"
             fi
 workflows:
