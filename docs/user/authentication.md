@@ -9,12 +9,7 @@ import swaggerJson from "../../swagger/json/user.authentication.json";
 
 **POST** `/api/v2013/authentication/token`
 
-## Headers
-
-| Field            | Type   | Description                                                                       |
-| ---------------- | ------ | --------------------------------------------------------------------------------- |
-| Content-Type     | String | The media type of the request body. Allowed values: `application/json`             |
-| Accept           | String | The media type of the response. Allowed values: `application/json`                 |
+<!--@include: ../../components/common/header-content.md-->
 
 ## Request Payload
 
