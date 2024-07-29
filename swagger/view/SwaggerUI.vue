@@ -10,7 +10,6 @@
 
 <script>
 import "swagger-ui/dist/swagger-ui.css";
-import SwaggerUI from "swagger-ui";
 
 export default {
   name: "SwaggerUI",
@@ -29,83 +28,108 @@ export default {
       authToken: null,
       isProtected: this.protected,
       showIframe: false,
-      loginUrl: `http://localhost:8080?redirect=${encodeURIComponent(
-        window.location.href
-      )}`,
+      loginUrl: "",
     };
   },
   async mounted() {
-    await import("bootstrap/dist/css/bootstrap.min.css");
-    await import("bootstrap");
+    if (typeof window !== 'undefined') {
+      this.loginUrl = `http://localhost:8080?redirect=${encodeURIComponent(window.location.href)}`;
 
-    this.checkForToken();
-    this.initializeSwaggerUI();
-    this.authToken = this.getCookie("authToken");
+      await import("bootstrap/dist/css/bootstrap.min.css");
+      await import("bootstrap");
 
-    window.addEventListener("message", this.handleMessage);
+      this.checkForToken();
+      this.authToken = this.getCookie("authToken");
+      this.initializeSwaggerUI();
+
+      window.addEventListener("message", this.handleMessage);
+    }
   },
   beforeDestroy() {
-    window.removeEventListener("message", this.handleMessage);
+    if (typeof window !== 'undefined') {
+      window.removeEventListener("message", this.handleMessage);
+    }
   },
   methods: {
     goToLoginPage() {
-      const redirectUrl = encodeURIComponent(window.location.href);
-      window.location.href = `http://localhost:8080?redirect=${redirectUrl}`;
+      if (typeof window !== 'undefined') {
+        const redirectUrl = encodeURIComponent(window.location.href);
+        window.location.href = `http://localhost:8080?redirect=${redirectUrl}`;
+      }
     },
     showLoginIframe() {
       this.showIframe = true;
     },
     handleMessage(event) {
-      if (event.origin !== "http://localhost:8080") return;
-      if (event.data.type === "loginSuccess" && event.data.token) {
-        this.setCookie("authToken", event.data.token, 7);
-        this.authToken = event.data.token;
-        this.showIframe = false; 
-        this.initializeSwaggerUI();
+      if (typeof window !== 'undefined' && event.origin === "http://localhost:8080") {
+        if (event.data.type === "loginSuccess" && event.data.token) {
+          this.setCookie("authToken", event.data.token, 7);
+          this.authToken = event.data.token;
+          this.showIframe = false;
+          this.initializeSwaggerUI();
+        }
       }
     },
     async initializeSwaggerUI() {
-      const ui = await SwaggerUI({
-        spec: this.swaggerJson,
-        dom_id: "#swagger-ui",
-        operationsSorter: "alpha",
-        presets: [SwaggerUI.presets.apis, SwaggerUI.SwaggerUIStandalonePreset],
-        layout: "BaseLayout",
-        requestInterceptor: (request) => {
-          request.headers["Realm"] = "ABS-DEV";
-          return request;
-        }
-      });
-      if (this.protected) {
-        if (this.authToken) {
-          ui.initOAuth({
-            clientId: "your-client-id",
-            clientSecret: "your-client-secret-if-required",
-            realm: "your-realms",
-            appName: "your-app-name",
-            scopeSeparator: " ",
-            additionalQueryStringParams: {},
-          });
-          const prefixedAuthToken = `Ticket ${this.authToken}`;
-          ui.preauthorizeApiKey("ApiKeyAuth", prefixedAuthToken);
-          const observer = new MutationObserver(() => {
-            const tryOutButtons = document.querySelectorAll(".try-out__btn");
-            tryOutButtons.forEach((button) => {
-              button.disabled = false;
-            });
-          });
+      if (typeof window !== 'undefined') {
+        const SwaggerUI = (await import("swagger-ui")).default;
 
-          const targetNode = document.getElementById("swagger-ui");
-          const config = { childList: true, subtree: true };
+        const ui = SwaggerUI({
+          spec: this.swaggerJson,
+          dom_id: "#swagger-ui",
+          operationsSorter: "alpha",
+          presets: [SwaggerUI.presets.apis, SwaggerUI.SwaggerUIStandalonePreset],
+          layout: "BaseLayout",
+          requestInterceptor: (request) => {
+            request.headers["Realm"] = "ABS-DEV";
+            return request;
+          }
+        });
 
-          observer.observe(targetNode, config);
-        } else {
-          const observer = new MutationObserver(() => {
-            const tryOutButtons = document.querySelectorAll(".try-out__btn");
-            tryOutButtons.forEach((button) => {
-              button.disabled = true;
-              button.title = "Authorization token is missing";
+        if (this.protected) {
+          if (this.authToken) {
+            ui.initOAuth({
+              clientId: "your-client-id",
+              clientSecret: "your-client-secret-if-required",
+              realm: "your-realms",
+              appName: "your-app-name",
+              scopeSeparator: " ",
+              additionalQueryStringParams: {},
             });
+            const prefixedAuthToken = `Ticket ${this.authToken}`;
+            ui.preauthorizeApiKey("ApiKeyAuth", prefixedAuthToken);
+
+            const observer = new MutationObserver(() => {
+              const tryOutButtons = document.querySelectorAll(".try-out__btn");
+              tryOutButtons.forEach((button) => {
+                button.disabled = false;
+              });
+            });
+
+            const targetNode = document.getElementById("swagger-ui");
+            const config = { childList: true, subtree: true };
+
+            observer.observe(targetNode, config);
+          } else {
+            const observer = new MutationObserver(() => {
+              const tryOutButtons = document.querySelectorAll(".try-out__btn");
+              tryOutButtons.forEach((button) => {
+                button.disabled = true;
+                button.title = "Authorization token is missing";
+              });
+            });
+
+            const targetNode = document.getElementById("swagger-ui");
+            const config = { childList: true, subtree: true };
+
+            observer.observe(targetNode, config);
+          }
+
+          const observer = new MutationObserver(() => {
+            const authorizeBtn = document.querySelector(".auth-wrapper");
+            if (authorizeBtn) {
+              authorizeBtn.parentNode.removeChild(authorizeBtn);
+            }
           });
 
           const targetNode = document.getElementById("swagger-ui");
@@ -115,9 +139,9 @@ export default {
         }
 
         const observer = new MutationObserver(() => {
-          const authorizeBtn = document.querySelector(".auth-wrapper");
-          if (authorizeBtn) {
-            authorizeBtn.parentNode.removeChild(authorizeBtn);
+          const infoContainer = document.querySelector(".information-container");
+          if (infoContainer) {
+            infoContainer.style.display = "none";
           }
         });
 
@@ -126,22 +150,15 @@ export default {
 
         observer.observe(targetNode, config);
       }
-
-      const observer = new MutationObserver(() => {
-        const infoContainer = document.querySelector(".information-container");
-        infoContainer.style.display = "none";
-      });
-      const targetNode = document.getElementById("swagger-ui");
-      const config = { childList: true, subtree: true };
-
-      observer.observe(targetNode, config);
     },
     checkForToken() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const token = urlParams.get("token");
-      if (token) {
-        this.setCookie("authToken", token, 7); // Set cookie for 7 days
-        window.location.href = window.location.href.split("?")[0]; // Redirect to the home page
+      if (typeof window !== 'undefined') {
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get("token");
+        if (token) {
+          this.setCookie("authToken", token, 7); // Set cookie for 7 days
+          window.location.href = window.location.href.split("?")[0]; // Redirect to the home page
+        }
       }
     },
     setCookie(name, value, days) {

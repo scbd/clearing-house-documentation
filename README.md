@@ -45,3 +45,58 @@ Finally, reference and render the Swagger JSON file within the corresponding mar
 By following these steps, you can successfully add new routes to your application and ensure that the API documentation is correctly displayed and functional.
 
 
+## Steps to Run the Project
+
+### 1. Install Dependencies
+
+Before running the project, make sure to install all necessary dependencies. Run the following command in your project directory:
+
+```sh
+npm install
+```
+
+### 2. Running the Development Server
+
+You can start the development server for different clearing houses by using the following commands:
+
+- For ABS:
+
+```sh
+npm run dev:abs
+```
+
+- For CHM:
+
+```sh
+npm run dev:chm
+```
+
+- For ABS:
+
+```sh
+npm run dev:bch
+```
+
+These commands will set the appropriate environment variable and start the VitePress development server.
+
+### 3. Building the Project
+
+To build the project for production, use the following command:
+
+```sh
+npm run build
+```
+
+This will generate the static files for the documentation in the dist folder inside the docs directory.
+
+### 2. Serving the Built Project
+
+After building the project, you can serve the static files using:
+
+```sh
+npm run serve
+```
+
+This will start a server to serve the built documentation locally.
+
+By following these steps, you can run the project in development mode, build it for production, and serve the built documentation.

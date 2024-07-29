@@ -1,0 +1,14 @@
+app/libs
+.DS_Store
+.circleci
+.github
+.gitattributes
+.gitignore
+.jshintrc
+.nyc_output
+.vscode
+Dockerfile
+deploy.sh
+dist
+node_modules
+.git
