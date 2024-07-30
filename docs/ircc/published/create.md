@@ -26,7 +26,7 @@ This is the endpoint to which the POST request should be made to create a new do
 
 <!--@include: ../../../components/common/validation-error.md-->
 
-## Request Table
+## Request Body
 
 The table below outlines the structure of the request body, including the fields, their types, and whether they are mandatory. Example values are provided for clarity.
 
@@ -99,10 +99,10 @@ The table below outlines the structure of the request body, including the fields
       <td><code>"2024-07-02"</code></td>
     </tr>
     <tr>
-        <td colspan="5" style=" fontWeight:bold">The provider (Select any of the two from below)</td>
+        <td colspan="5" style=" fontWeight:bold">Prior Informed Consent (PIC) Information (Select any one of the two options from below)</td>
     </tr>
     <tr>
-        <td></td>
+        <td><b>1. The provider</b></td>
         <td>providers</td>
         <td>True</td>
         <td><a href="/customTypes.html#ereference">Ereference[]</a></td>
@@ -113,17 +113,17 @@ The table below outlines the structure of the request body, including the fields
     ]</code></td>
     </tr>
     <tr>
-        <td></td>
+        <td><b>2. This information is confidential</b></td>
         <td>providersConfidential</td>
         <td></td>
         <td>bool</td>
         <td><code>{providersConfidential: true}</code></td>
     </tr>
     <tr>
-        <td colspan="5" style="fontWeight:bold">Person or entity to whom prior informed consent (PIC) was granted</td>
+        <td colspan="5" style="fontWeight:bold">Person or entity to whom prior informed consent (PIC) was granted (Select any one of the two options from below)</td>
     </tr>
     <tr>
-        <td></td>
+        <td><b>1. Person or entity to whom prior informed consent (PIC) was granted</b></td>
         <td>entitiesToWhomPICGranted</td>
         <td>True</td>
         <td><a href="/customTypes.html#ereference">Ereference[]</a></td>
@@ -134,17 +134,17 @@ The table below outlines the structure of the request body, including the fields
     ]</code></td>
     </tr>
     <tr>
-        <td></td>
+        <td><b>2. This information is confidential</b></td>
         <td>entitiesToWhomPICGrantedConfidential</td>
         <td></td>
         <td>bool</td>
         <td><code>true</code></td>
     </tr>
     <tr>
-        <td colspan="5" style="fontWeight:bold">Subject-matter or genetic resources covered by the permit or its equivalent (Select any of the two from below)</td>
+        <td colspan="5" style="fontWeight:bold">Subject-matter or genetic resource (Select any one of the two options from below)</td>
     </tr>
     <tr>
-        <td></td>
+        <td><b>1. Subject-matter or genetic resources covered by the permit or its equivalent</b></td>
         <td>subjectMatter</td>
         <td>True</td>
         <td><a href="/customTypes.html#lstring">lstring</a></td>
@@ -152,7 +152,7 @@ The table below outlines the structure of the request body, including the fields
     }</code></td>
     </tr>
     <tr>
-        <td></td>
+        <td><b>2. This information is confidential</b></td>
         <td>subjectMatterConfidential</td>
         <td></td>
         <td>bool</td>
@@ -292,10 +292,10 @@ The table below outlines the structure of the request body, including the fields
     ]</code></td>
     </tr>
     <tr>
-        <td colspan="5" style="fontWeight:bold">Indicate if the permit or its equivalent covers commercial and/or non-commercial use</td>
+        <td colspan="5" style="fontWeight:bold">Information on the utilization of the genetic resource(s) (Select any one of the two options from below)</td>
     </tr>
     <tr>
-        <td></td>
+        <td><b>1. Indicate if the permit or its equivalent covers commercial and/or non-commercial use</b></td>
         <td>usages</td>
         <td>True</td>
         <td><a href="/customTypes.html#eterm">Eterm[]</a></td>
@@ -306,7 +306,7 @@ The table below outlines the structure of the request body, including the fields
     ]</code></td>
     </tr>
     <tr>
-        <td></td>
+        <td><b>2. This information is confidential</b></td>
         <td>usagesConfidential</td>
         <td></td>
         <td>bool</td>
