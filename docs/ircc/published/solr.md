@@ -35,4 +35,4 @@ The query parameters allow clients to filter and sort the search results based o
 
 ## Playground
 
-<SwaggerUI :swaggerJson="swaggerJson" :protected="true" />
+<SwaggerUI :swaggerJson="swaggerJson"/>

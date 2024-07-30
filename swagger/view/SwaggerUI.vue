@@ -44,7 +44,10 @@
                 valid and has not expired. If necessary, you can re-authenticate
                 by clicking the login button to obtain a new token.
               </p>
-              <button class="btn btn-success btn-block ml-3" @click="showLoginIframe">
+              <button
+                class="btn btn-success btn-block ml-3"
+                @click="showLoginIframe"
+              >
                 Login
               </button>
             </div>
@@ -80,8 +83,10 @@ export default {
     };
   },
   async mounted() {
-    if (typeof window !== 'undefined') {
-      this.loginUrl = `http://localhost:8080?redirect=${encodeURIComponent(window.location.href)}`;
+    if (typeof window !== "undefined") {
+      this.loginUrl = `http://localhost:8080?redirect=${encodeURIComponent(
+        window.location.href
+      )}`;
 
       await import("bootstrap/dist/css/bootstrap.min.css");
       await import("bootstrap");
@@ -94,13 +99,13 @@ export default {
     }
   },
   beforeDestroy() {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       window.removeEventListener("message", this.handleMessage);
     }
   },
   methods: {
     goToLoginPage() {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== "undefined") {
         const redirectUrl = encodeURIComponent(window.location.href);
         window.location.href = `http://localhost:8080?redirect=${redirectUrl}`;
       }
@@ -109,7 +114,13 @@ export default {
       this.showIframe = true;
     },
     handleMessage(event) {
-      if (typeof window !== 'undefined' && event.origin === "http://localhost:8080") {
+      if (
+        typeof window !== "undefined" &&
+        event.origin === "http://localhost:8080"
+      ) {
+        if (event.data.type === "close") {
+          this.showIframe = false;
+        }
         if (event.data.type === "loginSuccess" && event.data.token) {
           this.setCookie("authToken", event.data.token, 7);
           this.authToken = event.data.token;
@@ -119,19 +130,22 @@ export default {
       }
     },
     async initializeSwaggerUI() {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== "undefined") {
         const SwaggerUI = (await import("swagger-ui")).default;
 
         const ui = SwaggerUI({
           spec: this.swaggerJson,
           dom_id: "#swagger-ui",
           operationsSorter: "alpha",
-          presets: [SwaggerUI.presets.apis, SwaggerUI.SwaggerUIStandalonePreset],
+          presets: [
+            SwaggerUI.presets.apis,
+            SwaggerUI.SwaggerUIStandalonePreset,
+          ],
           layout: "BaseLayout",
           requestInterceptor: (request) => {
             request.headers["Realm"] = "ABS-DEV";
             return request;
-          }
+          },
         });
 
         if (this.protected) {
@@ -187,7 +201,9 @@ export default {
         }
 
         const observer = new MutationObserver(() => {
-          const infoContainer = document.querySelector(".information-container");
+          const infoContainer = document.querySelector(
+            ".information-container"
+          );
           if (infoContainer) {
             infoContainer.style.display = "none";
           }
@@ -200,12 +216,20 @@ export default {
       }
     },
     checkForToken() {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== "undefined") {
         const urlParams = new URLSearchParams(window.location.search);
         const token = urlParams.get("token");
         if (token) {
           this.setCookie("authToken", token, 7); // Set cookie for 7 days
           window.location.href = window.location.href.split("?")[0]; // Redirect to the home page
+        } else {
+          // Check if the cookie exists and is expired
+          const authToken = this.getCookie("authToken");
+          if (authToken) {
+            // Here you should implement logic to check token validity
+            // For demonstration, we just clear it if present
+            this.removeCookie("authToken");
+          }
         }
       }
     },
