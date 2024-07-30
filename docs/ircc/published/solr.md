@@ -3,7 +3,7 @@ import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
 import swaggerJson from "../../../swagger/json/ircc.published.solr.json";
 </script>
 
-# Solr - Query
+# List Public Records
 
 This section describes how to use the Solr query endpoint to search and retrieve indexed documents. Apache Solr is an open-source search platform built on Apache Lucene, used for implementing search functionality in applications.
 
@@ -22,17 +22,15 @@ The query parameters allow clients to filter and sort the search results based o
 
 | Field      | Type   |   Description    |
 | ---------- | ------ | ---------------- |
-| q          | String &nbsp; | The q parameter is normally the main query for the request. See [Solr query syntax](https://solr.apache.org/guide/8_11/query-syntax-and-parsing.html) for more information. |
-| fl         | String | TODO: Solr xxx                                        |
-| sort       | String | TODO: Solr xxx                                        |
-| start      | String | TODO: Solr xxx                                        |
-| rows       | String | TODO: Solr xxx<br>Default value: 10                   |
-| facet      | String | TODO: Solr xxx<br>Default value: false                |
+| q          | String &nbsp;&nbsp; | The main query parameter used to search for documents. It specifies the search criteria and is the most crucial parameter.  For detailed syntax, refer to the [Solr query syntax](https://solr.apache.org/guide/8_11/query-syntax-and-parsing.html). |
+| fl         | String | Fields to return in the search results. Use comma-separated field names to specify which fields should be included in the response.                                        |
+| sort       | String | Specifies the sort order of the results. The format is fieldname desc for descending or fieldname asc for ascending.                                       |
+| start      | String | The starting offset for the results. This parameter allows pagination by specifying the index of the first result to return.                                       |
+| rows       | String | The number of results to return. Default value is 10 if not specified.                  |
+| facet      | String | Enables faceting, which provides aggregations of data based on field values. Default value is false.           |
 | query      | String | TODO: facet must be set to true<br>TODO: Solr xxx     |
-| field      | String | TODO: facet must be set to true<br>TODO: Solr xxx     |
-| prefix     | String | TODO: facet must be set to true<br>TODO: Solr xxx     |
-
-For additional reading and detailed documentation on Apache Solr, refer to the [Solr Guide](https://solr.apache.org/guide/solr/latest/index.html).
+| field      | String | Specifies the fields to use for faceting. Requires facet=true to be enabled.     |
+| prefix     | String | Filters facet results to include only those values starting with the given prefix. Requires facet=true.     |
 
 
 ## Playground

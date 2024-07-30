@@ -18,8 +18,39 @@
         </div>
       </div>
     </div>
-    <div v-if="showIframe" class="login-iframe-container">
-      <iframe :src="loginUrl" class="login-iframe"></iframe>
+  </div>
+  <div v-if="showIframe" class="login-iframe-container">
+    <iframe :src="loginUrl" class="login-iframe"></iframe>
+  </div>
+  <div v-if="isProtected && authToken">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="alert alert-success" role="alert">
+            <div>
+              <p>
+                You have successfully logged in, and an authentication token is
+                available in your cookie. This route is protected, and access to
+                this content requires a valid token.
+              </p>
+              <p>
+                The token is automatically used to authenticate API requests
+                made through Swagger. You can interact with the API and make
+                authorized calls using the token stored in your browser's
+                cookie.
+              </p>
+              <p>
+                If you encounter any issues, ensure that your token is still
+                valid and has not expired. If necessary, you can re-authenticate
+                by clicking the login button to obtain a new token.
+              </p>
+              <button class="btn btn-success btn-block ml-3" @click="showLoginIframe">
+                Login
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div id="swagger-ui"></div>
@@ -177,6 +208,9 @@ export default {
           window.location.href = window.location.href.split("?")[0]; // Redirect to the home page
         }
       }
+    },
+    removeCookie(name) {
+      document.cookie = name + "=; Max-Age=-99999999;";
     },
     setCookie(name, value, days) {
       let expires = "";

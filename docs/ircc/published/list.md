@@ -3,7 +3,7 @@ import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
 import swaggerJson from "../../../swagger/json/ircc.published.list.json";
 </script>
 
-# IRCC - List
+# Draft Records
 
 ## Endpoint
 
