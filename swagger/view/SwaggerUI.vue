@@ -27,25 +27,25 @@
       <div class="row">
         <div class="col">
           <div class="alert alert-success" role="alert">
-            <div>
-              <p>
-                You have successfully logged in, and an authentication token is
+            <div >
+              <p class="lh-lg">
+                <b>You have successfully logged in</b>, and an authentication token is
                 available in your cookie. This route is protected, and access to
                 this content requires a valid token.
               </p>
-              <p>
+              <p class="lh-lg">
                 The token is automatically used to authenticate API requests
                 made through Swagger. You can interact with the API and make
                 authorized calls using the token stored in your browser's
                 cookie.
               </p>
-              <p>
+              <p class="lh-lg">
                 If you encounter any issues, ensure that your token is still
                 valid and has not expired. If necessary, you can re-authenticate
                 by clicking the login button to obtain a new token.
               </p>
               <button
-                class="btn btn-success btn-block ml-3"
+                class="btn btn-success btn-block ml-3 mt-3"
                 @click="showLoginIframe"
               >
                 Login

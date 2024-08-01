@@ -17,4 +17,4 @@ This endpoint allows you to retrieve a specific document identified by its uniqu
 
 ## Playground
 
-<SwaggerUI :swaggerJson="swaggerJson" :protected="true" />
+<SwaggerUI :swaggerJson="swaggerJson" />

@@ -1,6 +1,7 @@
 <script setup>
 import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
 import swaggerJson from "../../../swagger/json/ircc.published.solr.json";
+import swaggerJsonUpdate from "../../../swagger/json/ircc.published.update.json";
 </script>
 
 # List Public Records
@@ -22,15 +23,22 @@ The query parameters allow clients to filter and sort the search results based o
 
 | Field      | Type   |   Description    |
 | ---------- | ------ | ---------------- |
-| q          | String &nbsp;&nbsp; | The main query parameter used to search for documents. It specifies the search criteria and is the most crucial parameter.  For detailed syntax, refer to the [Solr query syntax](https://solr.apache.org/guide/8_11/query-syntax-and-parsing.html). |
+| q          | String &nbsp;&nbsp; | The main query parameter used to search for documents. It specifies the search criteria and is the most crucial parameter. For detailed syntax, refer to the [Solr query syntax](https://solr.apache.org/guide/8_11/query-syntax-and-parsing.html). <br /><br />[The detail breakdown is mentioned in the below table](/ircc/published/solr.html#detailed-breakdown-of-q-parameter)  |
 | fl         | String | Fields to return in the search results. Use comma-separated field names to specify which fields should be included in the response.                                        |
 | sort       | String | Specifies the sort order of the results. The format is fieldname desc for descending or fieldname asc for ascending.                                       |
 | start      | String | The starting offset for the results. This parameter allows pagination by specifying the index of the first result to return.                                       |
 | rows       | String | The number of results to return. Default value is 10 if not specified.                  |
-| facet      | String | Enables faceting, which provides aggregations of data based on field values. Default value is false.           |
-| query      | String | TODO: facet must be set to true<br>TODO: Solr xxx     |
 | field      | String | Specifies the fields to use for faceting. Requires facet=true to be enabled.     |
-| prefix     | String | Filters facet results to include only those values starting with the given prefix. Requires facet=true.     |
+
+### Detailed Breakdown of `q` Parameter
+
+The `q` parameter is used to define the search criteria in Solr queries. It can include several sub-parameters to filter and sort the results.
+
+| Field           | Type   | Description                                                                 |
+| ----------------| ------ | ---------------------------------------------------------------------------- |
+| realm           | String &nbsp;&nbsp; | The realm parameter specifies the realm of the documents to be searched. It filters results based on the realm value. Example: `realm_ss:ABS-DEV`. |
+| schema          | String | The schema parameter defines the schema to filter the documents. Example: `schema_s:absPermit`. |
+| government      | String | The government parameter filters documents based on the government ISO codes. Example: `government_s:ht`. The ISO codes can be received from [the countries API](/thesaurus/general/countries). |
 
 
 ## Playground

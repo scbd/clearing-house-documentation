@@ -15,6 +15,9 @@
       "get": {
         "summary": "Query Solr index",
         "description": "Load information from Solr index.",
+        "tags":[
+          "Get All ABS Permit"
+        ],
         "parameters": [
           {
             "name": "q",

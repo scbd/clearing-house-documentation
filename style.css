@@ -4,5 +4,5 @@ table tbody tr td:nth-child(5), table tbody tr td:nth-child(2) {
 }
 
 p{
-    margin: 0;
+    margin: 0 !important;
 }
