@@ -1,6 +1,11 @@
 <script setup>
 import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
 import swaggerJson from "../../../swagger/json/ircc.published.list.json";
+
+const swaggerSpecs = [
+  { json: swaggerJson, protected: true },
+];
+
 </script>
 
 # Draft Records
@@ -32,4 +37,4 @@ Query parameters enable you to customize your request to retrieve specific sets 
 
 ## Playground
 
-<SwaggerUI :swaggerJson="swaggerJson" :protected="true" />
+<SwaggerUI :swaggerSpecs="swaggerSpecs" />

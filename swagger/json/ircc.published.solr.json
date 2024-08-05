@@ -16,7 +16,7 @@
         "summary": "Query Solr index",
         "description": "Load information from Solr index.",
         "tags":[
-          "Get All ABS Permit"
+          "Get All ABS Permit with query"
         ],
         "parameters": [
           {
@@ -62,37 +62,12 @@
             "default": "10"
           },
           {
-            "name": "facet",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            },
-            "description": "Enables faceting, which provides aggregations of data based on field values. Default value is false.",
-            "default": "false"
-          },
-          {
-            "name": "query",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            },
-            "description": "TODO: facet must be set to true\nTODO: Solr xxx"
-          },
-          {
             "name": "field",
             "in": "query",
             "schema": {
               "type": "string"
             },
             "description": "Specifies the fields to use for faceting. Requires facet=true to be enabled."
-          },
-          {
-            "name": "prefix",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            },
-            "description": "Filters facet results to include only those values starting with the given prefix. Requires facet=true."
           }
         ],
         "responses": {

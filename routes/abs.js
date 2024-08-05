@@ -16,6 +16,10 @@ export default {
           text: "User Management",
           link: "/user-management",
         },
+        {
+          text: "Apache Solr",
+          link: "/apache-solr",
+        },
       ],
     },
     {

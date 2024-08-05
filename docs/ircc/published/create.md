@@ -2,6 +2,10 @@
 import "../../../style.css"
 import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
 import swaggerJson from "../../../swagger/json/ircc.published.create.json";
+
+const swaggerSpecs = [
+  { json: swaggerJson, protected: true },
+];
 </script>
 
 # IRCC - Create
@@ -404,4 +408,4 @@ The table below outlines the structure of the request body, including the fields
 
 ## Playground
 
-<SwaggerUI :swaggerJson="swaggerJson" :protected="true" />
+<SwaggerUI :swaggerSpecs="swaggerSpecs" />

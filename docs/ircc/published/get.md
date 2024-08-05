@@ -1,6 +1,11 @@
 <script setup>
 import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
 import swaggerJson from "../../../swagger/json/ircc.published.get.json";
+
+const swaggerSpecs = [
+  { json: swaggerJson, protected: false },
+];
+
 </script>
 
 # IRCC - Get
@@ -17,4 +22,4 @@ This endpoint allows you to retrieve a specific document identified by its uniqu
 
 ## Playground
 
-<SwaggerUI :swaggerJson="swaggerJson" />
+<SwaggerUI :swaggerSpecs="swaggerSpecs" />
