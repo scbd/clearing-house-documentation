@@ -7,20 +7,13 @@ import swaggerJson from "../../../swagger/json/ircc.published.get.json";
 
 ## Endpoint
 
+This endpoint allows you to retrieve a specific document identified by its unique identifier (`uid`). The request uses the HTTP `GET` method to fetch the document details from the system.
+
 **GET** `/api/v2013/documents/:uid`
 
-## Headers
+<!--@include: ../../../components/common/header-content-realm.md-->
 
-| Field            | Type   | Description                                                                                      |
-| ---------------- | ------ | ------------------------------------------------------------------------------------------------ |
-| Accept           | String | Result format. Allowed values: `*`, `application/json`<br>* = Raw data as submitted,<br>application/json = Try to cast result to the JSON format. |
-| Realm (optional) | String | Context in which the Clearing-House request is made. Allowed values: `ABS`, `CHM`                |
-
-## URL Parameters
-
-| Field | Type   | Description                                                                                   |
-| ----- | ------ | --------------------------------------------------------------------------------------------- |
-| uid   | String | Identifier of the document. The value is case-sensitive. Allowed values: `/^[A-Za-z0-9\-_]{11,128}$/` |
+<!--@include: ../../../components/common/url-uid-parameter-section.md-->
 
 ## Playground
 

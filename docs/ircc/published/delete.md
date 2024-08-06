@@ -7,21 +7,17 @@ import swaggerJson from "../../../swagger/json/ircc.published.delete.json";
 
 ## Endpoint
 
+This endpoint allows you to delete a specific document identified by its unique identifier (`uid`). The request uses the HTTP `DELETE` method to remove the document from the system.
+
 **DELETE** `/api/v2013/documents/:uid`
 
-## Headers
+<!--@include: ../../../components/common/authorization-header.md-->
 
-| Field            | Type   | Description                                                                       |
-| ---------------- | ------ | --------------------------------------------------------------------------------- |
-| Authorization    | String | Token to use to authenticate the request                                          |
-| Realm (optional) | String | Context in which the Clearing-House request is made. Allowed values: `ABS`, `CHM` |
-| Accept           | String | Result format. Allowed values: `application/json`                                 |
+<!--@include: ../../../components/common/url-uid-parameter-section.md-->
 
-## URL Parameters
+<!--@include: ../../../components/common/query-schema-parameter-section.md-->
 
-| Field | Type   | Description                                                                                   |
-| ----- | ------ | --------------------------------------------------------------------------------------------- |
-| uid   | String | Identifier of the document. The value is case-sensitive. Allowed values: `/^[A-Za-z0-9\-_]{11,128}$/` |
+<!--@include: ../../../components/common/environment-urls.md-->
 
 ## Playground
 

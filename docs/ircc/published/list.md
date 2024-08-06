@@ -7,21 +7,19 @@ import swaggerJson from "../../../swagger/json/ircc.published.list.json";
 
 ## Endpoint
 
+This endpoint is used to retrieve a list of documents available in the IRCC system. The request uses the HTTP `GET` method to fetch a collection of documents based on the specified query parameters.
+
 **GET** `/api/v2013/documents`
 
-## Headers
-
-| Field            | Type   | Description                                                                       |
-| ---------------- | ------ | --------------------------------------------------------------------------------- |
-| Authorization    | String | Token to use to authenticate the request                                          |
-| Accept           | String | Result format. Allowed values: `application/json`                                 |
-| Realm (optional) | String | Context in which the Clearing-House request is made. Allowed values: `ABS`, `CHM` |
+<!--@include: ../../../components/common/authorization-header.md-->
 
 ## Query Parameters
 
+The query parameters allow clients to filter, sort, and control the number of items returned in the response. Each parameter serves a specific function to refine the query. Below are the details for each parameter:
+
 | Field                 | Type   | Description                                                                                                                                                                                                                                                                                                                               |
 | --------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| collection (optional) | String | The collection system query option allows clients to filter a collection of resources. Allowed values: `my`, `mydrafts`                                                                                                                                                                                                                   |
+| collection (optional) | String &nbsp;&nbsp;&nbsp;&nbsp; | The collection system query option allows clients to filter a collection of resources. Allowed values: `my`, `mydrafts`                                                                                                                                                                                                                   |
 | $filter (optional)    | String | The `$filter` system query option allows clients to filter a collection of resources. See: [OData $filter](https://www.odata.org/documentation/odata-version-2-0/uri-conventions/#SystemQueryOptions)                                                                                                                                     |
 | $orderby (optional)   | String | The `$orderby` system query option allows clients to request resources in a particular order. See: [OData $orderby](https://www.odata.org/documentation/odata-version-2-0/uri-conventions/#OrderbySystemQueryOption)                                                                                                                      |
 | $top (optional)       | String | The `$top` system query option requests the number of items in the queried collection to be included in the result. See: [OData $top](https://www.odata.org/documentation/odata-version-2-0/uri-conventions/#TopSystemQueryOption). A client can request a particular page of items by combining `$top` and `$skip`.                      |
