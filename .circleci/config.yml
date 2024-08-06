@@ -16,7 +16,7 @@ _run:
     name: Test docker image
     command: |
       docker run --name clearing-house-documentation -e "VITE_CLEARING_HOUSE=abs" -d -p 8000:8000 output
-      sleep 30
+      sleep 10
       docker ps
       docker logs clearing-house-documentation
       docker exec clearing-house-documentation curl --retry 10 --retry-delay 5 -v http://localhost:8000/
