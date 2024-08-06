@@ -1,0 +1,482 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "IRCC Document Validation API",
+    "version": "1.0.0",
+    "description": "This API allows for the validation of documents within the IRCC system."
+  },
+  "servers": [
+    {
+      "url": "https://absch.cbddev.xyz/api/v2013"
+    }
+  ],
+  "security": [
+    {
+      "BearerAuth": []
+    },
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Add the `Realm` header with value `ABS-DEV`."
+      }
+    }
+  },
+  "paths": {
+    "/documents/x/validate": {
+      "post": {
+        "summary": "Validate a document",
+        "description": "This endpoint validates a document based on the provided schema and metadata.",
+        "security": [
+          {
+            "BearerAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "schema",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "absPermit"
+            }
+          }
+        ],
+        "operationId": "validateDocument",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "header": {
+                    "type": "object",
+                    "properties": {
+                      "identifier": {
+                        "type": "string",
+                        "example": "CB51626B-CF45-2AA0-3A24-459669DDCC34"
+                      },
+                      "schema": {
+                        "type": "string",
+                        "example": "absPermit"
+                      },
+                      "languages": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "example": "en"
+                        }
+                      }
+                    }
+                  },
+                  "government": {
+                    "type": "object",
+                    "properties": {
+                      "identifier": {
+                        "type": "string",
+                        "example": "af"
+                      }
+                    }
+                  },
+                  "absCNA": {
+                    "type": "object",
+                    "properties": {
+                      "identifier": {
+                        "type": "string",
+                        "example": "C84C7E6C-134C-F1B1-9A3B-B7443F135239@2"
+                      }
+                    }
+                  },
+                  "title": {
+                    "type": "object",
+                    "properties": {
+                      "en": {
+                        "type": "string",
+                        "example": "123456"
+                      }
+                    }
+                  },
+                  "referenceToNationalPermit": {
+                    "type": "object",
+                    "properties": {
+                      "en": {
+                        "type": "string",
+                        "example": "strsgfsgfdxgf"
+                      }
+                    }
+                  },
+                  "dateOfIssuance": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2024-07-02"
+                  },
+                  "providers": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "identifier": {
+                          "type": "string",
+                          "example": "DECLARE-ORGANISATION_3386_20240709020251617@1"
+                        }
+                      }
+                    }
+                  },
+                  "providersConfidential": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "entitiesToWhomPICGranted": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "identifier": {
+                          "type": "string",
+                          "example": "DECLARE-ORGANISATION_3386_20240709020251617@1"
+                        }
+                      }
+                    }
+                  },
+                  "entitiesToWhomPICGrantedConfidential": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "subjectMatter": {
+                    "type": "object",
+                    "properties": {
+                      "en": {
+                        "type": "string",
+                        "example": "<div><!--block-->asdf</div>"
+                      }
+                    }
+                  },
+                  "subjectMatterConfidential": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "keywords": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "identifier": {
+                          "type": "string",
+                          "example": "357DBB22-6A6C-4C49-BA1F-037320B09247"
+                        }
+                      }
+                    }
+                  },
+                  "specimens": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "example": "https://www.Google.com"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Google"
+                        },
+                        "language": {
+                          "type": "string",
+                          "example": "en"
+                        }
+                      }
+                    }
+                  },
+                  "taxonomies": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "example": "https://www.google.com"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Google"
+                        },
+                        "language": {
+                          "type": "string",
+                          "example": "en"
+                        }
+                      }
+                    }
+                  },
+                  "picGranted": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "picInformation": {
+                    "type": "object",
+                    "properties": {
+                      "en": {
+                        "type": "string",
+                        "example": "<div><!--block-->asdfasdfasdf</div>"
+                      }
+                    }
+                  },
+                  "picDocuments": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "example": "https://www.google.com"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Google"
+                        },
+                        "language": {
+                          "type": "string",
+                          "example": "en"
+                        }
+                      }
+                    }
+                  },
+                  "matEstablished": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "matInformation": {
+                    "type": "object",
+                    "properties": {
+                      "en": {
+                        "type": "string",
+                        "example": "<div><!--block-->asdf</div>"
+                      }
+                    }
+                  },
+                  "matDocuments": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "example": "https://www.google.com"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Google"
+                        },
+                        "language": {
+                          "type": "string",
+                          "example": "en"
+                        }
+                      }
+                    }
+                  },
+                  "usages": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "identifier": {
+                          "type": "string",
+                          "example": "5E833A3F-87D1-4ADD-8701-9F1B76383017"
+                        }
+                      }
+                    }
+                  },
+                  "usagesConfidential": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "usagesDescription": {
+                    "type": "object",
+                    "properties": {
+                      "en": {
+                        "type": "string",
+                        "example": "<div><!--block-->asdf</div>"
+                      }
+                    }
+                  },
+                  "thirdPartyTransferCondition": {
+                    "type": "object",
+                    "properties": {
+                      "en": {
+                        "type": "string",
+                        "example": "<div><!--block-->asdf</div>"
+                      }
+                    }
+                  },
+                  "dateOfExpiry": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2024-07-16"
+                  },
+                  "permitFiles": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "example": "https://www.google.com"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Google"
+                        },
+                        "language": {
+                          "type": "string",
+                          "example": "en"
+                        }
+                      }
+                    }
+                  },
+                  "notes": {
+                    "type": "string",
+                    "example": "[\"[ Pramod Sam | Jul 8, 2024 8:10:52 PM ] - aasdfasdf\"]"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "identifier": {
+                      "type": "string",
+                      "example": "CB51626B-CF45-2AA0-3A24-459669DDCC34"
+                    },
+                    "schema": {
+                      "type": "string",
+                      "example": "absPermit"
+                    },
+                    "locales": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "en"
+                      }
+                    },
+                    "links": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "https://www.Google.com"
+                      }
+                    },
+                    "title": {
+                      "type": "object",
+                      "properties": {
+                        "en": {
+                          "type": "string",
+                          "example": "123456"
+                        }
+                      }
+                    },
+                    "summary": {
+                      "type": "object"
+                    },
+                    "metaData": {
+                      "type": "object",
+                      "properties": {
+                        "government": {
+                          "type": "string",
+                          "example": "af"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request due to missing mandatory fields",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "identifier": {
+                      "type": "string",
+                      "example": "CB51626B-CF45-2AA0-3A24-459669DDCC34"
+                    },
+                    "schema": {
+                      "type": "string",
+                      "example": "absPermit"
+                    },
+                    "locales": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "en"
+                      }
+                    },
+                    "links": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "https://www.Google.com"
+                      }
+                    },
+                    "title": {
+                      "type": "object",
+                      "properties": {
+                        "en": {
+                          "type": "string",
+                          "example": "123456"
+                        }
+                      }
+                    },
+                    "summary": {
+                      "type": "object"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "type": "string",
+                            "example": "Error.Mandatory"
+                          },
+                          "property": {
+                            "type": "string",
+                            "example": "government"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
