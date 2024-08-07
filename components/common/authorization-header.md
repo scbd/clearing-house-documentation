@@ -1,5 +1,3 @@
-## Headers
-
 | Field            | Type    | Description                                                                       |
 | ---------------- | ------- | --------------------------------------------------------------------------------- |
 | Content-Type     | String &nbsp;&nbsp;  | Raw document format mediaType. Allowed values: `application/json`                 |

@@ -16,7 +16,45 @@ export default {
             text: "User Management",
             link: "/user-management",
           },
+          {
+            text: "Schemas",
+            link: "/schemas",
+          },
         ],
+      },
+      {
+        text:"General",
+        collapsed: true,
+        items:[
+          {
+            text:"Document Validations",
+            link:"/general/document-validations"
+          },
+          {
+            text:"Document Securities",
+            link:"/general/document-securities"
+          },
+          {
+            text:"Documents Versions",
+            link:"/general/documents-versions"
+          },
+          {
+            text:"Documents Attachments",
+            link:"/general/documents-attachments"
+          },
+          {
+            text:"Drafts",
+            link:"/general/drafts"
+          },
+          {
+            text:"Draft Securities",
+            link:"/general/draft-securities"
+          },
+          {
+            text:"Draft Locks",
+            link:"/general/draft-locks"
+          }
+        ]
       },
       {
         text: "IRCC",
@@ -52,26 +90,6 @@ export default {
                 },
             ],
           },
-    //       {
-    //         text: "Countries",
-    //         collapsed: true,
-    //         items: [
-    //           {
-    //             text: "GET",
-    //             link: "/countries",
-    //           },
-    //         ],
-    //       },
-    //       {
-    //         text: "Document",
-    //         collapsed: true,
-    //         items: [
-    //           {
-    //             text: "GET",
-    //             link: "/document",
-    //           },
-    //         ],
-    //       },
         ],
       },
       {

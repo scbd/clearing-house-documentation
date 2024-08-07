@@ -22,11 +22,12 @@
       <iframe :src="loginUrl" class="login-iframe"></iframe>
     </div>
   </div>
-  <div id="swagger-ui"></div>
+  <div :id="domId"></div>
 </template>
 
 <script>
 import "swagger-ui/dist/swagger-ui.css";
+import "../../style.css"
 
 export default {
   name: "SwaggerUI",
@@ -39,6 +40,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    domId:{
+      type:String,
+      default:"swagger-ui"
+    }
   },
   data() {
     return {
@@ -90,10 +95,9 @@ export default {
     async initializeSwaggerUI() {
       if (typeof window !== 'undefined') {
         const SwaggerUI = (await import("swagger-ui")).default;
-
         const ui = SwaggerUI({
           spec: this.swaggerJson,
-          dom_id: "#swagger-ui",
+          dom_id: `#${this.domId}`,
           operationsSorter: "alpha",
           presets: [SwaggerUI.presets.apis, SwaggerUI.SwaggerUIStandalonePreset],
           layout: "BaseLayout",
@@ -123,7 +127,7 @@ export default {
               });
             });
 
-            const targetNode = document.getElementById("swagger-ui");
+            const targetNode = document.getElementById(this.domId);
             const config = { childList: true, subtree: true };
 
             observer.observe(targetNode, config);
@@ -136,7 +140,7 @@ export default {
               });
             });
 
-            const targetNode = document.getElementById("swagger-ui");
+            const targetNode = document.getElementById(this.domId);
             const config = { childList: true, subtree: true };
 
             observer.observe(targetNode, config);
@@ -149,20 +153,23 @@ export default {
             }
           });
 
-          const targetNode = document.getElementById("swagger-ui");
+          const targetNode = document.getElementById(this.domId);
           const config = { childList: true, subtree: true };
 
           observer.observe(targetNode, config);
         }
 
         const observer = new MutationObserver(() => {
-          const infoContainer = document.querySelector(".information-container");
-          if (infoContainer) {
-            infoContainer.style.display = "none";
+          const infoContainer = document.querySelectorAll(".information-container");
+          infoContainer.forEach((container) => {
+             if (container) {
+            container.style.display = "none";
           }
+          })
+         
         });
 
-        const targetNode = document.getElementById("swagger-ui");
+        const targetNode = document.getElementById(this.domId);
         const config = { childList: true, subtree: true };
 
         observer.observe(targetNode, config);

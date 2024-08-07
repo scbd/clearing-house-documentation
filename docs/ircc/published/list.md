@@ -11,6 +11,8 @@ This endpoint is used to retrieve a list of documents available in the IRCC syst
 
 **GET** `/api/v2013/documents`
 
+## Header
+
 <!--@include: ../../../components/common/authorization-header.md-->
 
 ## Query Parameters
