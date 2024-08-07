@@ -23,6 +23,40 @@ export default {
       ],
     },
     {
+      text:"General",
+      collapsed: true,
+      items:[
+        {
+          text:"Document Validations",
+          link:"/general/document-validations"
+        },
+        {
+          text:"Document Securities",
+          link:"/general/document-securities"
+        },
+        {
+          text:"Documents Versions",
+          link:"/general/documents-versions",
+        },
+        {
+          text:"Documents Attachments",
+          link:"/general/documents-attachments"
+        },
+        {
+          text:"Drafts",
+          link:"/general/drafts"
+        },
+        {
+          text:"Draft Securities",
+          link:"/general/draft-securities"
+        },
+        {
+          text:"Draft Locks",
+          link:"/general/draft-locks"
+        }
+      ]
+    },
+    {
       text: "Users",
       collapsed: true,
       items: [
