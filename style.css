@@ -2,7 +2,15 @@ table tbody tr td:nth-child(5), table tbody tr td:nth-child(2) {
     word-wrap: break-word;
     word-break: break-all;
 }
-   
+
 p{
-    margin-bottom: 0 !important;
+    margin: 0 !important;
+}
+
+.opblock th{
+    padding: 1rem !important;
+}
+
+.opblock td{
+    padding: 1rem !important;
 }

@@ -2,6 +2,10 @@
 import "../../../style.css"
 import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
 import swaggerJson from "../../../swagger/json/thesaurus.authority.abs-jurisdictions.json";
+
+const swaggerSpecs = [
+  { json:swaggerJson, protected: false },
+]
 </script>
 
 # Authority - ABS Jurisdictions
@@ -15,4 +19,4 @@ import swaggerJson from "../../../swagger/json/thesaurus.authority.abs-jurisdict
 
 ## Playground
 
-<SwaggerUI :swaggerJson="swaggerJson" />
+<SwaggerUI :swaggerSpecs="swaggerSpecs" />

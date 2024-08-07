@@ -1,20 +1,4 @@
-
-## Headers
-
-| Field            | Type    | Description                                                                       |
-| ---------------- | ------- | --------------------------------------------------------------------------------- |
-| Content-Type     | String &nbsp;&nbsp;  | Raw document format mediaType. Allowed values: `application/json`                 |
-| Authorization    | String  | Token to use to authenticate the request                                          |
-| Realm            | String  | Context in which the Clearing-House request is made. Allowed values: `ABS`, `CHM`, `BCH` |
-| Accept           | String  | Result format. Allowed values: `application/json`                                 |
-
-**Realm Values for Development:**
-- `ABS-DEV`: Development environment for ABS
-- `BCH-DEV`: Development environment for BCH
-- `CHM-DEV`: Development environment for CHM
-
-
-Headers required to authenticate and define the context and format of the request and response. The `Authorization` header must contain a valid token, while the `Content-Type` and `Accept` headers specify the format of the document and response, respectively. [Here are the steps to get the Authorization token](/user/authentication).
+<!--@include: ../common/header-authorization-realm.md-->
 
 ## Query Parameters
 
@@ -96,7 +80,7 @@ The table below outlines the structure of the request body, including the fields
       <td>referenceToNationalPermit</td>
       <td></td>
       <td><a href="/customTypes.html#lstring">lstring</a></td>
-      <td><code>{"en": "strsgfsgfdxgf"}</code></td>
+      <td><code>{"en": "your additional references or identifier"}</code></td>
     </tr>
     <tr>
       <td>Date of issuance of the permit or its equivalent</td>
@@ -155,7 +139,7 @@ The table below outlines the structure of the request body, including the fields
         <td>subjectMatter</td>
         <td>True</td>
         <td><a href="/customTypes.html#lstring">lstring</a></td>
-        <td><code>{"en": "<div><!--block-->asdf</div>"
+        <td><code>{"en": "<div>Type in your subject matter or genetic resource</div>"
     }</code></td>
     </tr>
     <tr>
@@ -253,7 +237,7 @@ The table below outlines the structure of the request body, including the fields
       <td></td>
       <td><a href="/customTypes.html#lstring">lstring</a></td>
       <td><code>{
-        "en": "<div><!--block-->asdfasdfasdf</div>"
+        "en": "<div>Type in your additional information</div>"
     }</code></td>
     </tr>
     <tr>
@@ -282,7 +266,7 @@ The table below outlines the structure of the request body, including the fields
       <td></td>
       <td><a href="/customTypes.html#lstring">lstring</a></td>
       <td><code>{
-        "en": "<div><!--block-->asdf</div>"
+        "en": "<div>Type in your additional information</div>"
     }</code></td>
     </tr>
     <tr>
@@ -325,7 +309,7 @@ The table below outlines the structure of the request body, including the fields
       <td></td>
       <td><a href="/customTypes.html#lstring">lstring</a></td>
       <td><code>{
-        "en": "<div><!--block-->asdf</div>"
+        "en": "<div>Type in your additional information</div>"
     }</code></td>
     </tr>
     <tr>
@@ -334,7 +318,7 @@ The table below outlines the structure of the request body, including the fields
       <td></td>
       <td><a href="/customTypes.html#lstring">lstring</a></td>
       <td><code>{
-        "en": "<div><!--block-->asdf</div>"
+        "en": "<div>Type in your conditions for third party transfer</div>"
     }</code></td>
     </tr>
     <tr>
@@ -363,7 +347,7 @@ The table below outlines the structure of the request body, including the fields
       <td></td>
       <td><a href="/customTypes.html#lstring">lstring</a></td>
       <td><code>{
-        "en": "<div><!--block-->asdf</div>"
+        "en": "<div>Type in your short description of attached links</div>"
     }</code></td>
     </tr>
     <tr>
@@ -372,7 +356,7 @@ The table below outlines the structure of the request body, including the fields
       <td></td>
       <td><a href="/customTypes.html#lstring">lstring</a></td>
       <td><code>{
-        "en": "<div><!--block-->asfd</div>"
+        "en": "<div>Type in your additional information</div>"
     }</code></td>
     </tr>
     <tr>
@@ -387,13 +371,6 @@ The table below outlines the structure of the request body, including the fields
             "language": "en"
         }
     ]</code></td>
-    </tr>
-    <tr>
-      <td>Notes</td>
-      <td>notes</td>
-      <td></td>
-      <td>string</td>
-      <td><code>"[\"[ Pramod Sam | Jul 8, 2024 8:10:52 PM ] - aasdfasdf\"]"</code></td>
     </tr>
     <tr>
       <td>Links to other internationally recognized certificate(s) of compliance (IRCC) that relate(s) to this permit</td>

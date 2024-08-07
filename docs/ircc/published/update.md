@@ -2,6 +2,10 @@
 import "../../../style.css"
 import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
 import swaggerJson from "../../../swagger/json/ircc.published.update.json";
+
+const swaggerSpecs = [
+  { json: swaggerJson, protected: true },
+];
 </script>
 
 # IRCC - Update
@@ -22,4 +26,4 @@ This is the endpoint to which the PUT request should be made to update an existi
 
 ## Playground
 
-<SwaggerUI :swaggerJson="swaggerJson" :protected="true" />
+<SwaggerUI :swaggerSpecs="swaggerSpecs"/>

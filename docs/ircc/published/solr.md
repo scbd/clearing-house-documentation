@@ -1,36 +1,57 @@
 <script setup>
 import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
 import swaggerJson from "../../../swagger/json/ircc.published.solr.json";
+import swaggerAllAbsPermitJson from "../../../swagger/json/ircc.published.solr_all_abs_permit.json";
+import swaggerAllAbsPermitWithCountryJson from "../../../swagger/json/ircc.published.solr_all_abs_with_country.json";
+import swaggerAllAbsPermitWithRegionJson from "../../../swagger/json/ircc.published.solr_all_abs_with_region.json";
+import swaggerAllAbsPermitWithSubFiltersJson from "../../../swagger/json/ircc.published.solr_all_abs_with_subfilters.json";
+
+const swaggerSpecs = [
+  { json:swaggerJson, protected: false },
+  { json: swaggerAllAbsPermitJson, protected: false },
+  { json: swaggerAllAbsPermitWithCountryJson, protected: false },
+  { json: swaggerAllAbsPermitWithRegionJson, protected: false },
+  { json: swaggerAllAbsPermitWithSubFiltersJson, protected: false },
+];
+
 </script>
 
-# Solr - Query
+# List Public Records
+
+This section describes how to use the Solr query endpoint to search and retrieve indexed documents. Apache Solr is an open-source search platform built on Apache Lucene, used for implementing search functionality in applications.
 
 ## Endpoint
 
 **GET** `/api/v2013/index`
 
+This endpoint allows you to query the Solr index for documents. The request uses the HTTP `GET` method to perform a search.
 
-## Headers
 
-| Field            | Type   | Description                                                                       |
-| ---------------- | ------ | --------------------------------------------------------------------------------- |
-| Authorization | String | Token to use to authenticate the request                                          |
+<!--@include: ../../../components/common/header-content-realm.md-->
 
 ## Query Parameters
 
-| Field      | Type   | Description                                                                                                                                                          |
-| ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| q          | String | The q parameter is normally the main query for the request. See [Solr query syntax](https://solr.apache.org/guide/8_11/query-syntax-and-parsing.html) for more information. |
-| fl         | String | TODO: Solr xxx                                                                                                                                                       |
-| sort       | String | TODO: Solr xxx                                                                                                                                                       |
-| start      | String | TODO: Solr xxx                                                                                                                                                       |
-| rows       | String | TODO: Solr xxx<br>Default value: 10                                                                                                                                  |
-| facet      | String | TODO: Solr xxx<br>Default value: false                                                                                                                               |
-| query      | String | TODO: facet must be set to true<br>TODO: Solr xxx                                                                                                                    |
-| field      | String | TODO: facet must be set to true<br>TODO: Solr xxx                                                                                                                    |
-| prefix     | String | TODO: facet must be set to true<br>TODO: Solr xxx                                                                                                                    |
+The query parameters allow clients to filter and sort the search results based on specific criteria. Each parameter provides a way to customize the request to retrieve only the relevant documents. Refer to the [Solr query syntax](https://solr.apache.org/guide/8_11/query-syntax-and-parsing.html) for more details.
 
+| Field | Type  | Description  |
+| ----- | ----- | ------------ |
+| q     | String &nbsp;&nbsp; | The main query parameter used to search for documents. It specifies the search criteria and is the most crucial parameter. For detailed syntax, refer to the [Solr query syntax](https://solr.apache.org/guide/8_11/query-syntax-and-parsing.html). <br /><br />[The detail breakdown is mentioned in the below table](/ircc/published/solr.html#detailed-breakdown-of-q-parameter) |
+| fl    | String              | Fields to return in the search results. Use comma-separated field names to specify which fields should be included in the response.     |
+| sort  | String              | Specifies the sort order of the results. The format is fieldname desc for descending or fieldname asc for ascending.   |
+| start | String              | The starting offset for the results. This parameter allows pagination by specifying the index of the first result to return.             |
+| rows  | String              | The number of results to return. Default value is 10 if not specified.                             |
+| field | String              | Specifies the fields to use for faceting. Requires facet=true to be enabled.                       |
+
+### Detailed Breakdown of `q` Parameter
+
+The `q` parameter is used to define the search criteria in Solr queries. It can include several sub-parameters to filter and sort the results.
+
+| Field      | Type                | Description   |
+| ---------- | ------------------- | ------------- |
+| realm      | String &nbsp;&nbsp; | The realm parameter specifies the realm of the documents to be searched. It filters results based on the realm value. Example: `realm_ss:ABS-DEV`.                                              |
+| schema     | String              | The schema parameter defines the schema to filter the documents. Example: `schema_s:absPermit`.  |
+| government | String              | The government parameter filters documents based on the government ISO codes. Example: `government_s:ht`. The ISO codes can be received from [the countries API](/thesaurus/general/countries). |
 
 ## Playground
 
-<SwaggerUI :swaggerJson="swaggerJson" :protected="true" />
+<SwaggerUI :swaggerSpecs="swaggerSpecs"/>

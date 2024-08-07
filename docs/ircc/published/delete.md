@@ -1,6 +1,10 @@
 <script setup>
 import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
 import swaggerJson from "../../../swagger/json/ircc.published.delete.json";
+
+const swaggerSpecs = [
+  { json: swaggerJson, protected: true },
+];
 </script>
 
 # IRCC - Delete
@@ -21,4 +25,4 @@ This endpoint allows you to delete a specific document identified by its unique 
 
 ## Playground
 
-<SwaggerUI :swaggerJson="swaggerJson" :protected="true" />
+<SwaggerUI :swaggerSpecs="swaggerSpecs" />
