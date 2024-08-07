@@ -1,6 +1,6 @@
 # Schemas 
 
-This document provides a list of schemas
+This document provides a comprehensive overview of the various schemas used in our API. Each schema represents a specific type of document or entity relevant to our system. The following table lists each schema for easy reference.
 
 | Title                  | Schema                                             |
 |------------------------|----------------------------------------------------|
@@ -8,7 +8,7 @@ This document provides a list of schemas
 | Legislative, Administrative or Policy Measure (MSR)                      | measure                            |
 | ABS Procedure (PRO)                                                      | absProcedure                       |
 | National Modal Contractual Clause (NMCC)                                 | absNationalModelContractualClause  |
-| Internationally Recognized Certificates of Compliance (IRCC)             | absPermit                          |
+| <a href="/ircc/published/schema">Internationally Recognized Certificates of Compliance (IRCC)</a>             | absPermit                          |
 | National Websites or Databases (NDB)                                     | database                           |
 | Checkpoint (CP)                                                          | absCheckpoint                      |
 | Checkpoint Communique (CPC)                                              | absCheckpointCommunique            |
