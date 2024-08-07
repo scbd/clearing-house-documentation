@@ -2,6 +2,10 @@
 import "../../../style.css"
 import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
 import swaggerJson from "../../../swagger/json/thesaurus.permit.permit-keywords.json";
+
+const swaggerSpecs = [
+  { json:swaggerJson, protected: false },
+];
 </script>
 
 # Permit - Permit Keywords (Keywords to describe the subject-matter or genetic resource(s) covered by the permit or its equivalent)
@@ -27,4 +31,4 @@ This table describes the keywords field that is used to describe the subject-mat
 
 ## Playground
 
-<SwaggerUI :swaggerJson="swaggerJson" />
+<SwaggerUI :swaggerSpecs="swaggerSpecs" />

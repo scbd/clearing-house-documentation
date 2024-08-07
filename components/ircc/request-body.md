@@ -1,35 +1,3 @@
-<script setup>
-import "../../../style.css"
-import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
-import swaggerJson from "../../../swagger/json/ircc.published.create.json";
-
-const swaggerSpecs = [
-  { json: swaggerJson, protected: true },
-];
-</script>
-
-# IRCC - Create
-
-## Overview
-
-This documentation describes the API endpoint for creating an IRCC (Internationally Recognized Certificate of Compliance) using the POST method. The endpoint allows clients to submit documents to the system.
-
-<!--@include: ../../../components/ircc/introduction.md-->
-
-## Endpoint
-
-**POST** `/api/v2013/documents`
-
-This is the endpoint to which the POST request should be made to create a new document.
-
-<!--@include: ../../../components/common/authorization-header.md-->
-
-<!--@include: ../../../components/common/query-schema-parameter-section.md-->
-
-<!--@include: ../../../components/common/url-uid-parameter-section.md-->
-
-<!--@include: ../../../components/common/validation-error.md-->
-
 ## Request Body
 
 The table below outlines the structure of the request body, including the fields, their types, and whether they are mandatory. Example values are provided for clarity.
@@ -61,7 +29,7 @@ The table below outlines the structure of the request body, including the fields
           </code></td>
     </tr>
      <tr>
-      <td>Country</td>
+      <td><a href="/thesaurus/general/countries">Country</a></td>
       <td>government</td>
       <td>True</td>
       <td><a href="/customTypes.html#eterm">Eterm</a></td>
@@ -103,10 +71,10 @@ The table below outlines the structure of the request body, including the fields
       <td><code>"2024-07-02"</code></td>
     </tr>
     <tr>
-        <td colspan="5" style=" fontWeight:bold">Prior Informed Consent (PIC) Information (Select any one of the two options from below)</td>
+        <td colspan="5" style=" fontWeight:bold">Prior Informed Consent (PIC) Information (Select any of the two from below)</td>
     </tr>
     <tr>
-        <td><b>1. The provider</b></td>
+        <td>The provider</td>
         <td>providers</td>
         <td>True</td>
         <td><a href="/customTypes.html#ereference">Ereference[]</a></td>
@@ -117,17 +85,17 @@ The table below outlines the structure of the request body, including the fields
     ]</code></td>
     </tr>
     <tr>
-        <td><b>2. This information is confidential</b></td>
+        <td>This information is confidential</td>
         <td>providersConfidential</td>
         <td></td>
         <td>bool</td>
         <td><code>{providersConfidential: true}</code></td>
     </tr>
     <tr>
-        <td colspan="5" style="fontWeight:bold">Person or entity to whom prior informed consent (PIC) was granted (Select any one of the two options from below)</td>
+        <td colspan="5" style="fontWeight:bold">Person or entity to whom prior informed consent (PIC) was granted</td>
     </tr>
     <tr>
-        <td><b>1. Person or entity to whom prior informed consent (PIC) was granted</b></td>
+        <td></td>
         <td>entitiesToWhomPICGranted</td>
         <td>True</td>
         <td><a href="/customTypes.html#ereference">Ereference[]</a></td>
@@ -138,14 +106,14 @@ The table below outlines the structure of the request body, including the fields
     ]</code></td>
     </tr>
     <tr>
-        <td><b>2. This information is confidential</b></td>
+        <td>This information is confidential</td>
         <td>entitiesToWhomPICGrantedConfidential</td>
         <td></td>
         <td>bool</td>
         <td><code>true</code></td>
     </tr>
     <tr>
-        <td colspan="5" style="fontWeight:bold">Subject-matter or genetic resource (Select any one of the two options from below)</td>
+        <td colspan="5" style="fontWeight:bold">Subject-matter or genetic resource (Select any of the two from below)</td>
     </tr>
     <tr>
         <td><b>1. Subject-matter or genetic resources covered by the permit or its equivalent</b></td>
@@ -163,7 +131,7 @@ The table below outlines the structure of the request body, including the fields
         <td><code>{subjectMatterConfidential: true}</code></td>
     </tr>
     <tr>
-      <td>Keywords to describe the subject-matter or genetic resource(s) covered by the permit or its equivalent</td>
+      <td><a href="/thesaurus/permit/permit-keywords">Keywords to describe the subject-matter or genetic resource(s) covered by the permit or its equivalent</a></td>
       <td>keywords</td>
       <td></td>
       <td><a href="/customTypes.html#eterm">Eterm[]</a></td>
@@ -296,10 +264,10 @@ The table below outlines the structure of the request body, including the fields
     ]</code></td>
     </tr>
     <tr>
-        <td colspan="5" style="fontWeight:bold">Information on the utilization of the genetic resource(s) (Select any one of the two options from below)</td>
+        <td colspan="5" style="fontWeight:bold">Information on the utilization of the genetic resource(s) (Select any one of the below)</td>
     </tr>
     <tr>
-        <td><b>1. Indicate if the permit or its equivalent covers commercial and/or non-commercial use</b></td>
+        <td><b><a href="/thesaurus/permit/permit-usage">1. Indicate if the permit or its equivalent covers commercial and/or non-commercial use</a></b></td>
         <td>usages</td>
         <td>True</td>
         <td><a href="/customTypes.html#eterm">Eterm[]</a></td>
@@ -405,7 +373,3 @@ The table below outlines the structure of the request body, including the fields
     </tr>
   </tbody>
 </table>
-
-## Playground
-
-<SwaggerUI :swaggerSpecs="swaggerSpecs" />

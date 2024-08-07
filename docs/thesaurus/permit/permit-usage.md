@@ -2,6 +2,10 @@
 import "../../../style.css"
 import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
 import swaggerJson from "../../../swagger/json/thesaurus.permit.permit-usage.json";
+
+const swaggerSpecs = [
+  { json:swaggerJson, protected: false },
+];
 </script>
 
 # Permit - Permit Usage (Indicate if the permit or its equivalent covers commercial and/or non-commercial use)
@@ -24,4 +28,4 @@ This table describes the `keywords` field that is used to indicate if the permit
 
 ## Playground
 
-<SwaggerUI :swaggerJson="swaggerJson" />
+<SwaggerUI :swaggerSpecs="swaggerSpecs" />

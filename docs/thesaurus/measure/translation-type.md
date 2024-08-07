@@ -2,6 +2,10 @@
 import "../../../style.css"
 import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
 import swaggerJson from "../../../swagger/json/thesaurus.measure.translation-type.json";
+
+const swaggerSpecs = [
+  { json:swaggerJson, protected: false },
+]
 </script>
 
 # Measure - Translation Type
@@ -15,4 +19,4 @@ import swaggerJson from "../../../swagger/json/thesaurus.measure.translation-typ
 
 ## Playground
 
-<SwaggerUI :swaggerJson="swaggerJson" />
+<SwaggerUI :swaggerSpecs="swaggerSpecs" />

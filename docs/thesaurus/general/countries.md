@@ -2,6 +2,10 @@
 import "../../../style.css"
 import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
 import swaggerJson from "../../../swagger/json/thesaurus.general.countries.json";
+
+const swaggerSpecs = [
+  { json:swaggerJson, protected: false },
+];
 </script>
 
 # General - Countries
@@ -15,4 +19,4 @@ import swaggerJson from "../../../swagger/json/thesaurus.general.countries.json"
 
 ## Playground
 
-<SwaggerUI :swaggerJson="swaggerJson" />
+<SwaggerUI :swaggerSpecs="swaggerSpecs" />

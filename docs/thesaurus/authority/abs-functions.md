@@ -2,6 +2,10 @@
 import "../../../style.css"
 import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
 import swaggerJson from "../../../swagger/json/thesaurus.authority.abs-functions.json";
+
+const swaggerSpecs = [
+  { json:swaggerJson, protected: false },
+];
 </script>
 
 # Authority - ABS Functions
@@ -15,4 +19,4 @@ import swaggerJson from "../../../swagger/json/thesaurus.authority.abs-functions
 
 ## Playground
 
-<SwaggerUI :swaggerJson="swaggerJson" />
+<SwaggerUI :swaggerSpecs="swaggerSpecs" />

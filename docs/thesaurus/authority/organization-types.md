@@ -2,6 +2,10 @@
 import "../../../style.css"
 import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
 import swaggerJson from "../../../swagger/json/thesaurus.authority.organization-types.json";
+
+const swaggerSpecs = [
+  { json:swaggerJson, protected: false },
+]
 </script>
 
 # Organization Types
@@ -14,4 +18,4 @@ import swaggerJson from "../../../swagger/json/thesaurus.authority.organization-
 
 ## Playground
 
-<SwaggerUI :swaggerJson="swaggerJson" />
+<SwaggerUI :swaggerSpecs="swaggerSpecs" />
