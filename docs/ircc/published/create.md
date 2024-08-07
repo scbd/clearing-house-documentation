@@ -22,6 +22,8 @@ This documentation describes the API endpoint for creating an IRCC (Internationa
 
 This is the endpoint to which the POST request should be made to create a new document.
 
+## Header
+
 <!--@include: ../../../components/common/authorization-header.md-->
 
 <!--@include: ../../../components/common/query-schema-parameter-section.md-->

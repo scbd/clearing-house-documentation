@@ -18,7 +18,9 @@ This endpoint is used to retrieve a list of documents available in the IRCC syst
 
 **GET** `/api/v2013/documents`
 
-This HTTP GET request retrieves draft records from the specified endpoint. It can be used to access documents that are in draft status and need to be reviewed or finalized.
+## Header
+
+<!--@include: ../../../components/common/authorization-header.md-->
 
 
 <!--@include: ../../../components/common/header-authorization-realm.md-->
