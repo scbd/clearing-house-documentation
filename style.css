@@ -14,3 +14,7 @@ p{
 .opblock td{
     padding: 1rem !important;
 }
+
+.VPLink{
+    text-decoration: none;
+}
