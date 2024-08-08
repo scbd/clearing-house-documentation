@@ -61,9 +61,7 @@
           </div>
         </div>
       </div>
-      <div
-        :id="spec.domId ? `${spec.domId}-${index}` : `swagger-ui-${index}`"
-      ></div>
+      <div :id="spec.domId ? `${spec.domId}-${index}` : `swagger-ui-${index}`"></div>
     </div>
   </div>
 </template>
@@ -112,9 +110,7 @@ const handleMessage = (event) => {
 const initializeSwaggerUI = () => {
   props.swaggerSpecs.forEach(async (swaggerSpec, index) => {
     const SwaggerUI = (await import("swagger-ui")).default;
-    const domId = swaggerSpec.domId
-      ? `${swaggerSpec.domId}-${index}`
-      : `swagger-ui-${index}`;
+     const domId = swaggerSpec.domId ? `${swaggerSpec.domId}-${index}` : `swagger-ui-${index}`;
     const ui = SwaggerUI({
       spec: swaggerSpec.json,
       dom_id: `#${domId}`,

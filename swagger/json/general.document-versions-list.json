@@ -1,0 +1,312 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Document API",
+    "version": "2.13.0",
+    "description": "API for managing document versions."
+  },
+  "servers": [
+    {
+      "url": "https://absch.cbddev.xyz/api/v2013"
+    }
+  ],
+  "paths": {
+    "/documents/{uid}/versions": {
+      "get": {
+        "summary": "List document versions",
+        "description": "Load document versions with optional filters and sorting.",
+        "operationId": "listDocumentVersions",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9\\-_]{11,128}$"
+            },
+            "description": "Identifier of the document. The value is case-sensitive."
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["application/json"]
+            },
+            "description": "Raw document format mediaType. Allowed values: `application/json`."
+          },
+          {
+            "name": "Realm",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["ABS", "CHM", "BCH"]
+            },
+            "description": "Context in which the Clearing-House request is made. Allowed values: `ABS`, `CHM`, `BCH`."
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["application/json"]
+            },
+            "description": "Result format. Allowed values: `application/json`."
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The `$filter` system query option allows clients to filter a collection of resources. See: OData $filter."
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The `$orderby` system query option allows clients to request resources in a particular order. See: OData $orderby."
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The `$top` system query option requests the number of items in the queried collection to be included in the result. See: OData $top."
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The `$skip` query option requests the number of items in the queried collection that are to be skipped and not included in the result. See: OData $skip."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of document versions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Count": {
+                      "type": "integer",
+                      "description": "Total number of document versions"
+                    },
+                    "Items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "identifier": {
+                            "type": "string",
+                            "description": "Document identifier"
+                          },
+                          "documentID": {
+                            "type": "integer",
+                            "description": "Document ID"
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "Type of the document"
+                          },
+                          "owner": {
+                            "type": "string",
+                            "description": "Owner of the document"
+                          },
+                          "revision": {
+                            "type": "integer",
+                            "description": "Revision number of the document"
+                          },
+                          "size": {
+                            "type": "integer",
+                            "description": "Size of the document"
+                          },
+                          "realm": {
+                            "type": "string",
+                            "description": "Realm context"
+                          },
+                          "mediaType": {
+                            "type": "string",
+                            "description": "Media type of the document"
+                          },
+                          "charset": {
+                            "type": "string",
+                            "description": "Character set of the document"
+                          },
+                          "title": {
+                            "type": "object",
+                            "properties": {
+                              "en": {
+                                "type": "string",
+                                "description": "Title in English"
+                              },
+                              "fr": {
+                                "type": "string",
+                                "description": "Title in French"
+                              }
+                            }
+                          },
+                          "summary": {
+                            "type": "object",
+                            "properties": {
+                              "en": {
+                                "type": "string",
+                                "description": "Summary in English"
+                              },
+                              "es": {
+                                "type": "string",
+                                "description": "Summary in Spanish"
+                              },
+                              "fr": {
+                                "type": "string",
+                                "description": "Summary in French"
+                              },
+                              "ar": {
+                                "type": "string",
+                                "description": "Summary in Arabic"
+                              },
+                              "ru": {
+                                "type": "string",
+                                "description": "Summary in Russian"
+                              },
+                              "zh": {
+                                "type": "string",
+                                "description": "Summary in Chinese"
+                              }
+                            }
+                          },
+                          "createdOn": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Creation date of the document"
+                          },
+                          "createdBy": {
+                            "type": "object",
+                            "properties": {
+                              "userID": {
+                                "type": "integer",
+                                "description": "User ID of the creator"
+                              },
+                              "firstName": {
+                                "type": "string",
+                                "description": "First name of the creator"
+                              },
+                              "lastName": {
+                                "type": "string",
+                                "description": "Last name of the creator"
+                              },
+                              "email": {
+                                "type": "string",
+                                "description": "Email address of the creator"
+                              }
+                            }
+                          },
+                          "updatedOn": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Last update date of the document"
+                          },
+                          "updatedBy": {
+                            "type": "object",
+                            "properties": {
+                              "userID": {
+                                "type": "integer",
+                                "description": "User ID of the updater"
+                              },
+                              "firstName": {
+                                "type": "string",
+                                "description": "First name of the updater"
+                              },
+                              "lastName": {
+                                "type": "string",
+                                "description": "Last name of the updater"
+                              },
+                              "email": {
+                                "type": "string",
+                                "description": "Email address of the updater"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "description": "List of document versions"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "HTTP status code"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Error code"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Error message"
+                    },
+                    "fields": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Fields related to the error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "HTTP status code"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Error code"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Error message"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
