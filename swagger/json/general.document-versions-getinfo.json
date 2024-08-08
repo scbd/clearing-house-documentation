@@ -1,0 +1,281 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Documents API",
+    "version": "2.13.0",
+    "description": "API for retrieving document revision metadata."
+  },
+  "servers": [
+    {
+      "url": "https://absch.cbddev.xyz/api/v2013"
+    }
+  ],
+  "paths": {
+    "/documents/{uid}/versions/{revision}/info": {
+      "get": {
+        "summary": "Get Document Revision Info",
+        "description": "Load document revision metadata.",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "required": true,
+            "description": "Identifier of the document. The value is case-sensitive.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9\\-_]{11,128}$"
+            }
+          },
+          {
+            "name": "revision",
+            "in": "path",
+            "required": true,
+            "description": "Revision number of the document.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Document revision metadata retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "identifier": {
+                      "type": "string",
+                      "example": "abcdefgh-123"
+                    },
+                    "documentID": {
+                      "type": "integer",
+                      "example": 12345
+                    },
+                    "type": {
+                      "type": "string",
+                      "example": "organization"
+                    },
+                    "owner": {
+                      "type": "string",
+                      "example": "user:123"
+                    },
+                    "revision": {
+                      "type": "integer",
+                      "example": 3
+                    },
+                    "size": {
+                      "type": "integer",
+                      "example": 1234
+                    },
+                    "realm": {
+                      "type": "string",
+                      "example": "CHM"
+                    },
+                    "mediaType": {
+                      "type": "string",
+                      "example": "application/json"
+                    },
+                    "charset": {
+                      "type": "string",
+                      "example": "utf-8"
+                    },
+                    "title": {
+                      "type": "object",
+                      "properties": {
+                        "en": {
+                          "type": "string",
+                          "example": "Secretariat of the Convention on Biological Diversity (SCBD)"
+                        },
+                        "fr": {
+                          "type": "string",
+                          "example": "Secrétariat de la Convention sur la diversité biologique (SCDB)"
+                        }
+                      }
+                    },
+                    "summary": {
+                      "type": "object",
+                      "properties": {
+                        "en": {
+                          "type": "string",
+                          "example": "UN and other specialized agency of the UN Common System"
+                        },
+                        "es": {
+                          "type": "string",
+                          "example": "Organismo de la ONU y otros organismos especializados del Sistema Común de la ONU"
+                        },
+                        "fr": {
+                          "type": "string",
+                          "example": "Nations Unies et autres agences spécialisées du régime commun des Nations Unies"
+                        },
+                        "ar": {
+                          "type": "string",
+                          "example": "وكالة من وكالات الأمم المتحدة ووكالات متخصصة أخرى في المنظومة العامة للأمم المتحدة"
+                        },
+                        "ru": {
+                          "type": "string",
+                          "example": "ООН и другое специализированное учреждение общей системы ООН"
+                        },
+                        "zh": {
+                          "type": "string",
+                          "example": "联合国和联合国共同制度的其他专门机构"
+                        }
+                      }
+                    },
+                    "createdOn": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2013-04-08T19:44:04.943Z"
+                    },
+                    "createdBy": {
+                      "type": "object",
+                      "properties": {
+                        "userID": {
+                          "type": "integer",
+                          "example": 123
+                        },
+                        "firstName": {
+                          "type": "string",
+                          "example": "John"
+                        },
+                        "lastName": {
+                          "type": "string",
+                          "example": "Smith"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "fake.john.smith@cbd.int"
+                        }
+                      }
+                    },
+                    "updatedOn": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2013-10-01T22:08:17.073Z"
+                    },
+                    "updatedBy": {
+                      "type": "object",
+                      "properties": {
+                        "userID": {
+                          "type": "integer",
+                          "example": 123
+                        },
+                        "firstName": {
+                          "type": "string",
+                          "example": "John"
+                        },
+                        "lastName": {
+                          "type": "string",
+                          "example": "Smith"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "fake.john.smith@cbd.int"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "identifier",
+                    "documentID",
+                    "type",
+                    "owner",
+                    "revision",
+                    "size",
+                    "realm",
+                    "mediaType",
+                    "charset",
+                    "title",
+                    "summary",
+                    "createdOn",
+                    "createdBy",
+                    "updatedOn",
+                    "updatedBy"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid Parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "invalidParameter"
+                    },
+                    "fields": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "example": ["date"]
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Date format is invalid"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Document Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "example": 404
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "notFound"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Document not found"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "uidParam": {
+        "name": "uid",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9\\-_]{11,128}$"
+        }
+      },
+      "revisionParam": {
+        "name": "revision",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    }
+  }
+}
