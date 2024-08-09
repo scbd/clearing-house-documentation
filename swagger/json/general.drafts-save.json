@@ -1,0 +1,363 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Drafts API",
+    "version": "2.13.0"
+  },
+  "servers": [
+    {
+      "url": "https://absch.cbddev.xyz/api/v2013"
+    }
+  ],
+  "security": [
+    {
+      "BearerAuth": []
+    },
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Add the `Realm` header with value `ABS-DEV`."
+      }
+    }
+  },
+  "paths": {
+    "/documents/{uid}/versions/draft": {
+      "put": {
+        "summary": "Publish an update to a document.",
+        "security": [
+          {
+            "BearerAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9\\-_]{11,128}$"
+            },
+            "description": "Identifier of the document. The value is case-sensitive."
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["application/json"]
+            },
+            "description": "Raw document format mediaType. May vary depending on the document type."
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["application/json"]
+            },
+            "description": "Result format."
+          },
+          {
+            "name": "schema",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Specify the document common-format posted (type / schema)."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Document updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "identifier": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "owner": {
+                      "type": "string"
+                    },
+                    "revision": {
+                      "type": "integer"
+                    },
+                    "size": {
+                      "type": "integer"
+                    },
+                    "realm": {
+                      "type": "string"
+                    },
+                    "mediaType": {
+                      "type": "string"
+                    },
+                    "charset": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "object",
+                      "properties": {
+                        "en": {
+                          "type": "string"
+                        },
+                        "fr": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "summary": {
+                      "type": "object",
+                      "properties": {
+                        "en": {
+                          "type": "string"
+                        },
+                        "es": {
+                          "type": "string"
+                        },
+                        "fr": {
+                          "type": "string"
+                        },
+                        "ar": {
+                          "type": "string"
+                        },
+                        "ru": {
+                          "type": "string"
+                        },
+                        "zh": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "createdOn": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "createdBy": {
+                      "type": "object",
+                      "properties": {
+                        "userID": {
+                          "type": "integer"
+                        },
+                        "firstName": {
+                          "type": "string"
+                        },
+                        "lastName": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "updatedOn": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "updatedBy": {
+                      "type": "object",
+                      "properties": {
+                        "userID": {
+                          "type": "integer"
+                        },
+                        "firstName": {
+                          "type": "string"
+                        },
+                        "lastName": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "workingDocumentID": {
+                      "type": "integer"
+                    },
+                    "workingDocumentCreatedOn": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "workingDocumentCreatedBy": {
+                      "type": "object",
+                      "properties": {
+                        "userID": {
+                          "type": "integer"
+                        },
+                        "firstName": {
+                          "type": "string"
+                        },
+                        "lastName": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "workingDocumentUpdatedOn": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "workingDocumentUpdatedBy": {
+                      "type": "object",
+                      "properties": {
+                        "userID": {
+                          "type": "integer"
+                        },
+                        "firstName": {
+                          "type": "string"
+                        },
+                        "lastName": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "workingDocumentSize": {
+                      "type": "integer"
+                    },
+                    "workingDocumentOwner": {
+                      "type": "string"
+                    },
+                    "workingDocumentTitle": {
+                      "type": "object",
+                      "properties": {
+                        "en": {
+                          "type": "string"
+                        },
+                        "fr": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "workingDocumentSummary": {
+                      "type": "object",
+                      "properties": {
+                        "en": {
+                          "type": "string"
+                        },
+                        "es": {
+                          "type": "string"
+                        },
+                        "fr": {
+                          "type": "string"
+                        },
+                        "ar": {
+                          "type": "string"
+                        },
+                        "ru": {
+                          "type": "string"
+                        },
+                        "zh": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "fields": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

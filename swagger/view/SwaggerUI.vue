@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mt-4">
     <div v-for="(spec, index) in swaggerSpecs" :key="index">
       <div v-if="spec.protected && !authToken">
         <div class="container">
@@ -61,7 +61,7 @@
           </div>
         </div>
       </div>
-      <div :id="`swagger-ui-${index}`"></div>
+      <div :id="spec.domId ? `${spec.domId}-${index}` : `swagger-ui-${index}`"></div>
     </div>
   </div>
 </template>
@@ -69,7 +69,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import "swagger-ui/dist/swagger-ui.css";
-import "../../style.css"
+import "../../style.css";
 
 const props = defineProps({
   swaggerSpecs: {
@@ -78,7 +78,9 @@ const props = defineProps({
     validator: (value) =>
       value.every(
         (spec) =>
-          typeof spec.json === "object" && typeof spec.protected === "boolean"
+          typeof spec.json === "object" &&
+          typeof spec.protected === "boolean" &&
+          (!spec.domId || typeof spec.domId === "string")
       ),
   },
 });
@@ -108,9 +110,10 @@ const handleMessage = (event) => {
 const initializeSwaggerUI = () => {
   props.swaggerSpecs.forEach(async (swaggerSpec, index) => {
     const SwaggerUI = (await import("swagger-ui")).default;
+     const domId = swaggerSpec.domId ? `${swaggerSpec.domId}-${index}` : `swagger-ui-${index}`;
     const ui = SwaggerUI({
       spec: swaggerSpec.json,
-      dom_id: `#swagger-ui-${index}`,
+      dom_id: `#${domId}`,
       presets: [SwaggerUI.presets.apis, SwaggerUI.SwaggerUIStandalonePreset],
       layout: "BaseLayout",
     });
@@ -134,7 +137,7 @@ const initializeSwaggerUI = () => {
         });
       });
 
-      const targetNode = document.getElementById(`swagger-ui-${index}`);
+      const targetNode = document.getElementById(domId);
       const config = { childList: true, subtree: true };
 
       observer.observe(targetNode, config);
@@ -147,7 +150,7 @@ const initializeSwaggerUI = () => {
         });
       });
 
-      const targetNode = document.getElementById(`swagger-ui-${index}`);
+      const targetNode = document.getElementById(domId);
       const config = { childList: true, subtree: true };
 
       observer.observe(targetNode, config);
@@ -166,7 +169,7 @@ const initializeSwaggerUI = () => {
       }
     });
 
-    const targetNode = document.getElementById(`swagger-ui-${index}`);
+    const targetNode = document.getElementById(domId);
     const config = { childList: true, subtree: true };
 
     observer.observe(targetNode, config);
