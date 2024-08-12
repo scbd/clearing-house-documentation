@@ -1,0 +1,182 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Draft Locks API",
+    "version": "2.13.0",
+    "description": "API for managing draft locks."
+  },
+  "servers": [
+    {
+      "url": "https://absch.cbddev.xyz/api/v2013"
+    }
+  ],
+  "security": [
+    {
+      "BearerAuth": []
+    },
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Add the `Realm` header with value `ABS-DEV`."
+      }
+    }
+  },
+  "paths": {
+    "/documents/{uid}/versions/draft/locks": {
+      "get": {
+        "summary": "Load list of locks on draft.",
+        "description": "Retrieve a list of locks on a draft document.",
+        "operationId": "listDraftLocks",
+        "security": [
+          {
+            "BearerAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9\\-_]{11,128}$"
+            },
+            "description": "Identifier of the document. The value is case-sensitive."
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["application/json"]
+            },
+            "description": "Result format."
+          },
+          {
+            "name": "realm",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "enum": ["ABS", "CHM", "BCH", "ABS-DEV", "BCH-DEV", "CHM-DEV"]
+            },
+            "description": "Context in which the Clearing-House request is made."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the list of locks on the draft document.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "lockID": {
+                        "type": "string"
+                      },
+                      "lockedOn": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "lockedBy": {
+                        "type": "object",
+                        "properties": {
+                          "userID": {
+                            "type": "integer"
+                          },
+                          "firstName": {
+                            "type": "string"
+                          },
+                          "lastName": {
+                            "type": "string"
+                          },
+                          "email": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Document not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

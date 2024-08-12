@@ -1,0 +1,173 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Draft Locks API",
+    "version": "2.13.0"
+  },
+  "servers": [
+    {
+      "url": "https://absch.cbddev.xyz/api/v2013"
+    }
+  ],
+  "paths": {
+    "/documents/{uid}/versions/draft/locks/{lockID}": {
+      "get": {
+        "summary": "Tells if a draft lock exists.",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9\\-_]{11,128}$"
+            },
+            "description": "Identifier of the document. The value is case-sensitive."
+          },
+          {
+            "name": "lockID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9\\-_]{11,128}$"
+            },
+            "description": "Identifier that uniquely identifies a lock."
+          },
+          {
+            "name": "realm",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "enum": ["ABS", "CHM", "BCH", "ABS-DEV", "BCH-DEV", "CHM-DEV"]
+            },
+            "description": "Context in which the Clearing-House request is made."
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["application/json"]
+            },
+            "description": "Result format."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft lock exists.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "exists": {
+                      "type": "boolean",
+                      "example": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Document or lock not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "example": 404
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "notFound"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Document not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "example": 401
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "example": 403
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "forbidden"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request due to invalid parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "invalidParameter"
+                    },
+                    "fields": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "example": ["date"]
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Date format is invalid"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
