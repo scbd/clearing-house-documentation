@@ -17,4 +17,6 @@ Query parameters provide additional options for the request. The `schema` parame
 
 <!--@include: ../common/validation-error.md-->
 
+## Request Body
+
 <!--@include: ./request-body.md-->
