@@ -1,0 +1,415 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Drafts API",
+    "version": "2.13.0",
+    "description": "API for managing drafts and document versions."
+  },
+  "servers": [
+    {
+      "url": "https://absch.cbddev.xyz/api/v2013"
+    }
+  ],
+  "security": [
+    {
+      "BearerAuth": []
+    },
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Add the `Realm` header with value `ABS-DEV`."
+      }
+    }
+  },
+  "paths": {
+    "/documents/{uid}/versions/draft/info": {
+      "get": {
+        "summary": "Load a Clearing-House document's metadata",
+        "operationId": "getDraftInfo",
+        "security": [
+          {
+            "BearerAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9\\-_]{11,128}$"
+            },
+            "description": "Identifier of the document. The value is case-sensitive."
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["application/json"]
+            },
+            "description": "Result format. Allowed value: 'application/json'."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Metadata for the document draft retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "identifier": {
+                      "type": "string",
+                      "example": "abcdefgh-123"
+                    },
+                    "type": {
+                      "type": "string",
+                      "example": "organization"
+                    },
+                    "owner": {
+                      "type": "string",
+                      "example": "SCBD"
+                    },
+                    "revision": {
+                      "type": "integer",
+                      "example": 0
+                    },
+                    "size": {
+                      "type": "integer",
+                      "example": 0
+                    },
+                    "realm": {
+                      "type": "string",
+                      "example": "CHM"
+                    },
+                    "mediaType": {
+                      "type": "string",
+                      "example": "application/json"
+                    },
+                    "charset": {
+                      "type": "string",
+                      "example": "utf-8"
+                    },
+                    "title": {
+                      "type": "object",
+                      "properties": {
+                        "en": {
+                          "type": "string",
+                          "example": "Secretariat of the Convention on Biological Diversity (SCBD)"
+                        },
+                        "fr": {
+                          "type": "string",
+                          "example": "Secrétariat de la Convention sur la diversité biologique (SCDB)"
+                        }
+                      }
+                    },
+                    "summary": {
+                      "type": "object",
+                      "properties": {
+                        "en": {
+                          "type": "string",
+                          "example": "UN and other specialized agency of the UN Common System"
+                        },
+                        "es": {
+                          "type": "string",
+                          "example": "Organismo de la ONU y otros organismos especializados del Sistema Común de la ONU"
+                        },
+                        "fr": {
+                          "type": "string",
+                          "example": "Nations Unies et autres agences spécialisées du régime commun des Nations Unies"
+                        },
+                        "ar": {
+                          "type": "string",
+                          "example": "وكالة من وكالات الأمم المتحدة ووكالات متخصصة أخرى في المنظومة العامة للأمم المتحدة"
+                        },
+                        "ru": {
+                          "type": "string",
+                          "example": "ООН и другое специализированное учреждение общей системы ООН"
+                        },
+                        "zh": {
+                          "type": "string",
+                          "example": "联合国和联合国共同制度的其他专门机构"
+                        }
+                      }
+                    },
+                    "createdOn": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2014-11-07T19:42:51.43Z"
+                    },
+                    "createdBy": {
+                      "type": "object",
+                      "properties": {
+                        "userID": {
+                          "type": "integer",
+                          "example": 123
+                        },
+                        "firstName": {
+                          "type": "string",
+                          "example": "John"
+                        },
+                        "lastName": {
+                          "type": "string",
+                          "example": "Smith"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "fake.john.smith@cbd.int"
+                        }
+                      }
+                    },
+                    "updatedOn": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2014-11-07T19:42:51.43Z"
+                    },
+                    "updatedBy": {
+                      "type": "object",
+                      "properties": {
+                        "userID": {
+                          "type": "integer",
+                          "example": 123
+                        },
+                        "firstName": {
+                          "type": "string",
+                          "example": "John"
+                        },
+                        "lastName": {
+                          "type": "string",
+                          "example": "Smith"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "fake.john.smith@cbd.int"
+                        }
+                      }
+                    },
+                    "workingDocumentID": {
+                      "type": "integer",
+                      "example": 987654
+                    },
+                    "workingDocumentCreatedOn": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2014-11-07T19:42:51.43Z"
+                    },
+                    "workingDocumentCreatedBy": {
+                      "type": "object",
+                      "properties": {
+                        "userID": {
+                          "type": "integer",
+                          "example": 123
+                        },
+                        "firstName": {
+                          "type": "string",
+                          "example": "John"
+                        },
+                        "lastName": {
+                          "type": "string",
+                          "example": "Smith"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "fake.john.smith@cbd.int"
+                        }
+                      }
+                    },
+                    "workingDocumentUpdatedOn": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2014-11-07T19:42:51.43Z"
+                    },
+                    "workingDocumentUpdatedBy": {
+                      "type": "object",
+                      "properties": {
+                        "userID": {
+                          "type": "integer",
+                          "example": 123
+                        },
+                        "firstName": {
+                          "type": "string",
+                          "example": "John"
+                        },
+                        "lastName": {
+                          "type": "string",
+                          "example": "Smith"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "fake.john.smith@cbd.int"
+                        }
+                      }
+                    },
+                    "workingDocumentSize": {
+                      "type": "integer",
+                      "example": 518
+                    },
+                    "workingDocumentOwner": {
+                      "type": "string",
+                      "example": "SCBD"
+                    },
+                    "workingDocumentTitle": {
+                      "type": "object",
+                      "properties": {
+                        "en": {
+                          "type": "string",
+                          "example": "Secretariat of the Convention on Biological Diversity (SCBD)"
+                        },
+                        "fr": {
+                          "type": "string",
+                          "example": "Secrétariat de la Convention sur la diversité biologique (SCDB)"
+                        }
+                      }
+                    },
+                    "workingDocumentSummary": {
+                      "type": "object",
+                      "properties": {
+                        "en": {
+                          "type": "string",
+                          "example": "UN and other specialized agency of the UN Common System"
+                        },
+                        "es": {
+                          "type": "string",
+                          "example": "Organismo de la ONU y otros organismos especializados del Sistema Común de la ONU"
+                        },
+                        "fr": {
+                          "type": "string",
+                          "example": "Nations Unies et autres agences spécialisées du régime commun des Nations Unies"
+                        },
+                        "ar": {
+                          "type": "string",
+                          "example": "وكالة من وكالات الأمم المتحدة ووكالات متخصصة أخرى في المنظومة العامة للأمم المتحدة"
+                        },
+                        "ru": {
+                          "type": "string",
+                          "example": "ООН и другое специализированное учреждение общей системы ООН"
+                        },
+                        "zh": {
+                          "type": "string",
+                          "example": "联合国和联合国共同制度的其他专门机构"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "invalidParameter"
+                    },
+                    "fields": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "example": ["date"]
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Date format is invalid"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication credentials were missing or incorrect.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "example": 401
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The request was valid, but the server is refusing to respond to it.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "example": 403
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "forbidden"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested document does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "example": 404
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "notFound"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Document not found"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
