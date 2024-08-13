@@ -1,0 +1,192 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Drafts API",
+    "version": "2.13.0",
+    "description": "API to load documents data in raw format."
+  },
+  "servers": [
+    {
+      "url": "https://absch.cbddev.xyz/api/v2013"
+    }
+  ],
+  "security": [
+    {
+      "BearerAuth": []
+    },
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Add the `Realm` header with value `ABS-DEV`."
+      }
+    }
+  },
+  "paths": {
+    "/documents/{uid}/versions/draft": {
+      "get": {
+        "summary": "Load documents data in raw format",
+        "operationId": "getDraftDocument",
+        "security": [
+          {
+            "BearerAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9\\-_]{11,128}$"
+            },
+            "description": "Identifier of the document. The value is case-sensitive."
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["*", "application/json"]
+            },
+            "description": "Result format. `*` for raw data as submitted, `application/json` for JSON format."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success. The document data in raw format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "example": "RAW-DATA ..."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request. Invalid parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "fields": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Optional error message."
+                    }
+                  },
+                  "example": {
+                    "statusCode": 400,
+                    "code": "invalidParameter",
+                    "fields": ["date"],
+                    "message": "Date format is invalid"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. Authentication failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 401,
+                    "code": "unauthorized"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden. Access denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 403,
+                    "code": "forbidden"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found. Document not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Optional error message."
+                    }
+                  },
+                  "example": {
+                    "statusCode": 404,
+                    "code": "notFound",
+                    "message": "Document not found"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

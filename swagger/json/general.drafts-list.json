@@ -1,0 +1,234 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Drafts API",
+    "version": "2.13.0",
+    "description": "API for managing document drafts."
+  },
+  "servers": [
+    {
+      "url": "https://absch.cbddev.xyz/api/v2013"
+    }
+  ],
+  "security": [
+    {
+      "BearerAuth": []
+    },
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Add the `Realm` header with value `ABS-DEV`."
+      }
+    }
+  },
+  "paths": {
+    "/document-drafts": {
+      "get": {
+        "summary": "Load a collection of document drafts info",
+        "operationId": "listDocumentDrafts",
+        "security": [
+          {
+            "BearerAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["application/json"]
+            },
+            "description": "Result format. Allowed value: application/json"
+          },
+          {
+            "name": "collection",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": ["my", "mydrafts"]
+            },
+            "description": "The collection system query option allows clients to filter a collection of resources."
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The `$filter` system query option allows clients to filter a collection of resources. [See OData $filter](https://www.odata.org/documentation/odata-v4/uri-conventions/#filter-system-query-option)."
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The `$orderby` system query option allows clients to request resources in a particular order. [See OData $orderby](https://www.odata.org/documentation/odata-v4/uri-conventions/#orderby-system-query-option)."
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The `$top` system query option requests the number of items in the queried collection to be included in the result. [See OData $top](https://www.odata.org/documentation/odata-v4/uri-conventions/#top-system-query-option)."
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The `$skip` query option requests the number of items in the queried collection that are to be skipped and not included in the result. [See OData $skip](https://www.odata.org/documentation/odata-v4/uri-conventions/#skip-system-query-option)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Count": {
+                      "type": "integer",
+                      "example": 12
+                    },
+                    "Items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "identifier": {
+                            "type": "string",
+                            "example": "012345abcd"
+                          },
+                          "type": {
+                            "type": "string",
+                            "example": "resource"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "example": 400
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "invalidParameter"
+                    },
+                    "fields": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "example": ["date"]
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Date format is invalid"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "example": 401
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "example": 403
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "forbidden"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "example": 404
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "notFound"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "No drafts found"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

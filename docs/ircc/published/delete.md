@@ -15,6 +15,8 @@ This endpoint allows you to delete a specific document identified by its unique 
 
 **DELETE** `/api/v2013/documents/:uid`
 
+## Header
+
 <!--@include: ../../../components/common/authorization-header.md-->
 
 <!--@include: ../../../components/common/url-uid-parameter-section.md-->

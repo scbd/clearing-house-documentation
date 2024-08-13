@@ -1,7 +1,14 @@
+## Get Info
+
+### Endpoint
+
+**GET** `/api/v2013/documents/:uid/versions/:revision/info`
+
+### Headers
+
 | Field            | Type    | Description                                                                       |
 | ---------------- | ------- | --------------------------------------------------------------------------------- |
 | Content-Type     | String &nbsp;&nbsp;  | Raw document format mediaType. Allowed values: `application/json`                 |
-| Authorization    | String  | Token to use to authenticate the request                                          |
 | Realm            | String  | Context in which the Clearing-House request is made. Allowed values: `ABS`, `CHM`, `BCH` |
 | Accept           | String  | Result format. Allowed values: `application/json`                                 |
 
@@ -10,5 +17,14 @@
 - `BCH-DEV`: Development environment for BCH
 - `CHM-DEV`: Development environment for CHM
 
+### URL Parameters
 
-Headers required to authenticate and define the context and format of the request and response. The `Authorization` header must contain a valid token, while the `Content-Type` and `Accept` headers specify the format of the document and response, respectively. [Here are the steps to get the Authorization token](/user/authentication).
+| Field     | Type   | Description                                       |
+| --------- | ------ | ------------------------------------------------- |
+| `uid`     | String &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; | Identifier of the document. The value is case-sensitive. Allowed values: `/^[A-Za-z0-9\-_]{11, 128}$/` |
+| `revision`| Number | Revision number of the document. Allowed values: `1+` |
+
+
+### Playground
+
+<SwaggerUI :swaggerSpecs="swaggerGetInfoSpecs" />

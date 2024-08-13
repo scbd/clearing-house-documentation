@@ -1,3 +1,10 @@
+## Unlock
+
+### Endpoint
+**DELETE** `/api/v2013//api/v2013/documents/:uid/versions/draft/locks/:lockID`
+
+### Headers
+
 | Field            | Type    | Description                                                                       |
 | ---------------- | ------- | --------------------------------------------------------------------------------- |
 | Content-Type     | String &nbsp;&nbsp;  | Raw document format mediaType. Allowed values: `application/json`                 |
@@ -11,4 +18,13 @@
 - `CHM-DEV`: Development environment for CHM
 
 
-Headers required to authenticate and define the context and format of the request and response. The `Authorization` header must contain a valid token, while the `Content-Type` and `Accept` headers specify the format of the document and response, respectively. [Here are the steps to get the Authorization token](/user/authentication).
+### URL Parameters
+
+| Field | Type   | Description                                    |
+| ----- | ------ | ---------------------------------------------- |
+| uid   | String | Identifier of the document. The value is case-sensitive. Allowed values: `/^[A-Za-z0-9\-_]{11,128}$/`  |
+| lockID | String | Identifier that uniquely identifies a lock. |
+
+### Playground
+
+<SwaggerUI :swaggerSpecs="swaggerUnLockSpecs" />
