@@ -30,4 +30,4 @@ URL parameters include essential identifiers for the document. The `uid` paramet
 
 ### Playground
 
-<SwaggerUI :swaggerJson="swaggerUpdateJson" :protected="true" domId="swaggerUpdate" />
+<SwaggerUI :swaggerSpecs="swaggerUpdateSpecs" />
