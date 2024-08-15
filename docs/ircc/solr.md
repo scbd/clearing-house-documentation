@@ -34,7 +34,7 @@ The query parameters allow clients to filter and sort the search results based o
 
 | Field | Type  | Description  |
 | ----- | ----- | ------------ |
-| q     | String &nbsp;&nbsp; | The main query parameter used to search for documents. It specifies the search criteria and is the most crucial parameter. For detailed syntax, refer to the [Solr query syntax](https://solr.apache.org/guide/8_11/query-syntax-and-parsing.html). <br /><br />[The detail breakdown is mentioned in the below table](/ircc/published/solr.html#detailed-breakdown-of-q-parameter) |
+| q     | String | The main query parameter used to search for documents. It specifies the search criteria and is the most crucial parameter. For detailed syntax, refer to the [Solr query syntax](https://solr.apache.org/guide/8_11/query-syntax-and-parsing.html). <br /><br />[The detail breakdown is mentioned in the below table](/ircc/solr.html#detailed-breakdown-of-q-parameter) |
 | fl    | String              | Fields to return in the search results. Use comma-separated field names to specify which fields should be included in the response.     |
 | sort  | String              | Specifies the sort order of the results. The format is fieldname desc for descending or fieldname asc for ascending.   |
 | start | String              | The starting offset for the results. This parameter allows pagination by specifying the index of the first result to return.             |
@@ -47,7 +47,7 @@ The `q` parameter is used to define the search criteria in Solr queries. It can 
 
 | Field      | Type                | Description   |
 | ---------- | ------------------- | ------------- |
-| realm      | String &nbsp;&nbsp; | The realm parameter specifies the realm of the documents to be searched. It filters results based on the realm value. Example: `realm_ss:ABS-DEV`.                                              |
+| realm      | String | The realm parameter specifies the realm of the documents to be searched. It filters results based on the realm value. Example: `realm_ss:ABS-DEV`.                                              |
 | schema     | String              | The schema parameter defines the schema to filter the documents. Example: `schema_s:absPermit`.  |
 | government | String              | The government parameter filters documents based on the government ISO codes. Example: `government_s:ht`. The ISO codes can be received from [the countries API](/thesaurus/general/countries). |
 
