@@ -1,29 +1,17 @@
 ## Unlock
 
+### Overview
+
+The "Unlock" endpoint is used to remove or release a lock from the draft version of a specific document. This operation is essential for managing document access and ensuring that locks on documents are properly released when they are no longer needed. By unlocking a document, you allow other users to gain access and make changes to the draft version.
+
 ### Endpoint
 **DELETE** `/api/v2013//api/v2013/documents/:uid/versions/draft/locks/:lockID`
 
 ### Headers
-
-| Field            | Type    | Description                                                                       |
-| ---------------- | ------- | --------------------------------------------------------------------------------- |
-| Content-Type     | String &nbsp;&nbsp;  | Raw document format mediaType. Allowed values: `application/json`                 |
-| Authorization    | String  | Token to use to authenticate the request                                          |
-| Realm            | String  | Context in which the Clearing-House request is made. Allowed values: `ABS`, `CHM`, `BCH` |
-| Accept           | String  | Result format. Allowed values: `application/json`                                 |
-
-**Realm Values for Development:**
-- `ABS-DEV`: Development environment for ABS
-- `BCH-DEV`: Development environment for BCH
-- `CHM-DEV`: Development environment for CHM
-
+<!--@include: ../../common/header/authorization-realm.md-->
 
 ### URL Parameters
-
-| Field | Type   | Description                                    |
-| ----- | ------ | ---------------------------------------------- |
-| uid   | String | Identifier of the document. The value is case-sensitive. Allowed values: `/^[A-Za-z0-9\-_]{11,128}$/`  |
-| lockID | String | Identifier that uniquely identifies a lock. |
+<!--@include: ../../common/url/uid-lockid.md-->
 
 ### Playground
 

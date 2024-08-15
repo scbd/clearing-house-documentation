@@ -1,10 +1,10 @@
 <script setup>
 import SwaggerUI from "../../swagger/view/SwaggerUI.vue"
-import swaggerExistsJson from "../../swagger/json/general.draft-locks-exists.json";
-import swaggerGetJson from "../../swagger/json/general.draft-locks-get.json";
-import swaggerListJson from "../../swagger/json/general.draft-locks-list.json";
-import swaggerLockJson from "../../swagger/json/general.draft-locks-lock.json";
-import swaggerUnLockJson from "../../swagger/json/general.draft-locks-unlock.json";
+import swaggerExistsJson from "../../swagger/json/general/draft-locks/exists.json";
+import swaggerGetJson from "../../swagger/json/general/draft-locks/get.json";
+import swaggerListJson from "../../swagger/json/general/draft-locks/list.json";
+import swaggerLockJson from "../../swagger/json/general/draft-locks/lock.json";
+import swaggerUnLockJson from "../../swagger/json/general/draft-locks/unlock.json";
 
 const swaggerExistsSpecs = [
   { json: swaggerExistsJson, domId:"exists", protected:false },

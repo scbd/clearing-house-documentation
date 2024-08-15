@@ -1,29 +1,18 @@
 ## List
 
+### Overview
+
+The "List" endpoint retrieves a collection of locks associated with the draft version of a specific document. This endpoint is essential for managing and monitoring document locks within a draft workflow. It provides a comprehensive view of all active and relevant locks for a given document, helping users understand the current lock status and resolve any conflicts that may arise during document editing.
+
 
 ### Endpoint
 **GET** `/api/v2013/documents/:uid/versions/draft/locks`
 
-
 ### Headers
-
-| Field            | Type    | Description                                                                       |
-| ---------------- | ------- | --------------------------------------------------------------------------------- |
-| Content-Type     | String &nbsp;&nbsp;  | Raw document format mediaType. Allowed values: `application/json`                 |
-| Authorization    | String  | Token to use to authenticate the request                                          |
-| Realm            | String  | Context in which the Clearing-House request is made. Allowed values: `ABS`, `CHM`, `BCH` |
-| Accept           | String  | Result format. Allowed values: `application/json`                                 |
-
-**Realm Values for Development:**
-- `ABS-DEV`: Development environment for ABS
-- `BCH-DEV`: Development environment for BCH
-- `CHM-DEV`: Development environment for CHM
+<!--@include: ../../common/header/authorization-realm.md-->
 
 ### URL Parameters
-
-| Field | Type   | Description                                    |
-| ----- | ------ | ---------------------------------------------- |
-| uid   | String | Identifier of the document. The value is case-sensitive. Allowed values: `/^[A-Za-z0-9\-_]{11,128}$/`  |
+<!--@include: ../../common/url/uid.md-->
 
 ### Playground
 
