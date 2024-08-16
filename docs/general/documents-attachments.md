@@ -1,10 +1,10 @@
 <script setup>
 import SwaggerUI from "../../swagger/view/SwaggerUI.vue"
-import swaggerExistsJson from "../../swagger/json/general.documents-attachments-exists.json";
-import swaggerThumbnailJson from "../../swagger/json/general.documents-attachments-thumbnail.json";
-import swaggerGetJson from "../../swagger/json/general.documents-attachments-get.json";
-import swaggerListJson from "../../swagger/json/general.documents-attachments-list.json";
-import swaggerUpdateJson from "../../swagger/json/general.documents-attachments-update.json";
+import swaggerExistsJson from "../../swagger/json/general/document-attachments/exists.json";
+import swaggerThumbnailJson from "../../swagger/json/general/document-attachments/thumbnail.json";
+import swaggerGetJson from "../../swagger/json/general/document-attachments/get.json";
+import swaggerListJson from "../../swagger/json/general/document-attachments/list.json";
+import swaggerUpdateJson from "../../swagger/json/general/document-attachments/update.json";
 
 const swaggerExistsSpecs = [
   { json: swaggerExistsJson, domId:"exists" },

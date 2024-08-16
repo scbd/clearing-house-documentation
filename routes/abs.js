@@ -71,28 +71,32 @@ export default {
       collapsed: false,
       items: [
         {
+          text: "All Schema",
+          link: "/ircc/schema",
+        },
+        {
           text: "Public Records",
-          link: "/ircc/published/solr",
+          link: "/ircc/solr",
         },
         {
           text: "Draft Records",
-          link: "/ircc/published/list",
+          link: "/ircc/list",
         },
         {
           text: "Get",
-          link: "/ircc/published/get",
+          link: "/ircc/get",
         },
         {
           text: "Create",
-          link: "/ircc/published/create",
+          link: "/ircc/create",
         },
         {
           text: "Update",
-          link: "/ircc/published/update",
+          link: "/ircc/update",
         },
         {
           text: "Delete",
-          link: "/ircc/published/delete",
+          link: "/ircc/delete",
         },
       ],
     },

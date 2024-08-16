@@ -1,6 +1,6 @@
 The table below outlines the structure of the request body, including the fields, their types, and whether they are mandatory. Example values are provided for clarity.
 
-<table style="table-layout: fixed; width: 100%;">
+<table class="ircc__table" style="table-layout: fixed; width: 100%;">
   <thead>
     <tr>
       <th style="width: 40%;">Title</th>

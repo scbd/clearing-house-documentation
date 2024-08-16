@@ -1,32 +1,18 @@
 ## Get
 
+### Overview
+
+The "Get" API endpoint retrieves the draft version of a document based on the provided document identifier (`uid`). This endpoint is used to fetch the full content of the draft version, which includes all its details and attributes. It is particularly useful for reviewing or working with the draft before making any updates or finalizing the document.
+
 ### Endpoint
 
 **GET** `/api/v2013/documents/:uid/versions/draft`
 
 ### Headers
-
-| Field            | Type    | Description                                                                       |
-| ---------------- | ------- | --------------------------------------------------------------------------------- |
-| Content-Type     | String &nbsp;&nbsp;  | Raw document format mediaType. Allowed values: `application/json`                 |
-| Authorization    | String  | Token to use to authenticate the request                                          |
-| Realm            | String  | Context in which the Clearing-House request is made. Allowed values: `ABS`, `CHM`, `BCH` |
-| Accept           | String  | Result format. Allowed values: `application/json`                                 |
-
-**Realm Values for Development:**
-- `ABS-DEV`: Development environment for ABS
-- `BCH-DEV`: Development environment for BCH
-- `CHM-DEV`: Development environment for CHM
-
-
-Headers required to authenticate and define the context and format of the request and response. The `Authorization` header must contain a valid token, while the `Content-Type` and `Accept` headers specify the format of the document and response, respectively. [Here are the steps to get the Authorization token](/user/authentication).
-
+<!--@include: ../../common/header/authorization-realm.md-->
 
 ### URL Parameters
-
-| Field     | Type   | Description                                                                                      |
-| --------- | ------ | ------------------------------------------------------------------------------------------------ |
-| uid       | String | Identifier of the document. The value is case-sensitive. Allowed values: `/^[A-Za-z0-9\-_]{11,128}$/` |
+<!--@include: ../../common/url/uid.md-->
 
 ### Playground
 

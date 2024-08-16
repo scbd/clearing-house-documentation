@@ -1,0 +1,141 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Documentation",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbd.int/api/v2013"
+    }
+  ],
+  "paths": {
+    "/thesaurus/domains/countries/terms": {
+      "get": {
+        "summary": "Retrieve a list of country terms",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "termId": {
+                        "type": "integer",
+                        "example": 1217
+                      },
+                      "identifier": {
+                        "type": "string",
+                        "example": "ad"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Andorra"
+                      },
+                      "title": {
+                        "type": "object",
+                        "properties": {
+                          "en": {
+                            "type": "string",
+                            "example": "Andorra"
+                          },
+                          "es": {
+                            "type": "string",
+                            "example": "Andorra"
+                          },
+                          "fr": {
+                            "type": "string",
+                            "example": "Andorre"
+                          },
+                          "ar": {
+                            "type": "string",
+                            "example": "\u0623\u0646\u062f\u0648\u0631\u0627"
+                          },
+                          "ru": {
+                            "type": "string",
+                            "example": "\u0410\u043d\u0434\u043e\u0440\u0440\u0430"
+                          },
+                          "zh": {
+                            "type": "string",
+                            "example": "\u5b89\u9053\u5c14"
+                          }
+                        }
+                      },
+                      "shortTitle": {
+                        "type": "object"
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "Andorra"
+                      },
+                      "longDescription": {
+                        "type": "object",
+                        "properties": {
+                          "en": {
+                            "type": "string",
+                            "example": "Andorra"
+                          },
+                          "es": {
+                            "type": "string",
+                            "example": "Andorra"
+                          },
+                          "fr": {
+                            "type": "string",
+                            "example": "Andorre"
+                          },
+                          "ar": {
+                            "type": "string",
+                            "example": "\u0623\u0646\u062f\u0648\u0631\u0627"
+                          },
+                          "ru": {
+                            "type": "string",
+                            "example": "\u0410\u043d\u0434\u043e\u0440\u0440\u0430"
+                          },
+                          "zh": {
+                            "type": "string",
+                            "example": "\u5b89\u9053\u5c14"
+                          }
+                        }
+                      },
+                      "source": {
+                        "type": "string",
+                        "example": "UN website"
+                      },
+                      "broaderTerms": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "narrowerTerms": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "relatedTerms": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "nonPreferedTerms": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

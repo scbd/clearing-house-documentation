@@ -1,15 +1,23 @@
 <script setup>
 import SwaggerUI from "../../swagger/view/SwaggerUI.vue"
-import swaggerJson from "../../swagger/json/user.authentication.json";
+import swaggerJson from "../../swagger/json/user/authentication.json";
+const swaggerSpecs = [
+  { json: swaggerJson, protected: false },
+];
 </script>
 
 # User - Authentication
+
+## Overview
+
+The "User - Authentication" endpoint allows users to authenticate and obtain an authorization token for accessing secured API endpoints. This process is crucial for ensuring that only authenticated users can perform operations within the system. By providing your email address and password, you can request an authentication token that grants access to further API interactions.
 
 ## Endpoint
 
 **POST** `/api/v2013/authentication/token`
 
-<!--@include: ../../components/common/header-content.md-->
+## Headers
+<!--@include: ../../components/common/header/accept.md-->
 
 ## Request Payload
 
@@ -47,4 +55,4 @@ This authentication process ensures secure access to the API endpoints using you
 
 ## Playground
 
-<SwaggerUI :swaggerJson="swaggerJson" />
+<SwaggerUI :swaggerSpecs="swaggerSpecs" />

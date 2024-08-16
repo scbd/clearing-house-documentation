@@ -1,11 +1,11 @@
 <script setup>
 import SwaggerUI from "../../swagger/view/SwaggerUI.vue"
-import swaggerDeleteJson from "../../swagger/json/general.drafts-delete.json";
-import swaggerExistsJson from "../../swagger/json/general.drafts-exists.json";
-import swaggerGetInfoJson from "../../swagger/json/general.drafts-get_info.json";
-import swaggerGetJson from "../../swagger/json/general.drafts-get.json";
-import swaggerListJson from "../../swagger/json/general.drafts-list.json";
-import swaggerSaveJson from "../../swagger/json/general.drafts-save.json";
+import swaggerDeleteJson from "../../swagger/json/general/drafts/delete.json";
+import swaggerExistsJson from "../../swagger/json/general/drafts/exists.json";
+import swaggerGetInfoJson from "../../swagger/json/general/drafts/get-info.json";
+import swaggerGetJson from "../../swagger/json/general/drafts/get.json";
+import swaggerListJson from "../../swagger/json/general/drafts/list.json";
+import swaggerSaveJson from "../../swagger/json/general/drafts/save.json";
 
 const swaggerDeleteSpecs = [
   { json: swaggerDeleteJson, domId:"delete", protected:true },
