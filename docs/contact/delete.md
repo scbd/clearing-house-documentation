@@ -1,9 +1,16 @@
 <script setup>
 import SwaggerUI from "../../swagger/view/SwaggerUI.vue"
-import swaggerJson from "../../swagger/json/ircc/delete.json";
+import contactJson from "../../swagger/json/contact/delete.json";
+import baseJson from "../../swagger/json/records/delete.json";
+
+function mergeJson(base, specific) {
+  const merged = JSON.parse(JSON.stringify(base));
+  merged.paths["/documents/{uid}"].delete.parameters[1].schema.example = specific.example;
+  return merged;
+}
 
 const swaggerSpecs = [
-  { json: swaggerJson, protected: true },
+  { json: mergeJson(baseJson, contactJson), protected: true },
 ];
 </script>
 

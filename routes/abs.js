@@ -113,6 +113,10 @@ export default {
           link: "/contact/schema",
         },
         {
+          text: "Public Records",
+          link: "/contact/solr",
+        },
+        {
           text: "Draft Records",
           link: "/contact/list",
         },

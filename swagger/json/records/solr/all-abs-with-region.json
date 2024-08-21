@@ -1,0 +1,115 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Solr API",
+    "version": "1.0.0",
+    "description": "API for querying Solr with specific country region criteria."
+  },
+  "servers": [
+    {
+      "url": "https://absch.cbddev.xyz/api/v2013",
+      "description": "Solr API Server"
+    }
+  ],
+  "paths": {
+    "/index": {
+      "get": {
+        "summary": "Query with specific country region criteria",
+        "description": "Retrieve permits by schema and country region criteria.",
+        "tags": ["Get results with region"],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "(schema_s:absPermit)AND(countryRegions_ss:5E5B7AA4\\-2420\\-4147\\-825B\\-0820F7EC5A4B)"
+            },
+            "description": "Query parameter for searching results based on schema and country region criteria."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of permits matching the criteria",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "response": {
+                      "type": "object",
+                      "properties": {
+                        "numFound": {
+                          "type": "integer",
+                          "description": "Total number of permits found"
+                        },
+                        "start": {
+                          "type": "integer",
+                          "description": "Start index of the results"
+                        },
+                        "docs": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "description": "Permit ID"
+                              },
+                              "title": {
+                                "type": "string",
+                                "description": "Title of the permit"
+                              },
+                              "issuedDate": {
+                                "type": "string",
+                                "format": "date",
+                                "description": "Date the permit was issued"
+                              },
+                              "expirationDate": {
+                                "type": "string",
+                                "format": "date",
+                                "description": "Date the permit expires"
+                              },
+                              "countryRegions": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "description": "Country region identifiers associated with the permit"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "response": {
+                    "numFound": 50,
+                    "start": 0,
+                    "docs": [
+                      {
+                        "id": "12345",
+                        "title": "Example Permit Title",
+                        "issuedDate": "2024-01-10",
+                        "expirationDate": "2025-01-10",
+                        "countryRegions": [
+                          "5E5B7AA4-2420-4147-825B-0820F7EC5A4B"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request, possibly due to malformed query parameter"
+          }
+        }
+      }
+    }
+  }
+}
