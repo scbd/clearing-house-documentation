@@ -71,7 +71,7 @@ export default {
       collapsed: false,
       items: [
         {
-          text: "All Schema",
+          text: "Schema",
           link: "/ircc/schema",
         },
         {
@@ -100,7 +100,24 @@ export default {
         },
       ],
     },
-    
+    {
+      text: "CNA",
+      collapsed: true,
+      items: [
+        {
+          text: "Schema",
+          link: "/cna/schema",
+        },
+        {
+          text: "Public Records",
+          link: "/cna/solr",
+        },
+        {
+          text: "Get",
+          link: "/cna/get",
+        },
+      ],
+    },
     {
       text: "Thesaurus",
       collapsed: true,
