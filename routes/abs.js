@@ -71,8 +71,12 @@ export default {
       collapsed: false,
       items: [
         {
-          text: "All Schema",
+          text: "Schema",
           link: "/ircc/schema",
+        },
+        {
+          text: "Workflow",
+          link: "/ircc/workflow",
         },
         {
           text: "Public Records",
