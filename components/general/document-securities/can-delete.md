@@ -2,23 +2,16 @@
 
 ### Overview
 
-This endpoint checks if a document can be deleted based on the supplied `uid`. It verifies if the user has the necessary permissions to perform the delete operation on the document.
+This API endpoint allows clients to check if a specific document can be deleted. It verifies whether the user has the necessary permissions to perform the delete operation on the document identified by the provided `uid`. This check ensures that the user is authorized to delete the document and that the operation complies with the system's security and access control policies. The endpoint helps prevent unauthorized deletion of documents by validating access rights before the actual delete operation is executed.
 
 ### Endpoint
-
 **GET** `/api/v2013/documents/{uid}/securities/delete`
 
 ### Headers
-
-<!--@include: ../../common/authorization-header.md-->
+<!--@include: ../../common/header/authorization-realm.md-->
 
 ### URL Parameters
-
-| Field | Type   | Description                                                                                   |
-| ----- | ------ | --------------------------------------------------------------------------------------------- |
-| uid &nbsp;&nbsp;   | String &nbsp; | Identifier of the document. The value is case-sensitive. Allowed values: `/^[A-Za-z0-9\-_]{11,128}$/` |
-
-URL parameters include essential identifiers for the document. The `uid` parameter uniquely identifies the document in the system.
+<!--@include: ../../common/url/uid.md-->
 
 ### Playground
 

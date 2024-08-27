@@ -20,6 +20,10 @@ export default {
           text: "Apache Solr",
           link: "/apache-solr",
         },
+        {
+          text: "Record Types",
+          link: "/record-types",
+        },
       ],
     },
     {
@@ -71,32 +75,73 @@ export default {
       collapsed: false,
       items: [
         {
+          text: "Schema",
+          link: "/ircc/schema",
+        },
+        {
+          text: "Workflow",
+          link: "/ircc/workflow",
+        },
+        {
           text: "Public Records",
-          link: "/ircc/published/solr",
+          link: "/ircc/solr",
         },
         {
           text: "Draft Records",
-          link: "/ircc/published/list",
+          link: "/ircc/list",
         },
         {
           text: "Get",
-          link: "/ircc/published/get",
+          link: "/ircc/get",
         },
         {
           text: "Create",
-          link: "/ircc/published/create",
+          link: "/ircc/create",
         },
         {
           text: "Update",
-          link: "/ircc/published/update",
+          link: "/ircc/update",
         },
         {
           text: "Delete",
-          link: "/ircc/published/delete",
+          link: "/ircc/delete",
         },
       ],
     },
-    
+    {
+      text: "Contact",
+      collapsed: true,
+      items: [
+        {
+          text: "Schema",
+          link: "/contact/schema",
+        },
+        {
+          text: "Public Records",
+          link: "/contact/solr",
+        },
+        {
+          text: "Draft Records",
+          link: "/contact/list",
+        },
+        {
+          text: "Get",
+          link: "/contact/get",
+        },
+        {
+          text: "Create",
+          link: "/contact/create",
+        },
+        {
+          text: "Update",
+          link: "/contact/update",
+        },
+        {
+          text: "Delete",
+          link: "/contact/delete",
+        },
+      ],
+    },
     {
       text: "Thesaurus",
       collapsed: true,

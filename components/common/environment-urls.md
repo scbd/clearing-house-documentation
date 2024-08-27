@@ -1,4 +1,3 @@
-## Environment URLs
 
 This API has two different endpoints for production and development environments. Use the appropriate endpoint based on your current environment.
 

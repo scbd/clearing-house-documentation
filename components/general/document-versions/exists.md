@@ -2,33 +2,17 @@
 
 ### Overview
 
-This API endpoint checks if a specific revision of a document has been published. It verifies the existence of a document revision based on the provided document identifier (`uid`) and revision number. This endpoint is useful for determining if a particular version of a document is available in the system.
+This API endpoint is used to determine whether a specific revision of a document has been published and is available in the system. By providing the document identifier (`uid`) and the revision number, clients can check if that particular version of the document exists. This check is crucial for scenarios where you need to verify the presence of a specific version before performing operations such as viewing, updating, or deleting the document.
 
 ### Endpoint
 
 **HEAD** `/api/v2013/documents/:uid/versions/:revision`
 
 ### Headers
-
-| Field            | Type    | Description                                                                       |
-| ---------------- | ------- | --------------------------------------------------------------------------------- |
-| Content-Type     | String &nbsp;&nbsp;  | Raw document format mediaType. Allowed values: `application/json`                 |
-| Realm            | String  | Context in which the Clearing-House request is made. Allowed values: `ABS`, `CHM`, `BCH` |
-| Accept           | String  | Result format. Allowed values: `application/json`                                 |
-
-**Realm Values for Development:**
-- `ABS-DEV`: Development environment for ABS
-- `BCH-DEV`: Development environment for BCH
-- `CHM-DEV`: Development environment for CHM
-
+<!--@include: ../../common/header/realm-accept.md-->
 
 ### URL Parameters
-
-| Field      | Type   | Description                                               |
-|------------|--------|-----------------------------------------------------------|
-| uid        | String &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; | Identifier of the document. The value is case-sensitive. Allowed values: `/^[A-Za-z0-9\-_]{11, 128}$/` |
-| revision   | Number | Revision number of the document. Allowed values: 1+       |
-
+<!--@include: ../../common/url/uid-revision.md-->
 
 ### Playground
 

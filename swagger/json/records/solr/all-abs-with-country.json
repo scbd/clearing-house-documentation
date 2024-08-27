@@ -1,0 +1,105 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Solr API",
+    "version": "1.0.0",
+    "description": "API for querying results with specific government criteria."
+  },
+  "servers": [
+    {
+      "url": "https://absch.cbddev.xyz/api/v2013",
+      "description": "Solr API Server"
+    }
+  ],
+  "paths": {
+    "/index": {
+      "get": {
+        "summary": "Query results with specific criteria",
+        "description": "Retrieve permits by schema and government criteria.",
+        "tags": ["Get All results with country"],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "(schema_s:absPermit)AND(government_s:ht)"
+            },
+            "description": "Query parameter for searching results based on schema and government criteria."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of permits matching the criteria",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "response": {
+                      "type": "object",
+                      "properties": {
+                        "numFound": {
+                          "type": "integer",
+                          "description": "Total number of permits found"
+                        },
+                        "start": {
+                          "type": "integer",
+                          "description": "Start index of the results"
+                        },
+                        "docs": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "description": "Permit ID"
+                              },
+                              "title": {
+                                "type": "string",
+                                "description": "Title of the permit"
+                              },
+                              "issuedDate": {
+                                "type": "string",
+                                "format": "date",
+                                "description": "Date the permit was issued"
+                              },
+                              "expirationDate": {
+                                "type": "string",
+                                "format": "date",
+                                "description": "Date the permit expires"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "response": {
+                    "numFound": 100,
+                    "start": 0,
+                    "docs": [
+                      {
+                        "id": "67890",
+                        "title": "Permit Title Example",
+                        "issuedDate": "2024-06-15",
+                        "expirationDate": "2025-06-15"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request, possibly due to malformed query parameter"
+          }
+        }
+      }
+    }
+  }
+}

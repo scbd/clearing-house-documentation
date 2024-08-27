@@ -1,32 +1,18 @@
 ## Delete
 
+### Overview
+
+The "Delete" API endpoint allows clients to remove a draft version of a document from the system. This endpoint is used when a draft document needs to be deleted before it is finalized or published. It ensures that only draft versions, which are in the process of being created or reviewed, are deleted, while finalized or published versions remain intact.
+
 ### Endpoint
 
 **DELETE** `/api/v2013/documents/{uid}/versions/draft`
 
 ### Headers
-
-| Field            | Type    | Description                                                                       |
-| ---------------- | ------- | --------------------------------------------------------------------------------- |
-| Content-Type     | String &nbsp;&nbsp;  | Raw document format mediaType. Allowed values: `application/json`                 |
-| Authorization    | String  | Token to use to authenticate the request                                          |
-| Realm            | String  | Context in which the Clearing-House request is made. Allowed values: `ABS`, `CHM`, `BCH` |
-| Accept           | String  | Result format. Allowed values: `application/json`                                 |
-
-**Realm Values for Development:**
-- `ABS-DEV`: Development environment for ABS
-- `BCH-DEV`: Development environment for BCH
-- `CHM-DEV`: Development environment for CHM
-
-
-Headers required to authenticate and define the context and format of the request and response. The `Authorization` header must contain a valid token, while the `Content-Type` and `Accept` headers specify the format of the document and response, respectively. [Here are the steps to get the Authorization token](/user/authentication).
+<!--@include: ../../common/header/authorization-realm.md-->
 
 ### URL Parameters
-
-| Field     | Type   | Description                                                                                      |
-| --------- | ------ | ------------------------------------------------------------------------------------------------ |
-| uid       | String | Identifier of the document. The value is case-sensitive. Allowed values: `/^[A-Za-z0-9\-_]{11,128}$/` |
-
+<!--@include: ../../common/url/uid.md-->
 
 ### Playground
 

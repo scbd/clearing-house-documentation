@@ -2,34 +2,20 @@
 
 ### Overview
 
-This API endpoint determines if a document can be created based on the supplied metadata. It checks the security access based on the provided metadata and returns whether the creation of the document is allowed.
+This API endpoint allows clients to determine if a document can be created given the provided metadata. It performs a security check to verify if the document creation is permitted based on the supplied metadata. This is particularly useful for validating permissions and ensuring that the document meets all necessary requirements before attempting to create it. The endpoint evaluates security access controls and returns a response indicating whether the creation operation is authorized.
 
 ### Request URL
-
 **GET** `/api/v2013/documents/{uid}/securities/create`
 
-
 ### Headers
-
-<!--@include: ../../common/authorization-header.md-->
-
+<!--@include: ../../common/header/authorization-realm.md-->
 
 ### Query Parameters
-
-| Field      | Type   | Description                                               |
-|------------|--------|-----------------------------------------------------------|
-| schema     | String &nbsp;&nbsp;&nbsp; | Specify the document common-format posted (type/schema)  |
-| metadata   | Object | Optional. Document metadata to use to determine security access. List of parameters may vary depending on the type of document. |
-| government | String | Optional. Government code to which the record should belong. For national records only. Allowed values: `ISO 3166-1 alpha-2` |
-
+<!--@include: ../../common/query/schema-metadata-government.md-->
 
 ### URL Parameters
+<!--@include: ../../common/url/uid.md-->
 
-| Field | Type   | Description                                                                                   |
-| ----- | ------ | --------------------------------------------------------------------------------------------- |
-| uid &nbsp;&nbsp;   | String &nbsp; | Identifier of the document. The value is case-sensitive. Allowed values: `/^[A-Za-z0-9\-_]{11,128}$/` |
-
-URL parameters include essential identifiers for the document. The `uid` parameter uniquely identifies the document in the system.
 
 
 ### Playground

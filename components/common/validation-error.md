@@ -1,5 +1,3 @@
-## Validation Error
-
 | Error Type             | Description                           |
 | ---------------------- | ------------------------------------- |
 | Error.Mandatory        | Indicates a required field is missing. |

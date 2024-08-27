@@ -2,24 +2,17 @@
 
 ### Overview
 
-This endpoint retrieves a thumbnail of a specific attachment if it is an image. It returns the raw image data or redirects to the location of the thumbnail.
+The "Get Thumbnail" API endpoint allows you to retrieve a thumbnail representation of a specific attachment, provided the attachment is an image. This endpoint is designed to offer a preview of the image in a smaller, more manageable format, which is especially useful for displaying previews in user interfaces, galleries, or file management systems.
 
 ### Endpoint
 
 **GET** `/api/v2013/documents/{uid}/attachments/{filename}/thumbnail`
 
 ### Headers
-
-| Field   | Type   | Description                 |
-| ------- | ------ | --------------------------- |
-| Accept  | String | Result format. Allowed value: `application/json` |
+<!--@include: ../../common/header/accept.md-->
 
 ### URL Parameters
-
-| Field     | Type   | Description                                                                                      |
-| --------- | ------ | ------------------------------------------------------------------------------------------------ |
-| uid       | String | Identifier of the document. The value is case-sensitive. Allowed values: `/^[A-Za-z0-9\-_]{11,128}$/` |
-| filename  | String | Name of the file to check for existence.                                                         |
+<!--@include: ../../common/url/uid-filename.md-->
 
 ### Playground
 
