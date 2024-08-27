@@ -20,6 +20,10 @@ export default {
           text: "Apache Solr",
           link: "/apache-solr",
         },
+        {
+          text: "Record Types",
+          link: "/record-types",
+        },
       ],
     },
     {
@@ -104,7 +108,40 @@ export default {
         },
       ],
     },
-    
+    {
+      text: "Contact",
+      collapsed: true,
+      items: [
+        {
+          text: "Schema",
+          link: "/contact/schema",
+        },
+        {
+          text: "Public Records",
+          link: "/contact/solr",
+        },
+        {
+          text: "Draft Records",
+          link: "/contact/list",
+        },
+        {
+          text: "Get",
+          link: "/contact/get",
+        },
+        {
+          text: "Create",
+          link: "/contact/create",
+        },
+        {
+          text: "Update",
+          link: "/contact/update",
+        },
+        {
+          text: "Delete",
+          link: "/contact/delete",
+        },
+      ],
+    },
     {
       text: "Thesaurus",
       collapsed: true,

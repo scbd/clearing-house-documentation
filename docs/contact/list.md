@@ -1,6 +1,6 @@
 <script setup>
 import SwaggerUI from "../../swagger/view/SwaggerUI.vue"
-import irccJson from "../../swagger/json/ircc/list.json";
+import contactJson from "../../swagger/json/contact/list.json";
 import baseJson from "../../swagger/json/records/list.json";
 
 function mergeJson(base, specific) {
@@ -10,7 +10,7 @@ function mergeJson(base, specific) {
 }
 
 const swaggerSpecs = [
-  { json: mergeJson(baseJson, irccJson), protected: true },
+  { json: mergeJson(baseJson, contactJson), protected: true },
 ];
 
 </script>
@@ -18,8 +18,7 @@ const swaggerSpecs = [
 # Draft Records
 
 ## Overview
-This endpoint provides a way to retrieve draft records from the IRCC (Internationally Recognized Certificate of Compliance) system. Draft records are documents that are still being prepared or are not yet finalized. This endpoint supports various query parameters to filter, sort, and paginate the results, making it easier to manage and review draft documents.
-
+This endpoint provides a way to retrieve draft records from the Contact system. Draft records are documents that are still being prepared or are not yet finalized. This endpoint supports various query parameters to filter, sort, and paginate the results, making it easier to manage and review draft documents.
 
 ## Endpoint
 **GET** `/api/v2013/documents`

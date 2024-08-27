@@ -1,6 +1,6 @@
 <script setup>
 import SwaggerUI from "../../swagger/view/SwaggerUI.vue"
-import irccJson from "../../swagger/json/ircc/delete.json";
+import contactJson from "../../swagger/json/contact/delete.json";
 import baseJson from "../../swagger/json/records/delete.json";
 
 function mergeJson(base, specific) {
@@ -9,16 +9,14 @@ function mergeJson(base, specific) {
   return merged;
 }
 
-
 const swaggerSpecs = [
-  { json: mergeJson(baseJson, irccJson), protected: true },
+  { json: mergeJson(baseJson, contactJson), protected: true },
 ];
 </script>
 
-# IRCC - Delete
+# Contact - Delete
 
 ## Overview
-
 This endpoint is used to delete a specific document from the system using its unique identifier (`uid`). This operation removes the document from the database and can be useful for managing and maintaining the document repository, ensuring that outdated or irrelevant documents are removed as needed.
 
 ## Endpoint

@@ -24,11 +24,9 @@ This endpoint provides access to a list of terms relevant to describing the subj
 
 ## Usages
 
-This table describes the keywords field that is used to describe the subject-matter or genetic resource(s) covered by the permit or its equivalent.
-
 | Title            | Field   | Schema                    |
 | ---------------- | ------ | ------------------------------ |
-| Keywords to describe the subject-matter or genetic resource(s) covered by the permit or its equivalent           | keywords &nbsp; &nbsp; | <a href="/ircc/published/create">IRCC - create</a>  |
+| Keywords to describe the subject-matter or genetic resource(s) covered by the permit or its equivalent           | keywords | <a href="/ircc/create">IRCC - create</a>  |
 
 ## Playground
 

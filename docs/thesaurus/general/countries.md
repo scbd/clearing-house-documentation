@@ -22,6 +22,13 @@ This endpoint provides access to a list of country terms from the thesaurus. Thi
 ## Headers
 <!--@include: ../../../components/common/header/accept.md-->
 
+## Usages
+
+| Title            | Field   | Schema                    |
+| ---------------- | ------ | ------------------------------ |
+| Country           | government | <a href="/ircc/create#request-body">IRCC - create</a>  |
+| Country           | government | <a href="/contact/create#request-body">Contact - create</a>  |
+
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs" />

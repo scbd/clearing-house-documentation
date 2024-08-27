@@ -27,7 +27,7 @@ The table below outlines the structure of the request body, including the fields
           </code></td>
     </tr>
      <tr>
-      <td><a href="/thesaurus/general/countries">Country</a></td>
+      <td><strong><a href="/thesaurus/general/countries">Country</a></strong></td>
       <td>government</td>
       <td>True</td>
       <td><a href="/customTypes.html#eterm">Eterm</a></td>
@@ -41,28 +41,28 @@ The table below outlines the structure of the request body, including the fields
       <td></td>
     </tr>
     <tr>
-      <td>Competent national authority (CNA) responsible for issuing this permit or its equivalent</td>
+      <td><strong>Competent national authority (CNA) responsible for issuing this permit or its equivalent</strong></td>
       <td>absCNA</td>
       <td>True</td>
       <td><a href="/customTypes.html#ereference">Ereference</a></td>
       <td><code>{"identifier": "C84C7E6C-134C-F1B1-9A3B-B7443F135239@2"}</code></td>
     </tr>
     <tr>
-      <td>Reference number of the permit or its equivalent</td>
+      <td><strong>Reference number of the permit or its equivalent</strong></td>
       <td>title</td>
       <td>True</td>
       <td><a href="/customTypes.html#lstring">lstring</a></td>
       <td><code>{"en": "123456"}</code></td>
     </tr>
     <tr>
-      <td>Additional national references or identifiers</td>
+      <td><strong>Additional national references or identifiers</strong></td>
       <td>referenceToNationalPermit</td>
       <td></td>
       <td><a href="/customTypes.html#lstring">lstring</a></td>
       <td><code>{"en": "strsgfsgfdxgf"}</code></td>
     </tr>
     <tr>
-      <td>Date of issuance of the permit or its equivalent</td>
+      <td><strong>Date of issuance of the permit or its equivalent</strong></td>
       <td>dateOfIssuance</td>
       <td>True</td>
       <td>Date <br><sub><em>(YYYY-MM-DD)</em></sub></td>
@@ -72,7 +72,7 @@ The table below outlines the structure of the request body, including the fields
         <td colspan="5" style=" fontWeight:bold">Prior Informed Consent (PIC) Information (Select any of the two from below)</td>
     </tr>
     <tr>
-        <td>The provider</td>
+        <td><strong>The provider</strong></td>
         <td>providers</td>
         <td>True</td>
         <td><a href="/customTypes.html#ereference">Ereference[]</a></td>
@@ -83,7 +83,7 @@ The table below outlines the structure of the request body, including the fields
     ]</code></td>
     </tr>
     <tr>
-        <td>This information is confidential</td>
+        <td><strong>This information is confidential</strong></td>
         <td>providersConfidential</td>
         <td></td>
         <td>bool</td>
@@ -104,7 +104,7 @@ The table below outlines the structure of the request body, including the fields
     ]</code></td>
     </tr>
     <tr>
-        <td>This information is confidential</td>
+        <td><strong>This information is confidential</strong></td>
         <td>entitiesToWhomPICGrantedConfidential</td>
         <td></td>
         <td>bool</td>
@@ -129,7 +129,7 @@ The table below outlines the structure of the request body, including the fields
         <td><code>{subjectMatterConfidential: true}</code></td>
     </tr>
     <tr>
-      <td><a href="/thesaurus/permit/permit-keywords">Keywords to describe the subject-matter or genetic resource(s) covered by the permit or its equivalent</a></td>
+      <td><strong><a href="/thesaurus/permit/permit-keywords">Keywords to describe the subject-matter or genetic resource(s) covered by the permit or its equivalent</a></strong></td>
       <td>keywords</td>
       <td></td>
       <td><a href="/customTypes.html#eterm">Eterm[]</a></td>
@@ -140,7 +140,7 @@ The table below outlines the structure of the request body, including the fields
     ]</code></td>
     </tr>
     <tr>
-      <td>Other keywords</td>
+      <td><strong>Other keywords</strong></td>
       <td>keywordOther</td>
       <td>True</td>
       <td><a href="/customTypes.html#lstring">lstring</a></td>
@@ -190,28 +190,28 @@ The table below outlines the structure of the request body, including the fields
       <td></td>
     </tr>
     <tr>
-      <td>Amendment intent</td>
+      <td><strong>Amendment intent</strong></td>
       <td>amendmentIntent</td>
       <td>True</td>
       <td><a href="/customTypes.html#amendmentintent">AmendmentIntent</a></td>
       <td></td>
     </tr>
     <tr>
-      <td>Provide a summary of the reason for the update of the record</td>
+      <td><strong>Provide a summary of the reason for the update of the record</strong></td>
       <td>amendmentDescription</td>
       <td>True</td>
       <td><a href="/customTypes.html#lstring">lstring</a></td>
       <td></td>
     </tr>
     <tr>
-      <td>Confirmation that prior informed consent (PIC) was obtained or granted</td>
+      <td><strong>Confirmation that prior informed consent (PIC) was obtained or granted</strong></td>
       <td>picGranted</td>
       <td>True</td>
       <td>bool</td>
       <td><code>true</code></td>
     </tr>
     <tr>
-      <td>Additional information about the prior informed consent (PIC)</td>
+      <td><strong>Additional information about the prior informed consent (PIC)</strong></td>
       <td>picInformation</td>
       <td></td>
       <td><a href="/customTypes.html#lstring">lstring</a></td>
@@ -220,7 +220,7 @@ The table below outlines the structure of the request body, including the fields
     }</code></td>
     </tr>
     <tr>
-      <td>Additional information about the prior informed consent (PIC) - Documents</td>
+      <td><strong>Additional information about the prior informed consent (PIC) - Documents</strong></td>
       <td>picDocuments</td>
       <td></td>
       <td><a href="/customTypes.html#elink">Elink[]</a></td>
@@ -233,14 +233,14 @@ The table below outlines the structure of the request body, including the fields
     ]</code></td>
     </tr>
     <tr>
-      <td>Confirmation that mutually agreed terms (MAT) were established</td>
+      <td><strong>Confirmation that mutually agreed terms (MAT) were established</strong></td>
       <td>matEstablished</td>
       <td>True</td>
       <td>bool</td>
       <td><code>true</code></td>
     </tr>
     <tr>
-      <td>Additional information about the mutually agreed terms (MAT) - Information</td>
+      <td><strong>Additional information about the mutually agreed terms (MAT) - Information</strong></td>
       <td>matInformation</td>
       <td></td>
       <td><a href="/customTypes.html#lstring">lstring</a></td>
@@ -249,7 +249,7 @@ The table below outlines the structure of the request body, including the fields
     }</code></td>
     </tr>
     <tr>
-      <td>Additional information about the mutually agreed terms (MAT) - Documents</td>
+      <td><strong>Additional information about the mutually agreed terms (MAT) - Documents</strong></td>
       <td>matDocuments</td>
       <td></td>
       <td><a href="/customTypes.html#elink">Elink[]</a></td>
@@ -283,7 +283,7 @@ The table below outlines the structure of the request body, including the fields
         <td><code>true</code></td>
     </tr>
     <tr>
-      <td>Additional information about the specified uses covered by the permit or its equivalent or use restrictions</td>
+      <td><strong>Additional information about the specified uses covered by the permit or its equivalent or use restrictions</strong></td>
       <td>usagesDescription</td>
       <td></td>
       <td><a href="/customTypes.html#lstring">lstring</a></td>
@@ -292,7 +292,7 @@ The table below outlines the structure of the request body, including the fields
     }</code></td>
     </tr>
     <tr>
-      <td>Conditions for third party transfer</td>
+      <td><strong>Conditions for third party transfer</strong></td>
       <td>thirdPartyTransferCondition</td>
       <td></td>
       <td><a href="/customTypes.html#lstring">lstring</a></td>
@@ -301,14 +301,14 @@ The table below outlines the structure of the request body, including the fields
     }</code></td>
     </tr>
     <tr>
-      <td>Date of expiry of the permit or its equivalent</td>
+      <td><strong>Date of expiry of the permit or its equivalent</strong></td>
       <td>dateOfExpiry</td>
       <td></td>
       <td>Date</td>
       <td><code>"2024-07-16"</code></td>
     </tr>
     <tr>
-      <td>Copy of the permit or its equivalent, or other relevant open-access document</td>
+      <td><strong>Copy of the permit or its equivalent, or other relevant open-access document</strong></td>
       <td>permitFiles</td>
       <td></td>
       <td><a href="/customTypes.html#elink">Elink[]</a></td>
@@ -321,7 +321,7 @@ The table below outlines the structure of the request body, including the fields
     ]</code></td>
     </tr>
     <tr>
-      <td>Short description of the attached link(s) and/or file(s)</td>
+      <td><strong>Short description of the attached link(s) and/or file(s)</strong></td>
       <td>permitDescription</td>
       <td></td>
       <td><a href="/customTypes.html#lstring">lstring</a></td>
@@ -330,7 +330,7 @@ The table below outlines the structure of the request body, including the fields
     }</code></td>
     </tr>
     <tr>
-      <td>Additional Information</td>
+      <td><strong>Additional Information</strong></td>
       <td>relevantInformation</td>
       <td></td>
       <td><a href="/customTypes.html#lstring">lstring</a></td>
@@ -339,7 +339,7 @@ The table below outlines the structure of the request body, including the fields
     }</code></td>
     </tr>
     <tr>
-      <td>Other relevant website addresses and/or attached documents</td>
+      <td><strong>Other relevant website addresses and/or attached documents</strong></td>
       <td>relevantDocuments</td>
       <td></td>
       <td><a href="/customTypes.html#eterm">Eterm[]</a></td>
@@ -352,14 +352,14 @@ The table below outlines the structure of the request body, including the fields
     ]</code></td>
     </tr>
     <tr>
-      <td>Notes</td>
+      <td><strong>Notes</strong></td>
       <td>notes</td>
       <td></td>
       <td>string</td>
       <td><code>"[\"[ Pramod Sam | Jul 8, 2024 8:10:52 PM ] - aasdfasdf\"]"</code></td>
     </tr>
     <tr>
-      <td>Links to other internationally recognized certificate(s) of compliance (IRCC) that relate(s) to this permit</td>
+      <td><strong>Links to other internationally recognized certificate(s) of compliance (IRCC) that relate(s) to this permit</strong></td>
       <td>relatedIRCC</td>
       <td></td>
       <td><a href="/customTypes.html#ereference">Ereference[]</a></td>
