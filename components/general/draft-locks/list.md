@@ -9,10 +9,10 @@ The "List" endpoint retrieves a collection of locks associated with the draft ve
 **GET** `/api/v2013/documents/:uid/versions/draft/locks`
 
 ### Headers
-<!--@include: ../../common/header/authorization-realm.md-->
+<!--@include: @/../components/common/header/authorization-realm.md-->
 
 ### URL Parameters
-<!--@include: ../../common/url/uid.md-->
+<!--@include: @/../components/common/url/uid.md-->
 
 ### Playground
 

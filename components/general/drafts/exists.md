@@ -9,10 +9,10 @@ The "Exists" API endpoint checks whether a draft version of a document exists in
 **HEAD** `/api/v2013/documents/{uid}/versions/draft`
 
 ### Headers
-<!--@include: ../../common/header/authorization-realm.md-->
+<!--@include: @/../components/common/header/authorization-realm.md-->
 
 ### URL Parameters
-<!--@include: ../../common/url/uid.md-->
+<!--@include: @/../components/common/url/uid.md-->
 
 ### Playground
 

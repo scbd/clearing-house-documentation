@@ -1,7 +1,7 @@
 <script setup>
-import "../../../style.css"
-import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
-import swaggerJson from "../../../swagger/json/thesaurus/permit/permit-keywords.json";
+import "@/style.css"
+import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
+import swaggerJson from "@/swagger/json/thesaurus/permit/permit-keywords.json";
 
 const swaggerSpecs = [
   { json:swaggerJson, protected: false },
@@ -20,7 +20,7 @@ This endpoint provides access to a list of terms relevant to describing the subj
 **GET** `/api/v2013/thesaurus/domains/1A22EAAB-9BBC-4543-890E-DEF913F59E98/terms`
 
 ## Headers
-<!--@include: ../../../components/common/header/accept.md-->
+<!--@include: @/../components/common/header/accept.md-->
 
 ## Usages
 

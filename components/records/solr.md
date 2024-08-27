@@ -8,7 +8,7 @@ This endpoint provides functionality to search and retrieve indexed documents us
 **GET** `/api/v2013/index`
 
 ## Headers
-<!--@include: ../common/header/realm-accept.md-->
+<!--@include: @/../components/common/header/realm-accept.md-->
 
 ## Query Parameters
 
@@ -29,6 +29,6 @@ The `q` parameter is used to define the search criteria in Solr queries. It can 
 
 | Field      | Type                | Description   |
 | ---------- | ------------------- | ------------- |
-| realm      | String | The realm parameter specifies the realm of the documents to be searched. It filters results based on the realm value. Example: `realm_ss:ABS-DEV`.                                              |
+| realm      | String | The realm parameter specifies the realm of the documents to be searched. It filters results based on the realm value. Example: `realm_ss:abs-dev`.                                              |
 | schema     | String              | The schema parameter defines the schema to filter the documents. Example: `schema_s:absPermit`.  |
 | government | String              | The government parameter filters documents based on the government ISO codes. Example: `government_s:ht`. The ISO codes can be received from [the countries API](/thesaurus/general/countries). |

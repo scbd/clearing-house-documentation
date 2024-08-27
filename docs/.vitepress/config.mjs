@@ -1,4 +1,5 @@
 import { defineConfig, loadEnv } from "vite";
+import {resolve} from "path";
 import absRoute from "../../routes/abs.js";
 import bchRoute from "../../routes/bch.js";
 import chmRoute from "../../routes/chm.js";
@@ -35,6 +36,13 @@ export default defineConfig(({ mode }) => {
       sidebar,
       search: {
         provider: "local",
+      },
+    },
+    vite: {
+      resolve: {
+        alias: {
+          "@": resolve(__dirname, "../../"),
+        },
       },
     },
   };

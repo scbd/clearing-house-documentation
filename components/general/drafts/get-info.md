@@ -9,10 +9,10 @@ The "Get Info" API endpoint retrieves detailed information about the draft versi
 **GET** `/api/v2013/documents/{uid}/versions/draft/info`
 
 ### Headers
-<!--@include: ../../common/header/authorization-realm.md-->
+<!--@include: @/../components/common/header/authorization-realm.md-->
 
 ### URL Parameters
-<!--@include: ../../common/url/uid.md-->
+<!--@include: @/../components/common/url/uid.md-->
 
 ### Playground
 

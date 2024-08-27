@@ -7,13 +7,13 @@ The "List" API endpoint retrieves a list of all available revisions for a specif
 **GET** `/api/v2013/documents/:uid/versions`
 
 ### Headers
-<!--@include: ../../common/header/realm-accept.md-->
+<!--@include: @/../components/common/header/realm-accept.md-->
 
 ### URL Parameters
-<!--@include: ../../common/url/uid.md-->
+<!--@include: @/../components/common/url/uid.md-->
 
 ### Query String Parameters
-<!--@include: ../../common/query/filter-orderby-top-skip.md-->
+<!--@include: @/../components/common/query/filter-orderby-top-skip.md-->
 
 ### Playground
 

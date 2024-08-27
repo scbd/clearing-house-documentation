@@ -8,10 +8,10 @@ The "Lock" endpoint is used to apply or update a lock on the draft version of a 
 **PUT** `/api/v2013//api/v2013/documents/:uid/versions/draft/locks/:lockID`
 
 ### Headers
-<!--@include: ../../common/header/authorization-realm.md-->
+<!--@include: @/../components/common/header/authorization-realm.md-->
 
 ### URL Parameters
-<!--@include: ../../common/url/uid-lockid.md-->
+<!--@include: @/../components/common/url/uid-lockid.md-->
 
 ### Playground
 

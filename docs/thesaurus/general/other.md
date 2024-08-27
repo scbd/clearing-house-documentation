@@ -1,7 +1,7 @@
 <script setup>
-import "../../../style.css"
-import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
-import swaggerJson from "../../../swagger/json/thesaurus/general/other.json";
+import "@/style.css"
+import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
+import swaggerJson from "@/swagger/json/thesaurus/general/other.json";
 
 const swaggerSpecs = [
   { json:swaggerJson, protected: false },
@@ -21,7 +21,7 @@ This endpoint provides access to specific terms within the thesaurus using a uni
 **GET** `/api/v2013/thesaurus/terms/5B6177DD-5E5E-434E-8CB7-D63D67D5EBED`
 
 ## Headers
-<!--@include: ../../../components/common/header/accept.md-->
+<!--@include: @/../components/common/header/accept.md-->
 
 ## Playground
 
