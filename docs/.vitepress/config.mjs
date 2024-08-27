@@ -41,7 +41,7 @@ export default defineConfig(({ mode }) => {
     vite: {
       resolve: {
         alias: {
-          "@": resolve(__dirname, "../../"),
+          "@": resolve(__dirname, "../../"), //absolute path to root
         },
       },
     },
