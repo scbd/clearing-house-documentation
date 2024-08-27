@@ -1,3 +1,5 @@
+import { commonRoutes } from "./common";
+
 export default {
   "/": [
     {
@@ -142,24 +144,7 @@ export default {
         },
       ],
     },
-    {
-      text: "CNA",
-      collapsed: true,
-      items: [
-        {
-          text: "Schema",
-          link: "/cna/schema",
-        },
-        {
-          text: "Public Records",
-          link: "/cna/solr",
-        },
-        {
-          text: "Get",
-          link: "/cna/get",
-        },
-      ],
-    },
+    ...commonRoutes, //Common Routes
     {
       text: "Thesaurus",
       collapsed: true,
