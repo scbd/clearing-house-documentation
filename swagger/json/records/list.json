@@ -1,0 +1,227 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "ABS Permit API",
+      "description": "API to fetch ABS permits",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "https://absch.cbddev.xyz/api/v2013"
+      }
+    ],
+    "paths": {
+      "/documents": {
+        "get": {
+          "summary": "Get List of documents",
+          "description": "Fetches IRCC documents with the specified filters and order.",
+          "parameters": [
+            {
+              "name": "$filter",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "example": "(type eq 'schema')"
+              }  
+            },
+            {
+              "name": "$orderby",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "example": "updatedOn desc"
+              },
+              "description": "Order by field"
+            },
+            {
+              "name": "cache",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "boolean",
+                "example": false
+              },
+              "description": "Cache setting"
+            },
+            {
+              "name": "collection",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "example": "mydraft"
+              },
+              "description": "Collection to fetch"
+            },
+            {
+              "name": "$top",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string",
+                "example": "10"
+              },
+              "description": "The number of items in the queried collection to be included in the result."
+            },
+            {
+              "name": "$skip",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string",
+                "example": "5"
+              },
+              "description": "The number of items in the queried collection that are to be skipped and not included in the result."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "Items": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "metadata": {
+                              "type": "object",
+                              "properties": {
+                                "government": { "type": "string" },
+                                "userID": { "type": "string" },
+                                "schema": { "type": "string" }
+                              }
+                            },
+                            "workingDocumentMetadata": {
+                              "type": "object",
+                              "properties": {
+                                "government": { "type": "string" },
+                                "userID": { "type": "string" },
+                                "schema": { "type": "string" }
+                              }
+                            },
+                            "Realm": { "type": "string" },
+                            "identifier": { "type": "string" },
+                            "createdOn": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "createdBy": {
+                              "type": "object",
+                              "properties": {
+                                "userID": { "type": "integer" },
+                                "firstName": { "type": "string" },
+                                "lastName": { "type": "string" },
+                                "email": { "type": "string" }
+                              }
+                            },
+                            "updatedOn": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "updatedBy": {
+                              "type": "object",
+                              "properties": {
+                                "userID": { "type": "integer" },
+                                "firstName": { "type": "string" },
+                                "lastName": { "type": "string" },
+                                "email": { "type": "string" }
+                              }
+                            },
+                            "submittedOn": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "submittedBy": {
+                              "type": "object",
+                              "properties": {
+                                "userID": { "type": "integer" },
+                                "firstName": { "type": "string" },
+                                "lastName": { "type": "string" },
+                                "email": { "type": "string" }
+                              }
+                            },
+                            "type": { "type": "string" },
+                            "owner": { "type": "string" },
+                            "revision": { "type": "integer" },
+                            "size": { "type": "integer" },
+                            "charset": { "type": "string" },
+                            "title": {
+                              "type": "object",
+                              "properties": {
+                                "fr": { "type": "string" }
+                              }
+                            },
+                            "summary": { "type": "object" },
+                            "workingDocumentID": { "type": "integer" },
+                            "workingDocumentCreatedOn": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "workingDocumentCreatedBy": {
+                              "type": "object",
+                              "properties": {
+                                "userID": { "type": "integer" },
+                                "firstName": { "type": "string" },
+                                "lastName": { "type": "string" },
+                                "email": { "type": "string" }
+                              }
+                            },
+                            "workingDocumentUpdatedOn": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "workingDocumentUpdatedBy": {
+                              "type": "object",
+                              "properties": {
+                                "userID": { "type": "integer" },
+                                "firstName": { "type": "string" },
+                                "lastName": { "type": "string" },
+                                "email": { "type": "string" }
+                              }
+                            },
+                            "workingDocumentSize": { "type": "integer" },
+                            "workingDocumentOwner": { "type": "string" },
+                            "workingDocumentTitle": {
+                              "type": "object",
+                              "properties": {
+                                "fr": { "type": "string" }
+                              }
+                            },
+                            "workingDocumentSummary": { "type": "object" },
+                            "realm": { "type": "string" },
+                            "latestRevision": { "type": "integer" },
+                            "isRequest": { "type": "boolean" }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "ApiKeyAuth": []
+            }
+          ]
+        }
+      }
+    },
+    "components": {
+      "securitySchemes": {
+        "ApiKeyAuth": {
+          "type": "apiKey",
+          "in": "header",
+          "name": "Authorization"
+        }
+      }
+    }
+  }
+  

@@ -27,16 +27,6 @@
             "description": "Result format. * = Raw data as submitted, application/json = Try to cast result to the JSON format."
           },
           {
-            "name": "Realm",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": ["ABS", "CHM"]
-            },
-            "description": "Context in which the Clearing-House request is made."
-          },
-          {
             "name": "uid",
             "in": "path",
             "required": true,
