@@ -131,7 +131,7 @@
     <tr>
       <td>Techniques used for the modification</td>
       <td>techniqueUsed</td>
-      <td>1</td>
+      <td>True</td>
       <td>Eterm[]</td>
       <td><code>[ { "identifier": "0368E952-6D50-43D3-B23A-EFA438B410A9" } ]</code></td>
     </tr>
