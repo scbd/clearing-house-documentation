@@ -1,41 +1,21 @@
-export default {
-    "/": [
+
+export default [
+  {
+    text: "LMO",
+    collapsed: false,
+    items: [
       {
-        text: "Getting Started",
-        collapsed: false,
-        items: [
-          {
-            text: "Introduction",
-            link: "/",
-          },
-        ],
+        text: "Schema",
+        link: "/ircc/schema",
       },
-    //   {
-    //     text: "Routes BCH",
-    //     collapsed: false,
-    //     items: [
-    //       {
-    //         text: "Countries",
-    //         collapsed: true,
-    //         items: [
-    //           {
-    //             text: "GET",
-    //             link: "/countries",
-    //           },
-    //         ],
-    //       },
-    //       {
-    //         text: "Document",
-    //         collapsed: true,
-    //         items: [
-    //           {
-    //             text: "GET",
-    //             link: "/document",
-    //           },
-    //         ],
-    //       },
-    //     ],
-    //   },
+      {
+        text: "Public Records",
+        link: "/ircc/solr",
+      },
+      {
+        text: "Get",
+        link: "/ircc/get",
+      },
     ],
-  };
-  
+  },
+]
