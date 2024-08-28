@@ -1,4 +1,3 @@
-
 export default [
   {
     text: "LMO",
@@ -6,15 +5,15 @@ export default [
     items: [
       {
         text: "Schema",
-        link: "/ircc/schema",
+        link: "/lmo/schema",
       },
       {
         text: "Public Records",
-        link: "/ircc/solr",
+        link: "/lmo/solr",
       },
       {
         text: "Get",
-        link: "/ircc/get",
+        link: "/lmo/get",
       },
     ],
   },
