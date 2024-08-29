@@ -17,4 +17,22 @@ export default [
       },
     ],
   },
+  {
+    text: "LAW",
+    collapsed: false,
+    items: [
+      {
+        text: "Schema",
+        link: "/law/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/law/solr",
+      },
+      {
+        text: "Get",
+        link: "/law/get",
+      },
+    ],
+  },
 ]
