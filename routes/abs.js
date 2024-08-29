@@ -1,3 +1,5 @@
+import { commonRoutes } from "./common";
+
 export default {
   "/": [
     {
@@ -142,6 +144,7 @@ export default {
         },
       ],
     },
+    ...commonRoutes, //Common Routes
     {
       text: "Thesaurus",
       collapsed: true,

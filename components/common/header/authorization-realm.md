@@ -9,9 +9,9 @@ The request must include the following headers:
 
 **Realm Values for Development:**
 
-- **`ABS-DEV`**: Represents the development environment for ABS (Access and Benefit-sharing Clearing House). Use this value when testing or developing features related to ABS in a non-production setting.
-- **`BCH-DEV`**: Indicates the development environment for BCH (Biosafety Clearing House). This value is used for testing or development purposes related to BCH functionalities.
-- **`CHM-DEV`**: Specifies the development environment for CHM (Clearing House Mechanism). This realm is used when working on features or testing in the CHM context within a development environment.
+- **`ABS-DEV`**: Represents the development environment for ABS (Access and Benefit-sharing Clearing-House). Use this value when testing or developing features related to ABS in a non-production setting.
+- **`BCH-DEV`**: Indicates the development environment for BCH (Biosafety Clearing-House). This value is used for testing or development purposes related to BCH functionalities.
+- **`CHM-DEV`**: Specifies the development environment for CHM (Central Clearing-House Mechanism). This realm is used when working on features or testing in the CHM context within a development environment.
 
 
 Headers required to authenticate and define the context and format of the request and response. The `Authorization` header must contain a valid token, while the `Content-Type` and `Accept` headers specify the format of the document and response, respectively. [Here are the steps to get the Authorization token](/user/authentication).
