@@ -1,5 +1,4 @@
 <script setup>
-import "@/style.css"
 </script>
 
 # Schema for LAW
