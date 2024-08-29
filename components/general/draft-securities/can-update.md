@@ -9,13 +9,13 @@ The "Can Update" endpoint is used to determine if the current user has the neces
 **GET** `/api/v2013/documents/{uid}/versions/draft/securities/update`
 
 ### Headers
-<!--@include: ../../common/header/authorization-realm.md-->
+<!--@include: @/../components/common/header/authorization-realm.md-->
 
 ### Query Parameters
-<!--@include: ../../common/query/schema-metadata-government.md-->
+<!--@include: @/../components/common/query/schema-metadata-government.md-->
 
 ### URL Parameters
-<!--@include: ../../common/url/uid.md-->
+<!--@include: @/../components/common/url/uid.md-->
 
 ### Playground
 

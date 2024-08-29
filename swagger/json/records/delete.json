@@ -29,7 +29,7 @@
           "type": "apiKey",
           "in": "header",
           "name": "Authorization",
-          "description": "Add the `Realm` header with value `ABS-DEV`."
+          "description": "Add the `Realm` header with value `abs-dev`."
         }
       }
     },
@@ -72,9 +72,9 @@
               "required": false,
               "schema": {
                 "type": "string",
-                "enum": ["ABS", "CHM", "BCH", "ABS-DEV", "BCH-DEV", "CHM-DEV"]
+                "enum": ["abs", "chm", "bch", "abs-dev", "bch-dev", "chm-dev"]
               },
-              "description": "Context in which the Clearing-House request is made. Allowed values: `ABS`, `CHM`, `BCH`."
+              "description": "Context in which the Clearing-House request is made. Allowed values: `abs`, `chm`, `bch`."
             }
           ],
           "responses": {

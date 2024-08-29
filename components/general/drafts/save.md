@@ -8,13 +8,13 @@ The "Save" API endpoint is used to update or create a draft version of a documen
 **PUT** `/api/v2013/documents/:uid/versions/draft`
 
 ### Headers
-<!--@include: ../../common/header/authorization-realm.md-->
+<!--@include: @/../components/common/header/authorization-realm.md-->
 
 ### Query Parameters
-<!--@include: ../../common/query/schema.md-->
+<!--@include: @/../components/common/query/schema.md-->
 
 ### URL Parameters
-<!--@include: ../../common/url/uid.md-->
+<!--@include: @/../components/common/url/uid.md-->
 
 
 ### Playground

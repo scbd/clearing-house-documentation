@@ -8,10 +8,10 @@ The "Get Info" API endpoint retrieves detailed information about a specific revi
 **GET** `/api/v2013/documents/:uid/versions/:revision/info`
 
 ### Headers
-<!--@include: ../../common/header/realm-accept.md-->
+<!--@include: @/../components/common/header/realm-accept.md-->
 
 ### URL Parameters
-<!--@include: ../../common/url/uid-revision.md-->
+<!--@include: @/../components/common/url/uid-revision.md-->
 
 ### Playground
 

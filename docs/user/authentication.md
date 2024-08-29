@@ -1,6 +1,6 @@
 <script setup>
-import SwaggerUI from "../../swagger/view/SwaggerUI.vue"
-import swaggerJson from "../../swagger/json/user/authentication.json";
+import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
+import swaggerJson from "@/swagger/json/user/authentication.json";
 const swaggerSpecs = [
   { json: swaggerJson, protected: false },
 ];
@@ -17,7 +17,7 @@ The "User - Authentication" endpoint allows users to authenticate and obtain an 
 **POST** `/api/v2013/authentication/token`
 
 ## Headers
-<!--@include: ../../components/common/header/accept.md-->
+<!--@include: @/../components/common/header/accept.md-->
 
 ## Request Payload
 

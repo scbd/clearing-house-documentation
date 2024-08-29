@@ -8,13 +8,13 @@ This API endpoint allows clients to determine if a document can be created given
 **GET** `/api/v2013/documents/{uid}/securities/create`
 
 ### Headers
-<!--@include: ../../common/header/authorization-realm.md-->
+<!--@include: @/../components/common/header/authorization-realm.md-->
 
 ### Query Parameters
-<!--@include: ../../common/query/schema-metadata-government.md-->
+<!--@include: @/../components/common/query/schema-metadata-government.md-->
 
 ### URL Parameters
-<!--@include: ../../common/url/uid.md-->
+<!--@include: @/../components/common/url/uid.md-->
 
 
 

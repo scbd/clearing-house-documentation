@@ -9,11 +9,11 @@ The "Update" API endpoint allows you to modify the details of a specific attachm
 **PUT** `/api/v2013/documents/{uid}/attachments/{filename}`
 
 ### Headers
-<!--@include: ../../common/header/authorization.md-->
+<!--@include: @/../components/common/header/authorization.md-->
 
 
 ### URL Parameters
-<!--@include: ../../common/url/uid-filename.md-->
+<!--@include: @/../components/common/url/uid-filename.md-->
 
 ### Playground
 

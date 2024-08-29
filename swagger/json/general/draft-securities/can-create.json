@@ -29,7 +29,7 @@
         "type": "apiKey",
         "in": "header",
         "name": "Authorization",
-        "description": "Add the `Realm` header with value `ABS-DEV`."
+        "description": "Add the `Realm` header with value `abs-dev`."
       }
     }
   },
@@ -79,13 +79,14 @@
             "description": "Document metadata to use to determine security access. List of parameters may vary depending on the type of document."
           },
           {
-            "name": "realm",
+            "name": "Realm",
             "in": "header",
+            "required": false,
             "schema": {
               "type": "string",
-              "enum": ["ABS", "CHM", "BCH", "ABS-DEV", "BCH-DEV", "CHM-DEV"]
+              "enum": ["abs", "chm", "bch", "abs-dev", "bch-dev", "chm-dev"]
             },
-            "description": "Context in which the Clearing-House request is made."
+            "description": "Context in which the Clearing-House request is made. Allowed values: `abs`, `chm`, `bch`."
           },
           {
             "name": "Accept",

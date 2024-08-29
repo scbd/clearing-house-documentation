@@ -8,10 +8,10 @@ This API endpoint allows clients to check if a specific document can be deleted.
 **GET** `/api/v2013/documents/{uid}/securities/delete`
 
 ### Headers
-<!--@include: ../../common/header/authorization-realm.md-->
+<!--@include: @/../components/common/header/authorization-realm.md-->
 
 ### URL Parameters
-<!--@include: ../../common/url/uid.md-->
+<!--@include: @/../components/common/url/uid.md-->
 
 ### Playground
 

@@ -8,10 +8,10 @@ The "Unlock" endpoint is used to remove or release a lock from the draft version
 **DELETE** `/api/v2013//api/v2013/documents/:uid/versions/draft/locks/:lockID`
 
 ### Headers
-<!--@include: ../../common/header/authorization-realm.md-->
+<!--@include: @/../components/common/header/authorization-realm.md-->
 
 ### URL Parameters
-<!--@include: ../../common/url/uid-lockid.md-->
+<!--@include: @/../components/common/url/uid-lockid.md-->
 
 ### Playground
 

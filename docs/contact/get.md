@@ -1,6 +1,6 @@
 <script setup>
-import SwaggerUI from "../../swagger/view/SwaggerUI.vue"
-import swaggerJson from "../../swagger/json/ircc/get.json";
+import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
+import swaggerJson from "@/swagger/json/ircc/get.json";
 
 const swaggerSpecs = [
   { json: swaggerJson, protected: false },
@@ -18,10 +18,10 @@ This documentation describes the API endpoint for retrieving a specific Contact 
 **GET** `/api/v2013/documents/:uid`
 
 ## Headers
-<!--@include: ../../components/common/header/realm-accept.md-->
+<!--@include: @/../components/common/header/realm-accept.md-->
 
 ## URL Parameters
-<!--@include: ../../components/common/url/uid.md-->
+<!--@include: @/../components/common/url/uid.md-->
 
 ## Playground
 

@@ -9,10 +9,10 @@ The "List" API endpoint retrieves a paginated list of document drafts based on t
 **GET** `/api/v2013/document-drafts`
 
 ### Headers
-<!--@include: ../../common/header/authorization-realm.md-->
+<!--@include: @/../components/common/header/authorization-realm.md-->
 
 ### Query Parameters
-<!--@include: ../../common/query/collection-filter-orderby-top-skip.md-->
+<!--@include: @/../components/common/query/collection-filter-orderby-top-skip.md-->
 
 ### Playground
 

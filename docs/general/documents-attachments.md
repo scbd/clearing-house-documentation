@@ -1,10 +1,10 @@
 <script setup>
-import SwaggerUI from "../../swagger/view/SwaggerUI.vue"
-import swaggerExistsJson from "../../swagger/json/general/document-attachments/exists.json";
-import swaggerThumbnailJson from "../../swagger/json/general/document-attachments/thumbnail.json";
-import swaggerGetJson from "../../swagger/json/general/document-attachments/get.json";
-import swaggerListJson from "../../swagger/json/general/document-attachments/list.json";
-import swaggerUpdateJson from "../../swagger/json/general/document-attachments/update.json";
+import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
+import swaggerExistsJson from "@/swagger/json/general/document-attachments/exists.json";
+import swaggerThumbnailJson from "@/swagger/json/general/document-attachments/thumbnail.json";
+import swaggerGetJson from "@/swagger/json/general/document-attachments/get.json";
+import swaggerListJson from "@/swagger/json/general/document-attachments/list.json";
+import swaggerUpdateJson from "@/swagger/json/general/document-attachments/update.json";
 
 const swaggerExistsSpecs = [
   { json: swaggerExistsJson, domId:"exists" },
@@ -25,12 +25,12 @@ const swaggerUpdateSpecs = [
 
 # Documents Attachments
 
-<!--@include: ../../components/general/documents-attachments/exists.md-->
+<!--@include: @/../components/general/documents-attachments/exists.md-->
 
-<!--@include: ../../components/general/documents-attachments/thumbnail.md-->
+<!--@include: @/../components/general/documents-attachments/thumbnail.md-->
 
-<!--@include: ../../components/general/documents-attachments/get.md-->
+<!--@include: @/../components/general/documents-attachments/get.md-->
 
-<!--@include: ../../components/general/documents-attachments/list.md-->
+<!--@include: @/../components/general/documents-attachments/list.md-->
 
-<!--@include: ../../components/general/documents-attachments/update.md-->
+<!--@include: @/../components/general/documents-attachments/update.md-->

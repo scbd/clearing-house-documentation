@@ -8,10 +8,10 @@ The "Get" endpoint retrieves information about a specific lock associated with a
 **GET** `/api/v2013/documents/:uid/versions/draft/locks/:lockID`
 
 ### Headers
-<!--@include: ../../common/header/realm-accept.md-->
+<!--@include: @/../components/common/header/realm-accept.md-->
 
 ### URL Parameters
-<!--@include: ../../common/url/uid-lockid.md-->
+<!--@include: @/../components/common/url/uid-lockid.md-->
 
 ### Playground
 
