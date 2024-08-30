@@ -1,7 +1,7 @@
 export default [
   {
     text: "LMO",
-    collapsed: false,
+    collapsed: true,
     items: [
       {
         text: "Schema",
@@ -19,7 +19,7 @@ export default [
   },
   {
     text: "LAW",
-    collapsed: false,
+    collapsed: true,
     items: [
       {
         text: "Schema",
@@ -35,4 +35,22 @@ export default [
       },
     ],
   },
+  {
+    text: "DEC",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/dec/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/dec/solr",
+      },
+      {
+        text: "Get",
+        link: "/dec/get",
+      },
+    ],
+  }
 ]
