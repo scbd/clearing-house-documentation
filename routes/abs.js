@@ -1,7 +1,7 @@
 export default [
   {
     text: "IRCC",
-    collapsed: false,
+    collapsed: true,
     items: [
       {
         text: "Schema",
@@ -68,6 +68,24 @@ export default [
       {
         text: "Delete",
         link: "/contact/delete",
+      },
+    ],
+  },
+  {
+    text: "CP",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/cp/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/cp/solr",
+      },
+      {
+        text: "Get",
+        link: "/cp/get",
       },
     ],
   },
