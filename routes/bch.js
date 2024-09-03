@@ -52,5 +52,23 @@ export default [
         link: "/dec/get",
       },
     ],
+  },
+  {
+    text: "IRA",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/ira/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/ira/solr",
+      },
+      {
+        text: "Get",
+        link: "/ira/get",
+      },
+    ],
   }
 ]
