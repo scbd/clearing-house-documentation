@@ -2,8 +2,6 @@
 import "@/style.css"
 </script>
 
-# Schema for CP
-
 This section provides an overview of the schemas related to the Legislative, Administrative or Policy Measures (MSR). Each schema details the structure and fields required for the CP-related requests and responses. 
 <br><br>
 
