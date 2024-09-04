@@ -8,7 +8,7 @@ const swaggerSpecs = [
 
 </script>
 
-# IRA - Get
+# NFP - Get
 
 ## Overview
 

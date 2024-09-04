@@ -89,6 +89,24 @@ export default {
       ],
     },
     {
+      text: "NFP",
+      collapsed: true,
+      items: [
+        {
+          text: "Schema",
+          link: "/nfp/schema",
+        },
+        {
+          text: "Public Records",
+          link: "/nfp/solr",
+        },
+        {
+          text: "Get",
+          link: "/nfp/get",
+        },
+      ],
+    },
+    {
       text: "Thesaurus",
       collapsed: true,
       items: [
