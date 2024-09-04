@@ -17,7 +17,7 @@
       <td><code>{ "identifier": "2229F37D-F8E0-2FFE-4F47-E7452BF3FE48", "schema": "measure", "languages": [ "en" ] }</code></td>
     </tr>
     <tr>
-      <td>Country</td>
+      <td><strong><a href="/thesaurus/general/countries">Country</a></strong></td>
       <td>government</td>
       <td>True</td>
       <td>Eterm</td>
@@ -45,14 +45,14 @@
       <td><code>{ "en": "&lt;div&gt;&lt;!--block--&gt;Test description&lt;/div&gt;" }</code></td>
     </tr>
     <tr>
-      <td>Type of document/measure</td>
+      <td><strong><a href="/thesaurus/measure/type-of-documents">Type of document/measure</a></strong></td>
       <td>type</td>
       <td>True</td>
       <td>Eterm</td>
       <td><code>{ "identifier": "8165BF22-EEF0-4DF8-B3F2-8E0AEED13E2F" }</code></td>
     </tr>
     <tr>
-      <td>Area of jurisdiction</td>
+      <td><strong><a href="/thesaurus/measure/jurisdictions">Area of jurisdiction</a></strong></td>
       <td>jurisdiction</td>
       <td>True</td>
       <td>Eterm</td>
@@ -87,7 +87,7 @@
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
     <tr>
-      <td>Legal status of the measure</td>
+      <td><strong><a href="/thesaurus/measure/statuses">Legal status of the measure</a></strong></td>
       <td>status</td>
       <td></td>
       <td>Eterm</td>
@@ -190,13 +190,6 @@
       <td>True</td>
       <td>EAbsMeasure</td>
       <td><code>{ "geneticResources": { "answer": True, "elements": [ { "types": [ { "identifier": "4E2974DF-216E-46C8-8797-8E3A33D6A048" }, { "identifier": "9C146B09-097E-4CFF-B9CC-D4785496952F" }, { "identifier": "357DBB22-6A6C-4C49-BA1F-037320B09247" }, { "identifier": "http://data.gbif.org/species/13140807" }, { "identifier": "33A6BF46-3699-4B5E-A3C0-506FAFDA2D76" }, { "identifier": "F9EF6F94-8B39-4F08-BF68-B991157F2643" } ] } ] }, "traditionalKnowledge": { "answer": True, "elements": [] } }</code></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td>operation</td>
-      <td></td>
-      <td>EOperation</td>
-      <td><code>{ "key": "submit", "parameters": { "operationDate": "2024-09-02T09:21:14.050Z" } }</code></td>
     </tr>
     <tr>
       <td>Elements are not applicable for this measure</td>

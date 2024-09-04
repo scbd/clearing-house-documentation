@@ -26,8 +26,10 @@ This endpoint provides access to a list of country terms from the thesaurus. Thi
 
 | Title            | Field   | Schema                    |
 | ---------------- | ------ | ------------------------------ |
-| Country           | government | <a href="/ircc/create#request-body">IRCC - create</a>  |
-| Country           | government | <a href="/contact/create#request-body">Contact - create</a>  |
+| Country           | government | <a href="/ircc/schema">IRCC</a>  |
+| Country           | government | <a href="/contact/schema">Contact</a>  |
+| Country           | country | <a href="/nfp/schema">NFP</a>  |
+| Country           | government | <a href="/msr/schema">MSR</a>  |
 
 ## Playground
 

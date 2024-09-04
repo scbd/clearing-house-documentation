@@ -70,5 +70,23 @@ export default [
         link: "/ira/get",
       },
     ],
+  },
+  {
+    text: "GENE",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/gene/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/gene/solr",
+      },
+      {
+        text: "Get",
+        link: "/gene/get",
+      },
+    ],
   }
 ]
