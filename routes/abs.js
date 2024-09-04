@@ -89,4 +89,22 @@ export default [
       },
     ],
   },
+  {
+    text: "MSR",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/msr/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/msr/solr",
+      },
+      {
+        text: "Get",
+        link: "/msr/get",
+      },
+    ],
+  },
 ]

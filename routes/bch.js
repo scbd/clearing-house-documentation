@@ -13,7 +13,7 @@ export default [
       },
       {
         text: "Get",
-        link: "/lmo/get"
+        link: "/lmo/get",
       },
     ],
   },
