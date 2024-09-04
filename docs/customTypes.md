@@ -2,54 +2,61 @@
 
 ## ETerm
 
-| Type       | Variable     | Required |
-|------------|--------------|----------|
-| `string`   | `identifier` | Yes      |
-| `lstring`  | `customValue`| No       |
+| Type       | Variable     |
+|------------|--------------|
+| `string`   | `identifier` |
+| `lstring`  | `customValue`|
 
 ## EHeader
 
-| Type        | Variable   | Required |
-|-------------|------------|----------|
-| `string`    | `identifier`| Yes     |
-| `string`    | `schema`    | Yes     |
-| `string[]`  | `languages` | No      |
+| Type        | Variable   |
+|-------------|------------|
+| `string`    | `identifier`|
+| `string`    | `schema`    |
+| `string[]`  | `languages` |
 
 ## EReference
 
-| Type       | Variable     | Required |
-|------------|--------------|----------|
-| `string`   | `identifier` | Yes      |
+| Type       | Variable     |
+|------------|--------------|
+| `string`   | `identifier` |
 
 ## ELink
 
-| Type       | Variable     | Required |
-|------------|--------------|----------|
-| `string`   | `url`        | Yes      |
-| `string`   | `name`       | No       |
-| `string`   | `tags`       | No       |
+| Type       | Variable     |
+|------------|--------------|
+| `string`   | `url`        |
+| `string`   | `name`       |
+| `string`   | `tags`       |
 
 ## lstring
 
-| Type                             | Variable     | Required |
-|----------------------------------|--------------|----------|
-| `SortedList<string, string>`     | `mValues`    | Yes      |
+| Type                             | Variable     |
+|----------------------------------|--------------|
+| `SortedList<string, string>`     | `mValues`    |
 
 ## EAssessment
 
-| Type       | Variable        | Required |
-|------------|-----------------|----------|
-| `string`   | `identifier`    | No       |
-| `string`   | `level`         | No       |
-| `lstring`  | `justification` | No       |
+| Type       | Variable        |
+|------------|-----------------|
+| `string`   | `identifier`    |
+| `string`   | `level`         |
+| `lstring`  | `justification` |
 
 ## EMapLocation
 
-| Type       | Variable     | Required |
-|------------|--------------|----------|
-| `int`      | `zoom`       | No       |
-| `double`   | `lat`        | No       |
-| `double`   | `lng`        | No       |
+| Type       | Variable     |
+|------------|--------------|
+| `int`      | `zoom`       |
+| `double`   | `lat`        |
+| `double`   | `lng`        |
+
+## TranscriptElement
+
+| Type       | Variable     |
+|------------|--------------|
+| `string`      | `type`    | 
+| `decimal`   | `size`      | 
 
 ## AmendmentIntent
 
