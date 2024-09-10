@@ -1,7 +1,7 @@
 <script setup>
-import "../../../style.css"
-import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
-import swaggerJson from "../../../swagger/json/thesaurus/measure/type-of-documents.json";
+import "@/style.css"
+import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
+import swaggerJson from "@/swagger/json/thesaurus/measure/type-of-documents.json";
 
 const swaggerSpecs = [
   { json:swaggerJson, protected: false },
@@ -20,7 +20,7 @@ This endpoint provides access to a list of standardized types of documents used 
 **GET** `/api.cbd.int/api/v2013/thesaurus/domains/144CF550-7629-43F3-817E-CACDED34837E/terms`
 
 ## Headers
-<!--@include: ../../../components/common/header/accept.md-->
+<!--@include: @/../components/common/header/accept.md-->
 
 ## Playground
 

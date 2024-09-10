@@ -1,7 +1,7 @@
 <script setup>
-import "../../style.css"
-import SwaggerUI from "../../swagger/view/SwaggerUI.vue"
-import swaggerJson from "../../swagger/json/contact/update.json";
+import "@/style.css"
+import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
+import swaggerJson from "@/swagger/json/contact/update.json";
 
 const swaggerSpecs = [
   { json: swaggerJson, protected: true },
@@ -21,19 +21,19 @@ This documentation describes the API endpoint for updating an existing Contact d
 This is the endpoint to which the PUT request should be made to update an existing document.
 
 ## Headers
-<!--@include: ../../components/common/header/authorization-realm.md-->
+<!--@include: @/../components/common/header/authorization-realm.md-->
 
 ## Query Parameters
-<!--@include: ../../components/common/query/schema.md-->
+<!--@include: @/../components/common/query/schema.md-->
 
 ## URL Parameters
-<!--@include: ../../components/common/url/uid.md-->
+<!--@include: @/../components/common/url/uid.md-->
 
 ## Validation Errors
-<!--@include: ../../components/common/validation-error.md-->
+<!--@include: @/../components/common/validation-error.md-->
 
 ## Request Body
-<!--@include: ../../components/contact/request-body.md-->
+<!--@include: @/../components/contact/request-body.md-->
 
 ## Playground
 

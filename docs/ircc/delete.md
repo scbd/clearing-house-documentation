@@ -1,7 +1,7 @@
 <script setup>
-import SwaggerUI from "../../swagger/view/SwaggerUI.vue"
-import irccJson from "../../swagger/json/ircc/delete.json";
-import baseJson from "../../swagger/json/records/delete.json";
+import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
+import irccJson from "@/swagger/json/ircc/delete.json";
+import baseJson from "@/swagger/json/records/delete.json";
 
 function mergeJson(base, specific) {
   const merged = JSON.parse(JSON.stringify(base));
@@ -25,16 +25,16 @@ This endpoint is used to delete a specific document from the system using its un
 **DELETE** `/api/v2013/documents/:uid`
 
 ## Headers
-<!--@include: ../../components/common/header/authorization-realm.md-->
+<!--@include: @/../components/common/header/authorization-realm.md-->
 
 ## Query Parameters
-<!--@include: ../../components/common/query/schema.md-->
+<!--@include: @/../components/common/query/schema.md-->
 
 ## URL Parameters
-<!--@include: ../../components/common/url/uid.md-->
+<!--@include: @/../components/common/url/uid.md-->
 
 ## Environment URLs
-<!--@include: ../../components/common/environment-urls.md-->
+<!--@include: @/../components/common/environment-urls.md-->
 
 ## Playground
 

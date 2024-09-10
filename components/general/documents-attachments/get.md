@@ -8,11 +8,11 @@ The "Get" API endpoint allows you to retrieve the data of a specific attachment 
 **GET** `/api/v2013/documents/{uid}/attachments/{filename}`
 
 ### Headers
-<!--@include: ../../common/header/accept.md-->
+<!--@include: @/../components/common/header/accept.md-->
 
 
 ### URL Parameters
-<!--@include: ../../common/url/uid-filename.md-->
+<!--@include: @/../components/common/url/uid-filename.md-->
 
 ### Playground
 

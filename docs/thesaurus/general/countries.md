@@ -1,7 +1,7 @@
 <script setup>
-import "../../../style.css"
-import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
-import swaggerJson from "../../../swagger/json/thesaurus/general/countries.json";
+import "@/style.css"
+import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
+import swaggerJson from "@/swagger/json/thesaurus/general/countries.json";
 
 const swaggerSpecs = [
   { json:swaggerJson, protected: false },
@@ -20,7 +20,7 @@ This endpoint provides access to a list of country terms from the thesaurus. Thi
 **GET** `/api/v2013/thesaurus/domains/countries/terms`
 
 ## Headers
-<!--@include: ../../../components/common/header/accept.md-->
+<!--@include: @/../components/common/header/accept.md-->
 
 ## Usages
 

@@ -37,13 +37,14 @@
             "description": "Identifier that uniquely identifies a lock."
           },
           {
-            "name": "realm",
+            "name": "Realm",
             "in": "header",
+            "required": false,
             "schema": {
               "type": "string",
-              "enum": ["ABS", "CHM", "BCH", "ABS-DEV", "BCH-DEV", "CHM-DEV"]
+              "enum": ["abs", "chm", "bch", "abs-dev", "bch-dev", "chm-dev"]
             },
-            "description": "Context in which the Clearing-House request is made."
+            "description": "Context in which the Clearing-House request is made. Allowed values: `abs`, `chm`, `bch`."
           },
           {
             "name": "Accept",

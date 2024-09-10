@@ -50,11 +50,12 @@
           {
             "name": "Realm",
             "in": "header",
-            "description": "Context in which the Clearing-House request is made.",
+            "required": false,
             "schema": {
               "type": "string",
-              "enum": ["ABS", "CHM"]
-            }
+              "enum": ["abs", "chm", "bch", "abs-dev", "bch-dev", "chm-dev"]
+            },
+            "description": "Context in which the Clearing-House request is made. Allowed values: `abs`, `chm`, `bch`."
           }
         ],
         "responses": {

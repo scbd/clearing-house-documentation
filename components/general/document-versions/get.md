@@ -7,10 +7,10 @@ The "Get" API endpoint is used to retrieve the content of a specific revision of
 **GET** `/api/v2013/documents/:uid/versions/:revision`
 
 ### Headers
-<!--@include: ../../common/header/realm-accept.md-->
+<!--@include: @/../components/common/header/realm-accept.md-->
 
 ### URL Parameters
-<!--@include: ../../common/url/uid-revision.md-->
+<!--@include: @/../components/common/url/uid-revision.md-->
 
 ### Playground
 

@@ -28,7 +28,7 @@
         "type": "apiKey",
         "in": "header",
         "name": "Authorization",
-        "description": "Add the `Realm` header with value `ABS-DEV`."
+        "description": "Add the `Realm` header with value `abs-dev`."
       }
     }
   },

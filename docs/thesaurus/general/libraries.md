@@ -1,7 +1,7 @@
 <script setup>
-import "../../../style.css"
-import SwaggerUI from "../../../swagger/view/SwaggerUI.vue"
-import swaggerJson from "../../../swagger/json/thesaurus/general/libraries.json";
+import "@/style.css"
+import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
+import swaggerJson from "@/swagger/json/thesaurus/general/libraries.json";
 
 const swaggerSpecs = [
   { json:swaggerJson, protected: false },
@@ -19,7 +19,7 @@ This endpoint allows you to retrieve a list of terms related to CBD clearing hou
 **GET** `/api/v2013/thesaurus/domains/cbdClearingHouses/terms`
 
 ## Headers
-<!--@include: ../../../components/common/header/accept.md-->
+<!--@include: @/../components/common/header/accept.md-->
 
 ## Playground
 

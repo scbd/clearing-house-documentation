@@ -1,8 +1,8 @@
 <script setup>
-import SwaggerUI from "../../swagger/view/SwaggerUI.vue"
-import swaggerCanCreateJson from "../../swagger/json/general/draft-securities/can-create.json";
-import swaggerCanDeleteJson from "../../swagger/json/general/draft-securities/can-delete.json";
-import swaggerCanUpdateJson from "../../swagger/json/general/draft-securities/can-update.json";
+import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
+import swaggerCanCreateJson from "@/swagger/json/general/draft-securities/can-create.json";
+import swaggerCanDeleteJson from "@/swagger/json/general/draft-securities/can-delete.json";
+import swaggerCanUpdateJson from "@/swagger/json/general/draft-securities/can-update.json";
 
 const swaggerCanCreateSpecs = [
   { json: swaggerCanCreateJson, domId:"canCreate", protected:true },
@@ -17,8 +17,8 @@ const swaggerCanUpdateSpecs = [
 
 # Draft Securities
 
-<!--@include: ../../components/general/draft-securities/can-create.md-->
+<!--@include: @/../components/general/draft-securities/can-create.md-->
 
-<!--@include: ../../components/general/draft-securities/can-delete.md-->
+<!--@include: @/../components/general/draft-securities/can-delete.md-->
 
-<!--@include: ../../components/general/draft-securities/can-update.md-->
+<!--@include: @/../components/general/draft-securities/can-update.md-->

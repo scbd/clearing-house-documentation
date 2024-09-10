@@ -1,7 +1,7 @@
 <script setup>
-import SwaggerUI from "../../swagger/view/SwaggerUI.vue"
-import irccJson from "../../swagger/json/ircc/list.json";
-import baseJson from "../../swagger/json/records/list.json";
+import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
+import irccJson from "@/swagger/json/ircc/list.json";
+import baseJson from "@/swagger/json/records/list.json";
 
 function mergeJson(base, specific) {
   const merged = JSON.parse(JSON.stringify(base));
@@ -25,10 +25,10 @@ This endpoint provides a way to retrieve draft records from the IRCC (Internatio
 **GET** `/api/v2013/documents`
 
 ## Header
-<!--@include: ../../components/common/header/authorization-realm.md-->
+<!--@include: @/../components/common/header/authorization-realm.md-->
 
 ## Query Parameters
-<!--@include: ../../components/common/query/collection-filter-orderby-top-skip.md-->
+<!--@include: @/../components/common/query/collection-filter-orderby-top-skip.md-->
 
 ## Playground
 

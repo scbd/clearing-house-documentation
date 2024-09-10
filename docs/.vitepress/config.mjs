@@ -1,7 +1,17 @@
 import { defineConfig, loadEnv } from "vite";
+import {resolve} from "path";
 import absRoute from "../../routes/abs.js";
 import bchRoute from "../../routes/bch.js";
 import chmRoute from "../../routes/chm.js";
+import commonRoutes from "../../routes/common.js"
+
+function insertRoutes(baseRoutes, routesToInsert) {
+  const schemaIndex = baseRoutes["/"].findIndex(route => route.text === "Users");
+  if (schemaIndex > -1) {
+    baseRoutes["/"].splice(schemaIndex + 1, 0, ...routesToInsert);
+  }
+  return baseRoutes;
+}
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
@@ -9,9 +19,12 @@ export default defineConfig(({ mode }) => {
   const clearingHouse = env.VITE_CLEARING_HOUSE?.trim();
 
   let sidebar;
-  if (clearingHouse === "abs") sidebar = absRoute;
-  if (clearingHouse === "chm") sidebar = chmRoute;
-  if (clearingHouse === "bch") sidebar = bchRoute;
+  let specificRoutes;
+  if (clearingHouse === "abs") specificRoutes  = absRoute;
+  if (clearingHouse === "chm") specificRoutes  = chmRoute;
+  if (clearingHouse === "bch") specificRoutes  = bchRoute;
+
+  sidebar = insertRoutes(commonRoutes, specificRoutes);
 
   if (!sidebar) {
     throw new Error("Invalid clearing house value");
@@ -35,6 +48,13 @@ export default defineConfig(({ mode }) => {
       sidebar,
       search: {
         provider: "local",
+      },
+    },
+    vite: {
+      resolve: {
+        alias: {
+          "@": resolve(__dirname, "../../"), //absolute path to root
+        },
       },
     },
   };

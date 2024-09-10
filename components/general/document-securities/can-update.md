@@ -8,13 +8,13 @@ This API endpoint allows clients to determine whether a specific document can be
 **GET** `/api/v2013/documents/{uid}/securities/update`
 
 ### Headers
-<!--@include: ../../common/header/authorization-realm.md-->
+<!--@include: @/../components/common/header/authorization-realm.md-->
 
 ### Query Parameters
-<!--@include: ../../common/query/metadata-government.md-->
+<!--@include: @/../components/common/query/metadata-government.md-->
 
 ### URL Parameters
-<!--@include: ../../common/url/uid.md-->
+<!--@include: @/../components/common/url/uid.md-->
 
 ### Playground
 

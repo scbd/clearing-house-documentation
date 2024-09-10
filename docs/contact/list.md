@@ -1,7 +1,7 @@
 <script setup>
-import SwaggerUI from "../../swagger/view/SwaggerUI.vue"
-import contactJson from "../../swagger/json/contact/list.json";
-import baseJson from "../../swagger/json/records/list.json";
+import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
+import contactJson from "@/swagger/json/contact/list.json";
+import baseJson from "@/swagger/json/records/list.json";
 
 function mergeJson(base, specific) {
   const merged = JSON.parse(JSON.stringify(base));
@@ -24,10 +24,10 @@ This endpoint provides a way to retrieve draft records from the Contact system. 
 **GET** `/api/v2013/documents`
 
 ## Header
-<!--@include: ../../components/common/header/authorization-realm.md-->
+<!--@include: @/../components/common/header/authorization-realm.md-->
 
 ## Query Parameters
-<!--@include: ../../components/common/query/collection-filter-orderby-top-skip.md-->
+<!--@include: @/../components/common/query/collection-filter-orderby-top-skip.md-->
 
 ## Playground
 

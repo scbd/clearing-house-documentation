@@ -1,6 +1,6 @@
 <script setup>
-import SwaggerUI from "../../swagger/view/SwaggerUI.vue"
-import swaggerJson from "../../swagger/json/general/document-validations/validations.json";
+import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
+import swaggerJson from "@/swagger/json/general/document-validations/validations.json";
 
 const swaggerSpecs = [
   { json: swaggerJson, protected: true },
@@ -17,16 +17,16 @@ The "Document Validations" API endpoint is designed to validate documents within
 **POST** `/api/v2013/documents/x/validate`
 
 ## Headers
-<!--@include: ../../components/common/header/authorization-realm.md-->
+<!--@include: @/../components/common/header/authorization-realm.md-->
 
 ## Query Parameters
-<!--@include: ../../components/common/query/schema-metadata-government.md-->
+<!--@include: @/../components/common/query/schema-metadata-government.md-->
 
 ## Validation Error
-<!--@include: ../../components/common/validation-error.md-->
+<!--@include: @/../components/common/validation-error.md-->
 
 ## Request Body
-<!--@include: ../../components/ircc/request-body.md-->
+<!--@include: @/../components/ircc/request-body.md-->
 
 ## Playground
 

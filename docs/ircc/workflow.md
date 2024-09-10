@@ -1,6 +1,6 @@
 <script setup>
-import SwaggerUI from "../../swagger/view/SwaggerUI.vue"
-import swaggerJson from "../../swagger/json/ircc/workflow.json";
+import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
+import swaggerJson from "@/swagger/json/ircc/workflow.json";
 
 const swaggerSpecs = [
   { json: swaggerJson, protected: true },
@@ -33,23 +33,23 @@ The API allows the creation or updating of documents by sending a request to the
 **POST/PUT** `/api/v2023/documents/schemas/:schema`
 
 ## Headers
-<!--@include: ../../components/common/header/authorization.md-->
+<!--@include: @/../components/common/header/authorization.md-->
 
 ## URL Parameters
-<!--@include: ../../components/common/url/schema.md-->
+<!--@include: @/../components/common/url/schema.md-->
 
 ## Query Parameters
-<!--@include: ../../components/common/query/realm.md-->
+<!--@include: @/../components/common/query/realm.md-->
 
 ## Request Body
-<!--@include: ../../components/ircc/workflow/request-body.md-->
+<!--@include: @/../components/ircc/workflow/request-body.md-->
 
 ## Validation Error
-<!--@include: ../../components/ircc/workflow/request-error.md-->
+<!--@include: @/../components/ircc/workflow/request-error.md-->
 
 When passing the `document` parameter in the request body, if there are any errors in the document, the following errors will be received:
 
-<!--@include: ../../components/common/validation-error.md-->
+<!--@include: @/../components/common/validation-error.md-->
 
 ## Playground
 

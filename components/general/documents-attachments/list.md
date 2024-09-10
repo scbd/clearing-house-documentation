@@ -9,10 +9,10 @@ The "List" API endpoint retrieves a comprehensive list of attachments associated
 **GET** `/api/v2013/documents/{uid}/attachments`
 
 ### Headers
-<!--@include: ../../common/header/authorization.md-->
+<!--@include: @/../components/common/header/authorization.md-->
 
 ### Query Parameters
-<!--@include: ../../common/query/filter-orderby-top-skip.md-->
+<!--@include: @/../components/common/query/filter-orderby-top-skip.md-->
 
 ### Playground
 
