@@ -22,9 +22,6 @@
           </div>
         </div>
       </div>
-      <div v-if="showIframe" class="login-iframe-container">
-        <iframe :src="loginUrl" class="login-iframe"></iframe>
-      </div>
       <div v-if="spec.protected && authToken">
         <div class="container">
           <div class="row">
@@ -68,6 +65,7 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
+import axios from "axios";
 import "swagger-ui/dist/swagger-ui.css";
 import "../../style.css";
 
@@ -86,26 +84,35 @@ const props = defineProps({
 });
 
 const authToken = ref(null);
-const showIframe = ref(false);
+// const showIframe = ref(false);
 const loginUrl = ref("");
+let userTokenResolved = null;
+let accountsHostUrl = "https://accounts.cbddev.xyz";
+let token = null;
+let maxAge = null;
 
 const showLoginIframe = () => {
-  showIframe.value = true;
+  // showIframe.value = true;
+  // createScbdIframe();
+  // createScbdIframe();
+  const currentUrl = window.location.href;
+  const loginUrl = `https://accounts.cbddev.xyz/signin?returnUrl=${encodeURIComponent(currentUrl)}`;
+  window.location.href = loginUrl;
 };
 
-const handleMessage = (event) => {
-  if (event.origin === "http://localhost:8080") {
-    if (event.data.type === "close") {
-      showIframe.value = false;
-    }
-    if (event.data.type === "loginSuccess" && event.data.token) {
-      setCookie("authToken", event.data.token, 7);
-      authToken.value = event.data.token;
-      showIframe.value = false;
-      initializeSwaggerUI();
-    }
-  }
-};
+// const handleMessage = (event) => {
+//   if (event.origin === "http://localhost:8080") {
+//     if (event.data.type === "close") {
+//       showIframe.value = false;
+//     }
+//     if (event.data.type === "loginSuccess" && event.data.token) {
+//       setCookie("authToken", event.data.token, 7);
+//       authToken.value = event.data.token;
+//       showIframe.value = false;
+//       initializeSwaggerUI();
+//     }
+//   }
+// };
 
 const initializeSwaggerUI = () => {
   props.swaggerSpecs.forEach(async (swaggerSpec, index) => {
@@ -211,20 +218,168 @@ const getCookie = (name) => {
 };
 
 onMounted(async () => {
-  loginUrl.value = `http://localhost:8080?redirect=${encodeURIComponent(
-    window.location.href
-  )}`;
+  loginUrl.value = `https://accounts.cbddev.xyz/app/authorize.html`;
   await import("bootstrap/dist/css/bootstrap.min.css");
   await import("bootstrap");
 
   checkForToken();
   initializeSwaggerUI();
-  window.addEventListener("message", handleMessage);
+  /////
+  token = await getScbdIframeToken();
+  if(token){
+    const user = await fetchUser(token);
+    console.log("USER", user);
+    setCookie("authToken", token, 7);
+  }
 });
 
-onBeforeUnmount(() => {
-  window.removeEventListener("message", handleMessage);
-});
+// onBeforeUnmount(() => {
+//   window.removeEventListener("message", handleMessage);
+// });
+// ////////////////////////////////////////////////////////
+// ******************************************************//
+// ******************************************************//
+// ******************************************************//
+// ******************************************************//
+// ******************************************************//
+
+  const setUserToken = (newToken) =>  {
+    //TODO : set token expiry
+    // token.set(token);
+    token = newToken;
+  }
+
+  const fetchUser = async () => {
+    try {
+      const response = await axios.get("https://absch.cbddev.xyz/api/v2013/authentication/user",{
+        headers:{
+          "Authorization":`Ticket ${token}`
+        }
+      });
+      
+      return response.data;
+    } catch (error) {
+      console.error("An error occurred", error);
+    }
+  }
+
+  const logout = async () => {
+    userTokenResolved = undefined;
+    
+    await setScbdIframeToken({authenticationToken:null});
+  }
+
+  const getScbdIframeToken = async () => {
+    userTokenResolved = undefined;
+    const token = await resolveToken();
+
+    return token;
+  }
+
+  const setScbdIframeToken = async ({authenticationToken, authenticationEmail, expiration}) => {
+    var msg = {
+      type: "setAuthenticationToken",
+      authenticationToken,
+      authenticationEmail,
+      expiration
+    };
+
+    let accountsIframe = getScbdIframe();
+    if(!accountsIframe){
+      const onloadCallback = (newIframe)=> {
+        postIFrameMessage.bind(this, newIframe, JSON.stringify(msg))
+      }
+      createScbdIframe(onloadCallback)
+    }
+    else{
+      postIFrameMessage(accountsIframe, JSON.stringify(msg));
+    }
+  }
+
+
+  const receivePostMessage = (event) => {
+    if(!event.data || accountsHostUrl !== event.origin)
+      return
+
+    const {
+      type,
+      authenticationToken,
+      authenticationEmail,
+      expiration
+    } = JSON.parse(event.data);
+
+    if (!['authenticationTokenUpdated', 'authenticationToken'].includes(type)) 
+      return;//throw new Error('unsupported authentication message type');
+    if(type === 'authenticationToken'){
+      userTokenResolved = true;
+      maxAge = Date.parse(expiration) /1000
+      setUserToken(authenticationToken);
+    }
+    else if(type === 'authenticationTokenUpdated'){
+      getScbdIframeToken();
+    }
+  }
+
+  const getScbdIframe = () => {
+    const iFrames = [...window.document.getElementsByTagName('iframe')].find(e=>e.name == 'scbdAuthFrame');
+    
+    if(iFrames){
+      const { origin } = new URL(iFrames.getAttribute('src'));
+
+      if (accountsHostUrl === origin)
+        return iFrames;
+    }
+  }
+
+  const createScbdIframe = (onloadCallback) => {
+    //Iframe was not found, embed one
+    var sc = document.createElement("iframe");
+    sc.setAttribute("src", `${accountsHostUrl}/app/authorize.html`);
+    sc.setAttribute("name", "scbdAuthFrame");
+    sc.setAttribute("style", "display:none;");
+    sc.onload = () => onloadCallback(sc);
+    document.head.appendChild(sc);
+    return sc;
+  }
+
+  function resolveToken(ms = 300){
+    return new Promise(async function (resolve, reject) {
+
+      window.addEventListener('message', receivePostMessage);
+
+      const type = 'getAuthenticationToken';
+      let accountsIframe = getScbdIframe();
+
+      if(!accountsIframe){
+
+        const onloadCallback = (newIframe)=> {
+          postIFrameMessage(newIframe, JSON.stringify({type}))
+        }
+
+        createScbdIframe(onloadCallback)
+      }
+      else{
+        postIFrameMessage(accountsIframe, msg);
+      }
+
+      const interval = setInterval(function () {
+        if (userTokenResolved) {
+          clearInterval(interval);
+          resolve(token);
+          window.removeEventListener('message', receivePostMessage);
+        }
+      }, ms);
+    });
+  }
+
+  const postIFrameMessage = (accountsIframe, message) => {
+    const { contentWindow } = accountsIframe;    
+    contentWindow.postMessage(message, accountsHostUrl);
+  }
+
+  const isServer = () =>{
+    return false;
+  }
 </script>
 
 <style scoped>
