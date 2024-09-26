@@ -65,8 +65,8 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
-import {AuthManager} from "../../utils/auth";
-import axios from "axios";
+import { APP_CONFIG } from "../../docs/app-config"
+import { AuthManager } from "../../utils/auth";
 import "swagger-ui/dist/swagger-ui.css";
 import "../../style.css";
 
@@ -84,13 +84,11 @@ const props = defineProps({
   },
 });
 
-const loginUrl = ref("");
 let token = ref(null)
-let maxAge = null;
 
 const redirectToAccountsForSingleSignOn = () => {
   const currentUrl = window.location.href;
-  const loginUrl = `https://accounts.cbddev.xyz/signin?returnUrl=${encodeURIComponent(currentUrl)}`;
+  const loginUrl = `${APP_CONFIG.ACCOUNTS_HOST_URL}/signin?returnUrl=${encodeURIComponent(currentUrl)}`;
   window.location.href = loginUrl;
 };
 
@@ -107,10 +105,6 @@ const initializeSwaggerUI = () => {
 
     if (swaggerSpec.protected && token.value) {
       ui.initOAuth({
-        clientId: "your-client-id",
-        clientSecret: "your-client-secret",
-        realm: "your-realms",
-        appName: "your-app-name",
         scopeSeparator: " ",
         additionalQueryStringParams: {},
       });
@@ -164,11 +158,10 @@ const initializeSwaggerUI = () => {
 };
 
 onMounted(async () => {
-  loginUrl.value = `https://accounts.cbddev.xyz/app/authorize.html`;
   await import("bootstrap/dist/css/bootstrap.min.css");
   await import("bootstrap");
 
-  const authManager = new AuthManager();
+  const authManager = new AuthManager(APP_CONFIG.ACCOUNTS_HOST_URL);
 
   authManager.getScbdIframeToken().then((newToken) => {
     if(newToken){
