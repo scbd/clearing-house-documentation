@@ -1,7 +1,7 @@
 <template>
   <div class="mt-4">
     <div v-for="(spec, index) in swaggerSpecs" :key="index">
-      <div v-if="spec.protected && !authToken">
+      <div v-if="spec.protected && !token">
         <div class="container">
           <div class="row">
             <div class="col">
@@ -14,7 +14,7 @@
                     calls.
                   </p>
                 </div>
-                <button class="btn btn-primary ml-3" @click="showLoginIframe">
+                <button class="btn btn-primary ml-3" @click="redirectToAccountsForSingleSignOn">
                   Login
                 </button>
               </div>
@@ -22,7 +22,7 @@
           </div>
         </div>
       </div>
-      <div v-if="spec.protected && authToken">
+      <div v-if="spec.protected && token">
         <div class="container">
           <div class="row">
             <div class="col">
@@ -48,7 +48,7 @@
                   </p>
                   <button
                     class="btn btn-success btn-block ml-3 mt-3"
-                    @click="showLoginIframe"
+                    @click="redirectToAccountsForSingleSignOn"
                   >
                     Login
                   </button>
@@ -65,6 +65,7 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
+import {AuthManager} from "../../utils/auth";
 import axios from "axios";
 import "swagger-ui/dist/swagger-ui.css";
 import "../../style.css";
@@ -83,36 +84,15 @@ const props = defineProps({
   },
 });
 
-const authToken = ref(null);
-// const showIframe = ref(false);
 const loginUrl = ref("");
-let userTokenResolved = null;
-let accountsHostUrl = "https://accounts.cbddev.xyz";
-let token = null;
+let token = ref(null)
 let maxAge = null;
 
-const showLoginIframe = () => {
-  // showIframe.value = true;
-  // createScbdIframe();
-  // createScbdIframe();
+const redirectToAccountsForSingleSignOn = () => {
   const currentUrl = window.location.href;
   const loginUrl = `https://accounts.cbddev.xyz/signin?returnUrl=${encodeURIComponent(currentUrl)}`;
   window.location.href = loginUrl;
 };
-
-// const handleMessage = (event) => {
-//   if (event.origin === "http://localhost:8080") {
-//     if (event.data.type === "close") {
-//       showIframe.value = false;
-//     }
-//     if (event.data.type === "loginSuccess" && event.data.token) {
-//       setCookie("authToken", event.data.token, 7);
-//       authToken.value = event.data.token;
-//       showIframe.value = false;
-//       initializeSwaggerUI();
-//     }
-//   }
-// };
 
 const initializeSwaggerUI = () => {
   props.swaggerSpecs.forEach(async (swaggerSpec, index) => {
@@ -125,7 +105,7 @@ const initializeSwaggerUI = () => {
       layout: "BaseLayout",
     });
 
-    if (swaggerSpec.protected && authToken.value) {
+    if (swaggerSpec.protected && token.value) {
       ui.initOAuth({
         clientId: "your-client-id",
         clientSecret: "your-client-secret",
@@ -134,7 +114,7 @@ const initializeSwaggerUI = () => {
         scopeSeparator: " ",
         additionalQueryStringParams: {},
       });
-      const prefixedAuthToken = `Ticket ${authToken.value}`;
+      const prefixedAuthToken = `Ticket ${token.value}`;
       ui.preauthorizeApiKey("ApiKeyAuth", prefixedAuthToken);
 
       const observer = new MutationObserver(() => {
@@ -183,203 +163,20 @@ const initializeSwaggerUI = () => {
   });
 };
 
-const checkForToken = () => {
-  if (typeof window !== "undefined") {
-    const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get("token");
-    if (token) {
-      setCookie("authToken", token, 7); // Set cookie for 7 days
-      window.location.href = window.location.href.split("?")[0]; // Redirect to the home page
-    } else {
-      authToken.value = getCookie("authToken");
-    }
-  }
-};
-
-const setCookie = (name, value, days) => {
-  let expires = "";
-  if (days) {
-    const date = new Date();
-    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-    expires = `; expires=${date.toUTCString()}`;
-  }
-  document.cookie = `${name}=${value || ""}${expires}; path=/`;
-};
-
-const getCookie = (name) => {
-  const nameEQ = `${name}=`;
-  const ca = document.cookie.split(";");
-  for (let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) === " ") c = c.substring(1, c.length);
-    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-  }
-  return null;
-};
-
 onMounted(async () => {
   loginUrl.value = `https://accounts.cbddev.xyz/app/authorize.html`;
   await import("bootstrap/dist/css/bootstrap.min.css");
   await import("bootstrap");
 
-  checkForToken();
-  initializeSwaggerUI();
-  /////
-  token = await getScbdIframeToken();
-  if(token){
-    const user = await fetchUser(token);
-    console.log("USER", user);
-    setCookie("authToken", token, 7);
-  }
+  const authManager = new AuthManager();
+
+  authManager.getScbdIframeToken().then((newToken) => {
+    if(newToken){
+      token.value = newToken;
+      initializeSwaggerUI();
+    }
+  })
 });
-
-// onBeforeUnmount(() => {
-//   window.removeEventListener("message", handleMessage);
-// });
-// ////////////////////////////////////////////////////////
-// ******************************************************//
-// ******************************************************//
-// ******************************************************//
-// ******************************************************//
-// ******************************************************//
-
-  const setUserToken = (newToken) =>  {
-    //TODO : set token expiry
-    // token.set(token);
-    token = newToken;
-  }
-
-  const fetchUser = async () => {
-    try {
-      const response = await axios.get("https://absch.cbddev.xyz/api/v2013/authentication/user",{
-        headers:{
-          "Authorization":`Ticket ${token}`
-        }
-      });
-      
-      return response.data;
-    } catch (error) {
-      console.error("An error occurred", error);
-    }
-  }
-
-  const logout = async () => {
-    userTokenResolved = undefined;
-    
-    await setScbdIframeToken({authenticationToken:null});
-  }
-
-  const getScbdIframeToken = async () => {
-    userTokenResolved = undefined;
-    const token = await resolveToken();
-
-    return token;
-  }
-
-  const setScbdIframeToken = async ({authenticationToken, authenticationEmail, expiration}) => {
-    var msg = {
-      type: "setAuthenticationToken",
-      authenticationToken,
-      authenticationEmail,
-      expiration
-    };
-
-    let accountsIframe = getScbdIframe();
-    if(!accountsIframe){
-      const onloadCallback = (newIframe)=> {
-        postIFrameMessage.bind(this, newIframe, JSON.stringify(msg))
-      }
-      createScbdIframe(onloadCallback)
-    }
-    else{
-      postIFrameMessage(accountsIframe, JSON.stringify(msg));
-    }
-  }
-
-
-  const receivePostMessage = (event) => {
-    if(!event.data || accountsHostUrl !== event.origin)
-      return
-
-    const {
-      type,
-      authenticationToken,
-      authenticationEmail,
-      expiration
-    } = JSON.parse(event.data);
-
-    if (!['authenticationTokenUpdated', 'authenticationToken'].includes(type)) 
-      return;//throw new Error('unsupported authentication message type');
-    if(type === 'authenticationToken'){
-      userTokenResolved = true;
-      maxAge = Date.parse(expiration) /1000
-      setUserToken(authenticationToken);
-    }
-    else if(type === 'authenticationTokenUpdated'){
-      getScbdIframeToken();
-    }
-  }
-
-  const getScbdIframe = () => {
-    const iFrames = [...window.document.getElementsByTagName('iframe')].find(e=>e.name == 'scbdAuthFrame');
-    
-    if(iFrames){
-      const { origin } = new URL(iFrames.getAttribute('src'));
-
-      if (accountsHostUrl === origin)
-        return iFrames;
-    }
-  }
-
-  const createScbdIframe = (onloadCallback) => {
-    //Iframe was not found, embed one
-    var sc = document.createElement("iframe");
-    sc.setAttribute("src", `${accountsHostUrl}/app/authorize.html`);
-    sc.setAttribute("name", "scbdAuthFrame");
-    sc.setAttribute("style", "display:none;");
-    sc.onload = () => onloadCallback(sc);
-    document.head.appendChild(sc);
-    return sc;
-  }
-
-  function resolveToken(ms = 300){
-    return new Promise(async function (resolve, reject) {
-
-      window.addEventListener('message', receivePostMessage);
-
-      const type = 'getAuthenticationToken';
-      let accountsIframe = getScbdIframe();
-
-      if(!accountsIframe){
-
-        const onloadCallback = (newIframe)=> {
-          postIFrameMessage(newIframe, JSON.stringify({type}))
-        }
-
-        createScbdIframe(onloadCallback)
-      }
-      else{
-        postIFrameMessage(accountsIframe, msg);
-      }
-
-      const interval = setInterval(function () {
-        if (userTokenResolved) {
-          clearInterval(interval);
-          resolve(token);
-          window.removeEventListener('message', receivePostMessage);
-        }
-      }, ms);
-    });
-  }
-
-  const postIFrameMessage = (accountsIframe, message) => {
-    const { contentWindow } = accountsIframe;    
-    contentWindow.postMessage(message, accountsHostUrl);
-  }
-
-  const isServer = () =>{
-    return false;
-  }
 </script>
 
 <style scoped>
