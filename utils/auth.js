@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export class AuthManager {
-  constructor(accountsHostUrl = "https://accounts.cbddev.xyz") {
+  constructor(accountsHostUrl) {
     this.token = null;
     this.userTokenResolved = null;
     this.maxAge = null;
@@ -18,7 +18,7 @@ export class AuthManager {
   async fetchUser() {
     try {
       const response = await axios.get(
-        "https://absch.cbddev.xyz/api/v2013/authentication/user",
+        `${accountsHostUrl}/api/v2013/authentication/user`,
         {
           headers: {
             Authorization: `Ticket ${this.token}`,
