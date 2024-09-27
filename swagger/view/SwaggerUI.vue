@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-4">
+  <div class="mt-4" v-if="!isLoading">
     <div v-for="(spec, index) in swaggerSpecs" :key="index">
       <div v-if="spec.protected && !token">
         <div class="container">
@@ -14,7 +14,7 @@
                     calls.
                   </p>
                 </div>
-                <button class="btn btn-primary ml-3" @click="redirectToAccountsForSingleSignOn">
+                <button class="btn btn-primary ml-3" @click="redirectToAccounts">
                   Login
                 </button>
               </div>
@@ -40,18 +40,6 @@
                     authorized calls using the token stored in your browser's
                     cookie.
                   </p>
-                  <p class="lh-lg">
-                    If you encounter any issues, ensure that your token is still
-                    valid and has not expired. If necessary, you can
-                    re-authenticate by clicking the login button to obtain a new
-                    token.
-                  </p>
-                  <button
-                    class="btn btn-success btn-block ml-3 mt-3"
-                    @click="redirectToAccountsForSingleSignOn"
-                  >
-                    Login
-                  </button>
                 </div>
               </div>
             </div>
@@ -66,7 +54,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import { APP_CONFIG } from "../../docs/app-config"
-import { AuthManager } from "../../utils/auth";
+import { AuthManager } from "../../utils/auth-manager";
 import "swagger-ui/dist/swagger-ui.css";
 import "../../style.css";
 
@@ -85,8 +73,9 @@ const props = defineProps({
 });
 
 let token = ref(null)
+let isLoading = ref(true);
 
-const redirectToAccountsForSingleSignOn = () => {
+const redirectToAccounts = () => {
   const currentUrl = window.location.href;
   const loginUrl = `${APP_CONFIG.ACCOUNTS_HOST_URL}/signin?returnUrl=${encodeURIComponent(currentUrl)}`;
   window.location.href = loginUrl;
@@ -163,32 +152,45 @@ onMounted(async () => {
 
   const authManager = new AuthManager(APP_CONFIG.ACCOUNTS_HOST_URL);
 
-  authManager.getScbdIframeToken().then((newToken) => {
+  authManager.getScbdIframeToken().then(async (newToken) => {
     if(newToken){
       token.value = newToken;
+      const user = await authManager.fetchUser();
       initializeSwaggerUI();
+      injectLoggedInNavLink(user);
     }
+    isLoading.value = false;
   })
 });
+
+const injectLoggedInNavLink = (user) => {
+  const isNavLinkExist = document.querySelector(".navbar-link");
+
+  if(!isNavLinkExist){
+    // Select the nav menu using querySelector
+    const navMenu = document.querySelector(".VPNavBarMenu.menu");
+  
+    if (navMenu) {
+      // Create a new anchor element
+      const loggedInLink = document.createElement("p");
+      loggedInLink.classList.add("VPLink", "link", "navbar-link");
+      // loggedInLink.href = "/";
+      
+      // Create a span element for the "Logged In" text
+      const loggedInSpan = document.createElement("span");
+      loggedInSpan.textContent = `Welcome ${user.name}`;
+  
+      // Append the span to the anchor element
+      loggedInLink.appendChild(loggedInSpan);
+  
+      // Insert the new link after the Home link
+      navMenu.appendChild(loggedInLink);
+    } else {
+      console.error("Navigation menu not found.");
+    }
+  }
+}
 </script>
 
 <style scoped>
-.login-iframe-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-}
-
-.login-iframe {
-  width: 80%;
-  height: 80%;
-  border: none;
-}
 </style>
