@@ -148,8 +148,7 @@ export class AuthManager {
     contentWindow.postMessage(message, this.accountsHostUrl);
   }
 
-  // Check if running on the server
-  isServer() {
-    return typeof window === "undefined";
+  isServer(){
+    return false;
   }
 }
