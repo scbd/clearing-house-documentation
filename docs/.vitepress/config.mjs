@@ -1,12 +1,14 @@
 import { defineConfig, loadEnv } from "vite";
-import {resolve} from "path";
+import { resolve } from "path";
 import absRoute from "../../routes/abs.js";
 import bchRoute from "../../routes/bch.js";
 import chmRoute from "../../routes/chm.js";
-import commonRoutes from "../../routes/common.js"
+import commonRoutes from "../../routes/common.js";
 
 function insertRoutes(baseRoutes, routesToInsert) {
-  const schemaIndex = baseRoutes["/"].findIndex(route => route.text === "Users");
+  const schemaIndex = baseRoutes["/"].findIndex(
+    (route) => route.text === "Users"
+  );
   if (schemaIndex > -1) {
     baseRoutes["/"].splice(schemaIndex + 1, 0, ...routesToInsert);
   }
@@ -14,15 +16,20 @@ function insertRoutes(baseRoutes, routesToInsert) {
 }
 
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd(), "");
+  const env = loadEnv(mode, resolve(__dirname, "../"), "");
+
+  const mandatoryEnvVars = ['VITE_ACCOUNTS_HOST_URL', 'VITE_API_URL'];
+
+  // Run validation on environment variables
+  validateEnv(env, mandatoryEnvVars);
 
   const clearingHouse = env.VITE_CLEARING_HOUSE?.trim();
 
   let sidebar;
   let specificRoutes;
-  if (clearingHouse === "abs") specificRoutes  = absRoute;
-  if (clearingHouse === "chm") specificRoutes  = chmRoute;
-  if (clearingHouse === "bch") specificRoutes  = bchRoute;
+  if (clearingHouse === "abs") specificRoutes = absRoute;
+  if (clearingHouse === "chm") specificRoutes = chmRoute;
+  if (clearingHouse === "bch") specificRoutes = bchRoute;
 
   sidebar = insertRoutes(commonRoutes, specificRoutes);
 
@@ -59,3 +66,12 @@ export default defineConfig(({ mode }) => {
     },
   };
 });
+
+// // Function to validate the existence of mandatory env variables
+const validateEnv = (env, vars) => {
+  vars.forEach((variable) => {
+    if (!env[variable]) {
+      throw new Error(`Missing mandatory environment variable: ${variable}`);
+    }
+  });
+};

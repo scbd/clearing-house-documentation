@@ -1,4 +1,5 @@
 import axios from "axios";
+import { APP_CONFIG } from "../docs/app-config";
 
 export class AuthManager {
   constructor(accountsHostUrl) {
@@ -18,7 +19,7 @@ export class AuthManager {
   async fetchUser() {
     try {
       const response = await axios.get(
-        `${accountsHostUrl}/api/v2013/authentication/user`,
+        `${APP_CONFIG.API_URL}/api/v2013/authentication/user`,
         {
           headers: {
             Authorization: `Ticket ${this.token}`,
