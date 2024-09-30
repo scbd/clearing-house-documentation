@@ -1,20 +1,20 @@
 <script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
 
-import baseAllAbsWithQueryJson from "@/swagger/json/records/solr/all-abs-permit-with-query.json";
-import contactAllAbsWithQueryJson from "@/swagger/json/contact/solr/all-abs-permit-with-query.json";
+import baseAllAbsWithQueryJson from "@/swagger/json/records/solr/all-record-permit-with-query.json";
+import contactAllAbsWithQueryJson from "@/swagger/json/contact/solr/all-record-permit-with-query.json";
 
-import baseAllAbsPermitJson from "@/swagger/json/records/solr/all-abs-permit.json";
-import contactAllAbsPermitJson from "@/swagger/json/contact/solr/all-abs-permit.json";
+import baseAllAbsPermitJson from "@/swagger/json/records/solr/all-record-permit.json";
+import contactAllAbsPermitJson from "@/swagger/json/contact/solr/all-record-permit.json";
 
-import baseAllAbsPermitWithCountryJson from "@/swagger/json/records/solr/all-abs-with-country.json";
-import contactAllAbsPermitWithCountryJson from "@/swagger/json/contact/solr/all-abs-with-country.json";
+import baseAllAbsPermitWithCountryJson from "@/swagger/json/records/solr/all-record-with-country.json";
+import contactAllAbsPermitWithCountryJson from "@/swagger/json/contact/solr/all-record-with-country.json";
 
-import baseAllAbsPermitWithRegionJson from "@/swagger/json/records/solr/all-abs-with-region.json";
-import contactAllAbsPermitWithRegionJson from "@/swagger/json/contact/solr/all-abs-with-region.json";
+import baseAllAbsPermitWithRegionJson from "@/swagger/json/records/solr/all-record-with-region.json";
+import contactAllAbsPermitWithRegionJson from "@/swagger/json/contact/solr/all-record-with-region.json";
 
-import baseAllAbsPermitWithSubFiltersJson from "@/swagger/json/records/solr/all-abs-with-subfilters.json";
-import contactAllAbsPermitWithSubFiltersJson from "@/swagger/json/contact/solr/all-abs-with-subfilters.json";
+import baseAllAbsPermitWithSubFiltersJson from "@/swagger/json/records/solr/all-record-with-subfilters.json";
+import contactAllAbsPermitWithSubFiltersJson from "@/swagger/json/contact/solr/all-record-with-subfilters.json";
 
 function mergeJson(base, specific) {
   const merged = JSON.parse(JSON.stringify(base));
