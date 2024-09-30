@@ -22,23 +22,17 @@
           </div>
         </div>
       </div>
-      <div v-if="spec.protected && token">
+      <div v-if="spec.protected && token && user">
         <div class="container">
           <div class="row">
             <div class="col">
               <div class="alert alert-success" role="alert">
                 <div>
                   <p class="lh-lg">
-                    <b>You have successfully logged in</b>, and an
-                    authentication token is available in your cookie. This route
-                    is protected, and access to this content requires a valid
-                    token.
+                    Welcome {{user.name}}, you are currently connected with test environment for {{APP_CONFIG.APP_ENV.toUpperCase()}}.
                   </p>
-                  <p class="lh-lg">
-                    The token is automatically used to authenticate API requests
-                    made through Swagger. You can interact with the API and make
-                    authorized calls using the token stored in your browser's
-                    cookie.
+                  <p v-if="devRoles.length > 0">
+                    You currently have {{ devRoles.join(", ") }} roles in the test server.
                   </p>
                 </div>
               </div>
@@ -52,7 +46,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount, computed } from "vue";
 import { APP_CONFIG } from "../../docs/app-config"
 import { AuthManager } from "../../utils/auth-manager";
 import "swagger-ui/dist/swagger-ui.css";
@@ -74,6 +68,11 @@ const props = defineProps({
 
 let token = ref(null)
 let isLoading = ref(true);
+let user = ref(null);
+
+const devRoles = computed(() => {
+  return user.value.roles.filter(role => role.includes("dev"));
+})
 
 const redirectToAccounts = () => {
   const currentUrl = window.location.href;
@@ -155,9 +154,14 @@ onMounted(async () => {
   authManager.getScbdIframeToken().then(async (newToken) => {
     if(newToken){
       token.value = newToken;
-      const user = await authManager.fetchUser();
-      initializeSwaggerUI();
-      injectLoggedInNavLink(user);
+      const loggedInUser = await authManager.fetchUser();
+      if(loggedInUser.isAuthenticated){
+        user.value = loggedInUser;
+        initializeSwaggerUI();
+        injectLoggedInNavLink(loggedInUser);
+      } else {
+        token.value = null;
+      }
     }
     isLoading.value = false;
   })
