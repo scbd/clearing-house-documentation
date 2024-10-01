@@ -1,11 +1,11 @@
 <script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
 
-import baseAllAbsWithQueryJson from "@/swagger/json/records/solr/all-record-permit-with-query.json";
-import contactAllAbsWithQueryJson from "@/swagger/json/contact/solr/all-record-permit-with-query.json";
+import baseAllAbsWithQueryJson from "@/swagger/json/records/solr/all-record-with-query.json";
+import contactAllAbsWithQueryJson from "@/swagger/json/contact/solr/all-record-with-query.json";
 
-import baseAllAbsPermitJson from "@/swagger/json/records/solr/all-record-permit.json";
-import contactAllAbsPermitJson from "@/swagger/json/contact/solr/all-record-permit.json";
+import baseAllAbsPermitJson from "@/swagger/json/records/solr/all-record.json";
+import contactAllAbsPermitJson from "@/swagger/json/contact/solr/all-record.json";
 
 import baseAllAbsPermitWithCountryJson from "@/swagger/json/records/solr/all-record-with-country.json";
 import contactAllAbsPermitWithCountryJson from "@/swagger/json/contact/solr/all-record-with-country.json";

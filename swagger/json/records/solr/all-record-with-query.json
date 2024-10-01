@@ -25,7 +25,7 @@
               "type": "string",
               "example": "(schema_s:absPermit)"
             },
-            "description": "Query parameter for searching records based on schema."
+            "description": "Query parameter for searching ABS permits based on schema."
           },
           {
             "name": "fl",
@@ -59,6 +59,14 @@
             },
             "description": "The number of results to return. Default value is 10 if not specified.",
             "default": "10"
+          },
+          {
+            "name": "field",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Specifies the fields to use for faceting. Requires facet=true to be enabled."
           }
         ],
         "responses": {
@@ -66,29 +74,43 @@
             "description": "Successful response",
             "content": {
               "application/json": {
-                "example": {
-                  "response": {
-                    "numFound": 25,
-                    "start": 0,
-                    "docs": [
-                      {
-                        "id": "52000000cbd0800000032af8",
-                        "schema_s": "absPermit",
-                        "title_s": "Workflow 2",
-                        "title_AR_s": "Workflow 2",
-                        "title_EN_s": "Workflow 2",
-                        "title_ES_s": "Workflow 2",
-                        "title_FR_s": "Workflow 2",
-                        "schemaType_s": "national",
-                        "uniqueIdentifier_s": "absch-ircc-ht-207608-2",
-                        "government_s": "ht",
-                        "url_ss": [
-                          "https://absch.cbddev.xyz/database/record?documentID=207608"
-                        ]
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "responseHeader": {
+                      "type": "object",
+                      "properties": {
+                        "status": { "type": "integer" },
+                        "QTime": { "type": "integer" },
+                        "params": {
+                          "type": "object",
+                          "properties": {
+                            "indent": { "type": "string" },
+                            "q": { "type": "string" },
+                            "_": { "type": "string" },
+                            "wt": { "type": "string" }
+                          }
+                        }
                       }
-                    ]
-                  },
-                  "nonSupportedParams": []
+                    },
+                    "response": {
+                      "type": "object",
+                      "properties": {
+                        "numFound": { "type": "integer" },
+                        "start": { "type": "integer" },
+                        "docs": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "schema_s": { "type": "string" },
+                              "title_t": { "type": "string" }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }

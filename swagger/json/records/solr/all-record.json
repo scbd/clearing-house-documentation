@@ -15,7 +15,7 @@
     "/index": {
       "get": {
         "summary": "Query all results",
-        "description": "Retrieve records by schema query.",
+        "description": "Retrieve permits by schema query.",
         "tags": ["Get All resullts"],
         "parameters": [
           {
@@ -31,9 +31,53 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful response with a list of records",
+            "description": "Successful response with a list of permits",
             "content": {
               "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "response": {
+                      "type": "object",
+                      "properties": {
+                        "numFound": {
+                          "type": "integer",
+                          "description": "Total number of permits found"
+                        },
+                        "start": {
+                          "type": "integer",
+                          "description": "Start index of the results"
+                        },
+                        "docs": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "description": "Permit ID"
+                              },
+                              "title": {
+                                "type": "string",
+                                "description": "Title of the permit"
+                              },
+                              "issuedDate": {
+                                "type": "string",
+                                "format": "date",
+                                "description": "Date the permit was issued"
+                              },
+                              "expirationDate": {
+                                "type": "string",
+                                "format": "date",
+                                "description": "Date the permit expires"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
                 "example": {
                   "response": {
                     "numFound": 150,
@@ -46,8 +90,7 @@
                         "expirationDate": "2025-01-01"
                       }
                     ]
-                  },
-                  "nonSupportedParams": []
+                  }
                 }
               }
             }
