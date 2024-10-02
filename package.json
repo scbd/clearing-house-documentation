@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "@dotenvx/dotenvx": "^1.5.0",
+    "@types/node": "^22.7.4",
     "vitepress": "^1.2.3"
   },
   "scripts": {
@@ -11,7 +12,7 @@
     "build": "VITE_CLEARING_HOUSE=abs vitepress build docs",
     "preview": "VITE_CLEARING_HOUSE=abs vitepress preview docs --port 8000"
   },
-  "dependencies": {   
+  "dependencies": {
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
     "swagger-ui": "^5.17.14",

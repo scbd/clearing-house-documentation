@@ -1,12 +1,13 @@
 import { defineConfig, loadEnv } from "vite";
-import {resolve} from "path";
+import { resolve } from "path";
 import absRoute from "../../routes/abs.js";
 import bchRoute from "../../routes/bch.js";
 import chmRoute from "../../routes/chm.js";
-import commonRoutes from "../../routes/common.js"
+import commonRoutes from "../../routes/common.js";
+import type { DefaultTheme } from 'vitepress';
 
 function insertRoutes(baseRoutes, routesToInsert) {
-  const schemaIndex = baseRoutes["/"].findIndex(route => route.text === "Users");
+  const schemaIndex = baseRoutes["/"].findIndex((route) => route.text === "Users");
   if (schemaIndex > -1) {
     baseRoutes["/"].splice(schemaIndex + 1, 0, ...routesToInsert);
   }
@@ -16,15 +17,18 @@ function insertRoutes(baseRoutes, routesToInsert) {
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
-  const clearingHouse = env.VITE_CLEARING_HOUSE?.trim();
+  const clearingHouse: string | undefined = env.VITE_CLEARING_HOUSE?.trim();
 
-  let sidebar;
-  let specificRoutes;
-  if (clearingHouse === "abs") specificRoutes  = absRoute;
-  if (clearingHouse === "chm") specificRoutes  = chmRoute;
-  if (clearingHouse === "bch") specificRoutes  = bchRoute;
+  let sidebar: any;
+  let specificRoutes: any
 
-  sidebar = insertRoutes(commonRoutes, specificRoutes);
+  if (clearingHouse === "abs") specificRoutes = absRoute;
+  if (clearingHouse === "chm") specificRoutes = chmRoute;
+  if (clearingHouse === "bch") specificRoutes = bchRoute;
+
+  if (specificRoutes) {
+    sidebar = insertRoutes(commonRoutes, specificRoutes);
+  }
 
   if (!sidebar) {
     throw new Error("Invalid clearing house value");
@@ -45,7 +49,7 @@ export default defineConfig(({ mode }) => {
           link: "/",
         },
       ],
-      sidebar,
+      sidebar: sidebar as DefaultTheme.Sidebar,
       search: {
         provider: "local",
       },
@@ -53,9 +57,9 @@ export default defineConfig(({ mode }) => {
     vite: {
       resolve: {
         alias: {
-          "@": resolve(__dirname, "../../"), //absolute path to root
+          "@": resolve(__dirname, "../../"), 
         },
       },
-    },
+    }    
   };
 });
