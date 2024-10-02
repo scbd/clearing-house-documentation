@@ -15,7 +15,7 @@
     "/index": {
       "get": {
         "summary": "Query Solr with government, usage, and keyword criteria",
-        "description": "Retrieve permits by schema, government, usage, and keyword criteria. Note: The value of `usages_ss` and `keywords_ss` fields may contain special characters that need to be escaped. Refer to the [Apache Solr](/apache-solr) for a list of special characters and how to escape them.",
+        "description": "Retrieve records by schema, government, usage, and keyword criteria. Note: The value of `usages_ss` and `keywords_ss` fields may contain special characters that need to be escaped. Refer to the [Apache Solr](/apache-solr) for a list of special characters and how to escape them.",
         "tags": ["Get All results with sub-filters"],
         "parameters": [
           {
@@ -31,87 +31,32 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful response with a list of permits matching the criteria",
+            "description": "Successful response with a list of records matching the criteria",
             "content": {
               "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "response": {
-                      "type": "object",
-                      "properties": {
-                        "numFound": {
-                          "type": "integer",
-                          "description": "Total number of permits found"
-                        },
-                        "start": {
-                          "type": "integer",
-                          "description": "Start index of the results"
-                        },
-                        "docs": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "string",
-                                "description": "Permit ID"
-                              },
-                              "title": {
-                                "type": "string",
-                                "description": "Title of the permit"
-                              },
-                              "issuedDate": {
-                                "type": "string",
-                                "format": "date",
-                                "description": "Date the permit was issued"
-                              },
-                              "expirationDate": {
-                                "type": "string",
-                                "format": "date",
-                                "description": "Date the permit expires"
-                              },
-                              "government": {
-                                "type": "string",
-                                "description": "Government associated with the permit"
-                              },
-                              "usages": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string",
-                                  "description": "Usage identifiers associated with the permit"
-                                }
-                              },
-                              "keywords": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string",
-                                  "description": "Keyword identifiers associated with the permit"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                },
                 "example": {
                   "response": {
                     "numFound": 25,
                     "start": 0,
                     "docs": [
                       {
-                        "id": "67890",
-                        "title": "Sample Permit Title",
-                        "issuedDate": "2024-02-15",
-                        "expirationDate": "2025-02-15",
-                        "government": "cy",
-                        "usages": ["60EA2F49-A9DD-406F-921A-8A1C9AA8DFDD"],
-                        "keywords": ["357DBB22-6A6C-4C49-BA1F-037320B09247"]
+                        "id": "52000000cbd0800000032af8",
+                        "schema_s": "absPermit",
+                        "title_s": "Workflow 2",
+                        "title_AR_s": "Workflow 2",
+                        "title_EN_s": "Workflow 2",
+                        "title_ES_s": "Workflow 2",
+                        "title_FR_s": "Workflow 2",
+                        "schemaType_s": "national",
+                        "uniqueIdentifier_s": "absch-ircc-ht-207608-2",
+                        "government_s": "ht",
+                        "url_ss": [
+                          "https://absch.cbddev.xyz/database/record?documentID=207608"
+                        ]
                       }
                     ]
-                  }
+                  },
+                  "nonSupportedParams": []
                 }
               }
             }

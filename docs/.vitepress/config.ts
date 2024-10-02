@@ -64,7 +64,7 @@ export default defineConfig(({ mode }) => {
           link: "/",
         },
       ],
-      sidebar,
+      sidebar: sidebar as DefaultTheme.Sidebar,
       search: {
         provider: "local",
       },
