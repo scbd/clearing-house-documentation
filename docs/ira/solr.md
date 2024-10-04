@@ -1,20 +1,20 @@
 <script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue";
 
-import baseAllAbsWithQueryJson from "@/swagger/json/records/solr/all-abs-permit-with-query.json";
-import iraAllAbsWithQueryJson from "@/swagger/json/ira/solr/all-abs-permit-with-query.json";
+import baseAllAbsWithQueryJson from "@/swagger/json/records/solr/all-record-with-query.json";
+import iraAllAbsWithQueryJson from "@/swagger/json/ira/solr/all-record-with-query.json";
 
-import baseAllAbsPermitJson from "@/swagger/json/records/solr/all-abs-permit.json";
-import iraAllAbsPermitJson from "@/swagger/json/ira/solr/all-abs-permit.json";
+import baseAllAbsPermitJson from "@/swagger/json/records/solr/all-record.json";
+import iraAllAbsPermitJson from "@/swagger/json/ira/solr/all-record.json";
 
-import baseAllAbsPermitWithCountryJson from "@/swagger/json/records/solr/all-abs-with-country.json";
-import iraAllAbsPermitWithCountryJson from "@/swagger/json/ira/solr/all-abs-with-country.json";
+import baseAllAbsPermitWithCountryJson from "@/swagger/json/records/solr/all-record-with-country.json";
+import iraAllAbsPermitWithCountryJson from "@/swagger/json/ira/solr/all-record-with-country.json";
 
-import baseAllAbsPermitWithRegionJson from "@/swagger/json/records/solr/all-abs-with-region.json";
-import iraAllAbsPermitWithRegionJson from "@/swagger/json/ira/solr/all-abs-with-region.json";
+import baseAllAbsPermitWithRegionJson from "@/swagger/json/records/solr/all-record-with-region.json";
+import iraAllAbsPermitWithRegionJson from "@/swagger/json/ira/solr/all-record-with-region.json";
 
-import baseAllAbsPermitWithSubFiltersJson from "@/swagger/json/records/solr/all-abs-with-subfilters.json";
-import iraAllAbsPermitWithSubFiltersJson from "@/swagger/json/ira/solr/all-abs-with-subfilters.json";
+import baseAllAbsPermitWithSubFiltersJson from "@/swagger/json/records/solr/all-record-with-subfilters.json";
+import iraAllAbsPermitWithSubFiltersJson from "@/swagger/json/ira/solr/all-record-with-subfilters.json";
 
 function mergeJson(base, specific) {
   const merged = JSON.parse(JSON.stringify(base));
