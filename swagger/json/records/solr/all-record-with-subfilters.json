@@ -1,14 +1,14 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Solr API",
+    "title": "Index API",
     "version": "1.0.0",
     "description": "API for querying Solr with specific government, usage, and keyword criteria."
   },
   "servers": [
     {
       "url": "https://absch.cbddev.xyz/api/v2013",
-      "description": "Solr API Server"
+      "description": "Index API Server"
     }
   ],
   "paths": {

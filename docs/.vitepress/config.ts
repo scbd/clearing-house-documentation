@@ -5,6 +5,22 @@ import bchRoute from "../../routes/bch.js";
 import chmRoute from "../../routes/chm.js";
 import commonRoutes from "../../routes/common.js";
 
+interface MenuItem {
+  text: string;
+  collapsed?: boolean;
+  link?: string;
+  items?: MenuItem[];
+}
+
+interface SpecificRouteMenuItem {
+  text: string;
+  collapsed: boolean;
+  items: {
+    text: string;
+    link: string;
+  }[];
+}
+
 function insertRoutes(baseRoutes, routesToInsert) {
   const schemaIndex = baseRoutes["/"].findIndex(
     (route) => route.text === "Users"
@@ -25,17 +41,12 @@ export default defineConfig(({ mode }) => {
 
   const clearingHouse: string | undefined = env.VITE_CLEARING_HOUSE?.trim();
 
-  let sidebar;
-  let specificRoutes;
-  if (clearingHouse === "abs") specificRoutes = absRoute;
-  if (clearingHouse === "chm") specificRoutes = chmRoute;
-  if (clearingHouse === "bch") specificRoutes = bchRoute;
-
-  console.log("SPECIFICROUTES", env);
+  let sidebar: MenuItem;
+  let specificRoutes: SpecificRouteMenuItem[];
 
   if (clearingHouse === "abs") specificRoutes = absRoute;
-  if (clearingHouse === "chm") specificRoutes = chmRoute;
   if (clearingHouse === "bch") specificRoutes = bchRoute;
+  if (clearingHouse === "chm") specificRoutes = chmRoute;
 
   if (specificRoutes) {
     sidebar = insertRoutes(commonRoutes, specificRoutes);
@@ -60,7 +71,7 @@ export default defineConfig(({ mode }) => {
           link: "/",
         },
       ],
-      sidebar: sidebar as DefaultTheme.Sidebar,
+      sidebar,
       search: {
         provider: "local",
       },
