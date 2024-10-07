@@ -1,26 +1,13 @@
 <script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue";
 
-import baseAllAbsWithQueryJson from "@/swagger/json/records/solr/all-record-with-query.json";
-import msrAllAbsWithQueryJson from "@/swagger/json/msr/solr/all-record-with-query.json";
+import msrAllRecordsWithQueryJson from "@/swagger/json/msr/solr/all-record-with-query.json";
+import msrAllRecordsJson from "@/swagger/json/msr/solr/all-record.json";
+import msrAllRecordsWithCountryJson from "@/swagger/json/msr/solr/all-record-with-country.json";
+import msrAllRecordsWithRegionJson from "@/swagger/json/msr/solr/all-record-with-region.json";
+import msrAllRecordsWithSubFiltersJson from "@/swagger/json/msr/solr/all-record-with-subfilters.json";
 
-import baseAllAbsPermitJson from "@/swagger/json/records/solr/all-record.json";
-import msrAllAbsPermitJson from "@/swagger/json/msr/solr/all-record.json";
-
-import baseAllAbsPermitWithCountryJson from "@/swagger/json/records/solr/all-record-with-country.json";
-import msrAllAbsPermitWithCountryJson from "@/swagger/json/msr/solr/all-record-with-country.json";
-
-import baseAllAbsPermitWithRegionJson from "@/swagger/json/records/solr/all-record-with-region.json";
-import msrAllAbsPermitWithRegionJson from "@/swagger/json/msr/solr/all-record-with-region.json";
-
-import baseAllAbsPermitWithSubFiltersJson from "@/swagger/json/records/solr/all-record-with-subfilters.json";
-import msrAllAbsPermitWithSubFiltersJson from "@/swagger/json/msr/solr/all-record-with-subfilters.json";
-
-function mergeJson(base, specific) {
-  const merged = JSON.parse(JSON.stringify(base));
-  merged.paths["/index"].get.parameters[0].schema.example = specific.example;
-  return merged;
-}
+import baseJson from "@/swagger/json/records/solr/base.json";
 
 import { mergeSwaggerWithBase, deepClone } from "@/utils"
 

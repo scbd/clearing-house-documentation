@@ -1,3 +1,57 @@
 {
-  "example": "schema_s:independentRiskAssessment AND government_s:ht"
+  "paths": {
+    "/index": {
+      "get": {
+        "summary": "Query results with specific criteria",
+        "description": "Retreive records for a given government.",
+        "tags": ["Get All results with country"],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "schema_s:independentRiskAssessment AND government_s:ht"
+            },
+            "description": "Query parameter for searching results based on schema and government criteria."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of records matching the criteria",
+            "content": {
+              "application/json": {
+                "example": {
+                  "response": {
+                    "numFound": 100,
+                    "start": 0,
+                    "docs": [
+                      {
+                        "uniqueIdentifier_s": "bch-ira-scbd-255921-1",
+                        "schema_s": "independentRiskAssessment",
+                        "title_s": "Insect-resistant cowpea",
+                        "title_AR_s": "Insect-resistant cowpea",
+                        "title_EN_s": "Insect-resistant cowpea",
+                        "title_ES_s": "Insect-resistant cowpea",
+                        "title_FR_s": "Insect-resistant cowpea",
+                        "schemaType_s": "reference",
+                        "government_s": "ht",
+                        "url_ss": [
+                          "https://bch.cbddev.xyz/database/record?documentID=251456"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request, possibly due to malformed query parameter"
+          }
+        }
+      }
+    }
+  }
 }
