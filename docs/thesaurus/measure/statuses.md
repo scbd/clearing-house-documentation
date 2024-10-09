@@ -22,6 +22,13 @@ This endpoint provides access to a list of statuses relevant to measures and pol
 ## Headers
 <!--@include: @/../components/common/header/accept.md-->
 
+## Usages
+
+| Title            | Field   | Schema                    |
+| ---------------- | ------ | ------------------------------ |
+| Legal status of the measure   | status | <a href="/msr/schema">MSR</a>  |
+
+
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs" />

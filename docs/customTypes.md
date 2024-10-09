@@ -58,6 +58,30 @@
 | `string`      | `type`    | 
 | `decimal`   | `size`      | 
 
+## GeneticResourceElements
+
+| Type       | Variable     |
+|------------|--------------|
+| `ETerm[]`      | `types`    | 
+| `ETerm[]`   | `areas`      | 
+| `lstring`   | `section`      | 
+
+
+## GeneticResource
+
+| Type       | Variable     |
+|------------|--------------|
+| `bool`      | `answer`    | 
+| `EGeneticResourceElements[]`   | `elements`      | 
+
+
+## EAbsMeasure
+
+| Type       | Variable     |
+|------------|--------------|
+| `EGeneticResource`      | `geneticResources`    | 
+| `ETermSection[]`   | `relevantElements`      | 
+
 ## AmendmentIntent
 
 Enum values:
