@@ -31,6 +31,8 @@ export default defineConfig(({ mode }) => {
   if (clearingHouse === "chm") specificRoutes = chmRoute;
   if (clearingHouse === "bch") specificRoutes = bchRoute;
 
+  console.log("SPECIFICROUTES", env);
+
   sidebar = insertRoutes(commonRoutes, specificRoutes);
 
   if (!sidebar) {

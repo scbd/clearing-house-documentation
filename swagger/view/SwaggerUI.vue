@@ -32,7 +32,7 @@
                     Welcome {{user.name}}, you are connected to the test site for {{APP_CONFIG.APP_ENV.toUpperCase()}}.
                   </p>
                   <p v-if="devRoles.length > 0">
-                    You currently have {{ devRoles.join(", ") }} roles in the test server.
+                    You currently have {{ devRoles.join(", ") }} roles on the test site.
                   </p>
                 </div>
               </div>
@@ -66,9 +66,9 @@ const props = defineProps({
   },
 });
 
-let token = ref(null)
-let isLoading = ref(true);
-let user = ref(null);
+const token = ref(null)
+const isLoading = ref(true);
+const user = ref(null);
 
 const devRoles = computed(() => {
   return user.value.roles.filter(role => role.includes("dev"));
