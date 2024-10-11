@@ -11,7 +11,12 @@ _run:
     name: Build docker image
     command: |
       docker info
-      docker build -t output --build-arg COMMIT=$CIRCLE_SHA1 --build-arg VERSION=$CIRCLE_SHA1 --build-arg BRANCH=${CIRCLE_BRANCH:-master} --build-arg TAG=$CIRCLE_TAG .
+      docker buildx build -t output \
+      --build-arg COMMIT=$CIRCLE_SHA1 \
+      --build-arg VERSION=$CIRCLE_SHA1 \
+      --build-arg BRANCH=${CIRCLE_BRANCH:-master} \
+      --build-arg TAG=$CIRCLE_TAG \
+      .
   testImage: &testImage
     name: Test docker image
     command: |

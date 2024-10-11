@@ -1,0 +1,22 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Index API",
+    "version": "1.0.0",
+    "description": "API for querying results with specific government criteria."
+  },
+  "servers": [
+    {
+      "url": "https://absch.cbddev.xyz/api/v2013",
+      "description": "Index API Server"
+    }
+  ],
+  "paths": {
+    "/index": {
+      "get": {
+        "parameters": [],
+        "responses": {}
+      }
+    }
+  }
+}

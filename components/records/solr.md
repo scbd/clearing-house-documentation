@@ -21,7 +21,6 @@ The query parameters allow clients to filter and sort the search results based o
 | sort  | String              | Specifies the sort order of the results. The format is fieldname desc for descending or fieldname asc for ascending.   |
 | start | String              | The starting offset for the results. This parameter allows pagination by specifying the index of the first result to return.             |
 | rows  | String              | The number of results to return. Default value is 10 if not specified.                             |
-| field | String              | Specifies the fields to use for faceting. Requires facet=true to be enabled.                       |
 
 ### Detailed Breakdown of `q` Parameter
 

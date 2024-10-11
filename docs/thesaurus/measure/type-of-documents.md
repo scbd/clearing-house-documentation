@@ -22,6 +22,12 @@ This endpoint provides access to a list of standardized types of documents used 
 ## Headers
 <!--@include: @/../components/common/header/accept.md-->
 
+## Usages
+
+| Title            | Field   | Schema                    |
+| ---------------- | ------ | ------------------------------ |
+| Type of document/measure   | type | <a href="/msr/schema">MSR</a>  |
+
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs" />
