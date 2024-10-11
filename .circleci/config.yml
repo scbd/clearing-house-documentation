@@ -11,13 +11,14 @@ _run:
     name: Build docker image
     command: |
       docker info
-      docker build -t output 
-      --build-arg COMMIT=$CIRCLE_SHA1 
-      --build-arg VERSION=$CIRCLE_SHA1 
-      --build-arg BRANCH=${CIRCLE_BRANCH:-master} 
-      --build-arg TAG=$CIRCLE_TAG
+      docker buildx build -t output \
+      --build-arg COMMIT=$CIRCLE_SHA1 \
+      --build-arg VERSION=$CIRCLE_SHA1 \
+      --build-arg BRANCH=${CIRCLE_BRANCH:-master} \
+      --build-arg TAG=$CIRCLE_TAG \
       --build-arg VITE_ACCOUNTS_HOST_URL=$VITE_ACCOUNTS_HOST_URL \
-      --build-arg VITE_API_URL=$VITE_API_URL .
+      --build-arg VITE_API_URL=$VITE_API_URL \
+      .
   testImage: &testImage
     name: Test docker image
     command: |
