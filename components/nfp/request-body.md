@@ -143,7 +143,7 @@
       <td><code>{ "en": "Test Information" }</code></td>
     </tr>
     <tr>
-      <td></td>
+      <td><strong><a href="/thesaurus/general/countries">Country</a></strong></td>
       <td>country</td>
       <td></td>
       <td>Eterm</td>

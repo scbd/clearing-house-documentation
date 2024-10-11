@@ -22,6 +22,12 @@ This endpoint provides access to a list of jurisdictions relevant to the Convent
 ## Headers
 <!--@include: @/../components/common/header/accept.md-->
 
+## Usages
+
+| Title            | Field   | Schema                    |
+| ---------------- | ------ | ------------------------------ |
+| Area of jurisdiction   | jurisdiction | <a href="/msr/schema">MSR</a>  |
+
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs" />
