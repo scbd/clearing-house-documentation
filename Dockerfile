@@ -33,6 +33,7 @@ ENV VITE_ACCOUNTS_HOST_URL https://accounts.cbddev.xyz
 ENV VITE_API_URL https://api.cbddev.xyz
 ENV VITE_CLEARING_HOUSE abs
 
+
 # Build the VitePress site
 RUN npm run build
 
