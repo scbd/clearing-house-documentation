@@ -29,7 +29,7 @@
               <div class="alert alert-success" role="alert">
                 <div>
                   <p class="lh-lg">
-                    Welcome {{user.name}}, you are currently connected with test environment for {{APP_CONFIG.APP_ENV.toUpperCase()}}.
+                    Welcome {{user.name}}, you are connected to the test site for {{APP_CONFIG.APP_ENV.toUpperCase()}}.
                   </p>
                   <p v-if="devRoles.length > 0">
                     You currently have {{ devRoles.join(", ") }} roles in the test server.

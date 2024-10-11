@@ -19,7 +19,6 @@ _run:
       --build-arg VITE_ACCOUNTS_HOST_URL=$VITE_ACCOUNTS_HOST_URL \
       --build-arg VITE_API_URL=$VITE_API_URL \
       .
-
   testImage: &testImage
     name: Test docker image
     command: |
