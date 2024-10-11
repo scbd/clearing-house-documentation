@@ -14,13 +14,6 @@ ENV TAG $TAG
 ARG COMMIT
 ENV COMMIT $COMMIT
 
-# Build arguments for environment variables
-ARG VITE_ACCOUNTS_HOST_URL
-ENV VITE_ACCOUNTS_HOST_URL $VITE_ACCOUNTS_HOST_URL
-
-ARG VITE_API_URL
-ENV VITE_API_URL $VITE_API_URL
-
 # Set working directory
 WORKDIR /usr/src/app
 
@@ -36,7 +29,10 @@ COPY . .
 WORKDIR /usr/src/app/docs
 
 # Set the environment variable required by VitePress
+ENV VITE_ACCOUNTS_HOST_URL https://accounts.cbddev.xyz
+ENV VITE_API_URL https://api.cbddev.xyz
 ENV VITE_CLEARING_HOUSE abs
+
 
 # Build the VitePress site
 RUN npm run build
