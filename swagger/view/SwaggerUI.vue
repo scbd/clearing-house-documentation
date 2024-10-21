@@ -1,7 +1,7 @@
 <template>
-  <div class="mt-4">
+  <div class="mt-4" v-if="!isLoading">
     <div v-for="(spec, index) in swaggerSpecs" :key="index">
-      <div v-if="spec.protected && !authToken">
+      <div v-if="spec.protected && !token">
         <div class="container">
           <div class="row">
             <div class="col">
@@ -14,7 +14,7 @@
                     calls.
                   </p>
                 </div>
-                <button class="btn btn-primary ml-3" @click="showLoginIframe">
+                <button class="btn btn-primary ml-3" @click="redirectToAccounts">
                   Login
                 </button>
               </div>
@@ -22,39 +22,18 @@
           </div>
         </div>
       </div>
-      <div v-if="showIframe" class="login-iframe-container">
-        <iframe :src="loginUrl" class="login-iframe"></iframe>
-      </div>
-      <div v-if="spec.protected && authToken">
+      <div v-if="spec.protected && token && user">
         <div class="container">
           <div class="row">
             <div class="col">
               <div class="alert alert-success" role="alert">
                 <div>
                   <p class="lh-lg">
-                    <b>You have successfully logged in</b>, and an
-                    authentication token is available in your cookie. This route
-                    is protected, and access to this content requires a valid
-                    token.
+                    Welcome {{user.name}}, you are connected to the test site for {{APP_CONFIG.APP_ENV.toUpperCase()}}.
                   </p>
-                  <p class="lh-lg">
-                    The token is automatically used to authenticate API requests
-                    made through Swagger. You can interact with the API and make
-                    authorized calls using the token stored in your browser's
-                    cookie.
+                  <p v-if="devRoles.length > 0">
+                    You currently have {{ devRoles.join(", ") }} roles on the test site.
                   </p>
-                  <p class="lh-lg">
-                    If you encounter any issues, ensure that your token is still
-                    valid and has not expired. If necessary, you can
-                    re-authenticate by clicking the login button to obtain a new
-                    token.
-                  </p>
-                  <button
-                    class="btn btn-success btn-block ml-3 mt-3"
-                    @click="showLoginIframe"
-                  >
-                    Login
-                  </button>
                 </div>
               </div>
             </div>
@@ -67,7 +46,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount, computed } from "vue";
+import { APP_CONFIG } from "../../docs/app-config"
+import { AuthManager } from "../../utils/auth-manager";
 import "swagger-ui/dist/swagger-ui.css";
 import "../../style.css";
 
@@ -85,26 +66,18 @@ const props = defineProps({
   },
 });
 
-const authToken = ref(null);
-const showIframe = ref(false);
-const loginUrl = ref("");
+const token = ref(null)
+const isLoading = ref(true);
+const user = ref(null);
 
-const showLoginIframe = () => {
-  showIframe.value = true;
-};
+const devRoles = computed(() => {
+  return user.value.roles.filter(role => role.includes("dev"));
+})
 
-const handleMessage = (event) => {
-  if (event.origin === "http://localhost:8080") {
-    if (event.data.type === "close") {
-      showIframe.value = false;
-    }
-    if (event.data.type === "loginSuccess" && event.data.token) {
-      setCookie("authToken", event.data.token, 7);
-      authToken.value = event.data.token;
-      showIframe.value = false;
-      initializeSwaggerUI();
-    }
-  }
+const redirectToAccounts = () => {
+  const currentUrl = window.location.href;
+  const loginUrl = `${APP_CONFIG.ACCOUNTS_HOST_URL}/signin?returnUrl=${encodeURIComponent(currentUrl)}`;
+  window.location.href = loginUrl;
 };
 
 const initializeSwaggerUI = () => {
@@ -118,16 +91,12 @@ const initializeSwaggerUI = () => {
       layout: "BaseLayout",
     });
 
-    if (swaggerSpec.protected && authToken.value) {
+    if (swaggerSpec.protected && token.value) {
       ui.initOAuth({
-        clientId: "your-client-id",
-        clientSecret: "your-client-secret",
-        realm: "your-realms",
-        appName: "your-app-name",
         scopeSeparator: " ",
         additionalQueryStringParams: {},
       });
-      const prefixedAuthToken = `Ticket ${authToken.value}`;
+      const prefixedAuthToken = `Ticket ${token.value}`;
       ui.preauthorizeApiKey("ApiKeyAuth", prefixedAuthToken);
 
       const observer = new MutationObserver(() => {
@@ -176,74 +145,56 @@ const initializeSwaggerUI = () => {
   });
 };
 
-const checkForToken = () => {
-  if (typeof window !== "undefined") {
-    const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get("token");
-    if (token) {
-      setCookie("authToken", token, 7); // Set cookie for 7 days
-      window.location.href = window.location.href.split("?")[0]; // Redirect to the home page
-    } else {
-      authToken.value = getCookie("authToken");
-    }
-  }
-};
-
-const setCookie = (name, value, days) => {
-  let expires = "";
-  if (days) {
-    const date = new Date();
-    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-    expires = `; expires=${date.toUTCString()}`;
-  }
-  document.cookie = `${name}=${value || ""}${expires}; path=/`;
-};
-
-const getCookie = (name) => {
-  const nameEQ = `${name}=`;
-  const ca = document.cookie.split(";");
-  for (let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) === " ") c = c.substring(1, c.length);
-    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-  }
-  return null;
-};
-
 onMounted(async () => {
-  loginUrl.value = `http://localhost:8080?redirect=${encodeURIComponent(
-    window.location.href
-  )}`;
   await import("bootstrap/dist/css/bootstrap.min.css");
   await import("bootstrap");
 
-  checkForToken();
-  initializeSwaggerUI();
-  window.addEventListener("message", handleMessage);
+  const authManager = new AuthManager(APP_CONFIG.ACCOUNTS_HOST_URL);
+
+  authManager.getScbdIframeToken().then(async (newToken) => {
+    if(newToken){
+      token.value = newToken;
+      const loggedInUser = await authManager.fetchUser();
+      if(loggedInUser.isAuthenticated){
+        user.value = loggedInUser;
+        initializeSwaggerUI();
+        injectLoggedInNavLink(loggedInUser);
+      } else {
+        token.value = null;
+      }
+    }
+    isLoading.value = false;
+  })
 });
 
-onBeforeUnmount(() => {
-  window.removeEventListener("message", handleMessage);
-});
+const injectLoggedInNavLink = (user) => {
+  const isNavLinkExist = document.querySelector(".navbar-link");
+
+  if(!isNavLinkExist){
+    // Select the nav menu using querySelector
+    const navMenu = document.querySelector(".VPNavBarMenu.menu");
+  
+    if (navMenu) {
+      // Create a new anchor element
+      const loggedInLink = document.createElement("p");
+      loggedInLink.classList.add("VPLink", "link", "navbar-link");
+      // loggedInLink.href = "/";
+      
+      // Create a span element for the "Logged In" text
+      const loggedInSpan = document.createElement("span");
+      loggedInSpan.textContent = `Welcome ${user.name}`;
+  
+      // Append the span to the anchor element
+      loggedInLink.appendChild(loggedInSpan);
+  
+      // Insert the new link after the Home link
+      navMenu.appendChild(loggedInLink);
+    } else {
+      console.error("Navigation menu not found.");
+    }
+  }
+}
 </script>
 
 <style scoped>
-.login-iframe-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-}
-
-.login-iframe {
-  width: 80%;
-  height: 80%;
-  border: none;
-}
 </style>

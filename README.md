@@ -44,6 +44,23 @@ Finally, reference and render the Swagger JSON file within the corresponding mar
 
 By following these steps, you can successfully add new routes to your application and ensure that the API documentation is correctly displayed and functional.
 
+## Environment Variables
+
+To ensure the project runs correctly, you must set the following environment variables in your `.env` file located in the `docs` folder:
+
+`VITE_ACCOUNTS_HOST_URL=<your-accounts-host-url>` 
+
+`VITE_API_URL=<your-api-url>`
+
+
+You can find examples of these environment variables in the `.env.example` file located in the `/docs` directory.
+
+Additionally, for the project to work, you need to have a launch configuration where the `VITE_CLEARING_HOUSE` value is set to the clearing house you are viewing. For example:
+
+```json
+"VITE_CLEARING_HOUSE": "abs"
+```
+
 
 ## Steps to Run the Project
 
