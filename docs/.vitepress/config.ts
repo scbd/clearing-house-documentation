@@ -22,7 +22,9 @@ interface SpecificRouteMenuItem {
 }
 
 function insertRoutes(baseRoutes, routesToInsert) {
-  const schemaIndex = baseRoutes["/"].findIndex((route) => route.text === "Users");
+  const schemaIndex = baseRoutes["/"].findIndex(
+    (route) => route.text === "Users"
+  );
   if (schemaIndex > -1) {
     baseRoutes["/"].splice(schemaIndex + 1, 0, ...routesToInsert);
   }
@@ -30,7 +32,12 @@ function insertRoutes(baseRoutes, routesToInsert) {
 }
 
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd(), "");
+  const env = loadEnv(mode, resolve(__dirname, "../"), "");
+
+  const mandatoryEnvVars = ['VITE_ACCOUNTS_HOST_URL', 'VITE_API_URL'];
+
+  // Run validation on environment variables
+  validateEnv(env, mandatoryEnvVars);
 
   const clearingHouse: string | undefined = env.VITE_CLEARING_HOUSE?.trim();
 
@@ -78,3 +85,12 @@ export default defineConfig(({ mode }) => {
     }    
   };
 });
+
+// // Function to validate the existence of mandatory env variables
+const validateEnv = (env, vars) => {
+  vars.forEach((variable) => {
+    if (!env[variable]) {
+      throw new Error(`Missing mandatory environment variable: ${variable}`);
+    }
+  });
+};
