@@ -15,5 +15,6 @@ Below is the list of available record types and their corresponding schemas:
 | NFP         | [National Focal Point](/nfp/schema)      |
 | GENE         | [Genetic elements](/gene/schema)      |
 | CPC         | [Checkpoint Communiqué](/cpc/schema)      |
+| ORG         | [Organization](/org/schema)      |
 
 To use these record types, refer to the appropriate schema in your API requests.
