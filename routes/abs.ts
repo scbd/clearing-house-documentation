@@ -107,4 +107,38 @@ export default [
       },
     ],
   },
+  {
+    text: "CPC",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/cpc/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/cpc/solr",
+      },
+      {
+        text: "Draft Records",
+        link: "/cpc/list",
+      },
+      {
+        text: "Get",
+        link: "/cpc/get",
+      },
+      {
+        text: "Create",
+        link: "/cpc/create",
+      },
+      {
+        text: "Update",
+        link: "/cpc/update",
+      },
+      {
+        text: "Delete",
+        link: "/cpc/delete",
+      },
+    ],
+  },
 ]

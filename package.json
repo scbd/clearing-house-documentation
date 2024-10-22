@@ -5,9 +5,9 @@
     "vitepress": "^1.2.3"
   },
   "scripts": {
-    "dev:abs": "SET VITE_CLEARING_HOUSE=abs && vitepress dev docs",
-    "dev:chm": "SET VITE_CLEARING_HOUSE=chm && vitepress dev docs",
-    "dev:bch": "SET VITE_CLEARING_HOUSE=bch && vitepress dev docs",
+    "dev:abs": "vitepress dev docs",
+    "dev:chm": "vitepress dev docs",
+    "dev:bch": "vitepress dev docs",
     "clean-reinstall": "rm -rf ./node_modules && npm install",
     "build": "VITE_CLEARING_HOUSE=abs vitepress build docs",
     "preview": "VITE_CLEARING_HOUSE=abs vitepress preview docs --port 8000"

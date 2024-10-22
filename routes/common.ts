@@ -107,6 +107,24 @@ export default {
       ],
     },
     {
+      text: "ORG",
+      collapsed: true,
+      items: [
+        {
+          text: "Schema",
+          link: "/org/schema",
+        },
+        {
+          text: "Public Records",
+          link: "/org/solr",
+        },
+        {
+          text: "Get",
+          link: "/org/get",
+        },
+      ],
+    },
+    {
       text: "Thesaurus",
       collapsed: true,
       items: [

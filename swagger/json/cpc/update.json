@@ -1,0 +1,481 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ABS Checkpoint Communique API",
+    "description": "API for updating ABS Checkpoint Communiques",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://absch.cbddev.xyz/api/v2013"
+    }
+  ],
+  "security": [
+    {
+      "BearerAuth": []
+    },
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Add the `Realm` header with value `abs-dev`."
+      }
+    }
+  },
+  "paths": {
+    "/documents/{uid}": {
+      "put": {
+        "summary": "Update ABS Checkpoint Communique",
+        "description": "Endpoint to update an ABS Checkpoint Communique.",
+        "security": [
+          {
+            "BearerAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "schema",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "absCheckpointCommunique"
+            }
+          },
+          {
+            "name": "uid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9\\-_]{11,128}$"
+            },
+            "description": "Identifier of the document. The value is case-sensitive."
+          },
+          {
+            "name": "Realm",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["abs", "chm", "bch", "abs-dev", "bch-dev", "chm-dev"]
+            },
+            "description": "Context in which the Clearing-House request is made. Allowed values: `abs`, `chm`, `bch`."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "header": {
+                    "type": "object",
+                    "properties": {
+                      "identifier": {
+                        "type": "string",
+                        "example": "63B9CA56-9D43-E877-2A96-2C95986522D5"
+                      },
+                      "schema": {
+                        "type": "string",
+                        "example": "absCheckpointCommunique"
+                      },
+                      "languages": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "example": ["en"]
+                      }
+                    },
+                    "required": ["identifier", "schema", "languages"]
+                  },
+                  "government": {
+                    "type": "object",
+                    "properties": {
+                      "identifier": {
+                        "type": "string",
+                        "example": "af"
+                      }
+                    },
+                    "required": ["identifier"]
+                  },
+                  "title": {
+                    "type": "object",
+                    "properties": {
+                      "en": {
+                        "type": "string",
+                        "example": "Test Title"
+                      }
+                    },
+                    "required": ["en"]
+                  },
+                  "absCheckpoints": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "identifier": {
+                          "type": "string",
+                          "example": "3E387C20-E70C-997B-EABB-BC4C9A1E142F@1"
+                        }
+                      },
+                      "required": ["identifier"]
+                    }
+                  },
+                  "absIRCCsNotAvailable": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "sourceCountries": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "identifier": {
+                          "type": "string",
+                          "example": "af"
+                        }
+                      },
+                      "required": ["identifier"]
+                    }
+                  },
+                  "subjectMatter": {
+                    "type": "object",
+                    "properties": {
+                      "en": {
+                        "type": "string",
+                        "example": "<div><!--block-->Test Info</div>"
+                      }
+                    },
+                    "required": ["en"]
+                  },
+                  "specimens": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "example": "https://www.google.com"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Google"
+                        },
+                        "language": {
+                          "type": "string",
+                          "example": "en"
+                        }
+                      },
+                      "required": ["url", "name", "language"]
+                    }
+                  },
+                  "taxonomies": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "example": "https://www.google.com"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Google"
+                        },
+                        "language": {
+                          "type": "string",
+                          "example": "en"
+                        }
+                      },
+                      "required": ["url", "name", "language"]
+                    }
+                  },
+                  "gisFiles": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "example": "/api/v2013/documents/63B9CA56-9D43-E877-2A96-2C95986522D5/attachments/615856/test.json"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "test.json"
+                        },
+                        "tag": {
+                          "type": "string",
+                          "example": "Test Tag"
+                        },
+                        "language": {
+                          "type": "string",
+                          "example": "en"
+                        }
+                      },
+                      "required": ["url", "name", "tag", "language"]
+                    }
+                  },
+                  "keywords": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "identifier": {
+                          "type": "string",
+                          "example": "357DBB22-6A6C-4C49-BA1F-037320B09247"
+                        }
+                      },
+                      "required": ["identifier"]
+                    }
+                  },
+                  "evidenceOfPIC": {
+                    "type": "object",
+                    "properties": {
+                      "en": {
+                        "type": "string",
+                        "example": "<div><!--block-->Test Info</div>"
+                      }
+                    },
+                    "required": ["en"]
+                  },
+                  "entityWhoGrantedPIC": {
+                    "type": "object",
+                    "properties": {
+                      "identifier": {
+                        "type": "string",
+                        "example": "DECLARE-ORGANISATION_19584_20241007134350919@1"
+                      }
+                    },
+                    "required": ["identifier"]
+                  },
+                  "entityToWhomPICGranted": {
+                    "type": "object",
+                    "properties": {
+                      "identifier": {
+                        "type": "string",
+                        "example": "DECLARE-ORGANISATION_19584_20241007134350919@1"
+                      }
+                    },
+                    "required": ["identifier"]
+                  },
+                  "evidenceOfMAT": {
+                    "type": "object",
+                    "properties": {
+                      "en": {
+                        "type": "string",
+                        "example": "<div><!--block-->Test Info</div>"
+                      }
+                    },
+                    "required": ["en"]
+                  },
+                  "dateOfAccess": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2024-10-24"
+                  },
+                  "description": {
+                    "type": "object",
+                    "properties": {
+                      "en": {
+                        "type": "string",
+                        "example": "<div><!--block-->Test Info</div>"
+                      }
+                    },
+                    "required": ["en"]
+                  },
+                  "personsAtCheckpoint": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "identifier": {
+                          "type": "string",
+                          "example": "DECLARE-ORGANISATION_19584_20241007134350919@1"
+                        }
+                      },
+                      "required": ["identifier"]
+                    }
+                  },
+                  "dateCollected": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2024-10-26"
+                  },
+                  "dateCollectedFrom": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2024-10-01"
+                  },
+                  "dateCollectedTo": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2024-10-23"
+                  },
+                  "relevantInformation": {
+                    "type": "object",
+                    "properties": {
+                      "en": {
+                        "type": "string",
+                        "example": "<div><!--block-->Test Info</div>"
+                      }
+                    },
+                    "required": ["en"]
+                  },
+                  "relevantDocuments": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "example": "https://www.google.com"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Google"
+                        },
+                        "language": {
+                          "type": "string",
+                          "example": "en"
+                        }
+                      },
+                      "required": ["url", "name", "language"]
+                    }
+                  },
+                  "notes": {
+                    "type": "string",
+                    "example": "Test Info"
+                  },
+                  "keywordOther": {
+                    "type": "object",
+                    "properties": {
+                      "en": {
+                        "type": "string",
+                        "example": "Test Keywords"
+                      }
+                    },
+                    "required": ["en"]
+                  }
+                },
+                "required": [
+                  "header",
+                  "government",
+                  "title",
+                  "absCheckpoints",
+                  "subjectMatter",
+                  "specimens",
+                  "taxonomies",
+                  "gisFiles",
+                  "keywords",
+                  "dateOfAccess",
+                  "personsAtCheckpoint",
+                  "dateCollected",
+                  "relevantInformation"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "example": {
+                  "identifier": "abcdefgh-123",
+                  "documentID": 12345,
+                  "type": "organization",
+                  "owner": "user:123",
+                  "revision": 3,
+                  "size": 1234,
+                  "realm": "ABS-DEV",
+                  "mediaType": "application/json",
+                  "charset": "utf-8",
+                  "title": {
+                    "en": "Secretariat of the Convention on Biological Diversity (SCBD)",
+                    "fr": "Secrétariat de la Convention sur la diversité biologique (SCDB)"
+                  },
+                  "summary": {
+                    "en": "UN and other specialized agency of the UN Common System",
+                    "es": "Organismo de la ONU y otros organismos especializados del Sistema Común de la ONU",
+                    "fr": "Nations Unies et autres agences spécialisées du régime commun des Nations Unies",
+                    "ar": "وكالة من وكالات الأمم المتحدة ووكالات متخصصة أخرى في المنظومة العامة للأمم المتحدة",
+                    "ru": "ООН и другое специализированное учреждение общей системы ООН",
+                    "zh": "联合国和联合国共同制度的其他专门机构"
+                  },
+                  "createdOn": "2013-04-08T19:44:04.943Z",
+                  "createdBy": {
+                    "userID": 123,
+                    "firstName": "John",
+                    "lastName": "Smith",
+                    "email": "fake.john.smith@cbd.int"
+                  },
+                  "updatedOn": "2013-10-01T22:08:17.073Z",
+                  "updatedBy": {
+                    "userID": 123,
+                    "firstName": "John",
+                    "lastName": "Smith",
+                    "email": "fake.john.smith@cbd.int"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "example": {
+                  "statusCode": 400,
+                  "code": "invalidParameter",
+                  "fields": ["date"],
+                  "message": "Date format is invalid"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "example": {
+                  "statusCode": 401,
+                  "code": "unauthorized"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "example": {
+                  "statusCode": 403,
+                  "code": "forbidden",
+                  "message": "Insufficient Privileges to create document [S10]"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

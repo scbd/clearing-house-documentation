@@ -1,3 +1,58 @@
 {
-  "example": "schema_s:modifiedOrganism AND government_s:cy AND usages_ss:60EA2F49\\-A9DD\\-406F\\-921A\\-8A1C9AA8DFDD AND keywords_ss:357DBB22\\-6A6C\\-4C49-BA1F\\-037320B09247"
+  "paths": {
+    "/index": {
+      "get": {
+        "summary": "Query Solr with government, usage, and keyword criteria",
+        "description": "Retrieve records by schema, government, usage, and keyword criteria. Note: The value of `usages_ss` and `keywords_ss` fields may contain special characters that need to be escaped. Refer to the [Apache Solr](/apache-solr) for a list of special characters and how to escape them.",
+        "tags": ["Get All results with sub-filters"],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "schema_s:modifiedOrganism AND government_s:cy AND usages_ss:60EA2F49\\-A9DD\\-406F\\-921A\\-8A1C9AA8DFDD AND keywords_ss:357DBB22\\-6A6C\\-4C49-BA1F\\-037320B09247"
+            },
+            "description": "Query parameter for searching results based on schema, government, usage, and keyword criteria."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of records matching the criteria",
+            "content": {
+              "application/json": {
+                "example": {
+                  "response": {
+                    "numFound": 25,
+                    "start": 0,
+                    "docs": [
+                      {
+                        "uniqueIdentifier_s": "bch-lmo-scbd-255056-4",
+                        "schema_s": "modifiedOrganism",
+                        "title_s": "GDO-1234-7 - Test of engineered gene drive options",
+                        "title_AR_s": "GDO-1234-7 - Test of engineered gene drive options",
+                        "title_EN_s": "GDO-1234-7 - Test of engineered gene drive options",
+                        "title_ES_s": "GDO-1234-7 - Test of engineered gene drive options",
+                        "title_FR_s": "GDO-1234-7 - Test of engineered gene drive options",
+                        "schemaType_s": "reference",
+                        "government_s": "ht",
+                        "url_ss": [
+                          "https://bch.cbddev.xyz/database/record?documentID=256739"
+                        ]
+                      }
+                    ]
+                  },
+                  "nonSupportedParams": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request, possibly due to malformed query parameter"
+          }
+        }
+      }
+    }
+  }
 }

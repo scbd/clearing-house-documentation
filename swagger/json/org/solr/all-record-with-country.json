@@ -1,16 +1,4 @@
 {
-  "openapi": "3.0.0",
-  "info": {
-    "title": "Index API",
-    "version": "1.0.0",
-    "description": "API for querying results with specific government criteria."
-  },
-  "servers": [
-    {
-      "url": "https://absch.cbddev.xyz/api/v2013",
-      "description": "Index API Server"
-    }
-  ],
   "paths": {
     "/index": {
       "get": {
@@ -24,7 +12,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "(schema_s:absPermit)AND(government_s:ht)"
+              "example": "schema_s:organization AND government_s:ht"
             },
             "description": "Query parameter for searching results based on schema and government criteria."
           }
@@ -40,18 +28,17 @@
                     "start": 0,
                     "docs": [
                       {
-                        "id": "52000000cbd0800000032af8",
-                        "schema_s": "absPermit",
-                        "title_s": "Workflow 2",
-                        "title_AR_s": "Workflow 2",
-                        "title_EN_s": "Workflow 2",
-                        "title_ES_s": "Workflow 2",
-                        "title_FR_s": "Workflow 2",
-                        "schemaType_s": "national",
-                        "uniqueIdentifier_s": "absch-ircc-ht-207608-2",
+                        "uniqueIdentifier_s": "bch-org-scbd-255937-1",
+                        "schema_s": "organization",
+                        "title_s": "P&G",
+                        "title_AR_s": "P&G",
+                        "title_EN_s": "P&G",
+                        "title_ES_s": "P&G",
+                        "title_FR_s": "P&G",
+                        "schemaType_s": "reference",
                         "government_s": "ht",
                         "url_ss": [
-                          "https://absch.cbddev.xyz/database/record?documentID=207608"
+                          "https://bch.cbddev.xyz/database/record?documentID=255937"
                         ]
                       }
                     ]
