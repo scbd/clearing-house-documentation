@@ -1,20 +1,15 @@
 <script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue";
 
-import baseAllAbsWithQueryJson from "@/swagger/json/records/solr/all-record-with-query.json";
-import orgAllAbsWithQueryJson from "@/swagger/json/org/solr/all-record-with-query.json";
+import baseJson from "@/swagger/json/records/solr/base.json";
 
-import baseAllAbsPermitJson from "@/swagger/json/records/solr/all-record.json";
-import orgAllAbsPermitJson from "@/swagger/json/org/solr/all-record.json";
+import orgAllRecordsWithQueryJson from "@/swagger/json/org/solr/all-record-with-query.json";
+import orgAllRecordsJson from "@/swagger/json/org/solr/all-record.json";
+import orgAllRecordsWithCountryJson from "@/swagger/json/org/solr/all-record-with-country.json";
+import orgAllRecordsWithRegionJson from "@/swagger/json/org/solr/all-record-with-region.json";
+import orgAllRecordsWithSubFiltersJson from "@/swagger/json/org/solr/all-record-with-subfilters.json";
 
-import baseAllAbsPermitWithCountryJson from "@/swagger/json/records/solr/all-record-with-country.json";
-import orgAllAbsPermitWithCountryJson from "@/swagger/json/org/solr/all-record-with-country.json";
-
-import baseAllAbsPermitWithRegionJson from "@/swagger/json/records/solr/all-record-with-region.json";
-import orgAllAbsPermitWithRegionJson from "@/swagger/json/org/solr/all-record-with-region.json";
-
-import baseAllAbsPermitWithSubFiltersJson from "@/swagger/json/records/solr/all-record-with-subfilters.json";
-import orgAllAbsPermitWithSubFiltersJson from "@/swagger/json/org/solr/all-record-with-subfilters.json";
+import { mergeSwaggerWithBase, deepClone } from "@/utils"
 
 function mergeJson(base, specific) {
   const merged = JSON.parse(JSON.stringify(base));
@@ -22,13 +17,12 @@ function mergeJson(base, specific) {
   return merged;
 }
 
-
 const swaggerSpecs = [
-  { json:mergeJson(baseAllAbsWithQueryJson, orgAllAbsWithQueryJson), protected: false },
-  { json: mergeJson(baseAllAbsPermitJson, orgAllAbsPermitJson), protected: false },
-  { json: mergeJson(baseAllAbsPermitWithCountryJson, orgAllAbsPermitWithCountryJson), protected: false },
-  { json: mergeJson(baseAllAbsPermitWithRegionJson, orgAllAbsPermitWithRegionJson), protected: false },
-  { json: mergeJson(baseAllAbsPermitWithSubFiltersJson, orgAllAbsPermitWithSubFiltersJson), protected: false },
+  { json: mergeSwaggerWithBase(deepClone(baseJson), orgAllRecordsJson, ['paths']) ,protected: false },
+  { json: mergeSwaggerWithBase(deepClone(baseJson), orgAllRecordsWithCountryJson, ['paths']) ,protected: false },
+  { json: mergeSwaggerWithBase(deepClone(baseJson), orgAllRecordsWithQueryJson, ['paths']) ,protected: false },
+  { json: mergeSwaggerWithBase(deepClone(baseJson), orgAllRecordsWithRegionJson, ['paths']), protected: false },
+  { json: mergeSwaggerWithBase(deepClone(baseJson), orgAllRecordsWithSubFiltersJson, ["paths"]), protected: false },
 ];
 
 </script>
