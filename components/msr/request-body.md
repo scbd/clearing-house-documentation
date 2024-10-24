@@ -17,7 +17,7 @@
       <td><code>{ "identifier": "2229F37D-F8E0-2FFE-4F47-E7452BF3FE48", "schema": "measure", "languages": [ "en" ] }</code></td>
     </tr>
     <tr>
-      <td><strong><a href="/thesaurus/general/countries">Country</a></strong></td>
+      <td><strong><a href="/abs/thesaurus/general/countries">Country</a></strong></td>
       <td>government</td>
       <td>True</td>
       <td>Eterm</td>
