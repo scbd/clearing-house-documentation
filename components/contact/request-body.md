@@ -188,7 +188,7 @@ The table below outlines the structure of the request body, including the fields
       <td><code>person</code></td>
     </tr>
     <tr>
-      <td><strong><a href="/thesaurus/general/countries">Country</a></strong></td>
+      <td><strong><a href="/abs/thesaurus/general/countries">Country</a></strong></td>
       <td>government</td>
       <td></td>
       <td><a href="/customTypes.html#eterm">Eterm</a></td>
