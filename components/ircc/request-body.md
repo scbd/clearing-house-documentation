@@ -27,7 +27,7 @@ The table below outlines the structure of the request body, including the fields
           </code></td>
     </tr>
      <tr>
-      <td><strong><a href="/thesaurus/general/countries">Country</a></strong></td>
+      <td><strong><a href="/abs/thesaurus/general/countries">Country</a></strong></td>
       <td>government</td>
       <td>True</td>
       <td><a href="/customTypes.html#eterm">Eterm</a></td>

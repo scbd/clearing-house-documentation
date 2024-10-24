@@ -29,7 +29,7 @@
               <div class="alert alert-success" role="alert">
                 <div>
                   <p class="lh-lg">
-                    Welcome {{user.name}}, you are connected to the test site for {{APP_CONFIG.APP_ENV.toUpperCase()}}.
+                    Welcome {{user.name}}, you are connected to the test site.
                   </p>
                   <p v-if="devRoles.length > 0">
                     You currently have {{ devRoles.join(", ") }} roles on the test site.
@@ -146,9 +146,6 @@ const initializeSwaggerUI = () => {
 };
 
 onMounted(async () => {
-  await import("bootstrap/dist/css/bootstrap.min.css");
-  await import("bootstrap");
-
   const authManager = new AuthManager(APP_CONFIG.ACCOUNTS_HOST_URL);
 
   authManager.getScbdIframeToken().then(async (newToken) => {

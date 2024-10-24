@@ -5,12 +5,10 @@
     "vitepress": "^1.2.3"
   },
   "scripts": {
-    "dev:abs": "vitepress dev docs",
-    "dev:chm": "vitepress dev docs",
-    "dev:bch": "vitepress dev docs",
+    "dev": "vitepress dev docs",
     "clean-reinstall": "rm -rf ./node_modules && npm install",
-    "build": "VITE_CLEARING_HOUSE=abs vitepress build docs",
-    "preview": "VITE_CLEARING_HOUSE=abs vitepress preview docs --port 8000"
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs --port 8000"
   },
   "dependencies": {
     "axios": "^1.7.2",

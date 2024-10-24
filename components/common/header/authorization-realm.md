@@ -14,4 +14,4 @@ The request must include the following headers:
 - **`chm-dev`**: Specifies the development environment for CHM (Central Clearing-House Mechanism). This realm is used when working on features or testing in the CHM context within a development environment.
 
 
-Headers required to authenticate and define the context and format of the request and response. The `Authorization` header must contain a valid token, while the `Content-Type` and `Accept` headers specify the format of the document and response, respectively. [Here are the steps to get the Authorization token](/user/authentication).
+Headers required to authenticate and define the context and format of the request and response. The `Authorization` header must contain a valid token, while the `Content-Type` and `Accept` headers specify the format of the document and response, respectively. [Here are the steps to get the Authorization token](/abs/user/authentication).
