@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-4" v-if="!isLoading">
+  <div class="mt-4" v-show="!isLoading">
     <div v-for="(spec, index) in swaggerSpecs" :key="index">
       <div v-if="spec.protected && !token">
         <div class="container">
@@ -43,6 +43,18 @@
       <div :id="spec.domId ? `${spec.domId}-${index}` : `swagger-ui-${index}`"></div>
     </div>
   </div>
+  <div v-show="isLoading">
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col text-center">
+          <div class="spinner-border" role="status">
+            <span class="sr-only"></span>
+          </div>
+          <div class="mt-2">Swagger playground is loading, please wait...</div>
+        </div>
+      </div>
+    </div>    
+  </div>
 </template>
 
 <script setup>
@@ -81,87 +93,109 @@ const redirectToAccounts = () => {
 };
 
 const initializeSwaggerUI = () => {
-  props.swaggerSpecs.forEach(async (swaggerSpec, index) => {
-    const SwaggerUI = (await import("swagger-ui")).default;
-     const domId = swaggerSpec.domId ? `${swaggerSpec.domId}-${index}` : `swagger-ui-${index}`;
-    const ui = SwaggerUI({
-      spec: swaggerSpec.json,
-      dom_id: `#${domId}`,
-      presets: [SwaggerUI.presets.apis, SwaggerUI.SwaggerUIStandalonePreset],
-      layout: "BaseLayout",
-    });
+  return new Promise(async (resolve, reject) => {
+    try {
+      const promises = props.swaggerSpecs.map(async (swaggerSpec, index) => {
+        const SwaggerUI = (await import("swagger-ui")).default;
+        const domId = swaggerSpec.domId ? `${swaggerSpec.domId}-${index}` : `swagger-ui-${index}`;
 
-    if (swaggerSpec.protected && token.value) {
-      ui.initOAuth({
-        scopeSeparator: " ",
-        additionalQueryStringParams: {},
-      });
-      const prefixedAuthToken = `Ticket ${token.value}`;
-      ui.preauthorizeApiKey("ApiKeyAuth", prefixedAuthToken);
-
-      const observer = new MutationObserver(() => {
-        const tryOutButtons = document.querySelectorAll(".try-out");
-        tryOutButtons.forEach((button) => {
-          button.disabled = false;
+        // Initialize Swagger UI
+        const ui = SwaggerUI({
+          spec: swaggerSpec.json,
+          dom_id: `#${domId}`,
+          presets: [SwaggerUI.presets.apis, SwaggerUI.SwaggerUIStandalonePreset],
+          layout: "BaseLayout",
         });
-      });
 
-      const targetNode = document.getElementById(domId);
-      const config = { childList: true, subtree: true };
+        // Handling protected APIs with token
+        if (swaggerSpec.protected && token.value) {
+          ui.initOAuth({
+            scopeSeparator: " ",
+            additionalQueryStringParams: {},
+          });
+          const prefixedAuthToken = `Ticket ${token.value}`;
+          ui.preauthorizeApiKey("ApiKeyAuth", prefixedAuthToken);
 
-      observer.observe(targetNode, config);
-    } else {
-      const observer = new MutationObserver(() => {
-        const tryOutButtons = document.querySelectorAll(".try-out");
-        tryOutButtons.forEach((button) => {
-          button.disabled = true;
-          button.title = "Authorization token is missing";
+          const observer = new MutationObserver(() => {
+            const tryOutButtons = document.querySelectorAll(".try-out");
+            tryOutButtons.forEach((button) => {
+              button.disabled = false;
+            });
+          });
+
+          const targetNode = document.getElementById(domId);
+          if (targetNode) {
+            observer.observe(targetNode, { childList: true, subtree: true });
+          }
+        } else {
+          const observer = new MutationObserver(() => {
+            const tryOutButtons = document.querySelectorAll(".try-out");
+            tryOutButtons.forEach((button) => {
+              button.disabled = true;
+              button.title = "Authorization token is missing";
+            });
+          });
+
+          const targetNode = document.getElementById(domId);
+          if (targetNode) {
+            observer.observe(targetNode, { childList: true, subtree: true });
+          }
+        }
+
+        // Observer for removing unwanted elements
+        const observer = new MutationObserver(() => {
+          const informationContainer = document.querySelector(".information-container.wrapper");
+          if (informationContainer) {
+            informationContainer.parentNode.removeChild(informationContainer);
+          }
+          const authorizeBtn = document.querySelector(".auth-wrapper");
+          if (authorizeBtn) {
+            authorizeBtn.parentNode.removeChild(authorizeBtn);
+          }
         });
+
+        const targetNode = document.getElementById(domId);
+        if (targetNode) {
+          observer.observe(targetNode, { childList: true, subtree: true });
+        }
+        return true;
       });
 
-      const targetNode = document.getElementById(domId);
-      const config = { childList: true, subtree: true };
-
-      observer.observe(targetNode, config);
+      // Wait for all Swagger UI setups to complete
+      await Promise.all(promises);
+      resolve();  // Resolve when all the initialization is complete
+    } catch (error) {
+      reject(error);  // Reject in case of any error
     }
-
-    const observer = new MutationObserver(() => {
-      const informationContainer = document.querySelector(
-        ".information-container.wrapper"
-      );
-      if (informationContainer) {
-        informationContainer.parentNode.removeChild(informationContainer);
-      }
-      const authorizeBtn = document.querySelector(".auth-wrapper");
-      if (authorizeBtn) {
-        authorizeBtn.parentNode.removeChild(authorizeBtn);
-      }
-    });
-
-    const targetNode = document.getElementById(domId);
-    const config = { childList: true, subtree: true };
-
-    observer.observe(targetNode, config);
   });
 };
 
 onMounted(async () => {
   const authManager = new AuthManager(APP_CONFIG.ACCOUNTS_HOST_URL);
 
-  authManager.getScbdIframeToken().then(async (newToken) => {
-    if(newToken){
+  try {
+    const newToken = await authManager.getScbdIframeToken();
+    
+    if (newToken) {
       token.value = newToken;
       const loggedInUser = await authManager.fetchUser();
-      if(loggedInUser.isAuthenticated){
+
+      if (loggedInUser.isAuthenticated) {
         user.value = loggedInUser;
-        initializeSwaggerUI();
+
+        // Await Swagger UI initialization
+        await initializeSwaggerUI();
+
         injectLoggedInNavLink(loggedInUser);
       } else {
         token.value = null;
       }
-    }
+    }    
+  } catch (error) {
+    console.error("Error during initialization", error);
+  } finally {
     isLoading.value = false;
-  })
+  }
 });
 
 const injectLoggedInNavLink = (user) => {
