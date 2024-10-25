@@ -1,0 +1,56 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Thesaurus Terms API - Decision LMOs for Food Use",
+    "description": "API for retrieving terms related to LMOs (Living Modified Organisms) intended for direct use as food.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbd.int"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/DecisionLMOFFPSubject/terms": {
+      "get": {
+        "summary": "Get Decision LMOs for Food Use Terms",
+        "description": "Retrieve terms associated with LMOs intended for direct use as food, providing multilingual support.",
+        "responses": {
+          "200": {
+            "description": "A list of terms related to LMOs for direct use as food, including multilingual titles.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 5405,
+                    "identifier": "91BEAF12-ABE1-4294-AD3B-507935894C78",
+                    "name": "LMOs for direct use as food",
+                    "title": {
+                      "en": "LMOs for direct use as food",
+                      "es": "OVM para uso directo como alimento humano",
+                      "fr": "OVM destinés à être utilisés directement pour l'alimentation humaine",
+                      "ar": "الكائنات الحية المحورة المراد استخدامها مباشرة كغذاء",
+                      "ru": "ЖИО для непосредственного использования в качестве продовольствия",
+                      "zh": "直接用作食物的改性活生物体"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "Domain not found"
+          }
+        }
+      }
+    }
+  }
+}

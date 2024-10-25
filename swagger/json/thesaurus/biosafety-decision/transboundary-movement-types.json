@@ -1,0 +1,51 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Thesaurus Terms API - Transboundary Movement Types",
+    "description": "API for retrieving terms related to transboundary movements of Living Modified Organisms (LMOs) as outlined in the relevant articles.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbd.int"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/TransboundaryMovementTypes/terms": {
+      "get": {
+        "summary": "Get Transboundary Movement Types Terms",
+        "description": "Retrieve terms associated with transboundary movements of LMOs, including definitions from legal articles.",
+        "responses": {
+          "200": {
+            "description": "A list of terms related to transboundary movement types for LMOs.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 7217,
+                    "identifier": "22B915C4-193E-4087-89ED-D104EEEC4330",
+                    "name": "Unintentional transboundary movement (Article 17.1)",
+                    "title": {
+                      "en": "Unintentional transboundary movement (Article 17.1)"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "Domain not found"
+          }
+        }
+      }
+    }
+  }
+}

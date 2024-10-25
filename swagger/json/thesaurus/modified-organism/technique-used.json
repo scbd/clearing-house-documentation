@@ -1,0 +1,55 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Thesaurus Terms API",
+    "description": "API for retrieving thesaurus terms from specified domains.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbd.int"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/ABE9DCE3-92BA-4D5D-8948-7F7E541EEC6B/terms": {
+      "get": {
+        "summary": "Get Thesaurus Terms",
+        "responses": {
+          "200": {
+            "description": "A list of thesaurus terms",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 5198,
+                    "identifier": "844F7BE6-5FF9-4A21-95D7-FF4CB8865756",
+                    "name": "Agrobacterium-mediated DNA transfer",
+                    "title": {
+                      "en": "Agrobacterium-mediated DNA transfer",
+                      "es": "Transferencia de ADN mediada por Agrobacterium",
+                      "fr": "Transgénèse par agrobacterium",
+                      "ar": "نقل الحمض النووي باستعمال بكتريا الأكروباكتيريوم",
+                      "ru": "Agrobacterium-опосредованный перенос ДНК",
+                      "zh": "农杆菌介导的基因转移"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "Domain not found"
+          }
+        }
+      }
+    }
+  }
+}

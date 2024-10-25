@@ -1,0 +1,59 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Thesaurus Terms API - Subject Areas",
+    "description": "API for retrieving terms related to subject areas within the Cartagena Protocol on Biosafety and other related areas from the thesaurus.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbd.int"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/Subject Areas/terms": {
+      "get": {
+        "summary": "Get Subject Areas Terms",
+        "responses": {
+          "200": {
+            "description": "A list of terms related to subject areas, including functions under the Cartagena Protocol on Biosafety",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 4254,
+                    "identifier": "FE1AA9E9-3320-4112-9F9C-A22AD6563AE1",
+                    "name": "All functions pursuant to the Cartagena Protocol on Biosafety",
+                    "title": {
+                      "en": "All functions pursuant to the Cartagena Protocol on Biosafety",
+                      "es": "Todas las funciones según el Protocolo de Cartagena sobre Seguridad de la Biotecnología",
+                      "fr": "Toutes les fonctions conformes au Protocole de Cartagena sur la prévention des risques biotechnologiques",
+                      "ar": "جميع الوظائف المتعلقة بتطبيق بروتوكول قرطاجنة للسلامة الأحيائية",
+                      "ru": "Все функции в соответствии с Картахенским протоколом по биобезопасности",
+                      "zh": "遵照《卡塔赫纳生物安全议定书》的所有职能"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [
+                      "1DCBA126-60F1-440D-BBB0-CC9CCC91C283",
+                      "34336DAA-1BD9-4E2C-82B6-4D4376BE8E13",
+                      "96FCDF17-5B40-42FA-8F48-EDBEE7ADD814"
+                    ],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "Domain not found"
+          }
+        }
+      }
+    }
+  }
+}
