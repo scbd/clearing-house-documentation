@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-4" v-show="!isLoading">
+  <div class="mt-4" v-show="!isLoading && !isError">
     <div v-for="(spec, index) in swaggerSpecs" :key="index">
       <div v-if="spec.protected && !token">
         <div class="container">
@@ -55,12 +55,18 @@
       </div>
     </div>    
   </div>
+  <div v-show="isError">
+    <div class="alert alert-danger" role="alert">
+      An error occurred while loading Swagger playgroud, please refresh the page.
+    </div>
+  </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount, computed } from "vue";
 import { APP_CONFIG } from "../../docs/app-config"
 import { AuthManager } from "../../utils/auth-manager";
+import SwaggerUI from "swagger-ui";
 import "swagger-ui/dist/swagger-ui.css";
 import "../../style.css";
 
@@ -80,6 +86,7 @@ const props = defineProps({
 
 const token = ref(null)
 const isLoading = ref(true);
+const isError = ref(null);
 const user = ref(null);
 
 const devRoles = computed(() => {
@@ -96,7 +103,6 @@ const initializeSwaggerUI = () => {
   return new Promise(async (resolve, reject) => {
     try {
       const promises = props.swaggerSpecs.map(async (swaggerSpec, index) => {
-        const SwaggerUI = (await import("swagger-ui")).default;
         const domId = swaggerSpec.domId ? `${swaggerSpec.domId}-${index}` : `swagger-ui-${index}`;
 
         // Initialize Swagger UI
@@ -174,6 +180,7 @@ onMounted(async () => {
   const authManager = new AuthManager(APP_CONFIG.ACCOUNTS_HOST_URL);
 
   try {
+    isError.value = false;
     const newToken = await authManager.getScbdIframeToken();
     
     if (newToken) {
@@ -192,7 +199,7 @@ onMounted(async () => {
       }
     }    
   } catch (error) {
-    console.error("Error during initialization", error);
+    isError.value = true;
   } finally {
     isLoading.value = false;
   }
