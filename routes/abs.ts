@@ -183,31 +183,31 @@ export default [
     items: [
       {
         text: "Schema",
-        link: "/cpc/schema",
+        link: "/abs/cpc/schema",
       },
       {
         text: "Public Records",
-        link: "/cpc/solr",
+        link: "/abs/cpc/solr",
       },
       {
         text: "Draft Records",
-        link: "/cpc/list",
+        link: "/abs/cpc/list",
       },
       {
         text: "Get",
-        link: "/cpc/get",
+        link: "/abs/cpc/get",
       },
       {
         text: "Create",
-        link: "/cpc/create",
+        link: "/abs/cpc/create",
       },
       {
         text: "Update",
-        link: "/cpc/update",
+        link: "/abs/cpc/update",
       },
       {
         text: "Delete",
-        link: "/cpc/delete",
+        link: "/abs/cpc/delete",
       },
     ],
   },
