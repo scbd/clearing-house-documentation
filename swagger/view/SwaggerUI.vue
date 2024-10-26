@@ -66,7 +66,6 @@
 import { ref, onMounted, onBeforeUnmount, computed } from "vue";
 import { APP_CONFIG } from "../../docs/app-config"
 import { AuthManager } from "../../utils/auth-manager";
-import SwaggerUI from "swagger-ui";
 import "swagger-ui/dist/swagger-ui.css";
 import "../../style.css";
 
@@ -104,7 +103,7 @@ const initializeSwaggerUI = () => {
     try {
       const promises = props.swaggerSpecs.map(async (swaggerSpec, index) => {
         const domId = swaggerSpec.domId ? `${swaggerSpec.domId}-${index}` : `swagger-ui-${index}`;
-
+        const SwaggerUI = (await import("swagger-ui")).default;
         // Initialize Swagger UI
         const ui = SwaggerUI({
           spec: swaggerSpec.json,
