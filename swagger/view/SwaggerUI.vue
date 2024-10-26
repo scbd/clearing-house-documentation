@@ -103,6 +103,7 @@ const initializeSwaggerUI = () => {
     try {
       const promises = props.swaggerSpecs.map(async (swaggerSpec, index) => {
         const domId = swaggerSpec.domId ? `${swaggerSpec.domId}-${index}` : `swagger-ui-${index}`;
+        
         const SwaggerUI = (await import("swagger-ui")).default;
         // Initialize Swagger UI
         const ui = SwaggerUI({
