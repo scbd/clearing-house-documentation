@@ -123,7 +123,7 @@ const initializeSwaggerUI = () => {
           ui.preauthorizeApiKey("ApiKeyAuth", prefixedAuthToken);
 
           const observer = new MutationObserver(() => {
-            const tryOutButtons = document.querySelectorAll(".try-out");
+            const tryOutButtons = document.querySelectorAll(".try-out__btn");
             tryOutButtons.forEach((button) => {
               button.disabled = false;
             });
@@ -133,10 +133,22 @@ const initializeSwaggerUI = () => {
           if (targetNode) {
             observer.observe(targetNode, { childList: true, subtree: true });
           }
+        } else if ( swaggerSpec.protected && !token.value ) {
+          const observer = new MutationObserver(() => {
+            const tryOutButtons = document.querySelectorAll(".try-out__btn");
+            tryOutButtons.forEach((button) => {
+              button.disabled = true;
+            });
+          });
+
+          const targetNode = document.getElementById(domId);
+          if (targetNode) {
+            observer.observe(targetNode, { childList: true, subtree: true });
+          }
         } else {
           const observer = new MutationObserver(() => {
-            const tryOutButtons = document.querySelectorAll(".try-out");
-            tryOutButtons.forEach((button) => {
+            const tryOut = document.querySelectorAll(".try-out");
+            tryOut.forEach((button) => {
               button.disabled = true;
               button.title = "Authorization token is missing";
             });
@@ -190,9 +202,6 @@ onMounted(async () => {
       if (loggedInUser.isAuthenticated) {
         user.value = loggedInUser;
 
-        // Await Swagger UI initialization
-        await initializeSwaggerUI();
-
         injectLoggedInNavLink(loggedInUser);
       } else {
         token.value = null;
@@ -201,6 +210,8 @@ onMounted(async () => {
   } catch (error) {
     isError.value = true;
   } finally {
+    // Await Swagger UI initialization
+    await initializeSwaggerUI();
     isLoading.value = false;
   }
 });
