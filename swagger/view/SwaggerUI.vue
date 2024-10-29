@@ -206,12 +206,13 @@ onMounted(async () => {
       } else {
         token.value = null;
       }
-    }    
+    }  
+    // Await Swagger UI initialization
+    await initializeSwaggerUI();  
   } catch (error) {
     isError.value = true;
   } finally {
-    // Await Swagger UI initialization
-    await initializeSwaggerUI();
+
     isLoading.value = false;
   }
 });
