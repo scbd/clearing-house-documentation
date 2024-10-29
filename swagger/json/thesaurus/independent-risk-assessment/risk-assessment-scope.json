@@ -1,0 +1,59 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Thesaurus Terms API - Risk Assessment Scope",
+    "description": "API for retrieving terms related to the scope of risk assessments for Living Modified Organisms (LMOs).",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbd.int"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/RiskAssessmentScope/terms": {
+      "get": {
+        "summary": "Get Risk Assessment Scope Terms",
+        "description": "Retrieve terms related to the scope of risk assessments for LMOs, including categories of LMOs for environmental introduction.",
+        "responses": {
+          "200": {
+            "description": "A list of terms related to the scope of risk assessments for LMOs.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 5401,
+                    "identifier": "D6B59E8A-D82C-4516-917A-A745ACDA5931",
+                    "name": "LMOs for introduction into the environment",
+                    "title": {
+                      "en": "LMOs for introduction into the environment",
+                      "es": "OVM para introducción deliberada en el medio ambiente",
+                      "fr": "OVM à introduire dans l'environnement",
+                      "ar": "الكائنات الحية المحورة المراد إدخالها في البيئة",
+                      "ru": "ЖИО для интродукции в окружающую среду",
+                      "zh": "用于引入环境的改性活生物体"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [
+                      "015737FC-ABC2-460C-A099-06A1B01E649A",
+                      "BEBF757E-E3CC-4913-8D9F-2D165CD63ECE"
+                    ],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "Domain not found"
+          }
+        }
+      }
+    }
+  }
+}
