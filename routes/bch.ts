@@ -222,6 +222,88 @@ export default [
         ],
       },
       {
+        text:"Modified Organism",
+        collapsed: true,
+        items: [
+          {
+            text:"Technique Used",
+            link:"/bch/thesaurus/modified-organism/technique-used"
+          },
+          {
+            text:"Organism Common Uses",
+            link:"/bch/thesaurus/modified-organism/organism-common-uses"
+          }
+        ]
+      },
+      {
+        text:"Biosafety Law",
+        collapsed: true,
+        items: [
+          {
+            text:"Law Jurisdictions",
+            link:"/bch/thesaurus/biosafety-law/law-jurisdictions"
+          },
+          {
+            text:"Countries",
+            link:"/bch/thesaurus/biosafety-law/countries"
+          },
+          {
+            text:"Legislation Agreement Types",
+            link:"/bch/thesaurus/biosafety-law/legislation-agreement-types"
+          },
+          {
+            text:"Subject Areas",
+            link:"/bch/thesaurus/biosafety-law/subject-areas"
+          },
+          {
+            text:"Type of Organisms",
+            link:"/bch/thesaurus/biosafety-law/type-of-organisms"
+          }
+        ]
+      },
+      {
+        text:"Biosafety Decision",
+        collapsed: true,
+        items: [
+          {
+            text:"Decision Types",
+            link: "/bch/thesaurus/biosafety-decision/decision-types"
+          },
+          {
+            text:"Decision LMO FFP Subject",
+            link: "/bch/thesaurus/biosafety-decision/decision-lmo-ffp-subject"
+          },
+          {
+            text:"Decision Results",
+            link: "/bch/thesaurus/biosafety-decision/decision-results"
+          },
+          {
+            text:"Transboundary Movement Types",
+            link: "/bch/thesaurus/biosafety-decision/transboundary-movement-types"
+          }
+        ]
+      },
+      {
+        text:"Independent Risk Assessment",
+        collapsed: true,
+        items: [
+          {
+            text:"Risk Assessment Scope",
+            link:"/bch/thesaurus/independent-risk-assessment/risk-assessment-scope"
+          }
+        ]
+      },
+      {
+        text:"DNA Sequence",
+        collapsed: true,
+        items: [
+          {
+            text:"DNA Sequence Family",
+            link:"/bch/thesaurus/dna-sequence/dna-sequence-family"
+          }
+        ]
+      },
+      {
         text: "Authority",
         collapsed: true,
         items: [

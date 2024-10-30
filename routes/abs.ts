@@ -294,6 +294,16 @@ export default [
         ],
       },
       {
+        text: "Contact",
+        collapsed: true,
+        items: [
+          {
+            text: "Organization Types",
+            link: "/abs/thesaurus/contact/organization-types",
+          },
+        ],
+      },
+      {
         text: "Permit",
         collapsed: true,
         items: [

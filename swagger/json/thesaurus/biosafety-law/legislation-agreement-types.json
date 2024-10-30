@@ -1,0 +1,55 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Thesaurus Terms API - Legislation and Agreement Types",
+    "description": "API for retrieving terms related to different types of legislation and agreements from the thesaurus.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbd.int"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/Legislation And Agreement Types/terms": {
+      "get": {
+        "summary": "Get Legislation and Agreement Types Terms",
+        "responses": {
+          "200": {
+            "description": "A list of terms related to legislation and agreement types",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 301,
+                    "identifier": "57217527-3732-437F-9AD8-45BEF4429FD5",
+                    "name": "Law",
+                    "title": {
+                      "en": "Law",
+                      "es": "Ley",
+                      "fr": "Loi",
+                      "ar": "القوانين",
+                      "ru": "Закон",
+                      "zh": "法律"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "Domain not found"
+          }
+        }
+      }
+    }
+  }
+}

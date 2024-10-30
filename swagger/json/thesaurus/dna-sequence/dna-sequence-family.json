@@ -1,0 +1,63 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Thesaurus Terms API - Protein Coding Sequence",
+    "description": "API for retrieving terms related to genetic sequences responsible for protein coding.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbd.int"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/82DAAF04-6698-4CA6-81D5-F200AE64C63A/terms": {
+      "get": {
+        "summary": "Get Protein Coding Sequence Terms",
+        "description": "Retrieve terms related to genetic sequences, including protein coding sequences like genes or complementary DNA (cDNA).",
+        "responses": {
+          "200": {
+            "description": "A list of terms related to protein coding sequences.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 5105,
+                    "identifier": "1ECB698D-3F3D-41BC-BEBD-DD5C734BCDCF",
+                    "name": "Protein coding sequence",
+                    "title": {
+                      "en": "Protein coding sequence",
+                      "es": "Secuencia de codificación de proteínas",
+                      "fr": "Séquence codante de protéines",
+                      "ar": "تسلسل شفرة البروتين",
+                      "ru": "Белок-кодирующая последовательность",
+                      "zh": "蛋白质编码序列"
+                    },
+                    "shortTitle": {},
+                    "description": "Protein coding sequence (gene, cDNA, etc.)",
+                    "longDescription": {
+                      "en": "Protein coding sequence (gene, cDNA, etc.)",
+                      "es": "Secuencia de codificación de proteínas (gen, ADNc, etc.)",
+                      "fr": "Séquence codant la protéine (gène, ADN complémentaire, etc.)",
+                      "ar": "تسلسل شفرة البروتين (المورث، الحمض النووي التكميلي، وغير ذلك)",
+                      "ru": "Белок-кодирующая последовательность (ген, комплементарная ДНК и т.д.)",
+                      "zh": "蛋白质编码序列（基因、cDNA等）"
+                    },
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "Domain not found"
+          }
+        }
+      }
+    }
+  }
+}

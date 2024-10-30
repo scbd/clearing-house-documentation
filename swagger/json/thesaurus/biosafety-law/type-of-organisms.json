@@ -1,0 +1,66 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Thesaurus Terms API - Type of Organisms",
+    "description": "API for retrieving terms related to different types of organisms from the thesaurus.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbd.int"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/TypeOfOrganisms/terms": {
+      "get": {
+        "summary": "Get Type of Organisms Terms",
+        "description": "Retrieve terms related to various organism types, including detailed descriptions and multilingual titles.",
+        "responses": {
+          "200": {
+            "description": "A list of terms related to types of organisms, such as Animals",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 4340,
+                    "identifier": "105F74DA-8439-42a8-9298-096A91C8458A",
+                    "name": "Animals",
+                    "title": {
+                      "en": "Animals",
+                      "es": "Animales",
+                      "fr": "Animaux",
+                      "ar": "الحيوانات",
+                      "ru": "Животные",
+                      "zh": "动物"
+                    },
+                    "shortTitle": {},
+                    "description": "Animals are a major group of organisms, classified as the kingdom Animalia or Metazoa...",
+                    "longDescription": {
+                      "en": "Animals are a major group of organisms, classified as the kingdom Animalia or Metazoa...",
+                      "es": "Los animales son el grupo más importante de organismos...",
+                      "fr": "Les animaux constituent un des principaux groupes d'organismes...",
+                      "ar": "تمثل الحيوانات مجموعة رئيسية من الكائنات الحية...",
+                      "ru": "Животные — это основная группа организмов...",
+                      "zh": "动物是主要的生物体群体..."
+                    },
+                    "source": "Agrovoc",
+                    "broaderTerms": ["8DAB2400-CF00-44B2-ADCF-49AABF66B9B0"],
+                    "narrowerTerms": [
+                      "B19E9266-FA70-439C-BE18-0356850BB9FA",
+                      "356629AD-5C7A-4026-9076-444BA3B97EF9"
+                    ],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "Domain not found"
+          }
+        }
+      }
+    }
+  }
+}

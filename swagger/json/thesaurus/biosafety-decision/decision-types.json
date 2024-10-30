@@ -1,0 +1,66 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Thesaurus Terms API - Decision Types",
+    "description": "API for retrieving terms related to different types of decisions on LMOs (Living Modified Organisms) for introduction into the environment.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbd.int"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/DecisionTypes/terms": {
+      "get": {
+        "summary": "Get Decision Types Terms",
+        "description": "Retrieve terms associated with decision types for LMOs, including descriptions in multiple languages.",
+        "responses": {
+          "200": {
+            "description": "A list of terms related to decision types on LMOs, such as 'Decision on LMOs for intentional introduction into the environment.'",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 5061,
+                    "identifier": "E8C5A15C-A736-4fb7-A1B6-192412BE7E45",
+                    "name": "Decision on LMOs for intentional introduction into the environment (according to Article 10 or domestic regulatory framework)",
+                    "title": {
+                      "en": "Decision on LMOs for intentional introduction into the environment...",
+                      "es": "Decisión sobre OVM para introducción intencional en el medio ambiente...",
+                      "fr": "Décisions sur les OVM destinés à une introduction intentionnelle...",
+                      "ar": "قرار بشأن الإدخال المقصود للكائنات الحية المُحوَّرة...",
+                      "ru": "Решение относительно ЖИО, предназначенных для преднамеренной интродукции...",
+                      "zh": "关于有意引入环境的改性活生物体的决定..."
+                    },
+                    "shortTitle": {},
+                    "description": "Intentional introduction into the environment can include introduction both for experimental or for commercial purposes...",
+                    "longDescription": {
+                      "en": "Intentional introduction into the environment can include introduction both for experimental or for commercial purposes...",
+                      "es": "La introducción intencional en el medio ambiente puede incluir la introducción tanto para propósitos experimentales como comerciales...",
+                      "fr": "L’introduction intentionnelle dans l’environnement peut inclure l’introduction à des fins expérimentales ou commerciales...",
+                      "ar": "قد يكون الإدخال المقصود في البيئة لأغراض تجريبية أو تجارية...",
+                      "ru": "Преднамеренная интродукция в окружающую среду может включать интродукцию как в экспериментальных, так и в коммерческих целях...",
+                      "zh": "有意引入环境可包括试验型引入和商业型引入..."
+                    },
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [
+                      "A0F944AD-1578-47F4-BB71-A9805EC0EB7A",
+                      "47B66371-7016-4F28-B33A-0DBFF43581CA"
+                    ],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "Domain not found"
+          }
+        }
+      }
+    }
+  }
+}

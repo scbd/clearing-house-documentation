@@ -1,0 +1,63 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Thesaurus Terms API - Decision Results",
+    "description": "API for retrieving terms related to decisions regarding LMOs (Living Modified Organisms) and their import and usage.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbd.int"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/DecisionResults/terms": {
+      "get": {
+        "summary": "Get Decision Results Terms",
+        "description": "Retrieve terms associated with the approval of LMOs for import and/or use without conditions.",
+        "responses": {
+          "200": {
+            "description": "A list of terms related to decision results for LMOs, including multilingual titles and descriptions.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 5087,
+                    "identifier": "3B9ECE67-B35C-40FF-8C06-4EA5FF762899",
+                    "name": "Approval of the import and/or use of the LMO(s) without conditions",
+                    "title": {
+                      "en": "Approval of the import and/or use of the LMO(s) without conditions",
+                      "es": "Aprobación de la importación y/o uso del/de los OVM sin condiciones",
+                      "fr": "Approbation de l'importation/utilisation de l'OVM sans condition",
+                      "ar": "الموافقة دون قيد أو شرط على استيراد الكائنات الحية المحورة أو استخدامها أو كليهما",
+                      "ru": "Разрешение на импорт и/или использование ЖИО без условий",
+                      "zh": "批准改性活生物体无条件的进口/使用"
+                    },
+                    "shortTitle": {},
+                    "description": "The term “use” refers to ‘direct use for food, feed or processing’ and/or ‘intentional introduction into the environment’.",
+                    "longDescription": {
+                      "en": "The term “use” refers to ‘direct use for food, feed or processing’ and/or ‘intentional introduction into the environment’.",
+                      "es": "El término \"uso\" refiere al \"uso directo para alimento humano, animal o para procesamiento\" y/o \"introducción intencional en el medio ambiente\".",
+                      "fr": "Le terme \"utiliser\" renvoie à « l'utilisation directe pour l'alimentation humaine ou animale » et/ou « l'introduction intentionnelle dans l'environnement ». ",
+                      "ar": "يشير المصطلح \"استخدام\" إلى ’الاستخدام المباشر كغذاء أو كعلف أو للتجهيز‘ أو ’الإدخال المقصود في البيئة‘ أو كليهما.",
+                      "ru": "Термин «использование» относится к «непосредственному использованию в качестве продовольствия, корма или для обработки» и/или «преднамеренной интродукции в окружающую среду».",
+                      "zh": "“使用”一词是指“直接用于食品、饲料或加工”和/或“有意引入到环境中”。"
+                    },
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "Domain not found"
+          }
+        }
+      }
+    }
+  }
+}
