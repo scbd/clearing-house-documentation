@@ -5,7 +5,7 @@ export default [
     items: [
       {
         text: "Introduction",
-        link: "/abs",
+        link: "/abs/",
       },
       {
         text: "Custom Types",
