@@ -3,7 +3,7 @@
   "info": {
     "title": "Documents API",
     "version": "2.13.0",
-    "description": "API for retrieving document revision metadata."
+    "description": "API Documentation."
   },
   "servers": [
     {
@@ -15,6 +15,7 @@
       "get": {
         "summary": "Get Document Revision Info",
         "description": "Load document revision metadata.",
+        "tags":["Get Info"],
         "parameters": [
           {
             "name": "uid",

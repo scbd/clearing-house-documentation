@@ -3,17 +3,18 @@
   "info": {
     "title": "CBD API Documentation",
     "version": "1.0.0",
-    "description": "API documentation for terms under domain Subject Areas."
+    "description": "API Documentation."
   },
   "servers": [
     {
-      "url": "https://api.cbd.int/api/v2013"
+      "url": "https://api.cbddev.xyz"
     }
   ],
   "paths": {
-    "/thesaurus/domains/Subject%20Areas/terms": {
+    "/api/v2013/thesaurus/domains/Subject%20Areas/terms": {
       "get": {
         "summary": "Get terms",
+        "tags": ["CPB functions"],
         "responses": {
           "200": {
             "description": "Successful response",

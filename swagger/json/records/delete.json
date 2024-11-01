@@ -38,6 +38,7 @@
         "delete": {
           "summary": "Delete a document",
           "description": "Unpublish a document.",
+          "tags": ["Delete document"],
           "security": [
             {
               "BearerAuth": []

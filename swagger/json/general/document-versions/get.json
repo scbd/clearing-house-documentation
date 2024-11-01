@@ -3,7 +3,7 @@
   "info": {
     "title": "Documents API",
     "version": "2.13.0",
-    "description": "API for managing document versions."
+    "description": "API Documentation."
   },
   "servers": [
     {
@@ -15,6 +15,7 @@
       "get": {
         "summary": "Load document revision data in raw format",
         "description": "Retrieve the raw data of a document's specified revision.",
+        "tags":["Get Document"],
         "operationId": "getDocumentRevisionData",
         "parameters": [
           {

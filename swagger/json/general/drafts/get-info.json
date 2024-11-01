@@ -3,7 +3,7 @@
   "info": {
     "title": "Drafts API",
     "version": "2.13.0",
-    "description": "API for managing drafts and document versions."
+    "description": "API Documentation."
   },
   "servers": [
     {
@@ -37,6 +37,7 @@
     "/documents/{uid}/versions/draft/info": {
       "get": {
         "summary": "Load a Clearing-House document's metadata",
+        "tags":["Get info"],
         "operationId": "getDraftInfo",
         "security": [
           {

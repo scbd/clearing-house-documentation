@@ -3,7 +3,7 @@
   "info": {
     "title": "Documents API",
     "version": "2.13.0",
-    "description": "API for managing document attachments."
+    "description": "API Documentation."
   },
   "servers": [
     {
@@ -37,6 +37,7 @@
     "/documents/{uid}/attachments": {
       "get": {
         "summary": "Retrieve a list of document attachments",
+        "tags":["List attachments"],
         "security": [
           {
             "BearerAuth": []

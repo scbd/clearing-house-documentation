@@ -37,6 +37,7 @@
       "put": {
         "summary": "Publish an update to a document's attachment",
         "description": "Allows administrators and authorized users to publish updates to a document's attachment. Requires an authentication token and specifies the document and filename.",
+        "tags":["Update attachment"],
         "security": [
           {
             "BearerAuth": []

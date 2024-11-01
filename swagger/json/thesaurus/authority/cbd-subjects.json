@@ -3,17 +3,18 @@
   "info": {
     "title": "CBD API Documentation",
     "version": "1.0.0",
-    "description": "API documentation for CBD subjects endpoint."
+    "description": "API Documentation."
   },
   "servers": [
     {
-      "url": "https://api.cbd.int/api/v2013"
+      "url": "https://api.cbddev.xyz"
     }
   ],
   "paths": {
-    "/thesaurus/domains/CBD-SUBJECTS/terms": {
+    "/api/v2013/thesaurus/domains/CBD-SUBJECTS/terms": {
       "get": {
         "summary": "Get CBD subjects",
+        "tags": ["CBD Subjects"],
         "responses": {
           "200": {
             "description": "Successful response",

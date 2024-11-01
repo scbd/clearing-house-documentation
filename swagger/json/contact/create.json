@@ -38,6 +38,7 @@
       "post": {
         "summary": "Create a new document",
         "description": "Publish a new document.",
+        "tags": ["Create document"],
         "security": [
           {
             "BearerAuth": []

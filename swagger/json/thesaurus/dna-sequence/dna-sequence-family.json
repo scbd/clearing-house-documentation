@@ -2,18 +2,19 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Thesaurus Terms API - Protein Coding Sequence",
-    "description": "API for retrieving terms related to genetic sequences responsible for protein coding.",
+    "description": "API Documentation.",
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "https://api.cbd.int"
+      "url": "https://api.cbddev.xyz"
     }
   ],
   "paths": {
     "/api/v2013/thesaurus/domains/82DAAF04-6698-4CA6-81D5-F200AE64C63A/terms": {
       "get": {
         "summary": "Get Protein Coding Sequence Terms",
+        "tags": ["DNA sequence family"],
         "description": "Retrieve terms related to genetic sequences, including protein coding sequences like genes or complementary DNA (cDNA).",
         "responses": {
           "200": {

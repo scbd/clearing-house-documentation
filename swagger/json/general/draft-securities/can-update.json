@@ -3,7 +3,7 @@
   "info": {
     "title": "Draft Securities API",
     "version": "2.13.0",
-    "description": "API for checking if a draft can be updated based on supplied metadata."
+    "description": "API Documentation."
   },
   "servers": [
     {
@@ -38,6 +38,7 @@
       "get": {
         "summary": "Check if a draft can be updated",
         "description": "Tells if a draft can be updated based on the supplied metadata.",
+        "tags": ["Can update"],
         "security": [
           {
             "BearerAuth": []

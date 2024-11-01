@@ -2,18 +2,19 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Thesaurus Terms API - Legislation and Agreement Types",
-    "description": "API for retrieving terms related to different types of legislation and agreements from the thesaurus.",
+    "description": "API Documentation.",
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "https://api.cbd.int"
+      "url": "https://api.cbddev.xyz"
     }
   ],
   "paths": {
     "/api/v2013/thesaurus/domains/Legislation And Agreement Types/terms": {
       "get": {
         "summary": "Get Legislation and Agreement Types Terms",
+        "tags": ["Legislation agreement types"],
         "responses": {
           "200": {
             "description": "A list of terms related to legislation and agreement types",

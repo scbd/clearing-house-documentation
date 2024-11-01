@@ -36,6 +36,7 @@
     "/documents/{uid}/versions/draft/locks/{lockID}": {
       "put": {
         "summary": "Lock a draft using a specific lockID",
+        "tags": ["Lock"],
         "operationId": "lockDraft",
         "security": [
           {
@@ -45,7 +46,6 @@
             "ApiKeyAuth": []
           }
         ],
-        "tags": ["Draft Locks"],
         "parameters": [
           {
             "name": "uid",

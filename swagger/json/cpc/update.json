@@ -38,6 +38,7 @@
       "put": {
         "summary": "Update ABS Checkpoint Communique",
         "description": "Endpoint to update an ABS Checkpoint Communique.",
+        "tags": ["Update document"],
         "security": [
           {
             "BearerAuth": []

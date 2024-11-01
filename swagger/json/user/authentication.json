@@ -15,6 +15,7 @@
       "post": {
         "summary": "Obtain Authorization Token",
         "description": "Authenticate with the API using email and password to obtain an authorization token.",
+        "tags": ["User authentication"],
         "requestBody": {
           "required": true,
           "content": {

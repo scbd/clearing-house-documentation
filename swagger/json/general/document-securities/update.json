@@ -3,7 +3,7 @@
   "info": {
     "title": "Document Securities API",
     "version": "2.13.0",
-    "description": "API to check if a document can be updated based on the supplied metadata."
+    "description": "API Documentation."
   },
   "servers": [
     {
@@ -37,6 +37,7 @@
     "/documents/{uid}/securities/update": {
       "get": {
         "summary": "Check if a document can be updated",
+        "tags":["Can Update"],
         "operationId": "canUpdateDocument",
         "parameters": [
           {

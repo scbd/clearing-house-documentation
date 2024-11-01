@@ -3,17 +3,18 @@
   "info": {
     "title": "CBD API Documentation",
     "version": "1.0.0",
-    "description": "API documentation for terms under domain 52AFC0EE-7A02-4EFA-9277-8B6C327CE21F."
+    "description": "API Documentation."
   },
   "servers": [
     {
-      "url": "https://api.cbd.int/api/v2013"
+      "url": "https://api.cbddev.xyz"
     }
   ],
   "paths": {
-    "/thesaurus/domains/52AFC0EE-7A02-4EFA-9277-8B6C327CE21F/terms": {
+    "/api/v2013/thesaurus/domains/52AFC0EE-7A02-4EFA-9277-8B6C327CE21F/terms": {
       "get": {
         "summary": "Get terms",
+        "tags":["Languages"],
         "responses": {
           "200": {
             "description": "Successful response",

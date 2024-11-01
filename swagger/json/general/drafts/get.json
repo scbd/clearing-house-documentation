@@ -3,7 +3,7 @@
   "info": {
     "title": "Drafts API",
     "version": "2.13.0",
-    "description": "API to load documents data in raw format."
+    "description": "API Documentation."
   },
   "servers": [
     {
@@ -37,6 +37,7 @@
     "/documents/{uid}/versions/draft": {
       "get": {
         "summary": "Load documents data in raw format",
+        "tags": ["Get draft"],
         "operationId": "getDraftDocument",
         "security": [
           {

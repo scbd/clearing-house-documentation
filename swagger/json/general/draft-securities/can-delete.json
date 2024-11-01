@@ -3,7 +3,7 @@
   "info": {
     "title": "Draft Securities API",
     "version": "2.13.0",
-    "description": "API to check if a draft can be deleted based on document metadata."
+    "description": "API Documentation."
   },
   "servers": [
     {
@@ -37,6 +37,7 @@
     "/documents/{uid}/versions/draft/securities/delete": {
       "get": {
         "summary": "Check if a draft can be deleted",
+        "tags": ["Can delete"],
         "operationId": "canDeleteDraft",
         "security": [
           {

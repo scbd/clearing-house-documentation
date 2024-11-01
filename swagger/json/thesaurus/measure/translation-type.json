@@ -3,17 +3,18 @@
   "info": {
     "title": "CBD API Documentation",
     "version": "1.0.0",
-    "description": "API documentation for terms under domain 19E3C535-2919-4804-966C-E62728507291."
+    "description": "API Documentation."
   },
   "servers": [
     {
-      "url": "https://api.cbd.int/api/v2013"
+      "url": "https://api.cbddev.xyz"
     }
   ],
   "paths": {
-    "/thesaurus/domains/19E3C535-2919-4804-966C-E62728507291/terms": {
+    "/api/v2013/thesaurus/domains/19E3C535-2919-4804-966C-E62728507291/terms": {
       "get": {
         "summary": "Get terms",
+        "tags": ["Translation type"],
         "responses": {
           "200": {
             "description": "Successful response",

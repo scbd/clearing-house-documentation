@@ -3,7 +3,7 @@
   "info": {
     "title": "Document Attachment Thumbnail API",
     "version": "2.13.0",
-    "description": "API to retrieve a thumbnail for a document attachment. This functionality is available only for image files."
+    "description": "API Documentation."
   },
   "servers": [
     {
@@ -15,6 +15,7 @@
       "get": {
         "summary": "Get Document Attachment Thumbnail",
         "description": "Retrieves a thumbnail for a document attachment. This is only available for image files. If the thumbnail is not available, it may return a redirection to the image file.",
+        "tags":["Get thumbnail"],
         "parameters": [
           {
             "name": "uid",

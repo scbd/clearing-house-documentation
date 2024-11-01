@@ -2,18 +2,19 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Thesaurus Terms API - Decision LMOs for Food Use",
-    "description": "API for retrieving terms related to LMOs (Living Modified Organisms) intended for direct use as food.",
+    "description": "API Documentation.",
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "https://api.cbd.int"
+      "url": "https://api.cbddev.xyz"
     }
   ],
   "paths": {
     "/api/v2013/thesaurus/domains/DecisionLMOFFPSubject/terms": {
       "get": {
         "summary": "Get Decision LMOs for Food Use Terms",
+        "tags": ["Decision lmo ffp subject"],
         "description": "Retrieve terms associated with LMOs intended for direct use as food, providing multilingual support.",
         "responses": {
           "200": {

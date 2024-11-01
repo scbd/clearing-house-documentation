@@ -3,7 +3,7 @@
   "info": {
     "title": "Documents Attachments API",
     "version": "2.13.0",
-    "description": "This API retrieves the data of a document's attachment or provides a redirection to the file's location."
+    "description": "API Documentation."
   },
   "servers": [
     {
@@ -15,6 +15,7 @@
       "get": {
         "summary": "Get Document Attachment Data",
         "description": "Retrieves the data of a document's attachment or provides a redirection to the file's location.",
+        "tags":["Get attachment"],
         "parameters": [
           {
             "name": "uid",

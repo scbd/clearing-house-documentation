@@ -36,6 +36,7 @@
     "/documents/{uid}/securities/create": {
       "get": {
         "summary": "Check if a document can be created based on supplied metadata",
+        "tags":["Can Create"],
         "security": [
           {
             "BearerAuth": []

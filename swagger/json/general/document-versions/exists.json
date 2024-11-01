@@ -3,7 +3,7 @@
   "info": {
     "title": "Document Versions API",
     "version": "2.13.0",
-    "description": "API for checking if a specific document revision has been published."
+    "description": "API Documentation."
   },
   "servers": [
     {
@@ -15,6 +15,7 @@
       "head": {
         "summary": "Check if a document revision exists",
         "description": "This endpoint checks if a specific revision of a document has been published.",
+        "tags":["Document version exists"],
         "parameters": [
           {
             "name": "uid",

@@ -2,18 +2,19 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Thesaurus Terms API - Decision Results",
-    "description": "API for retrieving terms related to decisions regarding LMOs (Living Modified Organisms) and their import and usage.",
+    "description": "API Documentation.",
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "https://api.cbd.int"
+      "url": "https://api.cbddev.xyz"
     }
   ],
   "paths": {
     "/api/v2013/thesaurus/domains/DecisionResults/terms": {
       "get": {
         "summary": "Get Decision Results Terms",
+        "tags": ["Decision results"],
         "description": "Retrieve terms associated with the approval of LMOs for import and/or use without conditions.",
         "responses": {
           "200": {

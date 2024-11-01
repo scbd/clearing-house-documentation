@@ -15,6 +15,7 @@
         "get": {
           "summary": "Get List of documents",
           "description": "Fetches documents with the specified filters and order.",
+          "tags": ["List documents"],
           "parameters": [
             {
               "name": "$filter",
