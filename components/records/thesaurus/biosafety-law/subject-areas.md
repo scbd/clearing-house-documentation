@@ -12,7 +12,7 @@ const swaggerSpecs = [
 
 ## Overview
 
-This endpoint provides access to a range of terms related to various subject areas, including functions under the Cartagena Protocol on Biosafety. It enables users to retrieve organized information on subject-specific terms and narrower classifications, making it useful for applications that require structured access to biosafety functions, regulatory categories, and relevant terms in multilingual formats.
+This endpoint provides access to a range of terms related to various subject areas. It enables users to retrieve organized information on subject-specific terms and narrower classifications, making it useful for applications that require structured access to biosafety functions, regulatory categories, and relevant terms in multilingual formats.
 
 
 ## Endpoint
