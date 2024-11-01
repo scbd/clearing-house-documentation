@@ -91,7 +91,7 @@
       <td>emails</td>
       <td>TRUE</td>
       <td>string[]</td>
-      <td><code>[ "pramod.sam@cbd.int" ]</code></td>
+      <td><code>[ "email@cbd.int" ]</code></td>
     </tr>
     <tr>
       <td>Contact person</td>
