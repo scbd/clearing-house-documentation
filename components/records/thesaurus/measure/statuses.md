@@ -17,7 +17,7 @@ This endpoint provides access to a list of statuses relevant to measures and pol
 
 ## Endpoint
 
-**GET** `/api.cbd.int/api/v2013/thesaurus/domains/ED7CDBD8-7762-4A84-82DD-30C01458A799/terms`
+**GET** `/api/v2013/thesaurus/domains/ED7CDBD8-7762-4A84-82DD-30C01458A799/terms`
 
 ## Headers
 <!--@include: @/../components/common/header/accept.md-->

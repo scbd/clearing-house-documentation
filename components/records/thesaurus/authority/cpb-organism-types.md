@@ -11,12 +11,12 @@ const swaggerSpecs = [
 
 ## Overview
 
-This endpoint provides a list of organism types categorized under the Convention on Biological Diversity's (CBD) Cartagena Protocol on Biosafety (CPB). This endpoint is essential for retrieving standardized terms related to different types of organisms as defined in the context of biosafety and biodiversity management.
+This endpoint provides a list of organism types categorized under the Convention on Biological Diversity's (CBD). This endpoint is essential for retrieving standardized terms related to different types of organisms as defined in the context of biosafety and biodiversity management.
 
 
 ## Endpoint
 
-**GET** `api.cbd.int/api/v2013/thesaurus/domains/TypeOfOrganisms/terms`
+**GET** `/api/v2013/thesaurus/domains/TypeOfOrganisms/terms`
 
 ## Headers
 <!--@include: @/../components/common/header/accept.md-->

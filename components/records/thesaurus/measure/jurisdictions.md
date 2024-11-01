@@ -17,7 +17,7 @@ This endpoint provides access to a list of jurisdictions relevant to the Convent
 
 ## Endpoint
 
-**GET** `/api.cbd.int/api/v2013/thesaurus/domains/7A56954F-7430-4B8B-B733-54B8A5E7FF40/terms`
+**GET** `/api/v2013/thesaurus/domains/7A56954F-7430-4B8B-B733-54B8A5E7FF40/terms`
 
 ## Headers
 <!--@include: @/../components/common/header/accept.md-->

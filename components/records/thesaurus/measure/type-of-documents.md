@@ -17,7 +17,7 @@ This endpoint provides access to a list of standardized types of documents used 
 
 ## Endpoint
 
-**GET** `/api.cbd.int/api/v2013/thesaurus/domains/144CF550-7629-43F3-817E-CACDED34837E/terms`
+**GET** `/api/v2013/thesaurus/domains/144CF550-7629-43F3-817E-CACDED34837E/terms`
 
 ## Headers
 <!--@include: @/../components/common/header/accept.md-->
