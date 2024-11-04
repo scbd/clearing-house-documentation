@@ -34,19 +34,18 @@
     }
   },
   "paths": {
-    "/documents/schemas/{schema}": {
-      "post": {
-        "summary": "Create a new IRCC document",
-        "description": "Creates a new IRCC document schema and initiates the workflow process.",
-        "tags": ["Workflow"],
+    "/documents/schemas/{schema}/{identifier}": {
+      "put": {
+        "summary": "Update existing IRCC document",
+        "tags": ["Workflow- Update"],
         "security": [
-            {
-              "BearerAuth": []
-            },
-            {
-              "ApiKeyAuth": []
-            }
-          ],
+          {
+            "BearerAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "schema",
@@ -56,6 +55,16 @@
             "schema": {
               "type": "string",
               "example": "absPermit"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "path",
+            "description": "The unique identifier of the document to update",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "CB51626B-CF45-2AA0-3A24-459669DDCC34"
             }
           },
           {

@@ -1,9 +1,11 @@
 <script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
-import swaggerJson from "@/swagger/json/ircc/workflow.json";
+import swaggerWorkflowCreateJson from "@/swagger/json/ircc/workflow-create.json";
+import swaggerWorkflowUpdateJson from "@/swagger/json/ircc/workflow-update.json"
 
 const swaggerSpecs = [
-  { json: swaggerJson, protected: true },
+  { json: swaggerWorkflowCreateJson, protected: true },
+  { json: swaggerWorkflowUpdateJson, protected: true },
 ];
 
 </script>
@@ -16,27 +18,39 @@ The Workflow API is designed to manage the creation and updating of documents wi
 
 ### Steps Overview:
 
-1. **Check Document ID**: Verify if the document ID exists using the `/api/v2013/documents/{id}/versions/draft?cache=true&info=true` endpoint. This step also ensures that the document is not locked.
+1. **Check Document ID**: Verify if the document ID exists. This step also ensures that the document is not locked.
 
-2. **Create Securities**: If the document ID is valid, securities are created using the `/api/v2013/documents/{id}/versions/draft/securities/create?metadata={metadata}` endpoint.
+2. **Create Securities**: If the document ID is valid, securities are created.
 
-3. **Validate Document**: The document is validated against a specific schema using the `/api/v2013/documents/x/validate?schema=measure` endpoint.
+3. **Validate Document**: The document is validated against a specific.
 
-4. **Save Draft**: After validation, the document draft is saved using the `/api/v2013/documents/{id}/versions/draft` endpoint.
+4. **Save Draft**: After validation, the document draft is saved.
 
-5. **Initiate Workflow**: Finally, the workflow is initiated through the `/api/v2013/workflows` endpoint.
+5. **Initiate Workflow**: Finally, the workflow is initiated.
 
-The API allows the creation or updating of documents by sending a request to the `/api/v2023/documents/schemas/:schema` endpoint. The request body must include a valid `document` parameter. If there are any validation errors, the system will return detailed error messages based on the content of the document.
+The API allows the creation or updating of documents. The request body must include a valid `document` parameter. If there are any validation errors, the system will return detailed error messages based on the content of the document.
 
 ## Endpoint
 
-**POST/PUT** `/api/v2023/documents/schemas/:schema`
+### Create a Document
+
+To create a new document, use the **POST** method with one of the following endpoints:
+
+**POST** `/api/v2023/documents/schemas/:schema` <br>
+**POST**  `/api/v2023/documents/schemas/:schema/:identifier?`
+
+
+### Update a Document
+
+To update an existing document, use the **PUT** method with the following endpoint:
+
+**PUT** `/api/v2023/documents/schemas/:schema/:identifier`
 
 ## Headers
-<!--@include: @/../components/common/header/authorization.md-->
+<!--@include: @/../components/common/header/authorization-realm.md-->
 
 ## URL Parameters
-<!--@include: @/../components/common/url/schema.md-->
+<!--@include: @/../components/common/url/schema-identifier.md-->
 
 ## Query Parameters
 <!--@include: @/../components/common/query/realm.md-->
@@ -45,11 +59,32 @@ The API allows the creation or updating of documents by sending a request to the
 <!--@include: @/../components/ircc/workflow/request-body.md-->
 
 ## Validation Error
+<!--@include: @/../components/ircc/workflow/conditional-validation.md-->
+
+The following error conditions may occur while interacting with the API. Each entry describes a specific error status code, along with an error message explaining the issue and any additional requirements for successful execution.
+
 <!--@include: @/../components/ircc/workflow/request-error.md-->
 
-When passing the `document` parameter in the request body, if there are any errors in the document, the following errors will be received:
+When the document parameter is included in the request body, any issues with the document’s content will be detailed in the "errors" property of the response. Each error in this property is represented by an object containing the specific error code and the related field or property. Below is an example response showing the structure of the "errors" property, followed by a table describing the possible error types and their meanings.
+<br>
+<br>
+###### Example Error Response:
+
+```json
+{
+    "identifier": "DECLARE-ORGANISATION_5885_20241031144831187",
+    // Additional properties may be included based on the request.
+    "errors": [
+        {
+            "code": "Error.Mandatory",
+            "property": "government"
+        }
+    ]
+}
+```
 
 <!--@include: @/../components/common/validation-error.md-->
+
 
 ## Playground
 
