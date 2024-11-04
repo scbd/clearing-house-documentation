@@ -16,7 +16,7 @@ This endpoint provides access to a list of terms related to different types of t
 
 ## Endpoint
 
-**GET** `/api.cbd.int/api/v2013/thesaurus/domains/19E3C535-2919-4804-966C-E62728507291/terms`
+**GET** `/api/v2013/thesaurus/domains/19E3C535-2919-4804-966C-E62728507291/terms`
 
 ## Headers
 <!--@include: @/../components/common/header/accept.md-->

@@ -12,7 +12,7 @@ const swaggerSpecs = [
 
 ## Overview
 
-This endpoint provides access to terms related to the approval of Living Modified Organisms (LMOs) for import and/or use without conditions. The key term included is "Approval of the import and/or use of the LMO(s) without conditions," which is defined in multiple languages to facilitate understanding among diverse stakeholders.
+This endpoint provides access to terms related to the approval of Living Modified Organisms (LMOs) for import and/or use without conditions. 
 
 ## Endpoint
 

@@ -12,7 +12,7 @@ const swaggerSpecs = [
 
 ## Overview
 
-This endpoint allows retrieval of terms associated with different types of organisms, providing details on organism groups like Animals, Plants, and Microorganisms. It supports multilingual output for titles and descriptions, allowing users to access organism classification, broader and narrower terms, and descriptions in multiple languages. The detailed longDescription field is particularly useful for applications that require in-depth explanations and links to external resources.
+This endpoint allows retrieval of terms associated with different types of organisms, providing details on organism groups like Animals, Plants, and Microorganisms. It supports multilingual output for titles and descriptions, allowing users to access organism classification, broader and narrower terms, and descriptions in multiple languages.
 
 ## Endpoint
 

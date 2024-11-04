@@ -38,6 +38,7 @@
       "put": {
         "summary": "Update a document",
         "description": "Publish an update to a document.",
+        "tags": ["Update document"],
         "security": [
           {
             "BearerAuth": []

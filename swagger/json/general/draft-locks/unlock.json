@@ -3,7 +3,7 @@
   "info": {
     "title": "Draft Locks API",
     "version": "2.13.0",
-    "description": "API for managing draft locks."
+    "description": "API Documentation."
   },
   "servers": [
     {
@@ -38,6 +38,7 @@
       "delete": {
         "summary": "Unlock a draft",
         "description": "Unlock a draft using a specific lockID.",
+        "tags": ["Unlock"],
         "operationId": "unlockDraft",
         "security": [
           {

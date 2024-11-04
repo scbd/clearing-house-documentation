@@ -3,17 +3,18 @@
   "info": {
     "title": "CBD API Documentation",
     "version": "1.0.0",
-    "description": "API documentation for terms under domain 144CF550-7629-43F3-817E-CACDED34837E."
+    "description": "API Documentation."
   },
   "servers": [
     {
-      "url": "https://api.cbd.int/api/v2013"
+      "url": "https://api.cbddev.xyz"
     }
   ],
   "paths": {
-    "/thesaurus/domains/144CF550-7629-43F3-817E-CACDED34837E/terms": {
+    "/api/v2013/thesaurus/domains/144CF550-7629-43F3-817E-CACDED34837E/terms": {
       "get": {
         "summary": "Get terms",
+        "tags": ["Type of documents"],
         "responses": {
           "200": {
             "description": "Successful response",

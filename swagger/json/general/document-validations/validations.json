@@ -3,7 +3,7 @@
   "info": {
     "title": "IRCC Document Validation API",
     "version": "1.0.0",
-    "description": "This API allows for the validation of documents within the IRCC system."
+    "description": "API Documentation."
   },
   "servers": [
     {
@@ -38,6 +38,7 @@
       "post": {
         "summary": "Validate a document",
         "description": "This endpoint validates a document based on the provided schema and metadata.",
+        "tags": ["Validate Document"],
         "security": [
           {
             "BearerAuth": []

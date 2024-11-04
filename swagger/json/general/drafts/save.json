@@ -36,6 +36,7 @@
     "/documents/{uid}/versions/draft": {
       "put": {
         "summary": "Publish an update to a document.",
+        "tags": ["Save draft"],
         "security": [
           {
             "BearerAuth": []

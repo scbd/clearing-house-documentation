@@ -12,7 +12,7 @@ const swaggerSpecs = [
 
 ## Overview
 
-This endpoint retrieves decision-related terms specific to the intentional introduction of LMOs (Living Modified Organisms) into the environment, in accordance with Article 10 or other regulatory frameworks. The endpoint provides multilingual descriptions, broadening access for international users and stakeholders. Terms include titles, descriptions for experimental and commercial introductions, and context for regulatory compliance. Detailed information on broader and narrower decision types supports categorization within different regulatory and environmental frameworks.
+This endpoint retrieves decision-related terms specific to the intentional introduction of LMOs (Living Modified Organisms) into the environment. The endpoint provides multilingual descriptions, broadening access for international users and stakeholders. Terms include titles, descriptions for experimental and commercial introductions, and context for regulatory compliance. Detailed information on broader and narrower decision types supports categorization within different regulatory and environmental frameworks.
 
 
 ## Endpoint

@@ -3,7 +3,7 @@
   "info": {
     "title": "Drafts API",
     "version": "2.13.0",
-    "description": "API for managing document drafts."
+    "description": "API Documentation."
   },
   "servers": [
     {
@@ -37,6 +37,7 @@
     "/document-drafts": {
       "get": {
         "summary": "Load a collection of document drafts info",
+        "tags": ["List drafts"],
         "operationId": "listDocumentDrafts",
         "security": [
           {

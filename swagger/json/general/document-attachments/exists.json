@@ -3,7 +3,7 @@
   "info": {
     "title": "Document Attachments API",
     "version": "2.13.0",
-    "description": "API for managing document attachments"
+    "description": "API Documentation"
   },
   "servers": [
     {
@@ -14,6 +14,7 @@
     "/documents/{uid}/attachments/{filename}": {
       "head": {
         "summary": "Check if a document attachment exists",
+        "tags":["Document attachment exists"],
         "operationId": "checkDocumentAttachmentExists",
         "parameters": [
           {

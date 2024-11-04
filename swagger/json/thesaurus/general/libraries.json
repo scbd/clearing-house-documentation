@@ -6,13 +6,14 @@
   },
   "servers": [
     {
-      "url": "https://api.cbd.int/api/v2013"
+      "url": "https://api.cbddev.xyz"
     }
   ],
   "paths": {
-    "/thesaurus/domains/cbdClearingHouses/terms": {
+    "/api/v2013/thesaurus/domains/cbdClearingHouses/terms": {
       "get": {
         "summary": "Retrieve CBD Clearing-Houses Terms",
+        "tags": ["Libraries"],
         "responses": {
           "200": {
             "description": "Successful response",

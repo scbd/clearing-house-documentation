@@ -3,7 +3,7 @@
   "info": {
     "title": "Document API",
     "version": "2.13.0",
-    "description": "API for managing document versions."
+    "description": "API Documentation."
   },
   "servers": [
     {
@@ -15,6 +15,7 @@
       "get": {
         "summary": "List document versions",
         "description": "Load document versions with optional filters and sorting.",
+        "tags":["List Document"],
         "operationId": "listDocumentVersions",
         "parameters": [
           {

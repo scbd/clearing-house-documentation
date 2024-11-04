@@ -4,7 +4,7 @@ import "@/style.css"
 
 # Schema for GENE
 
-This section provides an overview of the schemas related to the Genetic elements (GENE). Each schema details the structure and fields required for the CP-related requests and responses. 
+This section provides an overview of the schemas related to the Genetic elements (GENE). Each schema details the structure and fields required for the GENE-related requests and responses. 
 <br><br>
 
 > [!NOTE]

@@ -3,7 +3,7 @@
   "info": {
     "title": "Document Drafts API",
     "version": "2.13.0",
-    "description": "API endpoints for managing document drafts, including publishing and unpublishing drafts."
+    "description": "API Documentation."
   },
   "servers": [
     {
@@ -38,6 +38,7 @@
       "delete": {
         "summary": "Unpublish a document draft",
         "description": "This endpoint unpublishes a draft version of a document. It removes the draft from the system, making it no longer available.",
+        "tags":["Delete draft"],
         "security": [
           {
             "BearerAuth": []

@@ -3,7 +3,7 @@
   "info": {
     "title": "Document Securities API",
     "version": "2.13.0",
-    "description": "API for checking if a document can be deleted based on the supplied metadata."
+    "description": "API Documentation."
   },
   "servers": [
     {
@@ -37,6 +37,7 @@
     "/documents/{uid}/securities/delete": {
       "get": {
         "summary": "Check if a document can be deleted",
+        "tags":["Can Delete"],
         "operationId": "canDeleteDocument",
         "parameters": [
           {

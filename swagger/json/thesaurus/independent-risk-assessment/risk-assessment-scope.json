@@ -2,18 +2,19 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Thesaurus Terms API - Risk Assessment Scope",
-    "description": "API for retrieving terms related to the scope of risk assessments for Living Modified Organisms (LMOs).",
+    "description": "API Documentation.",
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "https://api.cbd.int"
+      "url": "https://api.cbddev.xyz"
     }
   ],
   "paths": {
     "/api/v2013/thesaurus/domains/RiskAssessmentScope/terms": {
       "get": {
         "summary": "Get Risk Assessment Scope Terms",
+        "tags": ["Risk assessment scope"],
         "description": "Retrieve terms related to the scope of risk assessments for LMOs, including categories of LMOs for environmental introduction.",
         "responses": {
           "200": {

@@ -3,7 +3,7 @@
   "info": {
     "title": "Draft Securities API",
     "version": "2.13.0",
-    "description": "Tells if a draft can be created based on supplied metadata."
+    "description": "API Documentation."
   },
   "servers": [
     {
@@ -37,6 +37,7 @@
     "/documents/{uid}/versions/draft/securities/create": {
       "get": {
         "summary": "Check if a draft can be created based on supplied metadata",
+        "tags":["Can create"],
         "security": [
           {
             "BearerAuth": []

@@ -8,7 +8,7 @@ const swaggerCanCreateSpecs = [
   { json: swaggerCanCreateJson, domId:"canCreate", protected:true },
 ];
 const swaggerCanDeleteSpecs = [
-  { json: swaggerCanCreateJson, domId:"canDelete", protected:true },
+  { json: swaggerCanDeleteJson, domId:"canDelete", protected:true },
 ];
 const swaggerCanUpdateSpecs = [
   { json: swaggerCanUpdateJson, domId:"canUpdate", protected:true },

@@ -3,7 +3,7 @@
   "info": {
     "title": "Draft Locks API",
     "version": "2.13.0",
-    "description": "API for managing draft locks."
+    "description": "API Documentation."
   },
   "servers": [
     {
@@ -37,6 +37,7 @@
     "/documents/{uid}/versions/draft/locks": {
       "get": {
         "summary": "Load list of locks on draft.",
+        "tags": ["List draft locks"],
         "description": "Retrieve a list of locks on a draft document.",
         "operationId": "listDraftLocks",
         "security": [

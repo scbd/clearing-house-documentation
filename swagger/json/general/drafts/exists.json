@@ -3,7 +3,7 @@
   "info": {
     "title": "Document Drafts API",
     "version": "2.13.0",
-    "description": "API for checking the existence of a draft version of a document."
+    "description": "API Documentation."
   },
   "servers": [
     {
@@ -38,6 +38,7 @@
       "head": {
         "summary": "Check if a draft version of a document exists",
         "description": "This endpoint checks whether a draft version of a document is published.",
+        "tags":["Draft exists"],
         "security": [
           {
             "BearerAuth": []

@@ -2,18 +2,19 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Thesaurus Terms API - Decision Types",
-    "description": "API for retrieving terms related to different types of decisions on LMOs (Living Modified Organisms) for introduction into the environment.",
+    "description": "API Documentation.",
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "https://api.cbd.int"
+      "url": "https://api.cbddev.xyz"
     }
   ],
   "paths": {
     "/api/v2013/thesaurus/domains/DecisionTypes/terms": {
       "get": {
         "summary": "Get Decision Types Terms",
+        "tags": ["Decision types"],
         "description": "Retrieve terms associated with decision types for LMOs, including descriptions in multiple languages.",
         "responses": {
           "200": {

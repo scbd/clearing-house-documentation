@@ -2,18 +2,19 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Thesaurus Terms API - Transboundary Movement Types",
-    "description": "API for retrieving terms related to transboundary movements of Living Modified Organisms (LMOs) as outlined in the relevant articles.",
+    "description": "API Documentation.",
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "https://api.cbd.int"
+      "url": "https://api.cbddev.xyz"
     }
   ],
   "paths": {
     "/api/v2013/thesaurus/domains/TransboundaryMovementTypes/terms": {
       "get": {
         "summary": "Get Transboundary Movement Types Terms",
+        "tags": ["Transboundary movement types"],
         "description": "Retrieve terms associated with transboundary movements of LMOs, including definitions from legal articles.",
         "responses": {
           "200": {

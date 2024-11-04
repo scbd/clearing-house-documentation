@@ -15,6 +15,7 @@
       "get": {
         "summary": "Get Document by UID",
         "description": "Load documents data in raw format.",
+        "tags": ["Get document"],
         "parameters": [
           {
             "name": "Accept",

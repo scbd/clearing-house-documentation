@@ -1,6 +1,6 @@
 # Schema for NFP
 
-This section provides an overview of the schemas related to the National Focal Point (NFP). Each schema details the structure and fields required for the CP-related requests and responses. 
+This section provides an overview of the schemas related to the National Focal Point (NFP). Each schema details the structure and fields required for the NFP-related requests and responses. 
 <br><br>
 
 > [!NOTE]

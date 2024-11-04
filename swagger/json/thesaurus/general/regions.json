@@ -3,17 +3,18 @@
   "info": {
     "title": "CBD API Documentation",
     "version": "1.0.0",
-    "description": "API documentation for CBD regions endpoint."
+    "description": "API Documentation."
   },
   "servers": [
     {
-      "url": "https://api.cbd.int/api/v2013"
+      "url": "https://api.cbddev.xyz"
     }
   ],
   "paths": {
-    "/thesaurus/domains/regions/terms": {
+    "/api/v2013/thesaurus/domains/regions/terms": {
       "get": {
         "summary": "Get regions and their details",
+        "tags": ["Regions"],
         "responses": {
           "200": {
             "description": "Successful response",

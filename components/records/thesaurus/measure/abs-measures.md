@@ -17,7 +17,7 @@ This endpoint provides access to a list of measures related to Access and Benefi
 
 ## Endpoint
 
-**GET** `/api.cbd.int/api/v2013/thesaurus/domains/50616B56-12F3-4C46-BC43-2DFC26679177/terms`
+**GET** `/api/v2013/thesaurus/domains/50616B56-12F3-4C46-BC43-2DFC26679177/terms`
 
 ## Headers
 <!--@include: @/../components/common/header/accept.md-->

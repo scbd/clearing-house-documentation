@@ -6,13 +6,14 @@
   },
   "servers": [
     {
-      "url": "https://api.cbd.int/api/v2013"
+      "url": "https://api.cbddev.xyz"
     }
   ],
   "paths": {
-    "/thesaurus/domains/countries/terms": {
+    "/api/v2013/thesaurus/domains/countries/terms": {
       "get": {
         "summary": "Retrieve a list of country terms",
+        "tags": ["Countries"],
         "responses": {
           "200": {
             "description": "Successful response",

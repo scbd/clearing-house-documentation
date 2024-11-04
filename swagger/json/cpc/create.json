@@ -38,6 +38,7 @@
         "post": {
           "summary": "Create ABS Checkpoint Communique",
           "description": "Endpoint to create an ABS Checkpoint Communique.",
+          "tags": ["Create document"],
           "security": [
             {
               "BearerAuth": []

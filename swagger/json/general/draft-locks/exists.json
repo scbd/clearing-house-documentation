@@ -13,6 +13,7 @@
     "/documents/{uid}/versions/draft/locks/{lockID}": {
       "get": {
         "summary": "Tells if a draft lock exists.",
+        "tags": ["Draft locks exists"],
         "parameters": [
           {
             "name": "uid",

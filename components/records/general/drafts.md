@@ -17,7 +17,7 @@ const swaggerGetInfoSpecs = [
   { json: swaggerGetInfoJson, domId:"getInfo", protected:true },
 ];
 const swaggerGetSpecs = [
-  { json: swaggerListJson, domId:"get", protected:true },
+  { json: swaggerGetJson, domId:"get", protected:true },
 ];
 const swaggerListSpecs = [
   { json: swaggerListJson, domId:"list", protected:true },

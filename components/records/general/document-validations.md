@@ -11,7 +11,7 @@ const swaggerSpecs = [
 
 ## Overview
 
-The "Document Validations" API endpoint is designed to validate documents within the IRCC (Immigration, Refugees and Citizenship Canada) system. This endpoint allows clients to submit a document for validation based on a specified schema and optional parameters. It performs a series of checks to ensure that the document conforms to the required format and rules defined by the schema.
+The "Document Validations" API endpoint is designed to validate documents. This endpoint allows clients to submit a document for validation based on a specified schema and optional parameters. It performs a series of checks to ensure that the document conforms to the required format and rules defined by the schema.
 
 ## Endpoint
 **POST** `/api/v2013/documents/x/validate`

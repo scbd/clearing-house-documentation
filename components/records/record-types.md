@@ -5,6 +5,7 @@ Below is the list of available record types and their corresponding schemas:
 | **Record Type** | **Schema**   |
 | --------------- | ------------ |
 | IRCC            | [Internationally Recognized Certificates of Compliance](/abs/ircc/schema)   |
+| CNA            | [Competent National Authority](/abs/cna/schema)   |
 | Contact         | [Contact](/abs/contact/schema)      |
 | LMO         | [Living Modified Organism](/bch/lmo/schema)      |
 | LAW         | [Biosafety Law, Regulation, Guidelines and Agreements](/bch/law/schema)      |
