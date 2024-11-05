@@ -17,5 +17,6 @@ Below is the list of available record types and their corresponding schemas:
 | GENE         | [Genetic elements](/bch/gene/schema)      |
 | CPC         | [Checkpoint Communiqué](/abs/cpc/schema)      |
 | ORG         | [Organization](/bch/org/schema)      |
+| VLR         | [Virtual Library Resource](/abs/vlr/schema)      |
 
 To use these record types, refer to the appropriate schema in your API requests.

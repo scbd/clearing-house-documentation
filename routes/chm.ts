@@ -70,6 +70,24 @@ export default [
     ],
   },
   {
+    text: "VLR",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/chm/vlr/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/chm/vlr/solr",
+      },
+      {
+        text: "Get",
+        link: "/chm/vlr/get",
+      },
+    ],
+  },
+  {
     text: "Thesaurus",
     collapsed: true,
     items: [
