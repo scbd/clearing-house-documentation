@@ -78,7 +78,7 @@ export default [
         link: "/abs/ircc/schema",
       },
       {
-        text: "Workflow",
+        text: "Create/Update",
         link: "/abs/ircc/workflow",
       },
       {
@@ -92,14 +92,6 @@ export default [
       {
         text: "Get",
         link: "/abs/ircc/get",
-      },
-      {
-        text: "Create",
-        link: "/abs/ircc/create",
-      },
-      {
-        text: "Update",
-        link: "/abs/ircc/update",
       },
       {
         text: "Delete",
