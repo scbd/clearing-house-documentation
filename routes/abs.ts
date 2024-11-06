@@ -240,6 +240,24 @@ export default [
     ],
   },
   {
+    text: "VLR",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/abs/vlr/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/abs/vlr/solr",
+      },
+      {
+        text: "Get",
+        link: "/abs/vlr/get",
+      },
+    ],
+  },
+  {
     text: "Thesaurus",
     collapsed: true,
     items: [
