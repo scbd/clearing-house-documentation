@@ -1,7 +1,3 @@
----
-layout: doc
----
-
 # Welcome to the API Documentation Portal
 
 ## Introduction
@@ -30,21 +26,7 @@ Our documentation provides practical examples of API requests and responses. The
 
 We provide a detailed overview of the schema definitions used in our APIs. This includes comprehensive descriptions of various schemas such as:
 
-- **Competent National Authority (authority)**
-- **Legislative, Administrative, or Policy Measure (measure)**
-- **ABS Procedure (absProcedure)**
-- **National Modal Contractual Clause (absNationalModelContractualClause)**
-- **Internationally Recognized Certificates of Compliance (absPermit)**
-- **National Websites or Databases (database)**
-- **Checkpoint (CP) (absCheckpoint)**
-- **Checkpoint Communique (CPC) (absCheckpointCommunique)**
-- **1st National Reports on the Implementation of the Nagoya Protocol (NR1) (absNationalReport1)**
-- **Virtual Library Resource (VLR) (resource)**
-- **Organization (ORG) (organization)**
-- **Capacity Development Initiative (CDI) (capacityBuildingInitiative)**
-- **Model Contractual Clauses, Codes of Conduct, Guidelines, Best Practices and/or Standards (A19A20) (modelContractualClause)**
-- **Community Protocols and Procedures and Customary Law (CPP) (communityProtocol)**
-- **Contact (CON) (contact)**
+<record-types />
 
 ### User-Friendly Interface
 
@@ -62,5 +44,6 @@ Thank you for visiting our API Documentation Portal. We are committed to providi
 <script setup>
 import "@/style.css"
 import ClearingHouseSelector from "@/components/home/clearing-house-selector.vue"
+import RecordTypes from "@/components/common/record-types.vue"
 
 </script>
