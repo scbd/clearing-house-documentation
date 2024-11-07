@@ -30,11 +30,11 @@
                       {
                         "uniqueIdentifier_s": "absch-pro-va-255752-2",
                         "schema_s": "absProcedure",
-                        "title_s": "ase provide a title for this specific ABS procedure (E.g.: Non-commercial use)",
-                        "title_AR_s": "ase provide a title for this specific ABS procedure (E.g.: Non-commercial use)",
-                        "title_EN_s": "ase provide a title for this specific ABS procedure (E.g.: Non-commercial use)",
-                        "title_ES_s": "ase provide a title for this specific ABS procedure (E.g.: Non-commercial use)",
-                        "title_FR_s": "ase provide a title for this specific ABS procedure (E.g.: Non-commercial use)",
+                        "title_s": "ABS procedure form development",
+                        "title_AR_s": "تطوير نموذج إجراءات ABS",
+                        "title_EN_s": "ABS procedure form development",
+                        "title_ES_s": "Desarrollo del formulario de procedimiento ABS",
+                        "title_FR_s": "Développement du formulaire de procédure ABS",
                         "schemaType_s": "national",
                         "government_s": "ht",
                         "url_ss": [
