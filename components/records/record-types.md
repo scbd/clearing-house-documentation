@@ -18,5 +18,6 @@ Below is the list of available record types and their corresponding schemas:
 | CPC         | [Checkpoint Communiqué](/abs/cpc/schema)      |
 | ORG         | [Organization](/bch/org/schema)      |
 | VLR         | [Virtual Library Resource](/abs/vlr/schema)      |
+| PRO         | [ABS Procedures](/abs/pro/schema)      |
 
 To use these record types, refer to the appropriate schema in your API requests.

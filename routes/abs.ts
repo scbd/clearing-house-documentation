@@ -258,6 +258,24 @@ export default [
     ],
   },
   {
+    text: "PRO",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/abs/pro/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/abs/pro/solr",
+      },
+      {
+        text: "Get",
+        link: "/abs/pro/get",
+      },
+    ],
+  },
+  {
     text: "Thesaurus",
     collapsed: true,
     items: [
