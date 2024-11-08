@@ -1,76 +1,7 @@
-export default [
-  {
-    text: "Getting Started",
-    collapsed: false,
-    items: [
-      {
-        text: "Introduction",
-        link: "/abs/",
-      },
-      {
-        text: "Custom Types",
-        link: "/abs/custom-types",
-      },
-      {
-        text: "User Management",
-        link: "/abs/user-management",
-      },
-      {
-        text: "Apache Solr",
-        link: "/abs/apache-solr",
-      },
-      {
-        text: "Record Types",
-        link: "/abs/record-types",
-      },
-    ],
-  },
-  {
-    text:"General",
-    collapsed: true,
-    items:[
-      {
-        text:"Document Validations",
-        link:"/abs/general/document-validations"
-      },
-      {
-        text:"Document Securities",
-        link:"/abs/general/document-securities"
-      },
-      {
-        text:"Documents Versions",
-        link:"/abs/general/documents-versions",
-      },
-      {
-        text:"Documents Attachments",
-        link:"/abs/general/documents-attachments"
-      },
-      {
-        text:"Drafts",
-        link:"/abs/general/drafts"
-      },
-      {
-        text:"Draft Securities",
-        link:"/abs/general/draft-securities"
-      },
-      {
-        text:"Draft Locks",
-        link:"/abs/general/draft-locks"
-      }
-    ]
-  },
-  {
-    text: "Users",
-    collapsed: true,
-    items: [
-      {
-        text: "Authentication",
-        link: "/abs/user/authentication",
-      },
-    ],
-  },
+export const recordTypes = [
   {
     text: "IRCC",
+    fullName: "Internationally Recognized Certificates of Compliance",
     collapsed: true,
     items: [
       {
@@ -101,6 +32,7 @@ export default [
   },
   {
     text: "Contact",
+    fullName: "Contact",
     collapsed: true,
     items: [
       {
@@ -135,6 +67,7 @@ export default [
   },
   {
     text: "CP",
+    fullName: "Checkpoint",
     collapsed: true,
     items: [
       {
@@ -153,6 +86,7 @@ export default [
   },
   {
     text: "MSR",
+    fullName: "Legislative, Administrative or Policy Measures",
     collapsed: true,
     items: [
       {
@@ -171,6 +105,7 @@ export default [
   },
   {
     text: "CPC",
+    fullName: "Checkpoint Communiqué",
     collapsed: true,
     items: [
       {
@@ -205,6 +140,7 @@ export default [
   },
   {
     text: "CNA",
+    fullName: "Competent National Authority",
     collapsed: true,
     items: [
       {
@@ -223,6 +159,7 @@ export default [
   },
   {
     text: "NFP",
+    fullName: "National Focal Point",
     collapsed: true,
     items: [
       {
@@ -241,6 +178,7 @@ export default [
   },
   {
     text: "VLR",
+    fullName: "Virtual Library Resources",
     collapsed: true,
     items: [
       {
@@ -257,6 +195,80 @@ export default [
       },
     ],
   },
+];
+
+export default [
+  {
+    text: "Getting Started",
+    collapsed: false,
+    items: [
+      {
+        text: "Introduction",
+        link: "/abs/",
+      },
+      {
+        text: "Custom Types",
+        link: "/abs/custom-types",
+      },
+      {
+        text: "User Management",
+        link: "/abs/user-management",
+      },
+      {
+        text: "Apache Solr",
+        link: "/abs/apache-solr",
+      },
+      {
+        text: "Record Types",
+        link: "/abs/record-types",
+      },
+    ],
+  },
+  {
+    text: "General",
+    collapsed: true,
+    items: [
+      {
+        text: "Document Validations",
+        link: "/abs/general/document-validations",
+      },
+      {
+        text: "Document Securities",
+        link: "/abs/general/document-securities",
+      },
+      {
+        text: "Documents Versions",
+        link: "/abs/general/documents-versions",
+      },
+      {
+        text: "Documents Attachments",
+        link: "/abs/general/documents-attachments",
+      },
+      {
+        text: "Drafts",
+        link: "/abs/general/drafts",
+      },
+      {
+        text: "Draft Securities",
+        link: "/abs/general/draft-securities",
+      },
+      {
+        text: "Draft Locks",
+        link: "/abs/general/draft-locks",
+      },
+    ],
+  },
+  {
+    text: "Users",
+    collapsed: true,
+    items: [
+      {
+        text: "Authentication",
+        link: "/abs/user/authentication",
+      },
+    ],
+  },
+  ...recordTypes,
   {
     text: "PRO",
     collapsed: true,
@@ -427,4 +439,4 @@ export default [
       },
     ],
   },
-]
+];

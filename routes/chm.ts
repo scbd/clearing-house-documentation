@@ -1,3 +1,25 @@
+export const recordTypes = [
+  {
+    text: "VLR",
+    fullName: "Virtual Library Resources",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/chm/vlr/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/chm/vlr/solr",
+      },
+      {
+        text: "Get",
+        link: "/chm/vlr/get",
+      },
+    ],
+  },
+]
+
 export default [
   {
     text: "Getting Started",
@@ -69,24 +91,7 @@ export default [
       },
     ],
   },
-  {
-    text: "VLR",
-    collapsed: true,
-    items: [
-      {
-        text: "Schema",
-        link: "/chm/vlr/schema",
-      },
-      {
-        text: "Public Records",
-        link: "/chm/vlr/solr",
-      },
-      {
-        text: "Get",
-        link: "/chm/vlr/get",
-      },
-    ],
-  },
+  ...recordTypes,
   {
     text: "Thesaurus",
     collapsed: true,
