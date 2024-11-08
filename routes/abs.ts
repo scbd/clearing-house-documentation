@@ -306,6 +306,24 @@ export default [
     ],
   },
   {
+    text: "NDB",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/abs/ndb/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/abs/ndb/solr",
+      },
+      {
+        text: "Get",
+        link: "/abs/ndb/get",
+      },
+    ],
+  },
+  {
     text: "Thesaurus",
     collapsed: true,
     items: [
