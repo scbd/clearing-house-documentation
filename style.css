@@ -1,4 +1,4 @@
-.schema__table tbody tr td:nth-child(1), td:nth-child(5),.schema__table tbody tr td:nth-child(2) {
+.schema-table tbody tr td:nth-child(1), td:nth-child(5),.schema-table tbody tr td:nth-child(2) {
     word-wrap: break-word;
     word-break: break-all;
 }
