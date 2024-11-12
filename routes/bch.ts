@@ -227,6 +227,24 @@ export default [
   },
   ...recordTypes,
   {
+    text: "NDB",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/bch/ndb/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/bch/ndb/solr",
+      },
+      {
+        text: "Get",
+        link: "/bch/ndb/get",
+      },
+    ],
+  },
+  {
     text: "Thesaurus",
     collapsed: true,
     items: [
