@@ -288,6 +288,24 @@ export default [
     ],
   },
   {
+    text: "NMCC",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/abs/nmcc/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/abs/nmcc/solr",
+      },
+      {
+        text: "Get",
+        link: "/abs/nmcc/get",
+      },
+    ],
+  },
+  {
     text: "Thesaurus",
     collapsed: true,
     items: [
