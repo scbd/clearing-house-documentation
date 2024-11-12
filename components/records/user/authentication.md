@@ -23,7 +23,7 @@ The "User - Authentication" endpoint allows users to authenticate and obtain an 
 
 | Field    | Type   | Description                 |
 | -------- | ------ | --------------------------- |
-| email    | String | Your CBD email address      |
+| email    | String | Your registered email address      |
 | password | String | Your CBD account password   |
 
 ## Obtaining the Authorization Token
