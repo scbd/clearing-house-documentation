@@ -152,7 +152,45 @@ export const recordTypes = [
       },
     ],
   },
-]
+  {
+    text: "NDB",
+    fullName: "National Websites or Databases",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/bch/ndb/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/bch/ndb/solr",
+      },
+      {
+        text: "Get",
+        link: "/bch/ndb/get",
+      },
+    ],
+  },
+  {
+    text: "CDI",
+    fullName:"Capacity Development Initiatives",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/bch/cdi/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/bch/cdi/solr",
+      },
+      {
+        text: "Get",
+        link: "/bch/cdi/get",
+      },
+    ],
+  },
+];
 
 export default [
   {
@@ -226,42 +264,6 @@ export default [
     ],
   },
   ...recordTypes,
-  {
-    text: "NDB",
-    collapsed: true,
-    items: [
-      {
-        text: "Schema",
-        link: "/bch/ndb/schema",
-      },
-      {
-        text: "Public Records",
-        link: "/bch/ndb/solr",
-      },
-      {
-        text: "Get",
-        link: "/bch/ndb/get",
-      },
-    ],
-  },
-  {
-    text: "NDB",
-    collapsed: true,
-    items: [
-      {
-        text: "Schema",
-        link: "/bch/ndb/schema",
-      },
-      {
-        text: "Public Records",
-        link: "/bch/ndb/solr",
-      },
-      {
-        text: "Get",
-        link: "/bch/ndb/get",
-      },
-    ],
-  },
   {
     text: "Thesaurus",
     collapsed: true,

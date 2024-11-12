@@ -195,6 +195,82 @@ export const recordTypes = [
       },
     ],
   },
+  {
+    text: "PRO",
+    fullName:"ABS Procedures",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/abs/pro/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/abs/pro/solr",
+      },
+      {
+        text: "Get",
+        link: "/abs/pro/get",
+      },
+    ],
+  },
+  {
+    text: "NMCC",
+    fullName:"National Model Contractual Clauses",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/abs/nmcc/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/abs/nmcc/solr",
+      },
+      {
+        text: "Get",
+        link: "/abs/nmcc/get",
+      },
+    ],
+  },
+  {
+    text: "NDB",
+    fullName:"National Websites or Databases",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/abs/ndb/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/abs/ndb/solr",
+      },
+      {
+        text: "Get",
+        link: "/abs/ndb/get",
+      },
+    ],
+  },
+  {
+    text: "CDI",
+    fullName:"Capacity Development Initiatives",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/abs/cdi/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/abs/cdi/solr",
+      },
+      {
+        text: "Get",
+        link: "/abs/cdi/get",
+      },
+    ],
+  },
 ];
 
 export default [
@@ -269,60 +345,6 @@ export default [
     ],
   },
   ...recordTypes,
-  {
-    text: "PRO",
-    collapsed: true,
-    items: [
-      {
-        text: "Schema",
-        link: "/abs/pro/schema",
-      },
-      {
-        text: "Public Records",
-        link: "/abs/pro/solr",
-      },
-      {
-        text: "Get",
-        link: "/abs/pro/get",
-      },
-    ],
-  },
-  {
-    text: "NMCC",
-    collapsed: true,
-    items: [
-      {
-        text: "Schema",
-        link: "/abs/nmcc/schema",
-      },
-      {
-        text: "Public Records",
-        link: "/abs/nmcc/solr",
-      },
-      {
-        text: "Get",
-        link: "/abs/nmcc/get",
-      },
-    ],
-  },
-  {
-    text: "NDB",
-    collapsed: true,
-    items: [
-      {
-        text: "Schema",
-        link: "/abs/ndb/schema",
-      },
-      {
-        text: "Public Records",
-        link: "/abs/ndb/solr",
-      },
-      {
-        text: "Get",
-        link: "/abs/ndb/get",
-      },
-    ],
-  },
   {
     text: "Thesaurus",
     collapsed: true,
