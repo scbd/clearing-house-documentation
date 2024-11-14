@@ -1,2 +1,2 @@
 <!-- Reference from the components folder -->
-<!--@include: @/../components/records/thesaurus/authority/cpb-functions.md-->
+<!--@include: @/../components/records/thesaurus/cpb-functions.md-->

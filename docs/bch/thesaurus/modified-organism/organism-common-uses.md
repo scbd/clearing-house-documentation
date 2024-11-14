@@ -1,2 +1,2 @@
 <!-- Reference from the components folder -->
-<!--@include: @/../components/records/thesaurus/modified-organism/organism-common-uses.md-->
+<!--@include: @/../components/records/thesaurus/organism-common-uses.md-->

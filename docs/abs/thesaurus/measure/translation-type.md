@@ -1,2 +1,2 @@
 <!-- Reference from the components folder -->
-<!--@include: @/../components/records/thesaurus/measure/translation-type.md-->
+<!--@include: @/../components/records/thesaurus/translation-type.md-->

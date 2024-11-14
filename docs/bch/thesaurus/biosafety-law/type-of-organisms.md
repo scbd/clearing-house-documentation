@@ -1,2 +1,2 @@
 <!-- Reference from the components folder -->
-<!--@include: @/../components/records/thesaurus/biosafety-law/type-of-organisms.md-->
+<!--@include: @/../components/records/thesaurus/type-of-organisms.md-->

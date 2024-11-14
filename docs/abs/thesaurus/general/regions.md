@@ -1,2 +1,2 @@
 <!-- Reference from the components folder -->
-<!--@include: @/../components/records/thesaurus/general/regions.md-->
+<!--@include: @/../components/records/thesaurus/regions.md-->

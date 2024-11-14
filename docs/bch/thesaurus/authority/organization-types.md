@@ -1,2 +1,2 @@
 <!-- Reference from the components folder -->
-<!--@include: @/../components/records/thesaurus/authority/organization-types.md-->
+<!--@include: @/../components/records/thesaurus/organization-types.md-->
