@@ -571,6 +571,44 @@ export default [
           },
         ],
       },
+      {
+        text: "Community Protocol",
+        collapsed: true,
+        items: [
+          {
+            text: "Resource Type VLR",
+            link: "/abs/thesaurus/community-protocol/resource-type-vlr",
+          },
+          {
+            text: "Aichi Targets",
+            link: "/abs/thesaurus/community-protocol/aichi-targets",
+          },
+          {
+            text: "CPB Themtic Areas",
+            link: "/abs/thesaurus/community-protocol/cpb-thematic-areas",
+          },
+          {
+            text: "BCH RA Author Affiliation",
+            link: "/abs/thesaurus/community-protocol/bch-ra-author-affiliation",
+          },
+          {
+            text: "BCH RA Subjects",
+            link: "/abs/thesaurus/community-protocol/bch-ra-subjects",
+          },
+          {
+            text: "Key Areas",
+            link: "/abs/thesaurus/community-protocol/key-areas",
+          },
+          {
+            text: "ABS Subjects",
+            link: "/abs/thesaurus/community-protocol/abs-subjects",
+          },
+          {
+            text: "CBD Subjects",
+            link: "/abs/thesaurus/community-protocol/cbd-subjects",
+          },
+        ],
+      },
     ],
   },
 ];
