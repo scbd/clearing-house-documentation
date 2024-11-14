@@ -609,6 +609,24 @@ export default [
           },
         ],
       },
+      {
+        text: "Organization",
+        collapsed: true,
+        items: [
+          {
+            text: "Organization Types",
+            link: "/abs/thesaurus/organization/organization-types",
+          },
+          {
+            text: "CBD Subjects",
+            link: "/abs/thesaurus/organization/cbd-subjects",
+          },
+          {
+            text: "Regions",
+            link: "/abs/thesaurus/organization/regions",
+          },
+        ],
+      },
     ],
   },
 ];
