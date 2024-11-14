@@ -1,2 +1,2 @@
 <!-- Reference from the components folder -->
-<!--@include: @/../components/records/thesaurus/measure/type-of-documents.md-->
+<!--@include: @/../components/records/thesaurus/type-of-documents.md-->

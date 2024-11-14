@@ -1,2 +1,2 @@
 <!-- Reference from the components folder -->
-<!--@include: @/../components/records/thesaurus/biosafety-decision/transboundary-movement-types.md-->
+<!--@include: @/../components/records/thesaurus/transboundary-movement-types.md-->
