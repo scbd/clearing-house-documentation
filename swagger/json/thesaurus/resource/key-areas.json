@@ -1,0 +1,63 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Capacity Building for Protocol Compliance API",
+    "description": "API for retrieving key areas of capacity building necessary to implement and comply with biodiversity protocol obligations.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/2B2A5166-F949-4B1E-888F-A7976E76320B/terms": {
+      "get": {
+        "summary": "Retrieve Capacity Building Terms",
+        "description": "Returns terms representing key areas for building capacity to implement and comply with protocol obligations.",
+        "operationId": "getCapacityBuildingTerms",
+        "responses": {
+          "200": {
+            "description": "A list of capacity building terms related to protocol compliance",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 6985,
+                    "identifier": "14E5882E-B433-4877-AA6B-B47F602C4BA6",
+                    "name": "Key area 1: Capacity to implement and to comply with the obligation of the Protocol",
+                    "title": {
+                      "en": "Key area 1: Capacity to implement and to comply with the obligation of the Protocol",
+                      "es": "Esfera clave 1: Capacidad para aplicar las obligaciones dimanantes del Protocolo y para cumplir con ellas",
+                      "fr": "Domaine clé 1 : La capacité d’appliquer le présent Protocole et de satisfaire aux obligations qui en résultent.",
+                      "ar": "المجال الرئيسي 1: القدرة على تنفيذ الالتزامات المنصوص عليها في البروتوكول والامتثال لها",
+                      "ru": "Ключевая область 1. Потенциал для осуществления и соблюдения обязательств в рамках Протокола",
+                      "zh": "主要领域 1：执行《议定书》和履行《议定书》义务的能力"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [
+                      "CAC7348A-6457-47F7-BCC3-19F153F8D1AA",
+                      "0DCF8438-9479-4F6B-B356-FDFCB0C4D564",
+                      "9096451F-09FF-4E70-8345-3C7D84DEF545",
+                      "8446B4CD-C9FC-4E39-A04A-876057CA8889",
+                      "430FA1B8-0A50-4619-B01A-602EE80DDC48",
+                      "7B5DF0D7-7E62-4C02-B0A3-0C05B7264EA7",
+                      "D595D738-E196-49C8-9B17-ED418D7A4EB2",
+                      "53AEA77A-937C-483D-A351-6A35C42E6CDB"
+                    ],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

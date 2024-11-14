@@ -1,0 +1,53 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Aichi Biodiversity Targets API",
+    "description": "API for retrieving terms associated with the Aichi Biodiversity Targets, essential for global biodiversity goals and conservation initiatives.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/AICHI-TARGETS/terms": {
+      "get": {
+        "summary": "Retrieve Aichi Biodiversity Target terms",
+        "description": "Returns a list of terms associated with the Aichi Biodiversity Targets, including translations and identifiers for various biodiversity goals.",
+        "responses": {
+          "200": {
+            "description": "A list of Aichi Target terms",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 6476,
+                    "identifier": "AICHI-TARGET-01",
+                    "name": "Aichi-T1. Awareness of biodiversity values",
+                    "title": {
+                      "en": "Aichi-T1. Awareness of biodiversity values",
+                      "es": "T1. Mayor conciencia sobre la diversidad biológica",
+                      "fr": "T1. Sensibilisation accrue à la diversité biologique",
+                      "ar": "1. زيادة التوعية بالتنوع البيولوجي",
+                      "ru": "T1. Повышение осведомленности о биоразнообразии",
+                      "zh": "T1. 对生物多样性的认识得到提高"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

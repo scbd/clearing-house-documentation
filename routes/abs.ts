@@ -533,6 +533,44 @@ export default [
           },
         ],
       },
+      {
+        text: "Resource",
+        collapsed: true,
+        items: [
+          {
+            text: "Resource Type VLR",
+            link: "/abs/thesaurus/resource/resource-type-vlr",
+          },
+          {
+            text: "Aichi Targets",
+            link: "/abs/thesaurus/resource/aichi-targets",
+          },
+          {
+            text: "CPB Themtic Areas",
+            link: "/abs/thesaurus/resource/cpb-thematic-areas",
+          },
+          {
+            text: "BCH RA Author Affiliation",
+            link: "/abs/thesaurus/resource/bch-ra-author-affiliation",
+          },
+          {
+            text: "BCH RA Subjects",
+            link: "/abs/thesaurus/resource/bch-ra-subjects",
+          },
+          {
+            text: "Key Areas",
+            link: "/abs/thesaurus/resource/key-areas",
+          },
+          {
+            text: "ABS Subjects",
+            link: "/abs/thesaurus/resource/abs-subjects",
+          },
+          {
+            text: "CBD Subjects",
+            link: "/abs/thesaurus/resource/cbd-subjects",
+          },
+        ],
+      },
     ],
   },
 ];

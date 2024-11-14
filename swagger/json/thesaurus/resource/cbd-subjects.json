@@ -1,0 +1,62 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "CBD API Documentation",
+    "version": "1.0.0",
+    "description": "API Documentation."
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/CBD-SUBJECTS/terms": {
+      "get": {
+        "summary": "Get CBD subjects",
+        "tags": ["CBD Subjects"],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 6445,
+                    "identifier": "CBD-SUBJECT-BIOMES",
+                    "name": "Biomes",
+                    "title": {
+                      "en": "Biomes",
+                      "es": "Biomas",
+                      "fr": "Biomes",
+                      "ar": "المناطق البيئية",
+                      "ru": "Биомы",
+                      "zh": "生物群落"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [
+                      "CBD-SUBJECT-AGR",
+                      "CBD-SUBJECT-DSHL",
+                      "CBD-SUBJECT-FOR",
+                      "CBD-SUBJECT-WTR",
+                      "CBD-SUBJECT-ISL",
+                      "CBD-SUBJECT-MAR",
+                      "CBD-SUBJECT-MNT",
+                      "CBD-SUBJECT-PLR"
+                    ],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

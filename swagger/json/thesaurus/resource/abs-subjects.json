@@ -1,0 +1,62 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Genetic Resources Access API",
+    "description": "API for retrieving terms related to access to genetic resources under Article 15 of the CBD (Convention on Biological Diversity).",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/CA9BBEA9-AAA7-4F2F-B3A3-7ED180DE1924/terms": {
+      "get": {
+        "summary": "Retrieve Access to Genetic Resources Terms",
+        "description": "Returns terms related to access to genetic resources under Article 15 of the CBD.",
+        "operationId": "getGeneticResourcesAccessTerms",
+        "responses": {
+          "200": {
+            "description": "A list of terms related to access to genetic resources",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 6355,
+                    "identifier": "99FCE39007594FCD862564EC8D6E304F",
+                    "name": "Access to genetic resources (Article 15 of the CBD)",
+                    "title": {
+                      "en": "Access to genetic resources (Article 15 of the CBD)",
+                      "es": "Acceso a los recursos genéticos (artículo 15 del CDB)",
+                      "fr": "Accès aux ressources génétiques (article 15 de la CBD)",
+                      "ar": "الحصول على الموارد الجينية (المادة 15 من اتفاقية التنوع البيولوجي)",
+                      "ru": "Доступ к генетическим ресурсам (статья 15 КБР)"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [
+                      "54578B7847724C3FB6F9470905F372EB",
+                      "73198F43-674C-4989-B742-6C2415282AA1",
+                      "822EC80937524039A912E87DC0041A89",
+                      "4E2974DF-216E-46C8-8797-8E3A33D6A048",
+                      "A862ABFC-B97D-4E6A-9A70-812A82A7CC19",
+                      "50F2F474A6E64614A8529F3DE9B241B9",
+                      "22A4A6F07B0E45D39CBF15BE335DD67F",
+                      "6C398D0E66784D1EB8F59A88CD2C68B0"
+                    ],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

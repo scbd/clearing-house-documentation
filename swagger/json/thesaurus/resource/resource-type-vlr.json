@@ -1,0 +1,69 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Virtual Resource Library API",
+    "description": "API for accessing terms in the Virtual Resource Library.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/A762DF7E-B8D1-40D6-9DAC-D25E48C65528/terms": {
+      "get": {
+        "summary": "Retrieve terms for a given domain in the Virtual Resource Library",
+        "description": "Returns a list of resource types with details such as term ID, identifier, titles, descriptions, and related terms.",
+        "responses": {
+          "200": {
+            "description": "A list of resource types",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 7226,
+                    "identifier": "6E27B530-7639-4091-AF58-9D61A77B4A28",
+                    "name": "General library resource",
+                    "title": {
+                      "en": "General library resource",
+                      "es": "Recurso que se encuentra en una biblioteca general",
+                      "fr": "Ressources de la bibliothèque virtuelle",
+                      "ar": "مصادر مرجعية عامة",
+                      "ru": "Библиотечные ресурсы общего характера",
+                      "zh": "一般图书馆资源"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [
+                      "7BBF86FE-68E5-4ED8-8174-7DD8D302C583",
+                      "42DA3BEF-6A93-438E-8C62-97EDEBDB8736",
+                      "AEBA019C-67D4-4886-8F5D-D25F3DC1AAB1",
+                      "F32AF041-F186-4DD5-8083-E2BF44352529",
+                      "FA3B671C-BEFD-41E5-A0AF-DAB945A56BC0",
+                      "0ABEAC47-0DEB-4E3F-98A8-5045F44698FD",
+                      "DF49C5C2-F4CD-4682-A1A6-5E884D5D48B4",
+                      "459F848E-6855-4BAE-8279-DE6BA6BA7056",
+                      "283980B6-CF8A-4B06-9FF7-D2999ECE233E",
+                      "433A30E4-782A-4D11-A99C-C2442F3FA79F",
+                      "E9E9E585-3537-4291-8EEC-FF9547721ABD",
+                      "2047960C-791E-40F6-A920-C2A1BCB04ED3"
+                    ],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "Domain not found"
+          }
+        }
+      }
+    }
+  }
+}

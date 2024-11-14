@@ -1,0 +1,53 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "CBD API Documentation",
+    "version": "1.0.0",
+    "description": "API Documentation."
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/Organization%20Types/terms": {
+      "get": {
+        "summary": "Get organization types",
+        "tags": ["Organization types"],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 1581,
+                    "identifier": "86D464C3-B5BB-4B02-85E4-1AAD8D64CD27",
+                    "name": "Academic or research institute",
+                    "title": {
+                      "en": "Academic or research institute",
+                      "es": "Instituto académico o de investigación",
+                      "fr": "Établissement d'enseignement ou de recherche",
+                      "ar": "مؤسسة أكاديمية أو معهد بحثي",
+                      "ru": "Академический или исследовательский институт",
+                      "zh": "学术或研究机构"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
