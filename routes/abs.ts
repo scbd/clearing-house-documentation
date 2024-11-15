@@ -641,6 +641,24 @@ export default [
           },
         ],
       },
+      {
+        text: "NMCC",
+        collapsed: true,
+        items: [
+          {
+            text: "Jurisdictions",
+            link: "/abs/thesaurus/nmcc/jurisdictions",
+          },
+          {
+            text: "MCC Keywords",
+            link: "/abs/thesaurus/nmcc/mcc-keywords",
+          },
+          {
+            text: "Thematic Areas",
+            link: "/abs/thesaurus/nmcc/thematic-areas",
+          },
+        ],
+      },
     ],
   },
 ];

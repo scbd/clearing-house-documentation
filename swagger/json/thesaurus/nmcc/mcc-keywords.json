@@ -1,0 +1,54 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ABS-A1920 Keywords API",
+    "description": "API for retrieving keywords related to ABS-A1920 thesaurus domain.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/ABS-A1920-Keywords/terms": {
+      "get": {
+        "summary": "Retrieve ABS-A1920 Keywords",
+        "description": "Fetches keywords and their metadata from the ABS-A1920 thesaurus domain.",
+        "operationId": "getAbsA1920Keywords",
+        "responses": {
+          "200": {
+            "description": "Successful response containing a list of keywords and their details.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 7058,
+                    "identifier": "7F45AB1F-9925-482E-B0CD-CD842960825F",
+                    "name": "sectoral",
+                    "title": {
+                      "en": "sectoral",
+                      "es": "sectorial",
+                      "fr": "sectoriel",
+                      "ar": "قطاعي",
+                      "ru": "секторальные",
+                      "zh": "行业"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
