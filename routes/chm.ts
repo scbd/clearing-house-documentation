@@ -156,6 +156,58 @@ export default [
           },
         ],
       },
+      {
+        text: "Resource",
+        collapsed: true,
+        items: [
+          {
+            text: "Resource Type VLR",
+            link: "/chm/thesaurus/resource/resource-type-vlr",
+          },
+          {
+            text: "Aichi Targets",
+            link: "/chm/thesaurus/resource/aichi-targets",
+          },
+          {
+            text: "CPB Themtic Areas",
+            link: "/chm/thesaurus/resource/cpb-thematic-areas",
+          },
+          {
+            text: "BCH RA Author Affiliation",
+            link: "/chm/thesaurus/resource/bch-ra-author-affiliation",
+          },
+          {
+            text: "BCH RA Subjects",
+            link: "/chm/thesaurus/resource/bch-ra-subjects",
+          },
+          {
+            text: "Key Areas",
+            link: "/chm/thesaurus/resource/key-areas",
+          },
+          {
+            text: "CBD Subjects",
+            link: "/chm/thesaurus/resource/cbd-subjects",
+          },
+        ],
+      },
+      {
+        text: "Organization",
+        collapsed: true,
+        items: [
+          {
+            text: "Organization Types",
+            link: "/chm/thesaurus/organization/organization-types",
+          },
+          {
+            text: "CBD Subjects",
+            link: "/chm/thesaurus/organization/cbd-subjects",
+          },
+          {
+            text: "Regions",
+            link: "/chm/thesaurus/organization/regions",
+          },
+        ],
+      },
     ],
   },
 ];
