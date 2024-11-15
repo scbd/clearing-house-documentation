@@ -1,0 +1,61 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Thesaurus Terms API",
+    "description": "API for retrieving terms from the thesaurus domain 4E7731C7-791E-46E9-A579-7272AF261FED.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/4E7731C7-791E-46E9-A579-7272AF261FED/terms": {
+      "get": {
+        "summary": "Retrieve Thesaurus Terms",
+        "description": "Fetches terms and their metadata from the specified thesaurus domain.",
+        "operationId": "getThesaurusTermsProposed",
+        "responses": {
+          "200": {
+            "description": "Successful response containing a list of thesaurus terms and their details.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 7045,
+                    "identifier": "73E2AC27-D964-487C-A4E6-0997BB27AF01",
+                    "name": "Proposed (not yet approved)",
+                    "title": {
+                      "en": "Proposed (not yet approved)",
+                      "es": "Propuesta (todavía no aprobada)",
+                      "fr": "Proposé (pas encore approuvé)",
+                      "ar": "مُقترحة (لم تُعتمَد بعد)",
+                      "ru": "Предложено (еще не утверждено)",
+                      "zh": "已提议（尚未批准）"
+                    },
+                    "shortTitle": {},
+                    "description": "“Proposed” refers to initiatives for which concepts have been developed but not yet submitted to donors or are submitted but not yet accepted/approved by donors.",
+                    "longDescription": {
+                      "en": "“Proposed” refers to initiatives for which concepts have been developed but not yet submitted to donors or are submitted but not yet accepted/approved by donors.",
+                      "es": "\"Propuesta\" hace referencia a iniciativas cuyo proyecto conceptual ha sido elaborado, pero que todavía no han sido enviadas a los donantes o que se han enviado pero todavía han sido aceptadas o aprobadas.",
+                      "fr": "«Proposé » désigne les initiatives pour lesquelles des concepts ont été élaborés, mais qui n’ont pas encore été soumis aux donateurs ou qui ont été soumis mais ne sont pas encore acceptés / approuvés par les donateurs.",
+                      "ar": "يُشير مصطلح \"مُقترَحة\" إلى المبادرات التي أُعدت لها تصورات، لكنها لم تُرسَل إلى الجهات المانحة أو أُرسِلَت لهم ولكنهم لم يوافقوا عليها/لم يعتمدها المانحون بعد.",
+                      "ru": "«Предложено» относится к инициативам, для которых были разработаны, но еще не представлены донорам концепции, либо же эти концепции были представлены донорам, но еще не приняты/утверждены ими.",
+                      "zh": "“已提议”是指概念已经形成但尚未提交给捐赠方，或已提交但尚未被捐赠方接受/批准的倡议。"
+                    },
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

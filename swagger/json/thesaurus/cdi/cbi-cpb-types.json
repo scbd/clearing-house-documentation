@@ -1,0 +1,59 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Thesaurus Terms API",
+    "description": "API for retrieving terms from the thesaurus domain 5CA7AACE-CB79-4146-BF12-B3B1955AFF17.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/5CA7AACE-CB79-4146-BF12-B3B1955AFF17/terms": {
+      "get": {
+        "summary": "Retrieve Thesaurus Terms",
+        "responses": {
+          "200": {
+            "description": "Successful response containing a list of thesaurus terms and their details.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 7221,
+                    "identifier": "2DFCDD0B-5D62-4016-829F-8E70E767875A",
+                    "name": "Programme",
+                    "title": {
+                      "en": "Programme",
+                      "es": "Programa",
+                      "fr": "Programme",
+                      "ar": "البرنامج",
+                      "ru": "Программа",
+                      "zh": "方案"
+                    },
+                    "shortTitle": {},
+                    "description": "A programme is a set of inter-related interventions or projects aiming to achieve higher level global, regional, country or sector results or mandates.",
+                    "longDescription": {
+                      "en": "A programme is a set of inter-related interventions or projects aiming to achieve higher level global, regional, country or sector results or mandates.",
+                      "es": "Un programa es un conjunto de intervenciones o proyectos interrelacionados destinados a obtener resultados o mandatos en el nivel mundial, regional, nacional o sectorial más elevado.",
+                      "fr": "Un programme est un ensemble d'interventions ou de projets interdépendants visant à obtenir des résultats ou des mandats mondiaux, régionaux, nationaux ou sectoriels de plus haut niveau.",
+                      "ar": " البرنامج هو مجموعة مترابطة من إجراءات التدخل أو المشاريع التي تهدف إلى تحقيق نتائج أو أهداف رفيعة المستوى على مستوى العالم أو الإقليم أو البلد أو القطاع.",
+                      "ru": "Программа — это комплекс взаимосвязанных мероприятий или проектов, направленных на достижение результатов или выполнение мандатов на более высоком уровне (глобальном, региональном или секторальном).",
+                      "zh": "方案是一套相互关联的干预措施或项目，旨在实现更高水平的全球、区域、国家或部门成果或任务。"
+                    },
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

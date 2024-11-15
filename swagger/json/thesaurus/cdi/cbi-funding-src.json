@@ -1,0 +1,54 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Capacity Building Project Funding Types API",
+    "description": "API for accessing terms related to funding types for capacity-building projects, including multilingual metadata and hierarchical relationships.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/Capacity Building Project Funding Types/terms": {
+      "get": {
+        "summary": "Retrieve Capacity Building Project Funding Types Terms",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 1700,
+                    "identifier": "74EBA28E-1F0C-4157-BD47-C8492487AD70",
+                    "name": "Bilateral",
+                    "title": {
+                      "en": "Bilateral",
+                      "es": "Bilateral",
+                      "fr": "Bilatérale",
+                      "ar": "ثنائية",
+                      "ru": "Двусторонний",
+                      "zh": "双边"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "No terms found for the specified domain."
+          }
+        }
+      }
+    }
+  }
+}
