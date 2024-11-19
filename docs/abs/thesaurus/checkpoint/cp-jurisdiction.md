@@ -1,2 +1,2 @@
 <!-- Reference from the components folder -->
-<!--@include: @/../components/records/thesaurus/checkpoint/cp-jurisdiction.md-->
+<!--@include: @/../components/records/thesaurus/cp-jurisdiction.md-->

@@ -1,2 +1,2 @@
 <!-- Reference from the components folder -->
-<!--@include: @/../components/records/thesaurus/authority/cbd-subjects.md-->
+<!--@include: @/../components/records/thesaurus/cbd-subjects.md-->
