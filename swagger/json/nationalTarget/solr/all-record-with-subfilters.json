@@ -1,0 +1,58 @@
+{
+  "paths": {
+    "/index": {
+      "get": {
+        "summary": "Query Solr with government, usage, and keyword criteria",
+        "description": "Retrieve records by schema, government, usage, and keyword criteria. Note: The value of `usages_ss` and `keywords_ss` fields may contain special characters that need to be escaped. Refer to the [Apache Solr](/apache-solr) for a list of special characters and how to escape them.",
+        "tags": ["Get All results with sub-filters"],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "schema_s:nationalTarget7 AND government_s:cy AND usages_ss:60EA2F49\\-A9DD\\-406F\\-921A\\-8A1C9AA8DFDD AND keywords_ss:357DBB22\\-6A6C\\-4C49-BA1F\\-037320B09247"
+            },
+            "description": "Query parameter for searching results based on schema, government, usage, and keyword criteria."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of records matching the criteria",
+            "content": {
+              "application/json": {
+                "example": {
+                  "response": {
+                    "numFound": 25,
+                    "start": 0,
+                    "docs": [
+                      {
+                        "uniqueIdentifier_s": "ort-nt7-be-265248-1",
+                        "schema_s": "nationalTarget7",
+                        "title_s": "Invasive alien species (IAS) and pathways are identified and prioritized.",
+                        "title_AR_s": "تحديد الأنواع الغريبة الغازية (IAS) والمسارات وتحديد أولوياتها.",
+                        "title_EN_s": "Invasive alien species (IAS) and pathways are identified and prioritized.",
+                        "title_ES_s": "Se identifican y priorizan las especies exóticas invasoras (IAS) y las vías.",
+                        "title_FR_s": "Les espèces exotiques envahissantes (IAS) et les voies sont identifiées et priorisées.",
+                        "schemaType_s": "national",
+                        "government_s": "ht",
+                        "url_ss": [
+                          "https://ort.cbd.int/national-targets/my-country/part-1/1A72C663-4D42-4132-266D-CEBA10E01C8E/view"
+                        ]
+                      }
+                    ]
+                  },
+                  "nonSupportedParams": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request, possibly due to malformed query parameter"
+          }
+        }
+      }
+    }
+  }
+}
