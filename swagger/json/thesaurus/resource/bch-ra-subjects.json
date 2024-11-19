@@ -1,0 +1,55 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Risk Assessment Roadmap API",
+    "description": "API for retrieving a roadmap for the risk assessment of living modified organisms (LMOs).",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/69B43BB5-693B-4ED9-8FE0-95895E144142/terms": {
+      "get": {
+        "summary": "Retrieve Risk Assessment Roadmap Terms",
+        "description": "Returns terms that represent the roadmap for the risk assessment of living modified organisms (LMOs).",
+        "operationId": "getRiskAssessmentRoadmapTerms",
+        "responses": {
+          "200": {
+            "description": "A list of roadmap terms for LMO risk assessment",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 6168,
+                    "identifier": "A734339C-04DF-46C7-BEC2-1B420970BED1",
+                    "name": "1. Roadmap for risk assessment of living modified organisms",
+                    "title": {
+                      "en": "1. Roadmap for risk assessment of living modified organisms"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [
+                      "F3FDC7C2-1B4A-42EF-A2AA-8FE76B0272B7",
+                      "E1CA4DB1-25F9-4D77-AAAF-39B70E600C5E",
+                      "F6B1CAAD-A8F0-4669-B51E-312897C4E0AE",
+                      "70313695-6714-486F-A4BE-F613BAF5F131",
+                      "FC0489EC-5EF1-4646-85AC-ACDDA423E9DB"
+                    ],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
