@@ -19,6 +19,41 @@ export const recordTypes = [
     ],
   },
   {
+    text: "Contact",
+    fullName: "Contact",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/bch/contact/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/bch/contact/solr",
+      },
+      {
+        text: "Draft Records",
+        link: "/bch/contact/list",
+      },
+      {
+        text: "Get",
+        link: "/bch/contact/get",
+      },
+      {
+        text: "Create",
+        link: "/bch/contact/create",
+      },
+      {
+        text: "Update",
+        link: "/bch/contact/update",
+      },
+      {
+        text: "Delete",
+        link: "/bch/contact/delete",
+      },
+    ],
+  },
+  {
     text: "LAW",
     fullName: "Biosafety Law, Regulation, Guidelines and Agreements",
     collapsed: true,
@@ -187,6 +222,25 @@ export const recordTypes = [
       {
         text: "Get",
         link: "/bch/cdi/get",
+      },
+    ],
+  },
+  {
+    text: "ORG",
+    fullName: "Organizations",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/bch/org/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/bch/org/solr",
+      },
+      {
+        text: "Get",
+        link: "/bch/org/get",
       },
     ],
   },

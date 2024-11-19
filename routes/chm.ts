@@ -37,6 +37,25 @@ export const recordTypes = [
       },
     ],
   },
+  {
+    text: "ORG",
+    fullName: "Organizations",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/chm/org/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/chm/org/solr",
+      },
+      {
+        text: "Get",
+        link: "/chm/org/get",
+      },
+    ],
+  },
 ];
 
 export default [
