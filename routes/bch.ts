@@ -225,7 +225,6 @@ export const recordTypes = [
       },
     ],
   },
-];
   {
     text: "ORG",
     fullName: "Organizations",
@@ -245,7 +244,7 @@ export const recordTypes = [
       },
     ],
   },
-]
+];
 
 export default [
   {
