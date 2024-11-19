@@ -271,6 +271,25 @@ export const recordTypes = [
       },
     ],
   },
+  {
+    text: "CPP",
+    fullName: "Community Protocols and Procedures and Customary Laws",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/abs/cpp/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/abs/cpp/solr",
+      },
+      {
+        text: "Get",
+        link: "/abs/cpp/get",
+      },
+    ],
+  },
 ];
 
 export default [
