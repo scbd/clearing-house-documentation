@@ -18,7 +18,26 @@ export const recordTypes = [
       },
     ],
   },
-]
+  {
+    text: "CDI",
+    fullName: "Capacity Development Initiatives",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/chm/cdi/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/chm/cdi/solr",
+      },
+      {
+        text: "Get",
+        link: "/chm/cdi/get",
+      },
+    ],
+  },
+];
 
 export default [
   {
