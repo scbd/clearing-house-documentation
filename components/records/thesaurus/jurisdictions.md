@@ -7,7 +7,7 @@ const swaggerSpecs = [
 ]
 </script>
 
-# Authority - Jurisdictions
+# Jurisdictions
 
 ## Overview
 

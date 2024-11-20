@@ -627,6 +627,20 @@ export default [
           },
         ],
       },
+      {
+        text: "ABS Procedure",
+        collapsed: true,
+        items: [
+          {
+            text: "Jurisdictions",
+            link: "/abs/thesaurus/abs-procedure/jurisdictions",
+          },
+          {
+            text: "All Keywords",
+            link: "/abs/thesaurus/abs-procedure/all-keywords",
+          },
+        ],
+      },
     ],
   },
 ];
