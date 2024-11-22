@@ -1,0 +1,62 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "GBF Goals API",
+    "description": "API for fetching GBF Goals terms and details.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz",
+      "description": "Development Server"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/GBF-GOALS/terms": {
+      "get": {
+        "summary": "Get GBF Goals Terms",
+        "description": "Fetches a list of terms related to GBF Goals including their details.",
+        "operationId": "getGBFGoalsTerms",
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of GBF Goals terms.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 7395,
+                    "identifier": "GBF-GOAL-B",
+                    "name": "GBF-G-B. Biodiversity is sustainably used and its contributions to people are maintained, enhanced or restored",
+                    "title": {
+                      "en": "GBF-G-B. Biodiversity is sustainably used and its contributions to people are maintained, enhanced or restored"
+                    },
+                    "shortTitle": {
+                      "en": "GBF-G-B. Biodiversity is sustainably used"
+                    },
+                    "description": "Biodiversity is sustainably used and managed and nature’s contributions to people, including ecosystem functions and services, are valued, maintained and enhanced, with those currently in decline being restored, supporting the achievement of sustainable development for the benefit of present and future generations by 2050.",
+                    "longDescription": {
+                      "en": "Biodiversity is sustainably used and managed and nature’s contributions to people, including ecosystem functions and services, are valued, maintained and enhanced, with those currently in decline being restored, supporting the achievement of sustainable development for the benefit of present and future generations by 2050.",
+                      "es": "La biodiversidad se utiliza y gestiona de manera sostenible y las contribuciones de la naturaleza a las personas, entre ellas las funciones y servicios de los ecosistemas, se valoran, se mantienen y se mejoran, restableciéndose aquellas que actualmente están deteriorándose, apoyando el logro del desarrollo sostenible en beneficio de las generaciones actuales y futuras para 2050.",
+                      "fr": "Utiliser et gérer durablement la biodiversité et valoriser, préserver et renforcer les contributions de la nature à l'homme, y compris les fonctions et services écosystémiques, et rétablir ceux qui sont actuellement en déclin, afin de favoriser un développement durable dans l'intérêt des générations actuelles et futures d'ici à 2050."
+                    },
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. Possible invalid input."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    }
+  }
+}

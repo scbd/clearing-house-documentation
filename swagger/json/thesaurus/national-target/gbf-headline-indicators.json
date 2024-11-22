@@ -1,0 +1,61 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "GBF Headline Indicators API",
+    "description": "API for fetching GBF Headline Indicators terms and their details.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz",
+      "description": "Development Server"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/GBF-HEADLINE-INDICATORS/terms": {
+      "get": {
+        "summary": "Get GBF Headline Indicators Terms",
+        "description": "Fetches a list of terms related to GBF Headline Indicators, including their details.",
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of GBF Headline Indicators terms.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 7439,
+                    "identifier": "GBF-INDICATOR-A.1",
+                    "name": "A.1 Red List of Ecosystems ",
+                    "title": {
+                      "en": "A.1 Red List of Ecosystems ",
+                      "es": "A.1 Lista Roja de Ecosistemas ",
+                      "fr": "A.1 Liste rouge des écosystèmes "
+                    },
+                    "shortTitle": {
+                      "en": "A.1 Red List of Ecosystems ",
+                      "es": "A.1 Lista Roja de Ecosistemas ",
+                      "fr": "A.1 Liste rouge des écosystèmes "
+                    },
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. Possible invalid input."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    }
+  }
+}

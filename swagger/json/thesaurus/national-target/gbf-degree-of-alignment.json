@@ -1,0 +1,60 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "GBF Degree of Alignment API",
+    "description": "API for fetching GBF Degree of Alignment terms and details.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz",
+      "description": "Development Server"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/GBF-DEGREE-OF-ALIGNMENT/terms": {
+      "get": {
+        "summary": "Get GBF Degree of Alignment Terms",
+        "description": "Fetches a list of terms related to GBF Degree of Alignment including their details.",
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of GBF Degree of Alignment terms.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 7472,
+                    "identifier": "AABF237C-F906-40D2-9595-5226C8B18A58",
+                    "name": "High",
+                    "title": {
+                      "en": "High",
+                      "es": "Alto",
+                      "fr": "Élevé",
+                      "ar": "عالية",
+                      "ru": "Высокая",
+                      "zh": "高"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. Possible invalid input."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    }
+  }
+}
