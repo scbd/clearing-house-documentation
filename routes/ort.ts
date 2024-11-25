@@ -43,6 +43,10 @@ export const recordTypes = [
     collapsed: true,
     items: [
       {
+        text: "Schema",
+        link: "/ort/nbsap/schema",
+      },
+      {
         text: "Public Records",
         link: "/ort/nbsap/solr",
       },
