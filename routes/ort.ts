@@ -220,6 +220,16 @@ export default [
           },
         ],
       },
+      {
+        text: "National Target Mapping",
+        collapsed: true,
+        items: [
+          {
+            text: "GBF Headline Indicators",
+            link: "/ort/thesaurus/gbf-headline-indicators",
+          },
+        ],
+      },
     ],
   },
 ];
