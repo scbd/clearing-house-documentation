@@ -1,0 +1,49 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Terms API",
+    "version": "1.0.0",
+    "description": "API for fetching term details."
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz",
+      "description": "Development Server"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/F1A5BFF1-F555-40D1-A24C-BBE1BE8E82BF/terms": {
+      "get": {
+        "summary": "Get Terms",
+        "description": "Retrieve a list of terms with details.",
+        "responses": {
+          "200": {
+            "description": "A JSON array of terms.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 6595,
+                    "identifier": "2B1AA969-F4EA-4537-B7D9-C0108EE5D3D2",
+                    "name": "Parliament",
+                    "title": {
+                      "en": "Parliament"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

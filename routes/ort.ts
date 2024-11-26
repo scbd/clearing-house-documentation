@@ -245,6 +245,28 @@ export default [
           },
         ],
       },
+      {
+        text: "NBSap",
+        collapsed: true,
+        items: [
+          {
+            text: "Jurisdictions",
+            link: "/ort/thesaurus/ort-jurisdictions",
+          },
+          {
+            text: "Approved Status",
+            link: "/ort/thesaurus/approved-status",
+          },
+          {
+            text: "Approving Body",
+            link: "/ort/thesaurus/approving-body",
+          },
+          {
+            text: "Report Status",
+            link: "/ort/thesaurus/report-status",
+          },
+        ],
+      },
     ],
   },
 ];

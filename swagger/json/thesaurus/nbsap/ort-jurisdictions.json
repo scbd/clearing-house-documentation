@@ -1,0 +1,54 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Terms API",
+    "version": "1.0.0",
+    "description": "API for fetching term details."
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz",
+      "description": "Development Server"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/50AC1489-92B8-4D99-965A-AAE97A80F38E/terms": {
+      "get": {
+        "summary": "Get Terms",
+        "description": "Retrieve a list of terms with details.",
+        "responses": {
+          "200": {
+            "description": "A JSON array of terms.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 6503,
+                    "identifier": "528B1187-F1BD-4479-9FB3-ADBD9076D361",
+                    "name": "Regional / Multilateral",
+                    "title": {
+                      "en": "Regional / Multilateral",
+                      "es": "Regional / Multilateral",
+                      "fr": "Régional / Multi-latéral",
+                      "ar": "إقليمية/متعددة الأطراف",
+                      "ru": "Региональная/многосторонняя",
+                      "zh": "区域/多边"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
