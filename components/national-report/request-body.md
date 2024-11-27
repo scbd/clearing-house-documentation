@@ -19,28 +19,28 @@
     <tr>
       <td>Welcome to your country's ({government}) 7th National Report overview. Please select an option to proceed.</td>
       <td>government</td>
-      <td>True</td>
+      <td>TRUE</td>
       <td>Eterm</td>
       <td><code>{ "identifier": "af" }</code></td>
     </tr>
     <tr>
       <td></td>
       <td>sectionI</td>
-      <td>True</td>
+      <td>TRUE</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Please briefly describe the process undertaken for the preparation of this report (responses may include the following)</td>
       <td>processUndertaken</td>
-      <td>True</td>
+      <td>TRUE</td>
       <td>lstring</td>
       <td><code>{ "en": "<p>Test Info</p>" }</code></td>
     </tr>
     <tr>
       <td></td>
       <td>sectionII</td>
-      <td>True</td>
+      <td>TRUE</td>
       <td></td>
       <td></td>
     </tr>
@@ -63,7 +63,7 @@
       <td>hasStakeholderEngagement</td>
       <td></td>
       <td>Boolean</td>
-      <td><code>True</code></td>
+      <td><code>TRUE</code></td>
     </tr>
     <tr>
       <td>Stakeholders</td>
@@ -96,7 +96,7 @@
     <tr>
       <td></td>
       <td>sectionIII</td>
-      <td>True</td>
+      <td>TRUE</td>
       <td></td>
       <td></td>
     </tr>
@@ -166,7 +166,7 @@
     <tr>
       <td></td>
       <td>sectionIV</td>
-      <td>True</td>
+      <td>TRUE</td>
       <td></td>
       <td></td>
     </tr>
@@ -194,14 +194,14 @@
     <tr>
       <td></td>
       <td>sectionV</td>
-      <td>True</td>
+      <td>TRUE</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td></td>
       <td>assessmentSummaryInfo</td>
-      <td>True</td>
+      <td>TRUE</td>
       <td>lstring</td>
       <td><code>{ "en": "<p>Test Info</p>" }</code></td>
     </tr>
