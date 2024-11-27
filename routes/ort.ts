@@ -150,6 +150,25 @@ export const recordTypes = [
       },
     ],
   },
+  {
+    text: "National Report",
+    fullName: "National Report",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/ort/nationalReport/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/ort/nationalReport/solr",
+      },
+      {
+        text: "Get",
+        link: "/ort/nationalReport/get",
+      },
+    ],
+  },
 ];
 
 export default [
