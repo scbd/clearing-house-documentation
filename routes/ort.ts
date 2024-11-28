@@ -161,11 +161,11 @@ export const recordTypes = [
       },
       {
         text: "Public Records",
-        link: "/ort/nationalReport/solr",
+        link: "/ort/national-report/solr",
       },
       {
         text: "Get",
-        link: "/ort/nationalReport/get",
+        link: "/ort/national-report/get",
       },
     ],
   },
@@ -385,19 +385,19 @@ export default [
         items: [
           {
             text: "Jurisdictions",
-            link: "/ort/thesaurus/ort-jurisdictions",
+            link: "/ort/thesaurus/nbsap/ort-jurisdictions",
           },
           {
             text: "Approved Status",
-            link: "/ort/thesaurus/approved-status",
+            link: "/ort/thesaurus/nbsap/approved-status",
           },
           {
             text: "Approving Body",
-            link: "/ort/thesaurus/approving-body",
+            link: "/ort/thesaurus/nbsap/approving-body",
           },
           {
             text: "Report Status",
-            link: "/ort/thesaurus/report-status",
+            link: "/ort/thesaurus/nbsap/report-status",
           },
         ],
       },
