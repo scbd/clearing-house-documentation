@@ -1,20 +1,20 @@
 export const recordTypes = [
   {
-    text: "National Target Mapping",
+    text: "National-Target-Mapping",
     fullName: "National Target Mapping",
     collapsed: true,
     items: [
       {
         text: "Schema",
-        link: "/ort/nationalTargetMapping/schema",
+        link: "/ort/national-target-mapping/schema",
       },
       {
         text: "Public Records",
-        link: "/ort/nationalTargetMapping/solr",
+        link: "/ort/national-target-mapping/solr",
       },
       {
         text: "Get",
-        link: "/ort/nationalTargetMapping/get",
+        link: "/ort/national-target-mapping/get",
       },
     ],
   },
@@ -34,21 +34,40 @@ export const recordTypes = [
     ],
   },
   {
-    text: "National Report",
+    text: "National-Report",
     fullName: "National Report",
     collapsed: true,
     items: [
       {
         text: "Schema",
-        link: "/ort/nationalReport/schema",
+        link: "/ort/national-report/schema",
       },
       {
         text: "Public Records",
-        link: "/ort/nationalReport/solr",
+        link: "/ort/national-report/solr",
       },
       {
         text: "Get",
-        link: "/ort/nationalReport/get",
+        link: "/ort/national-report/get",
+      },
+    ],
+  },
+  {
+    text: "National-Report-Indicator-Data",
+    fullName: "National Report Indicator Data",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/ort/national-report-indicator-data/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/ort/national-report-indicator-data/solr",
+      },
+      {
+        text: "Get",
+        link: "/ort/national-report-indicator-data/get",
       },
     ],
   },
@@ -158,31 +177,31 @@ export default [
         items: [
           {
             text: "GBF Targets",
-            link: "/ort/thesaurus/gbf-targets",
+            link: "/ort/thesaurus/national-target/gbf-targets",
           },
           {
             text: "GBF Goals",
-            link: "/ort/thesaurus/gbf-goals",
+            link: "/ort/thesaurus/national-target/gbf-goals",
           },
           {
             text: "GBF Target Considerations",
-            link: "/ort/thesaurus/gbf-target-considerations",
+            link: "/ort/thesaurus/national-target/gbf-target-considerations",
           },
           {
             text: "GBF Degree of Alignment",
-            link: "/ort/thesaurus/gbf-degree-of-alignment",
+            link: "/ort/thesaurus/national-target/gbf-degree-of-alignment",
           },
           {
             text: "GBF Headline Indicators",
-            link: "/ort/thesaurus/gbf-headline-indicators",
+            link: "/ort/thesaurus/national-target/gbf-headline-indicators",
           },
           {
             text: "GBF Component Indicators",
-            link: "/ort/thesaurus/gbf-component-indicators",
+            link: "/ort/thesaurus/national-target/gbf-component-indicators",
           },
           {
             text: "GBF Complementary Indicators",
-            link: "/ort/thesaurus/gbf-complementary-indicators",
+            link: "/ort/thesaurus/national-target/gbf-complementary-indicators",
           },
         ],
       },
@@ -192,7 +211,7 @@ export default [
         items: [
           {
             text: "GBF Headline Indicators",
-            link: "/ort/thesaurus/gbf-headline-indicators",
+            link: "/ort/thesaurus/national-target-mapping/gbf-headline-indicators",
           },
         ],
       },
@@ -202,19 +221,19 @@ export default [
         items: [
           {
             text: "Jurisdictions",
-            link: "/ort/thesaurus/ort-jurisdictions",
+            link: "/ort/thesaurus/nbsap/ort-jurisdictions",
           },
           {
             text: "Approved Status",
-            link: "/ort/thesaurus/approved-status",
+            link: "/ort/thesaurus/nbsap/approved-status",
           },
           {
             text: "Approving Body",
-            link: "/ort/thesaurus/approving-body",
+            link: "/ort/thesaurus/nbsap/approving-body",
           },
           {
             text: "Report Status",
-            link: "/ort/thesaurus/report-status",
+            link: "/ort/thesaurus/nbsap/report-status",
           },
         ],
       },
