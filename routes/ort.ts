@@ -294,6 +294,16 @@ export default [
           },
         ],
       },
+      {
+        text: "National Report Indicator Data",
+        collapsed: true,
+        items: [
+          {
+            text: "GBF Headline Indicators",
+            link: "/ort/thesaurus/national-report-indicator-data/gbf-headline-indicators",
+          },
+        ],
+      },
     ],
   },
 ];
