@@ -256,6 +256,44 @@ export default [
           },
         ],
       },
+      {
+        text: "National Report",
+        collapsed: true,
+        items: [
+          {
+            text: "Stakeholders",
+            link: "/ort/thesaurus/national-report/stakeholders",
+          },
+          {
+            text: "Policy Instruments",
+            link: "/ort/thesaurus/national-report/policy-instruments",
+          },
+          {
+            text: "Assessment Progress",
+            link: "/ort/thesaurus/national-report/assessment-progress",
+          },
+          {
+            text: "GBF Goals",
+            link: "/ort/thesaurus/national-report/gbf-goals",
+          },
+          {
+            text: "GBF Headline Indicators",
+            link: "/ort/thesaurus/national-report/gbf-headline-indicators",
+          },
+          {
+            text: "GBF Component Indicators",
+            link: "/ort/thesaurus/national-report/gbf-component-indicators",
+          },
+          {
+            text: "GBF Complementary Indicators",
+            link: "/ort/thesaurus/national-target/gbf-complementary-indicators",
+          },
+          {
+            text: "GBF Binary Indicator",
+            link: "/ort/thesaurus/national-report/gbf-binary-indicator",
+          },
+        ],
+      },
     ],
   },
 ];
