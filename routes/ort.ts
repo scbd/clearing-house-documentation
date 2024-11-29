@@ -203,6 +203,25 @@ export const recordTypes = [
       },
     ],
   },
+  {
+    text: "National-Report-Binary-Indicator-Data",
+    fullName: "National Report Binary Indicator Data",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/ort/national-report-binary-indicator-data/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/ort/national-report-binary-indicator-data/solr",
+      },
+      {
+        text: "Get",
+        link: "/ort/national-report-binary-indicator-data/get",
+      },
+    ],
+  },
 ];
 
 export default [
