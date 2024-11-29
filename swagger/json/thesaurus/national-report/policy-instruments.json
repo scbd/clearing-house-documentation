@@ -1,0 +1,57 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+      "title": "Policy Instruments Indicators API",
+      "description": "API for fetching Policy Instruments Indicators terms and their details.",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "https://api.cbddev.xyz",
+        "description": "Development Server"
+      }
+    ],
+    "paths": {
+      "/api/v2013/thesaurus/domains/35772D10-DB54-4BF8-954E-F685A05F7FEA/terms": {
+        "get": {
+          "summary": "Get Policy Instruments Indicators Terms",
+          "description": "Fetches a list of terms related to Policy Instruments Indicators, including their details.",
+          "operationId": "getGBFComplementaryIndicatorsTerms",
+          "responses": {
+            "200": {
+              "description": "Successful response with a list of Policy Instruments Indicators terms.",
+              "content": {
+                "application/json": {
+                  "example": [
+                    {
+                        "termId": 7769,
+                        "identifier": "14FB02A6-46FB-4932-9F42-630416271B3A",
+                        "name": "Adopted through legislation or otherwise by parliament",
+                        "title": {
+                            "en": "Adopted through legislation or otherwise by parliament"
+                        },
+                        "shortTitle": {},
+                        "description": "",
+                        "longDescription": {},
+                        "source": "",
+                        "broaderTerms": [],
+                        "narrowerTerms": [],
+                        "relatedTerms": [],
+                        "nonPreferedTerms": []
+                    }
+                  ]
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request. Possible invalid input."
+            },
+            "500": {
+              "description": "Internal server error."
+            }
+          }
+        }
+      }
+    }
+  }
+  

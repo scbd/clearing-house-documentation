@@ -1,0 +1,58 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Binary Indicator API",
+    "description": "API for fetching Binary Indicator terms and their details.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz",
+      "description": "Development Server"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/KMGBF-BINARY-INDICATORS/terms": {
+      "get": {
+        "summary": "Get Binary Indicator Terms",
+        "description": "Fetches a list of terms related to Binary Indicator, including their details.",
+        "operationId": "getGBFComplementaryIndicatorsTerms",
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of Binary Indicator terms.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 7475,
+                    "identifier": "KMGBF-INDICATOR-BIN-B",
+                    "name": "BIN.B Number of countries with national constitution or legislation recognizing and implementing and monitoring a right to a healthy environment",
+                    "title": {
+                      "en": "BIN.B Number of countries with national constitution or legislation recognizing and implementing and monitoring a right to a healthy environment"
+                    },
+                    "shortTitle": {
+                      "en": "BIN.B Number of countries with national constitution or legislation recognizing and implementing and monitoring a right to a healthy environment"
+                    },
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. Possible invalid input."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    }
+  }
+}
