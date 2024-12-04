@@ -1,0 +1,58 @@
+{
+  "paths": {
+    "/index": {
+      "get": {
+        "summary": "Query all results",
+        "description": "Retrieve records by schema query.",
+        "tags": ["Get All resullts"],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "schema_s:nationalReport7"
+            },
+            "description": "Query parameter for searching results based on schema."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of records",
+            "content": {
+              "application/json": {
+                "example": {
+                  "response": {
+                    "numFound": 150,
+                    "start": 0,
+                    "docs": [
+                      {
+                        "uniqueIdentifier_s": "ort-nt7m-pa-271367-1",
+                        "schema_s": "nationalReport7",
+                        "title_s": "Federal Office for the Environment - Biotechnology Section - Nagoya Protocol",
+                        "title_AR_s": "المكتب الفيدرالي للبيئة - قسم التكنولوجيا الحيوية - بروتوكول ناغويا",
+                        "title_EN_s": "Federal Office for the Environment - Biotechnology Section - Nagoya Protocol",
+                        "title_ES_s": "Oficina Federal del Medio Ambiente - Sección de Biotecnología - Protocolo de Nagoya",
+                        "title_FR_s": "Office Fédéral de l'Environnement - Section de Biotechnologie - Protocole de Nagoya",
+                        "schemaType_s": "national",
+                        "government_s": "ht",
+                        "url_ss": [
+                          "https://ort-training.cbd.int/database/record?documentID=265609"
+                        ]
+                      }
+                    ]
+                  },
+                  "nonSupportedParams": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request, possibly due to malformed query parameter"
+          }
+        }
+      }
+    }
+  }
+}
