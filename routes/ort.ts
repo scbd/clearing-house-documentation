@@ -37,6 +37,25 @@ export const recordTypes = [
       },
     ],
   },
+  {
+    text: "NBSap",
+    fullName: "NBSap",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/ort/nbsap/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/ort/nbsap/solr",
+      },
+      {
+        text: "Get",
+        link: "/ort/nbsap/get",
+      },
+    ],
+  },
 ];
 
 export default [
