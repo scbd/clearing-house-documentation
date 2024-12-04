@@ -1,39 +1,39 @@
 export const recordTypes = [
-    {
-        text: "National Target",
-        fullName: "National Target",
-        collapsed: true,
-        items: [
-          {
-            text: "Schema",
-            link: "/ort/nationalTarget7/schema",
-          },
-          {
-            text: "Public Records",
-            link: "/ort/nationalTarget7/solr",
-          },
-          {
-            text: "Get",
-            link: "/ort/nationalTarget7/get",
-          },
-        ],
+  {
+    text: "National Target",
+    fullName: "National Target",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/ort/nationalTarget7/schema",
       },
+      {
+        text: "Public Records",
+        link: "/ort/nationalTarget7/solr",
+      },
+      {
+        text: "Get",
+        link: "/ort/nationalTarget7/get",
+      },
+    ],
+  },
   {
     text: "National Target Mapping",
     fullName: "National Target Mapping",
     collapsed: true,
     items: [
+      {
         text: "Schema",
-      {
         link: "/ort/nationalTargetMapping/schema",
-      {
       },
+      {
         text: "Public Records",
         link: "/ort/nationalTargetMapping/solr",
       },
+      {
         link: "/ort/nationalTargetMapping/get",
         text: "Get",
-      {
       },
     ],
   },
@@ -63,14 +63,14 @@ export default [
       {
         text: "Record Types",
         link: "/ort/record-types",
-  },
-    ],
       },
+    ],
+  },
   {
     text: "General",
     collapsed: true,
-      {
     items: [
+      {
         text: "Document Validations",
         link: "/ort/general/document-validations",
       },
@@ -94,8 +94,8 @@ export default [
         link: "/ort/general/draft-securities",
         text: "Draft Securities",
       },
-        text: "Draft Locks",
       {
+        text: "Draft Locks",
         link: "/ort/general/draft-locks",
       },
     ],
