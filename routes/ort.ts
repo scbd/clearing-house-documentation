@@ -86,6 +86,21 @@ export const recordTypes = [
       },
     ],
   },
+  {
+    text: "NBSap",
+    fullName: "NBSap",
+    collapsed: true,
+    items: [
+      {
+        text: "Public Records",
+        link: "/ort/nbsap/solr",
+      },
+      {
+        text: "Get",
+        link: "/ort/nbsap/get",
+      },
+    ],
+  },
 ];
 
 export default [
@@ -227,6 +242,28 @@ export default [
           {
             text: "GBF Headline Indicators",
             link: "/ort/thesaurus/gbf-headline-indicators",
+          },
+        ],
+      },
+      {
+        text: "NBSap",
+        collapsed: true,
+        items: [
+          {
+            text: "Jurisdictions",
+            link: "/ort/thesaurus/ort-jurisdictions",
+          },
+          {
+            text: "Approved Status",
+            link: "/ort/thesaurus/approved-status",
+          },
+          {
+            text: "Approving Body",
+            link: "/ort/thesaurus/approving-body",
+          },
+          {
+            text: "Report Status",
+            link: "/ort/thesaurus/report-status",
           },
         ],
       },

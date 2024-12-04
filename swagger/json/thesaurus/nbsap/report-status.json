@@ -1,0 +1,49 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Terms API",
+    "version": "1.0.0",
+    "description": "API for fetching term details."
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz",
+      "description": "Development Server"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/7F0D898A-6BF1-4CE6-AA77-7FEAED3429C6/terms": {
+      "get": {
+        "summary": "Get Terms",
+        "description": "Retrieve a list of terms with details.",
+        "responses": {
+          "200": {
+            "description": "A JSON array of terms.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 6609,
+                    "identifier": "9D17F3A2-EC92-4D31-81EF-A12521873D7F",
+                    "name": "Draft",
+                    "title": {
+                      "en": "Draft"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

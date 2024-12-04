@@ -1,0 +1,49 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Terms API",
+    "version": "1.0.0",
+    "description": "API for fetching term details."
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz",
+      "description": "Development Server"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/E27760AB-4F87-4FBB-A8EA-927BDE375B48/terms": {
+      "get": {
+        "summary": "Get Terms",
+        "description": "Retrieve a list of terms with details.",
+        "responses": {
+          "200": {
+            "description": "A JSON array of terms.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 6591,
+                    "identifier": "7AA93315-0F89-4D23-8AA0-0501875AFF34",
+                    "name": "Law",
+                    "title": {
+                      "en": "Law"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
