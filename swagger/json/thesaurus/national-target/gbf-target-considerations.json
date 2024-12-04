@@ -1,0 +1,57 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "GBF Targets Considerations API",
+    "description": "API for fetching GBF Targets Considerations terms and details.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/GBF-TARGETS-CONSIDERATIONS/terms": {
+      "get": {
+        "summary": "Get GBF Targets Considerations Terms",
+        "description": "Fetches a list of terms related to GBF Targets Considerations including their details.",
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of GBF Targets Considerations terms.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 7421,
+                    "identifier": "68E5F053-2067-4638-A741-066AA2196A89",
+                    "name": "Contribution and rights of indigenous peoples and local communities",
+                    "title": {
+                      "en": "Contribution and rights of indigenous peoples and local communities",
+                      "fr": "Contribution et droits des peuples autochtones et des communautés locales"
+                    },
+                    "shortTitle": {},
+                    "description": "Le cadre reconnaît les rôles et contributions importants des peuples autochtones et des communautés locales en tant que gardiens de la biodiversité et partenaires de sa conservation, de son rétablissement et de son utilisation durable. La mise en œuvre du cadre doit garantir que les droits, les connaissances, y compris les connaissances traditionnelles associées à la biodiversité, les innovations, les visions du monde, les valeurs et les pratiques des peuples autochtones et des communautés locales sont respectés, et sont documentés et préservés avec leur consentement libre, préalable et éclairé [1], notamment grâce à leur participation pleine et effective à la prise de décision, conformément à la législation nationale applicable et aux instruments internationaux, y compris la Déclaration des Nations Unies sur les droits des peuples autochtones [2], et au droit relatif aux droits humains. À cet égard, rien dans le présent cadre ne peut être interprété comme réduisant ou supprimant les droits dont jouissent ou pourraient jouir à l'avenir les peuples autochtones ;\n\n***\n\n[1] Dans ce cadre, le consentement libre, préalable et éclairé fait référence à la terminologie tripartite « consentement préalable et éclairé » ou « consentement libre, préalable et éclairé » ou « approbation et participation ».\n[2] A/RES/61/295.\n ",
+                    "longDescription": {
+                      "fr": "Le cadre reconnaît les rôles et contributions importants des peuples autochtones et des communautés locales en tant que gardiens de la biodiversité et partenaires de sa conservation, de son rétablissement et de son utilisation durable. La mise en œuvre du cadre doit garantir que les droits, les connaissances, y compris les connaissances traditionnelles associées à la biodiversité, les innovations, les visions du monde, les valeurs et les pratiques des peuples autochtones et des communautés locales sont respectés, et sont documentés et préservés avec leur consentement libre, préalable et éclairé [1], notamment grâce à leur participation pleine et effective à la prise de décision, conformément à la législation nationale applicable et aux instruments internationaux, y compris la Déclaration des Nations Unies sur les droits des peuples autochtones [2], et au droit relatif aux droits humains. À cet égard, rien dans le présent cadre ne peut être interprété comme réduisant ou supprimant les droits dont jouissent ou pourraient jouir à l'avenir les peuples autochtones ;\n\n***\n\n[1] Dans ce cadre, le consentement libre, préalable et éclairé fait référence à la terminologie tripartite « consentement préalable et éclairé » ou « consentement libre, préalable et éclairé » ou « approbation et participation ».\n[2] A/RES/61/295.\n "
+                    },
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. Possible invalid input."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    }
+  }
+}

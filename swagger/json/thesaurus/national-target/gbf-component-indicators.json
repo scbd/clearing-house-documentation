@@ -1,0 +1,55 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "GBF Component Indicators API",
+    "description": "API for fetching GBF Component Indicators terms and their details.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz",
+      "description": "Development Server"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/GBF-COMPONENT-INDICATORS/terms": {
+      "get": {
+        "summary": "Get GBF Component Indicators Terms",
+        "description": "Fetches a list of terms related to GBF Component Indicators, including their details.",
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of GBF Component Indicators terms.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 7497,
+                    "identifier": "GBF-INDICATOR-110",
+                    "name": "Annual mean levels of fine particulate matter (e.g., PM2.5 and PM10) in cities ",
+                    "title": {
+                      "en": "Annual mean levels of fine particulate matter (e.g., PM2.5 and PM10) in cities "
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. Possible invalid input."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    }
+  }
+}

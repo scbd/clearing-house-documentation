@@ -1,0 +1,62 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "GBF Targets API",
+    "description": "API for fetching GBF Targets terms and details.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/GBF-TARGETS/terms": {
+      "get": {
+        "summary": "Get GBF Targets Terms",
+        "description": "Fetches a list of terms related to GBF Targets including their details.",
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of GBF Targets terms.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 7398,
+                    "identifier": "GBF-TARGET-01",
+                    "name": "GBF-T01. All areas are planned or managed to bring loss of areas of high biodiversity importance close to zero",
+                    "title": {
+                      "en": "GBF-T01. All areas are planned or managed to bring loss of areas of high biodiversity importance close to zero"
+                    },
+                    "shortTitle": {
+                      "en": "GBF-T01. Plan and Manage all Areas To Reduce Biodiversity Loss",
+                      "es": " Someter todas las zonas a planificación y gestión para reducir la pérdida de biodiversidad",
+                      "fr": "GBF-T01. Planifier et gérer toutes les zones afin de réduire la perte de biodiversité"
+                    },
+                    "description": "Ensure that all areas are under participatory, integrated, and biodiversity inclusive spatial planning and/or effective management processes addressing land and sea use change, to bring the loss of areas of high biodiversity importance, including ecosystems of high ecological integrity, close to zero by 2030, while respecting the rights of indigenous peoples and local communities.",
+                    "longDescription": {
+                      "en": "Ensure that all areas are under participatory, integrated, and biodiversity inclusive spatial planning and/or effective management processes addressing land and sea use change, to bring the loss of areas of high biodiversity importance, including ecosystems of high ecological integrity, close to zero by 2030, while respecting the rights of indigenous peoples and local communities.",
+                      "es": "Garantizar que todas las zonas estén sujetas a planificación espacial participativa integrada que tenga en cuenta la biodiversidad y/o procesos de gestión eficaces que aborden el cambio en el uso de la tierra y los océanos, a fin de que la pérdida de zonas de suma importancia para la biodiversidad, incluidos los ecosistemas de gran integridad ecológica, se acerque a cero para 2030, respetando al mismo tiempo los derechos de los pueblos indígenas y las comunidades locales.",
+                      "fr": "Veiller à ce que toutes les zones fassent l'objet d'une planification spatiale participative, intégrée et respectueuse de la biodiversité et/ou soient gérées efficacement dans le cadre de processus de changement d'affectation des terres et des mers, afin de réduire la perte de zones de grande importance pour la biodiversité, y compris d'écosystèmes de grande intégrité écologique, à un niveau proche de zéro d'ici à 2030, dans le respect des droits des peuples autochtones et des communautés locales."
+                    },
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. Possible invalid input."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    }
+  }
+}

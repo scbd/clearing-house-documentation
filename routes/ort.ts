@@ -56,6 +56,21 @@ export const recordTypes = [
       },
     ],
   },
+  {
+    text: "NBSap",
+    fullName: "NBSap",
+    collapsed: true,
+    items: [
+      {
+        text: "Public Records",
+        link: "/ort/nbsap/solr",
+      },
+      {
+        text: "Get",
+        link: "/ort/nbsap/get",
+      },
+    ],
+  },
 ];
 
 export default [
@@ -130,4 +145,66 @@ export default [
     ],
   },
   ...recordTypes,
+  {
+    text: "Thesaurus",
+    collapsed: true,
+    items: [
+      {
+        text: "General",
+        collapsed: true,
+        items: [
+          {
+            text: "Countries",
+            link: "/ort/thesaurus/general/countries",
+          },
+          {
+            text: "Libraries",
+            link: "/ort/thesaurus/general/libraries",
+          },
+          {
+            text: "Regions",
+            link: "/ort/thesaurus/general/regions",
+          },
+          {
+            text: "Other",
+            link: "/ort/thesaurus/general/other",
+          },
+        ],
+      },
+      {
+        text: "National Target",
+        collapsed: true,
+        items: [
+          {
+            text: "GBF Targets",
+            link: "/ort/thesaurus/gbf-targets",
+          },
+          {
+            text: "GBF Goals",
+            link: "/ort/thesaurus/gbf-goals",
+          },
+          {
+            text: "GBF Target Considerations",
+            link: "/ort/thesaurus/gbf-target-considerations",
+          },
+          {
+            text: "GBF Degree of Alignment",
+            link: "/ort/thesaurus/gbf-degree-of-alignment",
+          },
+          {
+            text: "GBF Headline Indicators",
+            link: "/ort/thesaurus/gbf-headline-indicators",
+          },
+          {
+            text: "GBF Component Indicators",
+            link: "/ort/thesaurus/gbf-component-indicators",
+          },
+          {
+            text: "GBF Complementary Indicators",
+            link: "/ort/thesaurus/gbf-complementary-indicators",
+          },
+        ],
+      },
+    ],
+  },
 ];

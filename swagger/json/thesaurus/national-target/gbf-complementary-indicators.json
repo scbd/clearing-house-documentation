@@ -1,0 +1,58 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "GBF Complementary Indicators API",
+    "description": "API for fetching GBF Complementary Indicators terms and their details.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz",
+      "description": "Development Server"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/GBF-COMPLEMENTARY-INDICATORS/terms": {
+      "get": {
+        "summary": "Get GBF Complementary Indicators Terms",
+        "description": "Fetches a list of terms related to GBF Complementary Indicators, including their details.",
+        "operationId": "getGBFComplementaryIndicatorsTerms",
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of GBF Complementary Indicators terms.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 7488,
+                    "identifier": "GBF-INDICATOR-101",
+                    "name": "Above-ground biomass stock in forest (tonnes/ha)",
+                    "title": {
+                      "en": "Above-ground biomass stock in forest (tonnes/ha)"
+                    },
+                    "shortTitle": {
+                      "en": "Above-ground biomass stock in forest (tonnes/ha)"
+                    },
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. Possible invalid input."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    }
+  }
+}
