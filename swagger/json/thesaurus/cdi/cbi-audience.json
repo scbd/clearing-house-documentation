@@ -1,0 +1,52 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Thesaurus Terms API",
+    "description": "API for retrieving terms from the thesaurus domain AFB155C4-93A6-402C-B812-CFC7488ED651.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/AFB155C4-93A6-402C-B812-CFC7488ED651/terms": {
+      "get": {
+        "summary": "Retrieve Thesaurus Terms",
+        "responses": {
+          "200": {
+            "description": "Successful response containing a list of thesaurus terms and their details.",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 7028,
+                    "identifier": "D8862526-B776-4FD2-8C62-6DF9D5E92166",
+                    "name": "Civil society organizations",
+                    "title": {
+                      "en": "Civil society organizations",
+                      "es": "Organizaciones de la sociedad civil",
+                      "fr": "Organisations de la société civile",
+                      "ar": "منظمات المجتمع المدني",
+                      "ru": "Организации гражданского общества",
+                      "zh": "民间社会组织"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Biosafety Policy and Regulation Terms API",
+    "description": "API for accessing biosafety policy and regulation terms, including hierarchical relationships and multilingual titles.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/043C7F0D-2226-4E54-A56F-EE0B74CCC984/terms": {
+      "get": {
+        "summary": "Retrieve Biosafety Policy and Regulation Terms",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 5207,
+                    "identifier": "B18CE475-8D23-4DEC-A9F1-13F0243C9233",
+                    "name": "Biosafety policy and regulation",
+                    "title": {
+                      "en": "Biosafety policy and regulation",
+                      "es": "Políticas y reglamentos sobre seguridad de la biotecnología",
+                      "fr": "Politique et réglementation sur la prévention des risques biotechnologiques",
+                      "ar": "سياسة ولوائح السلامة الأحيائية",
+                      "ru": "Политика и нормативные положения в сфере биобезопасности",
+                      "zh": "生物安全政策和法规"
+                    },
+                    "shortTitle": {},
+                    "description": "",
+                    "longDescription": {},
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [
+                      "E3E3E362-4E46-4C4A-A2A3-EABBDDAA2DEE",
+                      "50D167CC-A994-49E2-8880-E800EF916629",
+                      "8431E752-F266-4823-B3DE-BF7194972FC0",
+                      "1D4567E7-C615-4A49-BD1A-7CF6AD25CC63",
+                      "D49B70BD-0F37-4210-A8BF-0830BBB6FBC6",
+                      "8C1E3A36-665B-4AA9-B3B3-CDDF231EE677",
+                      "80FAE3F3-E18F-409A-B315-4187C0629A75",
+                      "D8C01307-E811-45B3-B975-196AB38FC580",
+                      "2EF48E2B-969C-489B-B1A9-60F3A47EF41D",
+                      "3E6C8E0A-BA06-4178-9E25-09D84084292E",
+                      "AF0A23FB-455E-4707-8B3D-B5B179D1C34B"
+                    ],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "No terms found for the specified domain."
+          }
+        }
+      }
+    }
+  }
+}

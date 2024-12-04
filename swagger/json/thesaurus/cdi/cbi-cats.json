@@ -1,0 +1,59 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "CBD API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz"
+    }
+  ],
+  "paths": {
+    "/api/v2013/thesaurus/domains/579F448B-ECA8-4258-B130-3EAA68056D1F/terms": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "termId": 7048,
+                    "identifier": "FE6EC4EA-55E7-4E90-80AD-FE4B54707B73",
+                    "name": "Experiential learning  (e.g. on-job training, field/study trip, staff exchange, etc.)",
+                    "title": {
+                      "en": "Experiential learning  (e.g. on-job training, field/study trip, staff exchange, etc.)",
+                      "es": "Aprendizaje experiencial (por ej., capacitación en el empleo, viaje al terreno o de estudio; intercambio de personal, etc.)",
+                      "fr": "Apprentissage par l’expérience (par ex. : formation sur un lieu de travail, voyage d’étude/de terrain, échange de personnel, etc)",
+                      "ar": "التعلم التجريبي (على سبيل المثال: التدريب في العمل، رحلة ميدانية/دراسية، تبادل الموظفين، غير ذلك).",
+                      "ru": "Экспериментальное обучение (например, обучение без отрыва от производства, поездка на места/учебная поездка, обмен кадрами и т. д.)",
+                      "zh": "体验式学习（例如在职培训、实地考察、工作人员交流等）"
+                    },
+                    "shortTitle": {},
+                    "description": "Experiential learning involves action learning through hands-on experience, observation, interaction and reflection. This can be  achieved through on-the-job training (e.g. apprenticeships/internships, job-shadowing, mentoring, etc.), study tours, and staff exchange or twinning programmes.",
+                    "longDescription": {
+                      "en": "Experiential learning involves action learning through hands-on experience, observation, interaction and reflection. This can be  achieved through on-the-job training (e.g. apprenticeships/internships, job-shadowing, mentoring, etc.), study tours, and staff exchange or twinning programmes.",
+                      "es": "El aprendizaje experiencial comprende el aprendizaje práctico a través de la experiencia práctica, la observación, la interacción y la reflexión. Puede lograrse mediante la capacitación en el empleo (por ej., aprendizaje/pasantías, aprendizaje por observación, tutorías, etc.), viajes de estudios y programas de intercambio o hermanamiento del personal.",
+                      "fr": "L’apprentissage par expérience implique l’apprentissage par l’expérience pratique, l’observation, l’interaction et la réflexion. Cela peut être réalisé grâce à une formation sur un lieu de travail (par exemple, apprentissage/stages, d’observation en milieu de travail, de mentorat, etc.), des voyages d'études et des sources de co-financement pour des programmes d'échange ou de jumelage d’employés.",
+                      "ar": "يتضمن التعلم التجريبي التعلم التطبيقي العملي من خلال التجربة العملية المباشرة والملاحظة والتفاعل والتأمل. ويمكن تحقيق ذلك من خلال التدريب أثناء العمل (مثل التلمذة/ التدريب الداخلي، والتوجيه الوظيفي، والإرشاد، وما إلى ذلك)، والجولات الدراسية، والموظفين. مصدر (مصادر) التمويل المشترك: برامج التبادل أو التوأمة.",
+                      "ru": "Экспериментальное обучение предусматривает практическое обучение путем изучения опыта работы, наблюдения, взаимодействия и анализа. С этой целью могут организоваться обучение без отрыва от производства (например, производственная практика/стажировка, параллельная профессиональная подготовка, наставничество и т. д.), учебные поездки и программы обмена сотрудниками или партнерства.",
+                      "zh": "体验式学习涉及通过亲身体验、观察、互动和反思的行动式学习。这可以通过在职培训（例如学徒/实习、跟岗实习、辅导等）、考察旅行和员工共同筹资来源：交流或结对计划来实现。"
+                    },
+                    "source": "",
+                    "broaderTerms": [],
+                    "narrowerTerms": [],
+                    "relatedTerms": [],
+                    "nonPreferedTerms": []
+                  }
+                ]
+              }
+            }
+          },
+          "404": {
+            "description": "No terms found for the specified domain."
+          }
+        }
+      }
+    }
+  }
+}

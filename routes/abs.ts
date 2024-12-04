@@ -659,6 +659,56 @@ export default [
           },
         ],
       },
+      {
+        text: "CDI",
+        collapsed: true,
+        items: [
+          {
+            text: "CBI CPB Types",
+            link: "/abs/thesaurus/cdi/cbi-cpb-types",
+          },
+          {
+            text: "CBI Audience",
+            link: "/abs/thesaurus/cdi/cbi-audience",
+          },
+          {
+            text: "Jurisdictions",
+            link: "/abs/thesaurus/cdi/jurisdictions",
+          },
+          {
+            text: "Aichi Targets",
+            link: "/abs/thesaurus/cdi/aichi-targets",
+          },
+          {
+            text: "Key Areas",
+            link: "/abs/thesaurus/cdi/key-areas",
+          },
+          {
+            text: "CBI Status",
+            link: "/abs/thesaurus/cdi/cbi-status",
+          },
+          {
+            text: "CBI Cats",
+            link: "/abs/thesaurus/cdi/cbi-cats",
+          },
+          {
+            text: "CBI Thematic Areas",
+            link: "/abs/thesaurus/cdi/cbi-thematic-areas",
+          },
+          {
+            text: "Regions",
+            link: "/abs/thesaurus/cdi/regions",
+          },
+          {
+            text: "Countries",
+            link: "/abs/thesaurus/cdi/countries",
+          },
+          {
+            text: "CBI Funding Src",
+            link: "/abs/thesaurus/cdi/cbi-funding-src",
+          },
+        ],
+      },
     ],
   },
 ];
