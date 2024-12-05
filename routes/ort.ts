@@ -286,7 +286,7 @@ export default [
           },
           {
             text: "GBF Complementary Indicators",
-            link: "/ort/thesaurus/national-target/gbf-complementary-indicators",
+            link: "/ort/thesaurus/national-report/gbf-complementary-indicators",
           },
           {
             text: "GBF Binary Indicator",
