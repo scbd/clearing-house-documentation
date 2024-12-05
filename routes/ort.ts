@@ -1,5 +1,24 @@
 export const recordTypes = [
   {
+    text: "National-Target",
+    fullName: "National Target Mapping",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/ort/national-target/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/ort/national-target/solr",
+      },
+      {
+        text: "Get",
+        link: "/ort/national-target/get",
+      },
+    ],
+  },
+  {
     text: "National-Target-Mapping",
     fullName: "National Target Mapping",
     collapsed: true,
