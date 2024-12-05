@@ -8,12 +8,12 @@ export default {
   "/abs/": abs,
   "/bch/": bch,
   "/chm/": chm,
-  "/ort/": ort
+  "/ort/": ort,
 };
 
 export const recordTypes = {
   abs: absRecordTypes,
   bch: bchRecordTypes,
   chm: chmRecordTypes,
-  ort: ortRecordTypes
+  ort: ortRecordTypes,
 };

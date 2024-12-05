@@ -1,25 +1,6 @@
 export const recordTypes = [
   {
-    text: "National Target",
-    fullName: "National Target",
-    collapsed: true,
-    items: [
-      {
-        text: "Schema",
-        link: "/ort/nationalTarget7/schema",
-      },
-      {
-        text: "Public Records",
-        link: "/ort/nationalTarget7/solr",
-      },
-      {
-        text: "Get",
-        link: "/ort/nationalTarget7/get",
-      },
-    ],
-  },
-  {
-    text: "National Target Mapping",
+    text: "National-Target-Mapping",
     fullName: "National Target Mapping",
     collapsed: true,
     items: [
@@ -32,8 +13,8 @@ export const recordTypes = [
         link: "/ort/national-target-mapping/solr",
       },
       {
-        link: "/ort/nationalTargetMapping/get",
         text: "Get",
+        link: "/ort/national-target-mapping/get",
       },
     ],
   },
@@ -42,10 +23,6 @@ export const recordTypes = [
     fullName: "NBSap",
     collapsed: true,
     items: [
-      {
-        text: "Schema",
-        link: "/ort/nbsap/schema",
-      },
       {
         text: "Public Records",
         link: "/ort/nbsap/solr",
@@ -57,7 +34,7 @@ export const recordTypes = [
     ],
   },
   {
-    text: "National Report",
+    text: "National-Report",
     fullName: "National Report",
     collapsed: true,
     items: [
@@ -76,55 +53,21 @@ export const recordTypes = [
     ],
   },
   {
-    text: "NBSap",
-    fullName: "NBSap",
-    collapsed: true,
-    items: [
-      {
-        text: "Public Records",
-        link: "/ort/nbsap/solr",
-      },
-      {
-        text: "Get",
-        link: "/ort/nbsap/get",
-      },
-    ],
-  },
-  {
-    text: "National Report",
-    fullName: "National Report",
+    text: "National-Report-Indicator-Data",
+    fullName: "National Report Indicator Data",
     collapsed: true,
     items: [
       {
         text: "Schema",
-        link: "/ort/nationalReport/schema",
+        link: "/ort/national-report-indicator-data/schema",
       },
       {
         text: "Public Records",
-        link: "/ort/national-report/solr",
+        link: "/ort/national-report-indicator-data/solr",
       },
       {
         text: "Get",
-        link: "/ort/national-report/get",
-      },
-    ],
-  },
-  {
-    text: "National Report",
-    fullName: "National Report",
-    collapsed: true,
-    items: [
-      {
-        text: "Schema",
-        link: "/ort/nationalReport/schema",
-      },
-      {
-        text: "Public Records",
-        link: "/ort/nationalReport/solr",
-      },
-      {
-        text: "Get",
-        link: "/ort/nationalReport/get",
+        link: "/ort/national-report-indicator-data/get",
       },
     ],
   },
@@ -201,8 +144,8 @@ export default [
         link: "/ort/general/drafts",
       },
       {
-        link: "/ort/general/draft-securities",
         text: "Draft Securities",
+        link: "/ort/general/draft-securities",
       },
       {
         text: "Draft Locks",
@@ -314,34 +257,40 @@ export default [
         ],
       },
       {
-        text: "National Target Mapping",
+        text: "National Report",
         collapsed: true,
         items: [
+          {
+            text: "Stakeholders",
+            link: "/ort/thesaurus/national-report/stakeholders",
+          },
+          {
+            text: "Policy Instruments",
+            link: "/ort/thesaurus/national-report/policy-instruments",
+          },
+          {
+            text: "Assessment Progress",
+            link: "/ort/thesaurus/national-report/assessment-progress",
+          },
+          {
+            text: "GBF Goals",
+            link: "/ort/thesaurus/national-report/gbf-goals",
+          },
           {
             text: "GBF Headline Indicators",
-            link: "/ort/thesaurus/gbf-headline-indicators",
-          },
-        ],
-      },
-      {
-        text: "NBSap",
-        collapsed: true,
-        items: [
-          {
-            text: "Jurisdictions",
-            link: "/ort/thesaurus/nbsap/ort-jurisdictions",
+            link: "/ort/thesaurus/national-report/gbf-headline-indicators",
           },
           {
-            text: "Approved Status",
-            link: "/ort/thesaurus/nbsap/approved-status",
+            text: "GBF Component Indicators",
+            link: "/ort/thesaurus/national-report/gbf-component-indicators",
           },
           {
-            text: "Approving Body",
-            link: "/ort/thesaurus/nbsap/approving-body",
+            text: "GBF Complementary Indicators",
+            link: "/ort/thesaurus/national-report/gbf-complementary-indicators",
           },
           {
-            text: "Report Status",
-            link: "/ort/thesaurus/nbsap/report-status",
+            text: "GBF Binary Indicator",
+            link: "/ort/thesaurus/national-report/gbf-binary-indicator",
           },
         ],
       },

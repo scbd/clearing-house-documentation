@@ -1,0 +1,69 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+      "title": "Assessment Policy Indicators API",
+      "description": "API for fetching Assessment Policy Indicators terms and their details.",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "https://api.cbddev.xyz",
+        "description": "Development Server"
+      }
+    ],
+    "paths": {
+      "/api/v2013/thesaurus/domains/EF99BEFD-5070-41C4-91F0-C051B338EEA6/terms": {
+        "get": {
+          "summary": "Get Assessment Policy Indicators Terms",
+          "description": "Fetches a list of terms related to Assessment Policy Indicators, including their details.",
+          "operationId": "getGBFComplementaryIndicatorsTerms",
+          "responses": {
+            "200": {
+              "description": "Successful response with a list of Assessment Policy Indicators terms.",
+              "content": {
+                "application/json": {
+                  "example": [
+                    {
+                        "termId": 6601,
+                        "identifier": "884D8D8C-F2AE-4AAC-82E3-5B73CE627D45",
+                        "name": "On track to exceed target",
+                        "title": {
+                            "en": "On track to exceed target",
+                            "es": "Bien encaminados para superar la meta",
+                            "fr": "En voie de dépasser l’objectif",
+                            "ar": "على المسار الصحيح لتجاوز الهدف",
+                            "ru": "Курс на превышение целевой задачи",
+                            "zh": "有望超越指标"
+                        },
+                        "shortTitle": {},
+                        "description": "Check this box if the national measures taken will allow for the criteria/thresholds established by the target to be exceeded by the target deadline. In the case of those targets with quantitative elements, this would mean that the identified threshold would be surpassed. In the case of qualitative targets, this would mean that the actions or conditions required to be met have been surpassed.",
+                        "longDescription": {
+                            "en": "Check this box if the national measures taken will allow for the criteria/thresholds established by the target to be exceeded by the target deadline. In the case of those targets with quantitative elements, this would mean that the identified threshold would be surpassed. In the case of qualitative targets, this would mean that the actions or conditions required to be met have been surpassed.",
+                            "es": "Marque esta casilla si las medidas tomadas en el plano nacional permitirán superar los criterios o umbrales establecidos por la meta dentro del plazo fijado para su cumplimiento. En el caso de metas con elementos cuantitativos, esto implica que se superará el umbral determinado. En el caso de metas cualitativas, implicará que se superaron las medidas o condiciones que debían cumplirse.",
+                            "fr": "Veuillez cocher cette case si les mesures nationales prises mèneront au dépassement de l’objectif/critère fixé par l’objectif  à l’échéance. Cela pourrait signifier un dépassement possible des seuils définis, dans le cas des objectifs quantitatifs, ou que les actions ou les conditions requises devant être réalisées ont été dépassées, dans le cas d’objectifs qualitatifs. ",
+                            "ar": "ضع علامة في هذه الخانة إذا كانت التدابير المتخذة على الصعيد الوطني ستسمح للمعايير/ قياس العتبة التي وضعها الهدف بأن تتجاوز الموعد النهائي المستهدف. وفي حالة تلك الأهداف مع العناصر الكمية، فإن هذا يعني أن قياس العتبة التي تم تحديدها سيتم تجاوزه. وفي حالة الأهداف النوعية، فإن هذا يعني أن الإجراءات أو الشروط اللازمة لتحقيقها قد تم تجاوزها.",
+                            "ru": "Просьба отметить \"галочкой\" это окно, если мера принятые национальные меры обеспечат превышение критериев/пороговых уровней, установленных в целевой задаче, к намеченному предельному сроку. В случае целевых задач с количественными элементами это будет означать, что намеченный пороговый уровень будет превышен. В случае качественных целевых задач это будет означать, что реализация необходимых мер или условий осуществляется успешней, чем предполагалось. ",
+                            "zh": "如果所采取的国家措施将使得该指标所设定的标准/门槛在该指标最后期限之前被超越，请勾选此框。就内含定量要素的指标而言，这将意味着已确定的门槛将被超过。就定性指标而言，这将意味着需要得到满足的行动或条件已经被超越。 "
+                        },
+                        "source": "",
+                        "broaderTerms": [],
+                        "narrowerTerms": [],
+                        "relatedTerms": [],
+                        "nonPreferedTerms": []
+                    }
+                  ]
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request. Possible invalid input."
+            },
+            "500": {
+              "description": "Internal server error."
+            }
+          }
+        }
+      }
+    }
+  }
+  

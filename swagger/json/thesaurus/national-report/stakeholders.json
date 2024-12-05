@@ -1,0 +1,62 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+      "title": "Stakeholders Indicators API",
+      "description": "API for fetching Stakeholders Indicators terms and their details.",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "https://api.cbddev.xyz",
+        "description": "Development Server"
+      }
+    ],
+    "paths": {
+      "/api/v2013/thesaurus/domains/5C948D98-B7CC-4755-A767-3A4B9607DE52/terms": {
+        "get": {
+          "summary": "Get Stakeholders Indicators Terms",
+          "description": "Fetches a list of terms related to Stakeholders Indicators, including their details.",
+          "operationId": "getGBFComplementaryIndicatorsTerms",
+          "responses": {
+            "200": {
+              "description": "Successful response with a list of Stakeholders Indicators terms.",
+              "content": {
+                "application/json": {
+                  "example": [
+                    {
+                        "termId": 7390,
+                        "identifier": "EC872EB8-02B0-46E7-AAB0-C79AC629356A",
+                        "name": "Indigenous peoples and local communities (IPLC)",
+                        "title": {
+                            "en": "Indigenous peoples and local communities (IPLC)",
+                            "es": "Pueblos indígenas y comunidades locales (PICL)",
+                            "fr": "Peuples autochtones et communautés locales (PACL)",
+                            "ar": "الذعوب األصلية والمجتمعات المحلية",
+                            "ru": "коренные народы и местные общины (КНМО)",
+                            "zh": "土著人民和地方社区"
+                        },
+                        "shortTitle": {},
+                        "description": "",
+                        "longDescription": {},
+                        "source": "",
+                        "broaderTerms": [],
+                        "narrowerTerms": [],
+                        "relatedTerms": [],
+                        "nonPreferedTerms": []
+                    }
+                  ]
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request. Possible invalid input."
+            },
+            "500": {
+              "description": "Internal server error."
+            }
+          }
+        }
+      }
+    }
+  }
+  
