@@ -57,66 +57,6 @@ export const recordTypes = [
     ],
   },
   {
-    text: "NBSap",
-    fullName: "NBSap",
-    collapsed: true,
-    items: [
-      {
-        text: "Public Records",
-        link: "/ort/nbsap/solr",
-      },
-      {
-        text: "Get",
-        link: "/ort/nbsap/get",
-      },
-    ],
-  },
-  {
-    text: "NBSap",
-    fullName: "NBSap",
-    collapsed: true,
-    items: [
-      {
-        text: "Public Records",
-        link: "/ort/nbsap/solr",
-      },
-      {
-        text: "Get",
-        link: "/ort/nbsap/get",
-      },
-    ],
-  },
-  {
-    text: "NBSap",
-    fullName: "NBSap",
-    collapsed: true,
-    items: [
-      {
-        text: "Public Records",
-        link: "/ort/nbsap/solr",
-      },
-      {
-        text: "Get",
-        link: "/ort/nbsap/get",
-      },
-    ],
-  },
-  {
-    text: "NBSap",
-    fullName: "NBSap",
-    collapsed: true,
-    items: [
-      {
-        text: "Public Records",
-        link: "/ort/nbsap/solr",
-      },
-      {
-        text: "Get",
-        link: "/ort/nbsap/get",
-      },
-    ],
-  },
-  {
     text: "National Report",
     fullName: "National Report",
     collapsed: true,
@@ -161,11 +101,49 @@ export const recordTypes = [
       },
       {
         text: "Public Records",
+        link: "/ort/national-report/solr",
+      },
+      {
+        text: "Get",
+        link: "/ort/national-report/get",
+      },
+    ],
+  },
+  {
+    text: "National Report",
+    fullName: "National Report",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/ort/nationalReport/schema",
+      },
+      {
+        text: "Public Records",
         link: "/ort/nationalReport/solr",
       },
       {
         text: "Get",
         link: "/ort/nationalReport/get",
+      },
+    ],
+  },
+  {
+    text: "National-Report-Binary-Indicator-Data",
+    fullName: "National Report Binary Indicator Data",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/ort/national-report-binary-indicator-data/schema",
+      },
+      {
+        text: "Public Records",
+        link: "/ort/national-report-binary-indicator-data/solr",
+      },
+      {
+        text: "Get",
+        link: "/ort/national-report-binary-indicator-data/get",
       },
     ],
   },
@@ -310,6 +288,38 @@ export default [
           {
             text: "GBF Headline Indicators",
             link: "/ort/thesaurus/national-target-mapping/gbf-headline-indicators",
+          },
+        ],
+      },
+      {
+        text: "NBSap",
+        collapsed: true,
+        items: [
+          {
+            text: "Jurisdictions",
+            link: "/ort/thesaurus/nbsap/ort-jurisdictions",
+          },
+          {
+            text: "Approved Status",
+            link: "/ort/thesaurus/nbsap/approved-status",
+          },
+          {
+            text: "Approving Body",
+            link: "/ort/thesaurus/nbsap/approving-body",
+          },
+          {
+            text: "Report Status",
+            link: "/ort/thesaurus/nbsap/report-status",
+          },
+        ],
+      },
+      {
+        text: "National Target Mapping",
+        collapsed: true,
+        items: [
+          {
+            text: "GBF Headline Indicators",
+            link: "/ort/thesaurus/gbf-headline-indicators",
           },
         ],
       },

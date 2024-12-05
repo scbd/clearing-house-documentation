@@ -1,0 +1,88 @@
+{
+  "paths": {
+    "/index": {
+      "get": {
+        "summary": "Query Solr index",
+        "description": "Load information from Solr index.",
+        "tags": ["Get all result with query"],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "schema_s:nationalReport7BinaryIndicatorData"
+            },
+            "description": "Query parameter for searching records based on schema."
+          },
+          {
+            "name": "fl",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Fields to return in the search results. Use comma-separated field names to specify which fields should be included in the response."
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Specifies the sort order of the results. The format is fieldname desc for descending or fieldname asc for ascending."
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The starting offset for the results. This parameter allows pagination by specifying the index of the first result to return."
+          },
+          {
+            "name": "rows",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The number of results to return. Default value is 10 if not specified.",
+            "default": "10"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "response": {
+                    "numFound": 25,
+                    "start": 0,
+                    "docs": [
+                      {
+                        "uniqueIdentifier_s": "ort-nr7bid-ht-267934-2",
+                        "schema_s": "nationalReport7BinaryIndicatorData",
+                        "title_s": "Federal Office for the Environment - Biotechnology Section - Nagoya Protocol",
+                        "title_AR_s": "المكتب الفيدرالي للبيئة - قسم التكنولوجيا الحيوية - بروتوكول ناغويا",
+                        "title_EN_s": "Federal Office for the Environment - Biotechnology Section - Nagoya Protocol",
+                        "title_ES_s": "Oficina Federal del Medio Ambiente - Sección de Biotecnología - Protocolo de Nagoya",
+                        "title_FR_s": "Office Fédéral de l'Environnement - Section de Biotechnologie - Protocole de Nagoya",
+                        "schemaType_s": "national",
+                        "government_s": "ht",
+                        "url_ss": [
+                          "https://ort.cbddev.xyz/database/record?documentID=267934"
+                        ]
+                      }
+                    ]
+                  },
+                  "nonSupportedParams": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
