@@ -286,11 +286,21 @@ export default [
           },
           {
             text: "GBF Complementary Indicators",
-            link: "/ort/thesaurus/national-report/gbf-complementary-indicators",
+            link: "/ort/thesaurus/national-target/gbf-complementary-indicators",
           },
           {
             text: "GBF Binary Indicator",
             link: "/ort/thesaurus/national-report/gbf-binary-indicator",
+          },
+        ],
+      },
+      {
+        text: "National Report Indicator Data",
+        collapsed: true,
+        items: [
+          {
+            text: "GBF Headline Indicators",
+            link: "/ort/thesaurus/national-report-indicator-data/gbf-headline-indicators",
           },
         ],
       },
