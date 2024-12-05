@@ -57,66 +57,6 @@ export const recordTypes = [
     ],
   },
   {
-    text: "NBSap",
-    fullName: "NBSap",
-    collapsed: true,
-    items: [
-      {
-        text: "Public Records",
-        link: "/ort/nbsap/solr",
-      },
-      {
-        text: "Get",
-        link: "/ort/nbsap/get",
-      },
-    ],
-  },
-  {
-    text: "NBSap",
-    fullName: "NBSap",
-    collapsed: true,
-    items: [
-      {
-        text: "Public Records",
-        link: "/ort/nbsap/solr",
-      },
-      {
-        text: "Get",
-        link: "/ort/nbsap/get",
-      },
-    ],
-  },
-  {
-    text: "NBSap",
-    fullName: "NBSap",
-    collapsed: true,
-    items: [
-      {
-        text: "Public Records",
-        link: "/ort/nbsap/solr",
-      },
-      {
-        text: "Get",
-        link: "/ort/nbsap/get",
-      },
-    ],
-  },
-  {
-    text: "NBSap",
-    fullName: "NBSap",
-    collapsed: true,
-    items: [
-      {
-        text: "Public Records",
-        link: "/ort/nbsap/solr",
-      },
-      {
-        text: "Get",
-        link: "/ort/nbsap/get",
-      },
-    ],
-  },
-  {
     text: "National Report",
     fullName: "National Report",
     collapsed: true,
@@ -166,21 +106,6 @@ export const recordTypes = [
       {
         text: "Get",
         link: "/ort/national-report/get",
-      },
-    ],
-  },
-  {
-    text: "NBSap",
-    fullName: "NBSap",
-    collapsed: true,
-    items: [
-      {
-        text: "Public Records",
-        link: "/ort/nbsap/solr",
-      },
-      {
-        text: "Get",
-        link: "/ort/nbsap/get",
       },
     ],
   },
