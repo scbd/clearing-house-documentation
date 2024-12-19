@@ -1,3 +1,22 @@
+<script>
+import { onMounted } from "vue";
+import { getClearingHouseFromUrl } from "@/utils/helpers"
+
+export default {
+  setup() {
+    onMounted(() => {
+      const anchors = document.querySelectorAll("td a");
+
+      anchors.forEach((anchor) => {
+        const href = anchor.getAttribute("href"); 
+        const newHref = `/${getClearingHouseFromUrl(location.href)}` + href; 
+        anchor.setAttribute("href", newHref);
+      });
+    });
+  },
+};
+</script>
+
 <table class="schema-table" style="table-layout: fixed; width: 100%;">
   <thead>
     <tr>
@@ -13,21 +32,21 @@
       <td></td>
       <td>header</td>
       <td></td>
-      <td>Eheader</td>
+      <td>Header</td>
       <td><code>{ "identifier": "2229F37D-F8E0-2FFE-4F47-E7452BF3FE48", "schema": "measure", "languages": [ "en" ] }</code></td>
     </tr>
     <tr>
       <td><strong><a href="/abs/thesaurus/general/countries">Country</a></strong></td>
       <td>government</td>
       <td>True</td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>{ "identifier": "af" }</code></td>
     </tr>
     <tr>
       <td></td>
       <td>libraries</td>
       <td></td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td></td>
     </tr>
     <tr>
@@ -48,21 +67,21 @@
       <td><strong><a href="/thesaurus/measure/type-of-documents">Type of document/measure</a></strong></td>
       <td>type</td>
       <td>True</td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>{ "identifier": "8165BF22-EEF0-4DF8-B3F2-8E0AEED13E2F" }</code></td>
     </tr>
     <tr>
       <td><strong><a href="/thesaurus/measure/jurisdictions">Area of jurisdiction</a></strong></td>
       <td>jurisdiction</td>
       <td>True</td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>{ "identifier": "7437F880-7B12-4F26-AA91-CED37250DD0A" }</code></td>
     </tr>
     <tr>
       <td>Country name(s) and/or Geographical or political/economic group(s)</td>
       <td>jurisdictionRegions</td>
       <td></td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td><code>{ "identifier": "7437F880-7B12-4F26-AA91-CED37250DD0A" }</code></td>
     </tr>
     <tr>
@@ -76,21 +95,21 @@
       <td>Document text (in its original language)</td>
       <td>documents</td>
       <td>True</td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
     <tr>
       <td>Translation in one of the official UN languages</td>
       <td>documentTranslations</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
     <tr>
       <td><strong><a href="/thesaurus/measure/statuses">Legal status of the measure</a></strong></td>
       <td>status</td>
       <td></td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>{ "identifier": "97D6C7E6-5EAD-48B2-BD8D-DAB77153FF9C" }</code></td>
     </tr>
     <tr>
@@ -125,7 +144,7 @@
       <td>List of amended measures</td>
       <td>amendedMeasures</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "26C9AAD9-3CAC-6FF4-C682-B9CA7858AE78@2" } ]</code></td>
     </tr>
     <tr>
@@ -139,7 +158,7 @@
       <td>Relationship with other measures</td>
       <td>linkedMeasures</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "A3722021-0CC0-B195-75BE-954F133FF78B@1" } ]</code></td>
     </tr>
     <tr>
@@ -153,7 +172,7 @@
       <td>Contact Institution</td>
       <td>authorities</td>
       <td>True</td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "DECLARE-ORGANISATION_13674_20240902135135254@1" } ]</code></td>
     </tr>
     <tr>
@@ -167,7 +186,7 @@
       <td></td>
       <td>otherDocuments</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td></td>
     </tr>
     <tr>
@@ -181,14 +200,14 @@
       <td>Any other relevant documents</td>
       <td>relevantDocuments</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
     <tr>
       <td>Elements of the measure</td>
       <td>absMeasures</td>
       <td>True</td>
-      <td>EAbsMeasure</td>
+      <td>AbsMeasure</td>
       <td><code>{ "geneticResources": { "answer": True, "elements": [ { "types": [ { "identifier": "4E2974DF-216E-46C8-8797-8E3A33D6A048" }, { "identifier": "9C146B09-097E-4CFF-B9CC-D4785496952F" }, { "identifier": "357DBB22-6A6C-4C49-BA1F-037320B09247" }, { "identifier": "http://data.gbif.org/species/13140807" }, { "identifier": "33A6BF46-3699-4B5E-A3C0-506FAFDA2D76" }, { "identifier": "F9EF6F94-8B39-4F08-BF68-B991157F2643" } ] } ] }, "traditionalKnowledge": { "answer": True, "elements": [] } }</code></td>
     </tr>
     <tr>

@@ -1,3 +1,22 @@
+<script>
+import { onMounted } from "vue";
+import { getClearingHouseFromUrl } from "@/utils/helpers"
+
+export default {
+  setup() {
+    onMounted(() => {
+      const anchors = document.querySelectorAll("td a");
+
+      anchors.forEach((anchor) => {
+        const href = anchor.getAttribute("href"); 
+        const newHref = `/${getClearingHouseFromUrl(location.href)}` + href; 
+        anchor.setAttribute("href", newHref);
+      });
+    });
+  },
+};
+</script>
+
 <table class="schema-table" style="table-layout: fixed; width: 100%;">
     <thead>
         <tr>
@@ -13,14 +32,14 @@
             <td></td>
             <td>header</td>
             <td></td>
-            <td>Eheader</td>
+            <td>Header</td>
             <td><code>{ "identifier": "A48DBA58-485D-F2EB-1EB7-D5FF950BDD26", "schema": "database", "languages": [ "en" ] }</code></td>
         </tr>
         <tr>
             <td>Country</td>
             <td>government</td>
             <td>True</td>
-            <td>Eterm</td>
+            <td>Term</td>
             <td><code>{ "identifier": "af" }</code></td>
         </tr>
         <tr>
@@ -41,7 +60,7 @@
             <td>Website address</td>
             <td>websites</td>
             <td>True</td>
-            <td>Elink[]</td>
+            <td>Link[]</td>
             <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
         </tr>
         <tr>
@@ -55,7 +74,7 @@
             <td>Any other relevant documents</td>
             <td>relevantDocuments</td>
             <td></td>
-            <td>Elink[]</td>
+            <td>Link[]</td>
             <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
         </tr>
     </tbody>

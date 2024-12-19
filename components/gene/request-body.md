@@ -1,3 +1,22 @@
+<script>
+import { onMounted } from "vue";
+import { getClearingHouseFromUrl } from "@/utils/helpers"
+
+export default {
+  setup() {
+    onMounted(() => {
+      const anchors = document.querySelectorAll("td a");
+
+      anchors.forEach((anchor) => {
+        const href = anchor.getAttribute("href"); 
+        const newHref = `/${getClearingHouseFromUrl(location.href)}` + href; 
+        anchor.setAttribute("href", newHref);
+      });
+    });
+  },
+};
+</script>
+
 <table class="schema-table" style="table-layout: fixed; width: 100%;">
     <thead>
         <tr>
@@ -13,7 +32,7 @@
             <td></td>
             <td>header</td>
             <td></td>
-            <td>Eheader</td>
+            <td>Header</td>
             <td><code>{ "identifier": "235A8B00-A995-5F7A-E827-FCC588C49C20", "schema": "dnaSequence", "languages": ["en"] }</code></td>
         </tr>
         <tr>
@@ -41,7 +60,7 @@
             <td>Category</td>
             <td>family</td>
             <td>True</td>
-            <td>Eterm</td>
+            <td>Term</td>
             <td><code>{ "identifier": "1ECB698D-3F3D-41BC-BEBD-DD5C734BCDCF" }</code></td>
         </tr>
         <tr>
@@ -55,7 +74,7 @@
             <td>Donor organism(s)</td>
             <td>donorOrganisms</td>
             <td></td>
-            <td>Ereference[]</td>
+            <td>Reference[]</td>
             <td><code>[{ "identifier": "50D6389D-5F07-2343-ABB1-E7CE26AFADCA@5" }]</code></td>
         </tr>
         <tr>
@@ -69,7 +88,7 @@
             <td>Geographic coordinates</td>
             <td>gisFiles</td>
             <td></td>
-            <td>Elink[]</td>
+            <td>Link[]</td>
             <td><code>[{ "url": "https://www.google.com", "name": "Google", "language": "en" }]</code></td>
         </tr>
         <tr>
@@ -90,7 +109,7 @@
             <td>Related trait(s) or use(s) in biotechnology</td>
             <td>traits</td>
             <td></td>
-            <td>Eterm[]</td>
+            <td>Term[]</td>
             <td><code>[{ "identifier": "5B6177DD-5E5E-434E-8CB7-D63D67D5EBED", "customValue": { "en": "Test Information" } }, { "identifier": "81799D15-669E-4346-9AEC-6834893D2BE4" }]</code></td>
         </tr>
         <tr>
@@ -104,7 +123,7 @@
             <td>Any other relevant documents</td>
             <td>relevantDocuments</td>
             <td></td>
-            <td>Elink[]</td>
+            <td>Link[]</td>
             <td><code>[{ "url": "https://www.google.com", "name": "Google", "language": "en" }]</code></td>
         </tr>
     </tbody>

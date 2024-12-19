@@ -1,13 +1,13 @@
 # Custom Types
 
-## ETerm
+## Term
 
 | Type       | Variable     |
 |------------|--------------|
 | `string`   | `identifier` |
 | `lstring`  | `customValue`|
 
-## EHeader
+## Header
 
 | Type        | Variable   |
 |-------------|------------|
@@ -15,13 +15,13 @@
 | `string`    | `schema`    |
 | `string[]`  | `languages` |
 
-## EReference
+## Reference
 
 | Type       | Variable     |
 |------------|--------------|
 | `string`   | `identifier` |
 
-## ELink
+## Link
 
 | Type       | Variable     |
 |------------|--------------|
@@ -35,7 +35,7 @@
 |----------------------------------|--------------|
 | `SortedList<string, string>`     | `mValues`    |
 
-## EAssessment
+## Assessment
 
 | Type       | Variable        |
 |------------|-----------------|
@@ -43,7 +43,7 @@
 | `string`   | `level`         |
 | `lstring`  | `justification` |
 
-## EMapLocation
+## MapLocation
 
 | Type       | Variable     |
 |------------|--------------|
@@ -62,8 +62,8 @@
 
 | Type       | Variable     |
 |------------|--------------|
-| `ETerm[]`      | `types`    | 
-| `ETerm[]`   | `areas`      | 
+| `Term[]`      | `types`    | 
+| `Term[]`   | `areas`      | 
 | `lstring`   | `section`      | 
 
 
@@ -75,7 +75,7 @@
 | `EGeneticResourceElements[]`   | `elements`      | 
 
 
-## EAbsMeasure
+## AbsMeasure
 
 | Type       | Variable     |
 |------------|--------------|
