@@ -1,3 +1,22 @@
+<script>
+import { onMounted } from "vue";
+import { getClearingHouseFromUrl } from "@/utils/helpers"
+
+export default {
+  setup() {
+    onMounted(() => {
+      const anchors = document.querySelectorAll("td a");
+
+      anchors.forEach((anchor) => {
+        const href = anchor.getAttribute("href"); 
+        const newHref = `/${getClearingHouseFromUrl(location.href)}` + href; 
+        anchor.setAttribute("href", newHref);
+      });
+    });
+  },
+};
+</script>
+
 <table class="schema-table" style="table-layout: fixed; width: 100%;">
   <thead>
     <tr>
@@ -13,14 +32,14 @@
       <td></td>
       <td>header</td>
       <td></td>
-      <td>Eheader</td>
+      <td>Header</td>
       <td><code>{ "identifier": "6BF5D309-6964-1993-0369-F3309CB48BB0", "schema": "absCheckpoint", "languages": ["en"] }</code></td>
     </tr>
     <tr>
       <td>Country</td>
       <td>government</td>
       <td></td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>{ "identifier": "us" }</code></td>
     </tr>
     <tr>
@@ -41,7 +60,7 @@
       <td>Area of jurisdiction:</td>
       <td>jurisdiction</td>
       <td></td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>{ "identifier": "7437F880-7B12-4F26-AA91-CED37250DD0A" }</code></td>
     </tr>
     <tr>
@@ -62,7 +81,7 @@
       <td>Please select any national authorities whom you wish to send a copy of the communiqué</td>
       <td>contactsToInform</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "DECLARE-ORGANISATION_13394_20240830135408832@1" } ]</code></td>
     </tr>
     <tr>
@@ -76,7 +95,7 @@
       <td>Other relevant website addresses and/or attached documents</td>
       <td>relevantDocuments</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
   </tbody>

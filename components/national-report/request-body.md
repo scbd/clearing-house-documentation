@@ -1,3 +1,22 @@
+<script>
+import { onMounted } from "vue";
+import { getClearingHouseFromUrl } from "@/utils/helpers"
+
+export default {
+  setup() {
+    onMounted(() => {
+      const anchors = document.querySelectorAll("td a");
+
+      anchors.forEach((anchor) => {
+        const href = anchor.getAttribute("href"); 
+        const newHref = `/${getClearingHouseFromUrl(location.href)}` + href; 
+        anchor.setAttribute("href", newHref);
+      });
+    });
+  },
+};
+</script>
+
 <table class="schema-table" style="table-layout: fixed; width: 100%;">
   <thead>
     <tr>
@@ -13,14 +32,14 @@
       <td></td>
       <td>header</td>
       <td></td>
-      <td>Eheader</td>
+      <td>Header</td>
       <td><code>{ "schema": "nationalTarget7", "identifier": "E285E271-3CD8-B8BB-3385-FAFA6E88F16B", "languages": ["en", "ab"] }</code></td>
     </tr>
     <tr>
       <td>Welcome to your country's ({government}) 7th National Report overview. Please select an option to proceed.</td>
       <td>government</td>
       <td>True</td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>{ "identifier": "af" }</code></td>
     </tr>
     <tr>
@@ -69,7 +88,7 @@
       <td>Stakeholders</td>
       <td>stakeholders</td>
       <td></td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td><code>[{ "identifier": "EC872EB8-02B0-46E7-AAB0-C79AC629356A" }]</code></td>
     </tr>
     <tr>
@@ -90,7 +109,7 @@
       <td>Please indicate the type of policy instrument your country's revised or updated NBSAPs has been adopted as</td>
       <td>policyInstrument</td>
       <td></td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>{ "identifier": "14FB02A6-46FB-4932-9F42-630416271B3A" }</code></td>
     </tr>
     <tr>
@@ -111,7 +130,7 @@
       <td></td>
       <td>target</td>
       <td></td>
-      <td>Ereference</td>
+      <td>Reference</td>
       <td><code>[{ "identifier": "DECLARE-ORGANISATION_19584_20241007134350919@1" }]</code></td>
     </tr>
     <tr>
@@ -125,7 +144,7 @@
       <td>Please indicate the current level of progress towards this national target</td>
       <td>levelOfProgress</td>
       <td></td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>[{ "identifier": "ao" }, { "identifier": "A23DD6C0-44C5-418D-83B5-461D79D2721A" }]</code></td>
     </tr>
     <tr>
@@ -139,7 +158,7 @@
       <td></td>
       <td>data</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[{ "identifier": "SIMP-A1D0D0A8-65B1-B8D5-FF9F-B7B6B95CDDEB@1" }]</code></td>
     </tr>
     <tr>
@@ -174,7 +193,7 @@
       <td></td>
       <td>gbfGoal</td>
       <td></td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>[{ "identifier": "ao" }, { "identifier": "A23DD6C0-44C5-418D-83B5-461D79D2721A" }]</code></td>
     </tr>
     <tr>
@@ -223,7 +242,7 @@
       <td>Additional Documents</td>
       <td>additionalDocuments</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td>
         <code>[
         {
@@ -238,7 +257,7 @@
       <td>Attachments</td>
       <td>attachments</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td>
         <code>[
         {

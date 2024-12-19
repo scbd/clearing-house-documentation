@@ -1,3 +1,22 @@
+<script>
+import { onMounted } from "vue";
+import { getClearingHouseFromUrl } from "@/utils/helpers"
+
+export default {
+  setup() {
+    onMounted(() => {
+      const anchors = document.querySelectorAll("td a");
+
+      anchors.forEach((anchor) => {
+        const href = anchor.getAttribute("href"); 
+        const newHref = `/${getClearingHouseFromUrl(location.href)}` + href; 
+        anchor.setAttribute("href", newHref);
+      });
+    });
+  },
+};
+</script>
+
 <table class="schema-table" style="table-layout: fixed; width: 100%;">
   <thead>
     <tr>
@@ -13,7 +32,7 @@
       <td></td>
       <td>header</td>
       <td></td>
-      <td>Eheader</td>
+      <td>Header</td>
       <td><code>{ "identifier": "C7907DF4-C69A-A586-6C15-D95E3E703FFC", "schema": "organization", "languages": [ "en" ] }</code></td>
     </tr>
     <tr>
@@ -34,14 +53,14 @@
       <td>Contact person(s)</td>
       <td>contacts</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "SIMP-A1D0D0A8-65B1-B8D5-FF9F-B7B6B95CDDEB@1" } ]</code></td>
     </tr>
     <tr>
       <td>Linked organizations</td>
       <td>linkedOrganizations</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "1767A775-F4F9-B597-41AC-CE56536F28F5@2" } ]</code></td>
     </tr>
     <tr>
@@ -76,7 +95,7 @@
       <td>Country</td>
       <td>country</td>
       <td>True</td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>{ "identifier": "af" }</code></td>
     </tr>
     <tr>
@@ -104,35 +123,35 @@
       <td>Website address(es)</td>
       <td>websites</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
     <tr>
       <td></td>
       <td>libraries</td>
       <td></td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td></td>
     </tr>
     <tr>
       <td>Type of organization</td>
       <td>organizationType</td>
       <td>True</td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>{ "identifier": "86D464C3-B5BB-4B02-85E4-1AAD8D64CD27" }</code></td>
     </tr>
     <tr>
       <td></td>
       <td>thematicAreas</td>
       <td></td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td></td>
     </tr>
     <tr>
       <td></td>
       <td>absThematicAreas</td>
       <td></td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td></td>
     </tr>
     <tr>
@@ -146,21 +165,21 @@
       <td></td>
       <td>gbfTargets</td>
       <td></td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td></td>
     </tr>
     <tr>
       <td></td>
       <td>aichiTargets</td>
       <td></td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td></td>
     </tr>
     <tr>
       <td></td>
       <td>coordinates</td>
       <td></td>
-      <td>EmapLocation</td>
+      <td>MapLocation</td>
       <td></td>
     </tr>
     <tr>
@@ -174,14 +193,14 @@
       <td></td>
       <td>operationalLanguages</td>
       <td></td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td></td>
     </tr>
     <tr>
       <td>Regional area(s) of operations or political/economic group(s)</td>
       <td>operationalRegions</td>
       <td></td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td><code>[ { "identifier": "CCA4B662-8EF4-418D-B327-0D6F418AA703" } ]</code></td>
     </tr>
     <tr>
@@ -195,7 +214,7 @@
       <td></td>
       <td>profileLink</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td></td>
     </tr>
     <tr>
@@ -209,7 +228,7 @@
       <td>Any other relevant documents</td>
       <td>relevantDocuments</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
   </tbody>

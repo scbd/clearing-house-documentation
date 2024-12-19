@@ -1,3 +1,22 @@
+<script>
+import { onMounted } from "vue";
+import { getClearingHouseFromUrl } from "@/utils/helpers"
+
+export default {
+  setup() {
+    onMounted(() => {
+      const anchors = document.querySelectorAll("td a");
+
+      anchors.forEach((anchor) => {
+        const href = anchor.getAttribute("href"); 
+        const newHref = `/${getClearingHouseFromUrl(location.href)}` + href; 
+        anchor.setAttribute("href", newHref);
+      });
+    });
+  },
+};
+</script>
+
 <table class="schema-table" style="table-layout: fixed; width: 100%;">
   <thead>
     <tr>
@@ -13,21 +32,21 @@
       <td></td>
       <td>header</td>
       <td></td>
-      <td>Eheader</td>
+      <td>Header</td>
       <td><code>{ "identifier": "085758D8-C7AC-6AAE-9736-95811AD100DA", "schema": "biosafetyLaw", "languages": [ "en" ] }</code></td>
     </tr>
     <tr>
       <td>Country submitting a law, regulation, guideline or agreement</td>
       <td>government</td>
       <td>True</td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>{ "identifier": "af" }</code></td>
     </tr>
     <tr>
       <td>Area of jurisdiction</td>
       <td>jurisdiction</td>
       <td></td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>{ "identifier": "7437F880-7B12-4F26-AA91-CED37250DD0A" }</code></td>
     </tr>
     <tr>
@@ -55,7 +74,7 @@
       <td>Type of Law / Regulation</td>
       <td>type</td>
       <td>True</td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>{ "identifier": "57217527-3732-437F-9AD8-45BEF4429FD5" }</code></td>
     </tr>
     <tr>
@@ -69,7 +88,7 @@
       <td>Document text</td>
       <td>documents</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
     <tr>
@@ -83,7 +102,7 @@
       <td>Unofficial Documents</td>
       <td>unofficialDocuments</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
     <tr>
@@ -97,7 +116,7 @@
       <td>Please select the record(s) containing the law/regulation being amended</td>
       <td>amendedRecords</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "7A5D391B-BEC7-30FF-FB73-CD50E6577AA1@2" } ]</code></td>
     </tr>
     <tr>
@@ -111,7 +130,7 @@
       <td>Relationship with other laws/regulations</td>
       <td>relatedRecords</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "7A5D391B-BEC7-30FF-FB73-CD50E6577AA1@2" } ]</code></td>
     </tr>
     <tr>
@@ -125,21 +144,21 @@
       <td>Competent National Authority(ies) and/or Supplementary Protocol Competent Authority(ies)</td>
       <td>authorities</td>
       <td>True</td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "78AFAA88-47EA-9333-AD6E-C21BCB17DE21@1" } ]</code></td>
     </tr>
     <tr>
       <td>Subject areas</td>
       <td>cpbSubjectAreas</td>
       <td>True</td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td><code>[ { "identifier": "1DCBA126-60F1-440D-BBB0-CC9CCC91C283" } ]</code></td>
     </tr>
     <tr>
       <td>Types of organisms addressed</td>
       <td>cpbOrganismTypes</td>
       <td>True</td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td><code>[ { "identifier": "65F83475-FBFD-4DCA-9DD8-10FC253A2F84" } ]</code></td>
     </tr>
     <tr>
@@ -160,7 +179,7 @@
       <td>Any other relevant documents</td>
       <td>relevantDocuments</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
   </tbody>
