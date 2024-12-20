@@ -1,5 +1,6 @@
 <script setup>
 import { useClearingHouse } from "@/utils/composables"
+const { clearingHouseBase } = useClearingHouse()
 </script>
 
 <table class="schema-table" style="table-layout: fixed; width: 100%;">
@@ -147,7 +148,7 @@ import { useClearingHouse } from "@/utils/composables"
       <td><code>{ "en": "Test Information" }</code></td>
     </tr>
     <tr>
-      <td><strong><a :href="`/${useClearingHouse().name.value}/thesaurus/general/countries`">Country</a></strong></td>
+      <td><strong><a :href="clearingHouseBase('/thesaurus/general/countries')">Country</a></strong></td>
       <td>country</td>
       <td></td>
       <td>Term</td>

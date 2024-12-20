@@ -1,5 +1,6 @@
 <script setup>
 import { useClearingHouse } from "@/utils/composables"
+const { clearingHouseBase } = useClearingHouse()
 </script>
 
 <table class="schema-table" style="table-layout: fixed; width: 100%;">
@@ -21,7 +22,7 @@ import { useClearingHouse } from "@/utils/composables"
       <td><code>{ "identifier": "2229F37D-F8E0-2FFE-4F47-E7452BF3FE48", "schema": "measure", "languages": [ "en" ] }</code></td>
     </tr>
     <tr>
-      <td><strong><a :href="`/${useClearingHouse().name.value}/thesaurus/general/countries`">Country</a></strong></td>
+      <td><strong><a :href="clearingHouseBase('/thesaurus/general/countries')">Country</a></strong></td>
       <td>government</td>
       <td>True</td>
       <td>Term</td>
@@ -49,14 +50,14 @@ import { useClearingHouse } from "@/utils/composables"
       <td><code>{ "en": "&lt;div&gt;&lt;!--block--&gt;Test description&lt;/div&gt;" }</code></td>
     </tr>
     <tr>
-      <td><strong><a :href="`/${useClearingHouse().name.value}/thesaurus/measure/type-of-documents`">Type of document/measure</a></strong></td>
+      <td><strong><a :href="clearingHouseBase('/thesaurus/measure/type-of-documents')">Type of document/measure</a></strong></td>
       <td>type</td>
       <td>True</td>
       <td>Term</td>
       <td><code>{ "identifier": "8165BF22-EEF0-4DF8-B3F2-8E0AEED13E2F" }</code></td>
     </tr>
     <tr>
-      <td><strong><a :href="`/${useClearingHouse().name.value}/thesaurus/measure/jurisdictions`">Area of jurisdiction</a></strong></td>
+      <td><strong><a :href="clearingHouseBase('/thesaurus/measure/jurisdictions')">Area of jurisdiction</a></strong></td>
       <td>jurisdiction</td>
       <td>True</td>
       <td>Term</td>
@@ -91,7 +92,7 @@ import { useClearingHouse } from "@/utils/composables"
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
     <tr>
-      <td><strong><a :href="`/${useClearingHouse().name.value}/thesaurus/measure/statuses`">Legal status of the measure</a></strong></td>
+      <td><strong><a :href="clearingHouseBase('/thesaurus/measure/statuses')">Legal status of the measure</a></strong></td>
       <td>status</td>
       <td></td>
       <td>Term</td>

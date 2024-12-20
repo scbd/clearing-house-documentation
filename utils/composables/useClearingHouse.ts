@@ -7,7 +7,14 @@ export function useClearingHouse() {
     return getClearingHouseFromUrl(useData().page.value.relativePath);
   });
 
+  const clearingHouseBase = (url: string) => {
+    return `/${encodeURIComponent(name.value)}/${url.replace(/^\/+/,"")}`
+  }
+
+  // `${encodeURIComponent(name.value)}/${url}`
+
   return {
     name,
+    clearingHouseBase
   };
 }

@@ -1,5 +1,6 @@
 <script setup>
 import { useClearingHouse } from "@/utils/composables"
+const { clearingHouseBase } = useClearingHouse()
 </script>
 
 
@@ -20,7 +21,7 @@ The table below outlines the structure of the request body, including the fields
       <td></td>
       <td>header</td>
       <td></td>
-      <td><a :href="`/${useClearingHouse().name.value}/custom-types.html#header`">Header</a></td>
+      <td><a :href="clearingHouseBase('/custom-types.html#header')">Header</a></td>
       <td><code>
             {
               "identifier": "068C83BA-995F-08C3-50CE-AD43545B3EB5",
@@ -63,7 +64,7 @@ The table below outlines the structure of the request body, including the fields
       <td><strong>Gender</strong></td>
       <td>gender</td>
       <td></td>
-      <td><a :href="`/${useClearingHouse().name.value}/custom-types.html#term`">Term</a></td>
+      <td><a :href="clearingHouseBase('/custom-types.html#term')">Term</a></td>
       <td></td>
     </tr>
     <tr>
@@ -95,10 +96,10 @@ The table below outlines the structure of the request body, including the fields
       <td><code>{ "en": "Division" }</code></td>
     </tr>
     <tr>
-      <td><strong><a :href="`/${useClearingHouse().name.value}/thesaurus/authority/organization-types`">Type of Organization</a></strong></td>
+      <td><strong><a :href="clearingHouseBase('/thesaurus/authority/organization-types')">Type of Organization</a></strong></td>
       <td>organizationType</td>
       <td></td>
-      <td><a :href="`/${useClearingHouse().name.value}/custom-types.html#term`">Term</a></td>
+      <td><a :href="clearingHouseBase('/custom-types.html#term')">Term</a></td>
       <td><code>{ "identifier": "86D464C3-B5BB-4B02-85E4-1AAD8D64CD27" }</code></td>
     </tr>
     <tr>
@@ -133,7 +134,7 @@ The table below outlines the structure of the request body, including the fields
       <td><strong>Country of Contact</strong></td>
       <td>country</td>
       <td>True</td>
-      <td><a :href="`/${useClearingHouse().name.value}/custom-types.html#term`">Term</a></td>
+      <td><a :href="clearingHouseBase('/custom-types.html#term')">Term</a></td>
       <td><code>{ "identifier": "ca" }</code></td>
     </tr>
     <tr>
@@ -161,7 +162,7 @@ The table below outlines the structure of the request body, including the fields
       <td><strong>Website Address(es)</strong></td>
       <td>websites</td>
       <td></td>
-      <td><a :href="`/${useClearingHouse().name.value}/custom-types.html#link`">Link[]</a></td>
+      <td><a :href="clearingHouseBase('/custom-types.html#link')">Link[]</a></td>
       <td><code>[ { "url": "http://www.google.com" } ]</code></td>
     </tr>
     <tr>
@@ -182,7 +183,7 @@ The table below outlines the structure of the request body, including the fields
       <td><strong>Relevant Documents</strong></td>
       <td>relevantDocuments</td>
       <td></td>
-      <td><a :href="`/${useClearingHouse().name.value}/custom-types.html#link`">Link[]</a></td>
+      <td><a :href="clearingHouseBase('/custom-types.html#link')">Link[]</a></td>
       <td></td>
     </tr>
     <tr>
@@ -193,17 +194,17 @@ The table below outlines the structure of the request body, including the fields
       <td><code>person</code></td>
     </tr>
     <tr>
-      <td><strong><a :href="`/${useClearingHouse().name.value}/thesaurus/general/countries`">Country</a></strong></td>
+      <td><strong><a :href="clearingHouseBase('/thesaurus/general/countries')">Country</a></strong></td>
       <td>government</td>
       <td></td>
-      <td><a :href="`/${useClearingHouse().name.value}/custom-types.html#term`">Term</a></td>
+      <td><a :href="clearingHouseBase('/custom-types.html#term')">Term</a></td>
       <td><code>{ "identifier": "af" }</code></td>
     </tr>
     <tr>
       <td><strong>Organization</strong></td>
       <td>contactOrganization</td>
       <td>True</td>
-      <td><a :href="`/${useClearingHouse().name.value}/custom-types.html#reference`">Reference</a></td>
+      <td><a :href="clearingHouseBase('/custom-types.html#reference')">Reference</a></td>
       <td><code>{ "identifier": "SIMP-22D52282-2FB2-AD2A-2965-476DFF6A7F37@1" }</code></td>
     </tr>    
   </tbody>

@@ -1,4 +1,4 @@
-<table class="ircc__table" style="table-layout: fixed; width: 100%;">
+<table class="schema-table" style="table-layout: fixed; width: 100%;">
   <tr>
     <th>Title</th>
     <th>Field</th>
