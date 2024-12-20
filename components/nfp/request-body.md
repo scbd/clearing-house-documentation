@@ -1,20 +1,5 @@
-<script>
-import { onMounted } from "vue";
-import { getClearingHouseFromUrl } from "@/utils/helpers"
-
-export default {
-  setup() {
-    onMounted(() => {
-      const anchors = document.querySelectorAll("td a");
-
-      anchors.forEach((anchor) => {
-        const href = anchor.getAttribute("href"); 
-        const newHref = `/${getClearingHouseFromUrl(location.href)}` + href; 
-        anchor.setAttribute("href", newHref);
-      });
-    });
-  },
-};
+<script setup>
+import { useClearingHouse } from "@/utils/composables"
 </script>
 
 <table class="schema-table" style="table-layout: fixed; width: 100%;">
@@ -162,7 +147,7 @@ export default {
       <td><code>{ "en": "Test Information" }</code></td>
     </tr>
     <tr>
-      <td><strong><a href="/abs/thesaurus/general/countries">Country</a></strong></td>
+      <td><strong><a :href="`/${useClearingHouse().name.value}/thesaurus/general/countries`">Country</a></strong></td>
       <td>country</td>
       <td></td>
       <td>Term</td>

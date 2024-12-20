@@ -1,20 +1,5 @@
-<script>
-import { onMounted } from "vue";
-import { getClearingHouseFromUrl } from "@/utils/helpers"
-
-export default {
-  setup() {
-    onMounted(() => {
-      const anchors = document.querySelectorAll("td a");
-
-      anchors.forEach((anchor) => {
-        const href = anchor.getAttribute("href"); 
-        const newHref = `/${getClearingHouseFromUrl(location.href)}` + href; 
-        anchor.setAttribute("href", newHref);
-      });
-    });
-  },
-};
+<script setup>
+import { useClearingHouse } from "@/utils/composables"
 </script>
 
 <table class="schema-table" style="table-layout: fixed; width: 100%;">
@@ -36,7 +21,7 @@ export default {
       <td><code>{ "identifier": "2229F37D-F8E0-2FFE-4F47-E7452BF3FE48", "schema": "measure", "languages": [ "en" ] }</code></td>
     </tr>
     <tr>
-      <td><strong><a href="/abs/thesaurus/general/countries">Country</a></strong></td>
+      <td><strong><a :href="`/${useClearingHouse().name.value}/thesaurus/general/countries`">Country</a></strong></td>
       <td>government</td>
       <td>True</td>
       <td>Term</td>
@@ -64,14 +49,14 @@ export default {
       <td><code>{ "en": "&lt;div&gt;&lt;!--block--&gt;Test description&lt;/div&gt;" }</code></td>
     </tr>
     <tr>
-      <td><strong><a href="/thesaurus/measure/type-of-documents">Type of document/measure</a></strong></td>
+      <td><strong><a :href="`/${useClearingHouse().name.value}/thesaurus/measure/type-of-documents`">Type of document/measure</a></strong></td>
       <td>type</td>
       <td>True</td>
       <td>Term</td>
       <td><code>{ "identifier": "8165BF22-EEF0-4DF8-B3F2-8E0AEED13E2F" }</code></td>
     </tr>
     <tr>
-      <td><strong><a href="/thesaurus/measure/jurisdictions">Area of jurisdiction</a></strong></td>
+      <td><strong><a :href="`/${useClearingHouse().name.value}/thesaurus/measure/jurisdictions`">Area of jurisdiction</a></strong></td>
       <td>jurisdiction</td>
       <td>True</td>
       <td>Term</td>
@@ -106,7 +91,7 @@ export default {
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
     <tr>
-      <td><strong><a href="/thesaurus/measure/statuses">Legal status of the measure</a></strong></td>
+      <td><strong><a :href="`/${useClearingHouse().name.value}/thesaurus/measure/statuses`">Legal status of the measure</a></strong></td>
       <td>status</td>
       <td></td>
       <td>Term</td>

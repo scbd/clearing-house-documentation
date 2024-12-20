@@ -1,22 +1,3 @@
-<script>
-import { onMounted } from "vue";
-import { getClearingHouseFromUrl } from "@/utils/helpers"
-
-export default {
-  setup() {
-    onMounted(() => {
-      const anchors = document.querySelectorAll("td a");
-
-      anchors.forEach((anchor) => {
-        const href = anchor.getAttribute("href"); 
-        const newHref = `/${getClearingHouseFromUrl(location.href)}` + href; 
-        anchor.setAttribute("href", newHref);
-      });
-    });
-  },
-};
-</script>
-
 <table class="schema-table" style="table-layout: fixed; width: 100%;">
   <thead>
     <tr>
