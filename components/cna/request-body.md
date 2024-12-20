@@ -13,14 +13,14 @@
       <td></td>
       <td>header</td>
       <td></td>
-      <td>Eheader</td>
+      <td>Header</td>
       <td><code>{ "identifier": "BFE622A8-17A5-6AA6-C534-5E0E5357279F", "schema": "authority", "languages": ["en"] }</code></td>
     </tr>
     <tr>
       <td>Country</td>
       <td>government</td>
       <td>TRUE</td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>{ "identifier": "af" }</code></td>
     </tr>
     <tr>
@@ -34,7 +34,7 @@
       <td>Website address(es)</td>
       <td>websites</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
     <tr>
@@ -69,7 +69,7 @@
       <td>Country of Contact</td>
       <td>country</td>
       <td>TRUE</td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>{ "identifier": "ca" }</code></td>
     </tr>
     <tr>
@@ -97,7 +97,7 @@
       <td>Contact person</td>
       <td>contacts</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "SIMP-A1D0D0A8-65B1-B8D5-FF9F-B7B6B95CDDEB@1" } ]</code></td>
     </tr>
     <tr>
@@ -111,7 +111,7 @@
       <td>Any other relevant documents</td>
       <td>relevantDocuments</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
     <tr>
@@ -139,7 +139,7 @@
       <td>Provide a link to any relevant legal, administrative or policy measures.</td>
       <td>policyBasisForCompetencyRef</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "A3722021-0CC0-B195-75BE-954F133FF78B@1" } ]</code></td>
     </tr>
     <tr>
@@ -160,14 +160,14 @@
       <td></td>
       <td>absPolicyBasisForCompetencyRef</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td></td>
     </tr>
     <tr>
       <td>Area of jurisdiction for granting access to genetic resources</td>
       <td>absJurisdiction</td>
       <td>TRUE</td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td><code>[ { "identifier": "7437F880-7B12-4F26-AA91-CED37250DD0A" } ]</code></td>
     </tr>
     <tr>
@@ -181,35 +181,35 @@
       <td>Keywords to describe scope of CNA responsibilities</td>
       <td>absGeneticResourceTypes</td>
       <td></td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td><code>[ { "identifier": "357DBB22-6A6C-4C49-BA1F-037320B09247" } ]</code></td>
     </tr>
     <tr>
       <td></td>
       <td>absGeneticResourceAreas</td>
       <td></td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td></td>
     </tr>
     <tr>
       <td>Administrative functions</td>
       <td>functions</td>
       <td></td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td></td>
     </tr>
     <tr>
       <td>Types of organism(s) under its responsibility</td>
       <td>cpbOrganismTypes</td>
       <td></td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td></td>
     </tr>
     <tr>
       <td></td>
       <td>libraries</td>
       <td></td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td></td>
     </tr>
   </tbody>

@@ -1,6 +1,7 @@
 <script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
 import swaggerJson from "@/swagger/json/general/document-validations/validations.json";
+import { useClearingHouse } from "@/utils/composables"
 
 const swaggerSpecs = [
   { json: swaggerJson, protected: true },
@@ -43,7 +44,7 @@ The "Document Validations" API endpoint is designed to validate documents. This 
       <td></td>
       <td>header</td>
       <td></td>
-      <td><a href="/customTypes.html#eheader">Eheader</a></td>
+      <td><a :href="`/${useClearingHouse().name.value}/custom-types.html#header`">Header</a></td>
       <td><code>
             {
               "identifier": "CB51626B-CF45-2AA0-3A24-459669DDCC34"
@@ -51,10 +52,10 @@ The "Document Validations" API endpoint is designed to validate documents. This 
           </code></td>
     </tr>
      <tr>
-      <td><strong><a href="/abs/thesaurus/general/countries">Country</a></strong></td>
+      <td><strong><a :href="`/${useClearingHouse().name.value}/abs/thesaurus/general/countries`">Country</a></strong></td>
       <td>government</td>
       <td>True</td>
-      <td><a href="/customTypes.html#eterm">Eterm</a></td>
+      <td><a :href="`/${useClearingHouse().name.value}/custom-types.html#term`">Term</a></td>
       <td><code>{"identifier": "af"}</code></td>
     </tr>
     <tr>
