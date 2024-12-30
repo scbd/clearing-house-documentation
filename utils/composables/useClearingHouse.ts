@@ -8,10 +8,9 @@ export function useClearingHouse() {
   });
 
   const clearingHouseBase = (url: string) => {
-    return `/${encodeURIComponent(name.value)}/${url.replace(/^\/+/,"")}`
+    return `${name.value}/${url.replace(/^\/+/,"")}`
   }
 
-  // `${encodeURIComponent(name.value)}/${url}`
 
   return {
     name,
