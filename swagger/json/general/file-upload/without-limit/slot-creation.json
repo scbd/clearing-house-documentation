@@ -1,0 +1,104 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Temporary File Upload API",
+    "description": "API to upload temporary files and generate a presigned URL.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz/api/v2015",
+      "description": "Development Server"
+    }
+  ],
+  "paths": {
+    "/temporary-files": {
+      "post": {
+        "summary": "Upload Temporary File",
+        "description": "Upload a file by providing its filename and retrieve a presigned URL to upload the file.",
+        "tags": ["Slot Creation"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "type": "string",
+                    "description": "The name of the file to upload.",
+                    "example": "5_KB_file.pdf"
+                  }
+                },
+                "required": ["filename"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Presigned URL and file metadata generated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "description": "The presigned URL for uploading the file.",
+                      "example": "https://s3.amazonaws.com/cbd.documents.temporary/dae81456ba8dca98358217c0f54a8270?AWSAccessKeyId=AKIAIABSUSESLXAZRGMQ..."
+                    },
+                    "uid": {
+                      "type": "string",
+                      "description": "Unique identifier for the uploaded file.",
+                      "example": "dae81456ba8dca98358217c0f54a8270"
+                    },
+                    "contentType": {
+                      "type": "string",
+                      "description": "The content type of the file.",
+                      "example": "application/pdf"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "filename": {
+                          "type": "string",
+                          "description": "The name of the file.",
+                          "example": "5_KB_file.pdf"
+                        },
+                        "content-type": {
+                          "type": "string",
+                          "description": "The MIME type of the file.",
+                          "example": "application/pdf"
+                        },
+                        "user": {
+                          "type": "string",
+                          "description": "The user associated with the file.",
+                          "example": "301785"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization"
+      }
+    }
+  }
+}
