@@ -15,7 +15,7 @@
       "post": {
         "summary": "Persist Temporary Attachment",
         "description": "This endpoint allows persisting a temporary file as an attachment to a document.",
-        "tags": ["CH Storage"],
+        "tags": ["Upload From Temporary Storage"],
         "parameters": [
           {
             "name": "uid",
@@ -36,45 +36,13 @@
             }
           }
         ],
-        "requestBody": {
-          "description": "Additional data for persisting the attachment, if required.",
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "metadata": {
-                    "type": "object",
-                    "description": "Optional metadata related to the attachment.",
-                    "example": {
-                      "fileType": "pdf",
-                      "notes": "Sample attachment"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
         "responses": {
-          "200": {
-            "description": "Attachment persisted successfully.",
+          "201": {
+            "description": "Attachment created successfully.",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Attachment persisted successfully."
-                    },
-                    "attachmentId": {
-                      "type": "string",
-                      "description": "The unique identifier for the persisted attachment.",
-                      "example": "12345-attachment-id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/EDocumentAttachmentInfo"
                 }
               }
             }
@@ -142,6 +110,83 @@
         "type": "apiKey",
         "in": "header",
         "name": "Authorization"
+      }
+    },
+    "schemas": {
+      "EUserInfo": {
+        "type": "object",
+        "properties": {
+          "userID": {
+            "type": "integer",
+            "example": 12345
+          },
+          "userName": {
+            "type": "string",
+            "example": "john.doe"
+          }
+        }
+      },
+      "EDocumentAttachmentInfo": {
+        "type": "object",
+        "properties": {
+          "attachmentID": {
+            "type": "integer",
+            "example": 98765
+          },
+          "documentID": {
+            "type": "integer",
+            "nullable": true,
+            "example": 123
+          },
+          "documentUID": {
+            "type": "string",
+            "example": "abcd-1234-efgh-5678"
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2024-08-24T12:34:56Z"
+          },
+          "createdBy": {
+            "$ref": "#/components/schemas/EUserInfo"
+          },
+          "submittedOn": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2024-08-25T14:30:00Z"
+          },
+          "submittedBy": {
+            "$ref": "#/components/schemas/EUserInfo"
+          },
+          "isPublic": {
+            "type": "boolean",
+            "example": true
+          },
+          "filename": {
+            "type": "string",
+            "example": "attachment.pdf"
+          },
+          "mediaType": {
+            "type": "string",
+            "example": "application/pdf"
+          },
+          "charset": {
+            "type": "string",
+            "example": "utf-8"
+          },
+          "hash": {
+            "type": "string",
+            "example": "e99a18c428cb38d5f260853678922e03"
+          },
+          "size": {
+            "type": "integer",
+            "example": 1024
+          },
+          "url": {
+            "type": "string",
+            "example": "/api/v2013/documents/abcd-1234-efgh-5678/attachments/98765/attachment.pdf"
+          }
+        }
       }
     }
   }

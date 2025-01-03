@@ -156,7 +156,7 @@ export default [
       },
       {
         text: "Documents Attachments",
-        link: "/ort/general/documents-attachments",
+        link: "/ort/general/document-attachments",
       },
       {
         text: "Drafts",
@@ -169,6 +169,10 @@ export default [
       {
         text: "Draft Locks",
         link: "/ort/general/draft-locks",
+      },
+      {
+        text: "Temporary File",
+        link: "/ort/general/temporary-file",
       },
     ],
   },

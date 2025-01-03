@@ -2,17 +2,17 @@
 
 ### Overview
 
-The "Get Thumbnail" API endpoint allows you to retrieve a thumbnail representation of a specific attachment, provided the attachment is an image. This endpoint is designed to offer a preview of the image in a smaller, more manageable format, which is especially useful for displaying previews in user interfaces, galleries, or file management systems.
+This endpoint retrieves a thumbnail image of a specific document attachment. This is useful for displaying a preview of the attachment, such as an image, PDF, or other visual files, without downloading the entire file.
 
 ### Endpoint
 
-**GET** `/api/v2013/documents/{uid}/attachments/{filename}/thumbnail`
+**GET** `/api/v2013/documents/{uid}/attachments/{guid}/{filename}/thumbnail`
 
 ### Headers
 <!--@include: @/../components/common/header/accept.md-->
 
 ### URL Parameters
-<!--@include: @/../components/common/url/uid-filename.md-->
+<!--@include: @/../components/common/url/uid-guid-filename.md-->
 
 ### Playground
 

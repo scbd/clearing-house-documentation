@@ -291,7 +291,7 @@ export default [
       },
       {
         text: "Documents Attachments",
-        link: "/bch/general/documents-attachments",
+        link: "/bch/general/document-attachments",
       },
       {
         text: "Drafts",
@@ -304,6 +304,10 @@ export default [
       {
         text: "Draft Locks",
         link: "/bch/general/draft-locks",
+      },
+      {
+        text: "Temporary File",
+        link: "/bch/general/temporary-file",
       },
     ],
   },

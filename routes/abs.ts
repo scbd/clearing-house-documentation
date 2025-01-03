@@ -356,7 +356,7 @@ export default [
       },
       {
         text: "Documents Attachments",
-        link: "/abs/general/documents-attachments",
+        link: "/abs/general/document-attachments",
       },
       {
         text: "Drafts",
@@ -373,10 +373,6 @@ export default [
       {
         text: "Temporary File",
         link: "/abs/general/temporary-file",
-      },
-      {
-        text: "CH Storage",
-        link: "/abs/general/ch-storage",
       },
     ],
   },
