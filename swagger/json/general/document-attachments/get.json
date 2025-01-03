@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/documents/{uid}/attachments/{filename}": {
+    "/documents/{uid}/attachments/{guid}/{filename}": {
       "get": {
         "summary": "Get Document Attachment Data",
         "description": "Retrieves the data of a document's attachment or provides a redirection to the file's location.",
@@ -26,6 +26,15 @@
               "pattern": "^[A-Za-z0-9\\-_]{11,128}$"
             },
             "description": "Identifier of the document. The value is case-sensitive."
+          },
+          {
+            "name": "guid",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of the attachment.",
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "filename",
