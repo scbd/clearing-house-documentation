@@ -6,13 +6,13 @@ This endpoint retrieves a thumbnail image of a specific document attachment. Thi
 
 ### Endpoint
 
-**GET** `/api/v2013/documents/{uid}/attachments/{guid}/{filename}/thumbnail`
+**GET** `/api/v2013/documents/{uid}/attachments/{attachmentId}/{filename}/thumbnail`
 
 ### Headers
 <!--@include: @/../components/common/header/accept.md-->
 
 ### URL Parameters
-<!--@include: @/../components/common/url/uid-guid-filename.md-->
+<!--@include: @/../components/common/url/uid-attachmentId-filename.md-->
 
 ### Playground
 
