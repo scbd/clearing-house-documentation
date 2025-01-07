@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/documents/{uid}/attachments/{filename}": {
+    "/documents/{uid}/attachments/{attachmentId}/{filename}": {
       "head": {
         "summary": "Check if a document attachment exists",
         "tags":["Document attachment exists"],
@@ -35,6 +35,15 @@
               "type": "string"
             },
             "description": "Name of the file."
+          },
+          {
+            "name": "attachmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Id of the attached file."
           },
           {
             "name": "Accept",

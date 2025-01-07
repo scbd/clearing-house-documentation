@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/documents/{uid}/attachments/persist-temporary/{guid}": {
+    "/documents/{uid}/attachments/persist-temporary/{tempFileId}": {
       "post": {
         "summary": "Persist Temporary Attachment",
         "description": "This endpoint allows persisting a temporary file as an attachment to a document.",
@@ -27,7 +27,7 @@
             }
           },
           {
-            "name": "guid",
+            "name": "tempFileId",
             "in": "path",
             "required": true,
             "description": "The unique identifier of the temporary file.",
@@ -42,7 +42,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EDocumentAttachmentInfo"
+                  "$ref": "#/components/schemas/DocumentAttachmentInfo"
                 }
               }
             }
@@ -113,7 +113,7 @@
       }
     },
     "schemas": {
-      "EUserInfo": {
+      "UserInfo": {
         "type": "object",
         "properties": {
           "userID": {
@@ -126,7 +126,7 @@
           }
         }
       },
-      "EDocumentAttachmentInfo": {
+      "DocumentAttachmentInfo": {
         "type": "object",
         "properties": {
           "attachmentID": {
@@ -148,7 +148,7 @@
             "example": "2024-08-24T12:34:56Z"
           },
           "createdBy": {
-            "$ref": "#/components/schemas/EUserInfo"
+            "$ref": "#/components/schemas/UserInfo"
           },
           "submittedOn": {
             "type": "string",
@@ -156,7 +156,7 @@
             "example": "2024-08-25T14:30:00Z"
           },
           "submittedBy": {
-            "$ref": "#/components/schemas/EUserInfo"
+            "$ref": "#/components/schemas/UserInfo"
           },
           "isPublic": {
             "type": "boolean",
