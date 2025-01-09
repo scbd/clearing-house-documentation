@@ -1,90 +1,89 @@
 # Custom Types
 
-## ETerm
+## Term
+
+| Type      | Variable      |
+| --------- | ------------- |
+| `string`  | `identifier`  |
+| `lstring` | `customValue` |
+
+## Header
 
 | Type       | Variable     |
-|------------|--------------|
+| ---------- | ------------ |
 | `string`   | `identifier` |
-| `lstring`  | `customValue`|
+| `string`   | `schema`     |
+| `string[]` | `languages`  |
 
-## EHeader
+## Reference
 
-| Type        | Variable   |
-|-------------|------------|
-| `string`    | `identifier`|
-| `string`    | `schema`    |
-| `string[]`  | `languages` |
+| Type     | Variable     |
+| -------- | ------------ |
+| `string` | `identifier` |
 
-## EReference
+## Link
 
-| Type       | Variable     |
-|------------|--------------|
-| `string`   | `identifier` |
-
-## ELink
-
-| Type       | Variable     |
-|------------|--------------|
-| `string`   | `url`        |
-| `string`   | `name`       |
-| `string`   | `tags`       |
+| Type     | Variable |
+| -------- | -------- |
+| `string` | `url`    |
+| `string` | `name`   |
+| `string` | `tags`   |
 
 ## lstring
 
-| Type                             | Variable     |
-|----------------------------------|--------------|
-| `SortedList<string, string>`     | `mValues`    |
+| Type                         | Variable  |
+| ---------------------------- | --------- |
+| `SortedList<string, string>` | `mValues` |
 
-## EAssessment
+## Assessment
 
-| Type       | Variable        |
-|------------|-----------------|
-| `string`   | `identifier`    |
-| `string`   | `level`         |
-| `lstring`  | `justification` |
+| Type      | Variable        |
+| --------- | --------------- |
+| `string`  | `identifier`    |
+| `string`  | `level`         |
+| `lstring` | `justification` |
 
-## EMapLocation
+## MapLocation
 
-| Type       | Variable     |
-|------------|--------------|
-| `int`      | `zoom`       |
-| `double`   | `lat`        |
-| `double`   | `lng`        |
+| Type     | Variable |
+| -------- | -------- |
+| `int`    | `zoom`   |
+| `double` | `lat`    |
+| `double` | `lng`    |
 
 ## TranscriptElement
 
-| Type       | Variable     |
-|------------|--------------|
-| `string`      | `type`    | 
-| `decimal`   | `size`      | 
+| Type      | Variable |
+| --------- | -------- |
+| `string`  | `type`   |
+| `decimal` | `size`   |
 
 ## GeneticResourceElements
 
-| Type       | Variable     |
-|------------|--------------|
-| `ETerm[]`      | `types`    | 
-| `ETerm[]`   | `areas`      | 
-| `lstring`   | `section`      | 
-
+| Type      | Variable  |
+| --------- | --------- |
+| `Term[]`  | `types`   |
+| `Term[]`  | `areas`   |
+| `lstring` | `section` |
 
 ## GeneticResource
 
-| Type       | Variable     |
-|------------|--------------|
-| `bool`      | `answer`    | 
-| `EGeneticResourceElements[]`   | `elements`      | 
+| Type                         | Variable   |
+| ---------------------------- | ---------- |
+| `bool`                       | `answer`   |
+| `EGeneticResourceElements[]` | `elements` |
 
+## AbsMeasure
 
-## EAbsMeasure
-
-| Type       | Variable     |
-|------------|--------------|
-| `EGeneticResource`      | `geneticResources`    | 
-| `ETermSection[]`   | `relevantElements`      | 
+| Type               | Variable           |
+| ------------------ | ------------------ |
+| `EGeneticResource` | `geneticResources` |
+| `ETermSection[]`   | `relevantElements` |
 
 ## AmendmentIntent
 
 Enum values:
+
 - `New`
 - `Update`
 - `Revoke`

@@ -13,21 +13,21 @@
       <td></td>
       <td>header</td>
       <td></td>
-      <td>Eheader</td>
+      <td>Header</td>
       <td><code>{ "identifier": "2A9F4D7C-9C32-861E-8344-FF562C3F0D3F", "schema": "biosafetyDecision", "languages": [ "en" ] }</code></td>
     </tr>
     <tr>
       <td>Country submitting the decision or communication</td>
       <td>government</td>
       <td>True</td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>{ "identifier": "af" }</code></td>
     </tr>
      <tr>
       <td>Competent National Authority(ies) responsible for the decision or communication</td>
       <td>authorities</td>
       <td>True</td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "78AFAA88-47EA-9333-AD6E-C21BCB17DE21@1" } ]</code></td>
     </tr>
     <tr>
@@ -55,7 +55,7 @@
       <td></td>
       <td>jurisdictions</td>
       <td></td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td></td>
     </tr>
     <tr>
@@ -76,7 +76,7 @@
       <td>Please select the record(s) containing the decision or communication being amended</td>
       <td>amendedRecords</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "E2795D50-46AB-E234-96D0-D1164C382C7D@1" } ]</code></td>
     </tr>
     <tr>
@@ -90,21 +90,21 @@
       <td>Subject of the decision, notification, communication or declaration</td>
       <td>decisionTypes</td>
       <td>True</td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td><code>[ { "identifier": "8979219B-330B-424F-A52C-209D4B4B65C0" } ]</code></td>
     </tr>
     <tr>
       <td>Please provide Exporter’s contact details</td>
       <td>exporters</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "3CBDA8AA-4A16-CA5C-D405-7F4E865A60AA@1" } ]</code></td>
     </tr>
     <tr>
       <td>Please provide Importer’s contact details</td>
       <td>importers</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td></td>
     </tr>
     <tr>
@@ -167,7 +167,7 @@
       <td>Use(s) of LMO</td>
       <td>uses</td>
       <td></td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td><code>[ { "identifier": "91BEAF12-ABE1-4294-AD3B-507935894C78" } ]</code></td>
     </tr>
     <tr>
@@ -181,7 +181,7 @@
       <td>Result of the decision</td>
       <td>decisionResult</td>
       <td></td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>{ "identifier": "3B9ECE67-B35C-40FF-8C06-4EA5FF762899" }</code></td>
     </tr>
     <tr>
@@ -230,7 +230,7 @@
       <td>Type of transboundary movement </td>
       <td>transboundaryMovementType</td>
       <td></td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>{   "identifier": "22B915C4-193E-4087-89ED-D104EEEC4330" }</code></td>
     </tr>
     <tr>
@@ -279,7 +279,7 @@
       <td>A point of contact for further information </td>
       <td>pointOfContact</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[   {     "identifier": "3CBDA8AA-4A16-CA5C-D405-7F4E865A60AA@1"   } ]</code></td>
     </tr>
     <tr>
@@ -335,21 +335,21 @@
       <td>LMO identification</td>
       <td>modifiedOrganisms</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "1E027990-5D44-F3AF-75E3-715B60BFD3CD@8" } ]</code></td>
     </tr>
     <tr>
       <td>Risk assessment</td>
       <td>riskAssessments</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "486389BF-3C48-F2C9-2622-AC3D8E119845@4" } ]</code></td>
     </tr>
     <tr>
       <td>Document text</td>
       <td>documents</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
     <tr>
@@ -370,7 +370,7 @@
       <td>Any other relevant documents</td>
       <td>relevantDocuments</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
     </tbody>

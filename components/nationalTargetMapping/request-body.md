@@ -13,21 +13,21 @@
       <td></td>
       <td>header</td>
       <td></td>
-      <td>Eheader</td>
+      <td>Header</td>
       <td><code>{ "schema": "nationalTarget7Mapping", "identifier": "CEA6211F-DCA8-9403-E98F-51B4DD28ADAB", "languages": [ "en", "ab" ] }</code></td>
     </tr>
     <tr>
       <td>Government</td>
       <td>government</td>
       <td>True</td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>{ "identifier": "af" }</code></td>
     </tr>
     <tr>
       <td></td>
       <td>globalGoalOrTarget</td>
       <td></td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td></td>
     </tr>
     <tr>
@@ -48,7 +48,7 @@
       <td></td>
       <td>headlineIndicator</td>
       <td></td>
-      <td>Ereference</td>
+      <td>Reference</td>
       <td></td>
     </tr>
     <tr>
@@ -76,7 +76,7 @@
       <td></td>
       <td>additionalDocuments</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td></td>
     </tr>
   </tbody>

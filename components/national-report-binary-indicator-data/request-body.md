@@ -20,7 +20,7 @@
             <td>Government</td>
             <td>government</td>
             <td>True</td>
-            <td>Eterm</td>
+            <td>Term</td>
             <td><code>{ "identifier": "af" }</code></td>
         </tr>
         <tr>

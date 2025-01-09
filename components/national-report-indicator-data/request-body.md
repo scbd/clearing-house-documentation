@@ -13,21 +13,21 @@
       <td></td>
       <td>header</td>
       <td></td>
-      <td>Eheader</td>
+      <td>Header</td>
       <td><code>{ "schema": "nationalReport7IndicatorData", "identifier": "4556EB18-6D4D-2F58-3B0D-75D6AEEC27A7", "languages": [ "en" ] }</code></td>
     </tr>
     <tr>
       <td>Government</td>
       <td>government</td>
       <td>True</td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>[ { "identifier": "ao" }, { "identifier": "A23DD6C0-44C5-418D-83B5-461D79D2721A" } ]</code></td>
     </tr>
     <tr>
       <td></td>
       <td>indicator</td>
       <td>True</td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>[ { "identifier": "ao" }, { "identifier": "A23DD6C0-44C5-418D-83B5-461D79D2721A" } ]</code></td>
     </tr>
     <tr>
@@ -41,14 +41,14 @@
       <td>Global source of data</td>
       <td>globalDataSources</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google.com", "language": "en" } ]</code></td>
     </tr>
     <tr>
       <td>Indicator providers</td>
       <td>globalIndicatorProviders</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google.com", "language": "en" } ]</code></td>
     </tr>
     <tr>

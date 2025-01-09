@@ -13,7 +13,7 @@
       <td></td>
       <td>header</td>
       <td></td>
-      <td>Eheader</td>
+      <td>Header</td>
       <td><code>{ "identifier": "63B9CA56-9D43-E877-2A96-2C95986522D5", "schema": "absCheckpointCommunique", "languages": ["en"] }</code></td>
     </tr>
     <tr>
@@ -27,21 +27,21 @@
       <td>Country issuing this checkpoint communique</td>
       <td>government</td>
       <td>True</td>
-      <td>Eterm</td>
+      <td>Term</td>
       <td><code>{ "identifier": "af" }</code></td>
     </tr>
     <tr>
       <td>Links to internationally recognized certificate(s) of compliance (IRCC) that relate to this communique</td>
       <td>absIRCCs</td>
       <td>True</td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "CB51626B-CF45-2AA0-3A24-459669DDCC34@1" } ]</code></td>
     </tr>
     <tr>
       <td>Checkpoint/s that collected or received the information</td>
       <td>absCheckpoints</td>
       <td>True</td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "3E387C20-E70C-997B-EABB-BC4C9A1E142F@1" } ]</code></td>
     </tr>
     <tr>
@@ -55,14 +55,14 @@
       <td>Source of the genetic resource</td>
       <td>sourceCountries</td>
       <td></td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td><code>[ { "identifier": "af" } ]</code></td>
     </tr>
     <tr>
       <td>Person or entity who granted prior informed consent (PIC)</td>
       <td>entityWhoGrantedPIC</td>
       <td></td>
-      <td>Ereference</td>
+      <td>Reference</td>
       <td><code>{ "identifier": "DECLARE-ORGANISATION_19584_20241007134350919@1" }</code></td>
     </tr>
     <tr>
@@ -76,35 +76,35 @@
       <td>Specimen data</td>
       <td>specimens</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
     <tr>
       <td>Taxonomy</td>
       <td>taxonomies</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
     <tr>
       <td>Geographic coordinates</td>
       <td>gisFiles</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "/api/v2013/documents/63B9CA56-9D43-E877-2A96-2C95986522D5/attachments/615856/test.json", "name": "test.json", "tag": "Test Tag", "language": "en" } ]</code></td>
     </tr>
     <tr>
       <td></td>
       <td>gisMapCenter</td>
       <td></td>
-      <td>EmapLocation</td>
+      <td>MapLocation</td>
       <td></td>
     </tr>
     <tr>
       <td>Person or entity making information available to the checkpoint on the utilization of the genetic resource</td>
       <td>personsAtCheckpoint</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "DECLARE-ORGANISATION_19584_20241007134350919@1" } ]</code></td>
     </tr>
     <tr>
@@ -125,7 +125,7 @@
       <td>Person or entity to whom prior informed consent (PIC) was granted</td>
       <td>entityToWhomPICGranted</td>
       <td></td>
-      <td>Ereference</td>
+      <td>Reference</td>
       <td><code>{ "identifier": "DECLARE-ORGANISATION_19584_20241007134350919@1" }</code></td>
     </tr>
     <tr>
@@ -174,14 +174,14 @@
       <td>Other relevant website addresses and/or attached documents</td>
       <td>relevantDocuments</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
     <tr>
       <td>Keywords to describe the subject-matter or genetic resource(s) covered by the permit or its equivalent</td>
       <td>keywords</td>
       <td></td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td><code>[ { "identifier": "term-id-1" }, { "identifier": "term-id-2" } ]</code></td>
     </tr>
     <tr>

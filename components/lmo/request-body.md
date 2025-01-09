@@ -13,7 +13,7 @@
       <td></td>
       <td>header</td>
       <td></td>
-      <td>Eheader</td>
+      <td>Header</td>
       <td><code>{ "identifier": "D6AC2CEC-960B-D9F4-87BF-0C0AB115F0B1", "schema": "modifiedOrganism", "languages": [ "en" ] }</code></td>
     </tr>
     <tr>
@@ -48,7 +48,7 @@
       <td>Developer(s)</td>
       <td>developers</td>
       <td>True</td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "3CBDA8AA-4A16-CA5C-D405-7F4E865A60AA@1" } ]</code></td>
     </tr>
     <tr>
@@ -62,7 +62,7 @@
       <td>“Recipient Organism” or “Parental Organisms”</td>
       <td>recipientOrganisms</td>
       <td>True</td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "1E027990-5D44-F3AF-75E3-715B60BFD3CD@8" } ]</code></td>
     </tr>
     <tr>
@@ -76,14 +76,14 @@
       <td>Related LMO(s)</td>
       <td>linkedModifiedOrganisms</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "1E027990-5D44-F3AF-75E3-715B60BFD3CD@8" } ]</code></td>
     </tr>
     <tr>
       <td>Introduced or modified genetic element(s)</td>
       <td>genes</td>
       <td>True</td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "B3F2CEA4-EB7A-DDF2-02CA-701520EE1BE7@2" } ]</code></td>
     </tr>
     <tr>
@@ -97,7 +97,7 @@
       <td>Other gene(s) whose expression was affected by the transformation</td>
       <td>affectedGenes</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "B3F2CEA4-EB7A-DDF2-02CA-701520EE1BE7@2" } ]</code></td>
     </tr>
     <tr>
@@ -125,14 +125,14 @@
       <td>Common use(s) of the LMO</td>
       <td>commonUses</td>
       <td></td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td><code>[ { "identifier": "F816F788-BBC3-4ADB-9979-AE07CDED094E" } ]</code></td>
     </tr>
     <tr>
       <td>Techniques used for the modification</td>
       <td>techniqueUsed</td>
       <td>True</td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td><code>[ { "identifier": "0368E952-6D50-43D3-B23A-EFA438B410A9" } ]</code></td>
     </tr>
     <tr>
@@ -146,7 +146,7 @@
       <td>Modified traits</td>
       <td>traits</td>
       <td>True</td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td><code>[ { "identifier": "31396BD1-9E3E-4EB3-A29E-9A22B7230221" }, { "identifier": "7CC2B74F-B117-4E7A-A358-2A8284430651" } ]</code></td>
     </tr>
     <tr>
@@ -160,7 +160,7 @@
       <td>External link(s)</td>
       <td>detectionMethodLinks</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
     <tr>
@@ -174,7 +174,7 @@
       <td>Any other relevant documents</td>
       <td>relevantDocuments</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
   </tbody>

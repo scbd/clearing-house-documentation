@@ -13,7 +13,7 @@
       <td></td>
       <td>header</td>
       <td></td>
-      <td>Eheader</td>
+      <td>Header</td>
       <td><code>{ "identifier": "AEEE68E4-549B-5572-D335-209CAF8D621A", "schema": "independentRiskAssessment", "languages": [ "en" ] }</code></td>
     </tr>
     <tr>
@@ -34,7 +34,7 @@
       <td>Institution responsible for the risk assessment</td>
       <td>organizations</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "04139A35-1F8B-FC94-45D6-4F3AD7675685@1" } ]</code></td>
     </tr>
     <tr>
@@ -48,28 +48,28 @@
       <td>Contact details of the main responsible risk assessor</td>
       <td>contacts</td>
       <td></td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "3CBDA8AA-4A16-CA5C-D405-7F4E865A60AA@1" } ]</code></td>
     </tr>
     <tr>
       <td>Living modified organism(s)</td>
       <td>modifiedOrganisms</td>
       <td>True</td>
-      <td>Ereference[]</td>
+      <td>Reference[]</td>
       <td><code>[ { "identifier": "1E027990-5D44-F3AF-75E3-715B60BFD3CD@8" } ]</code></td>
     </tr>
     <tr>
       <td>Scope of the risk assessment</td>
       <td>scopes</td>
       <td>True</td>
-      <td>Eterm[]</td>
+      <td>Term[]</td>
       <td><code>[ { "identifier": "D6B59E8A-D82C-4516-917A-A745ACDA5931" }, { "identifier": "015737FC-ABC2-460C-A099-06A1B01E649A" }, { "identifier": "BEBF757E-E3CC-4913-8D9F-2D165CD63ECE" } ]</code></td>
     </tr>
     <tr>
       <td>Risk assessment report / summary</td>
       <td>documents</td>
       <td>True</td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
     <tr>
@@ -153,7 +153,7 @@
       <td>Any other relevant documents</td>
       <td>relevantDocuments</td>
       <td></td>
-      <td>Elink[]</td>
+      <td>Link[]</td>
       <td><code>[ { "url": "https://www.google.com", "name": "Google", "language": "en" } ]</code></td>
     </tr>
   </tbody>
