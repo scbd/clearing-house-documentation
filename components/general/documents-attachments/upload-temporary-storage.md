@@ -1,7 +1,9 @@
 ## Upload From Temporary Storage
 
 ### Overview
-This API endpoint allows persisting a temporary file as an attachment to a document. It takes the unique identifier of the document (`uid`) and the temporary file (`tempFileId`) and associates the temporary file as a permanent attachment to the specified document.
+This API endpoint allows persisting a temporary file as an attachment to a document. It takes the unique identifier of the document (`uid`) and the temporary file (`tempFileId`) and associates the temporary file as a permanent attachment to the specified document. There is no limit to the file size that can be uploaded through this endpoint.
+
+<b>Note:</b> To create a temporary file that can be used with this endpoint, refer to the <a href="temporary-file">Temporary File Creation Guide</a>.
 
 ---
 
