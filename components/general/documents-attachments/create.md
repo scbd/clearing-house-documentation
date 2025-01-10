@@ -2,7 +2,7 @@
 
 ### Overview
 
-This endpoint allows users to upload a file as an attachment to a specific document. The file is uploaded in binary format, with the document identified by its unique identifier `uid` and the file specified by its name `filename`.
+This endpoint allows users to upload a file as an attachment to a specific document. The file is uploaded in binary format, with the document identified by its unique identifier `uid` and the file specified by its name `filename`. The file size limit is 1 MB. Ensure that the uploaded file does not exceed this limit to avoid errors.
 
 ### Endpoint
 

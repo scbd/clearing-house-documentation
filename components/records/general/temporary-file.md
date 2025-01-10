@@ -38,44 +38,50 @@ This method is used for uploading files of unlimited size through a three-step p
 3. **Retrieve the File Details**
 
 ### Step 1: Create a Slot
+
 <br>
 
 ##### Request
+
 **POST** `https://api.cbddev.xyz/api/v2015/temporary-files`
 
 ---
 
 ##### Headers
-| Field            | Type   | Description                      |
-| ---------------- | ------ | -------------------------------- |
-| Authorization    | String | Required authorization token    |
+
+| Field         | Type   | Description                  |
+| ------------- | ------ | ---------------------------- |
+| Authorization | String | Required authorization token |
 
 ---
 
 ##### Body
-| Name            | Type   |
-| ---------------- | ------ |
-| filename    | String |
+
+| Name     | Type   |
+| -------- | ------ |
+| filename | String |
 
 ##### Response Body
-| Name            | Type   | 
-| ---------------- | ------ |
-| url    | String |
-| uid    | String |
-| contentType    | String |
+
+| Name        | Type   |
+| ----------- | ------ |
+| url         | String |
+| uid         | String |
+| contentType | String |
 | metadata    | Object |
 
 ##### Response Example
+
 ```json
 {
-    "url": "https://s3.amazonaws.com/cbd.documents.temporary/1cfb1381f08ddb32071af684b5dc9d16?AWSAccessKeyId=AKIAIABSUSESLXAZRGMQ&Content-Type=application%2Fpdf&Expires=1734738728&Signature=MQM8MtjkESTjUMH2VJd3OypLa6o%3D&x-amz-acl=private&x-amz-meta-content-type=application%2Fpdf&x-amz-meta-filename=5_KB_file.pdf&x-amz-meta-user=301785",
-    "uid": "1cfb1381f08ddb32071af684b5dc9d16",
-    "contentType": "application/pdf",
-    "metadata": {
-        "filename": "5_KB_file.pdf",
-        "content-type": "application/pdf",
-        "user": "301785"
-    }
+  "url": "https://s3.amazonaws.com/cbd.documents.temporary/1cfb1381f08ddb32071af684b5dc9d16?AWSAccessKeyId=AKIAIABSUSESLXAZRGMQ&Content-Type=application%2Fpdf&Expires=1734738728&Signature=MQM8MtjkESTjUMH2VJd3OypLa6o%3D&x-amz-acl=private&x-amz-meta-content-type=application%2Fpdf&x-amz-meta-filename=5_KB_file.pdf&x-amz-meta-user=301785",
+  "uid": "1cfb1381f08ddb32071af684b5dc9d16",
+  "contentType": "application/pdf",
+  "metadata": {
+    "filename": "5_KB_file.pdf",
+    "content-type": "application/pdf",
+    "user": "301785"
+  }
 }
 ```
 
@@ -84,21 +90,25 @@ This method is used for uploading files of unlimited size through a three-step p
 <SwaggerUI :swaggerSpecs="swaggerSlotCreationSpecs" />
 
 ### Step 2: Upload File to Slot
+
 <br>
 
 ##### Request
+
 **PUT** `Response URL from Step 1`
 
 ---
 
 ##### Headers
-| Field            | Type   | Description                      |
-| ---------------- | ------ | -------------------------------- |
-| Content-Type    | Binary | Content type of the file    |
+
+| Field        | Type   | Description                          |
+| ------------ | ------ | ------------------------------------ |
+| Content-Type | String | Content type of the file (mime-type) |
 
 ---
 
 ##### Body
+
 Upload the file as binary data
 
 ### Playground
@@ -106,48 +116,54 @@ Upload the file as binary data
 <SwaggerUI :swaggerSpecs="swaggerUploadFileSpecs" />
 
 ### Step 3: Retrieve File Details
+
 <br>
 
 ##### Request
+
 **GET** `https://api.cbddev.xyz/api/v2015/temporary-files/{uid}`
 
 ---
 
 ##### URL Parameters
-| Field            | Type   | Description                      |
-| ---------------- | ------ | -------------------------------- |
-| uid    | String | Unique identifier for file    |
+
+| Field | Type   | Description                |
+| ----- | ------ | -------------------------- |
+| uid   | String | Unique identifier for file |
 
 ##### Headers
-| Field            | Type   | Description                      |
-| ---------------- | ------ | -------------------------------- |
-| Authorization    | String | Required authorization token    |
+
+| Field         | Type   | Description                  |
+| ------------- | ------ | ---------------------------- |
+| Authorization | String | Required authorization token |
 
 ##### Response Body
-| Name            | Type   | 
-| ---------------- | ------ |
-| url    | String |
-| uid    | String |
-| hash    | String | 
-| filename    | String | 
-| size    | Number | 
-| contentType    | String |
+
+| Name        | Type   |
+| ----------- | ------ |
+| url         | String |
+| uid         | String |
+| hash        | String |
+| filename    | String |
+| size        | Number |
+| contentType | String |
 | metadata    | Object |
 
 ##### Response Example
+
 ```json
 {
-    "url": null,
-    "uid": "1cfb1381f08ddb32071af684b5dc9d16",
-    "hash": "0071b125fc59b2b39651854beddbe275",
+  "url": null,
+  "uid": "1cfb1381f08ddb32071af684b5dc9d16",
+  "hash": "0071b125fc59b2b39651854beddbe275",
+  "filename": "5_KB_file.pdf",
+  "size": 5120,
+  "contentType": "application/pdf",
+  "metadata": {
     "filename": "5_KB_file.pdf",
-    "size": 5120,
-    "contentType": "application/pdf",
-    "metadata": {
-        "filename": "5_KB_file.pdf",
-        "user": "301785",
-        "content-type": "application/pdf"
-    }
+    "user": "301785",
+    "content-type": "application/pdf"
+  }
 }
 ```
 
@@ -155,53 +171,57 @@ Upload the file as binary data
 
 <SwaggerUI :swaggerSpecs="swaggerGetFileSpecs" />
 
-
 ## Upload File - Limited Size
+
 This method is used to upload a file with a size limit of 1MB. The file is uploaded in a single step using a `POST` request.
 
 ---
 
 ##### Request
+
 **POST** `https://api.cbddev.xyz/api/v2015/temporary-files`
 
 ---
 
 ##### Headers
-| Field            | Type   | Description                      |
-| ---------------- | ------ | -------------------------------- |
-| Authorization    | String | Required authorization token    |
+
+| Field         | Type   | Description                  |
+| ------------- | ------ | ---------------------------- |
+| Authorization | String | Required authorization token |
 
 ##### Body
+
 Form-Data:
-| Key            | Value   |
+| Key | Value |
 | ---------------- | ------ |
-| file    | File Binary |
+| file | File Binary |
 
 ##### Response Body
-| Name            | Type   | 
-| ---------------- | ------ |
-| url    | String |
-| uid    | String |
-| hash    | String | 
-| size    | Number | 
-| contentType    | String |
+
+| Name        | Type   |
+| ----------- | ------ |
+| url         | String |
+| uid         | String |
+| hash        | String |
+| size        | Number |
+| contentType | String |
 | metadata    | Object |
 
 ##### Response Example
+
 ```json
 {
-    "url": "https://s3.amazonaws.com/cbd.documents.temporary/4fa0f71b-cd7c-c0ce-03a4-3dd264fdcde3?AWSAccessKeyId=AKIAIABSUSESLXAZRGMQ&Expires=1734709685&Signature=gyq8UILFrezIPAPq%2FYKO7xzaAMk%3D",
-    "uid": "4fa0f71b-cd7c-c0ce-03a4-3dd264fdcde3",
-    "contentType": "application/pdf",
-    "metadata": {
-        "fileName": "5_KB_file.pdf",
-        "user": "301785"
-    },
-    "hash": "0071b125fc59b2b39651854beddbe275",
-    "size": 5120
+  "url": "https://s3.amazonaws.com/cbd.documents.temporary/4fa0f71b-cd7c-c0ce-03a4-3dd264fdcde3?AWSAccessKeyId=AKIAIABSUSESLXAZRGMQ&Expires=1734709685&Signature=gyq8UILFrezIPAPq%2FYKO7xzaAMk%3D",
+  "uid": "4fa0f71b-cd7c-c0ce-03a4-3dd264fdcde3",
+  "contentType": "application/pdf",
+  "metadata": {
+    "fileName": "5_KB_file.pdf",
+    "user": "301785"
+  },
+  "hash": "0071b125fc59b2b39651854beddbe275",
+  "size": 5120
 }
 ```
-
 
 ### Playground
 
