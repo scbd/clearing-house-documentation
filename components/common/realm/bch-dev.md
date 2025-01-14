@@ -1,0 +1,1 @@
+- **`bch-dev`**: Indicates the development environment for BCH (Biosafety Clearing-House). This value is used for testing or development purposes related to BCH functionalities.
