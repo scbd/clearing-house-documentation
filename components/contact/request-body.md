@@ -1,6 +1,6 @@
 <script setup>
-import { useClearingHouse } from "@/utils/composables"
-const { clearingHouseBase } = useClearingHouse()
+  import { useClearingHouse } from "@/utils/composables"
+  const { clearingHouseBase } = useClearingHouse()
 </script>
 
 
