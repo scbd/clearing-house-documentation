@@ -336,6 +336,10 @@ export default [
         text: "Record Types",
         link: "/abs/record-types",
       },
+      {
+        text: "Realms",
+        link: "/abs/realms",
+      },
     ],
   },
   {

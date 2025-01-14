@@ -49,6 +49,12 @@ To update an existing document, use the **PUT** method with the following endpoi
 ## Headers
 <!--@include: @/../components/common/header/authorization-realm.md-->
 
+<br>
+
+**Realm Values for Development:**
+
+<!--@include: @/../components/common/realm/abs-dev.md-->
+
 ## URL Parameters
 <!--@include: @/../components/common/url/schema-identifier.md-->
 
