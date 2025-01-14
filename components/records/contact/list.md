@@ -26,6 +26,14 @@ This endpoint provides a way to retrieve draft records from the Contact system. 
 ## Header
 <!--@include: @/../components/common/header/authorization-realm.md-->
 
+<br>
+
+**Realm Values for Development:**
+
+<!--@include: @/../components/common/realm/abs-dev.md-->
+<!--@include: @/../components/common/realm/bch-dev.md-->
+
+
 ## Query Parameters
 <!--@include: @/../components/common/query/collection-filter-orderby-top-skip.md-->
 

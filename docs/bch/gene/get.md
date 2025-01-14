@@ -20,6 +20,11 @@ This documentation describes the API endpoint for retrieving a specific GENE doc
 ## Headers
 <!--@include: @/../components/common/header/realm-accept.md-->
 
+**Realm Values for Development:**
+
+<!--@include: @/../components/common/realm/bch-dev.md-->
+
+
 ## URL Parameters
 <!--@include: @/../components/common/url/uid.md-->
 

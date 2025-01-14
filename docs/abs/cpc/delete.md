@@ -27,6 +27,12 @@ This endpoint is used to delete a specific document from the system using its un
 ## Headers
 <!--@include: @/../components/common/header/authorization-realm.md-->
 
+<br>
+
+**Realm Values for Development:**
+
+<!--@include: @/../components/common/realm/abs-dev.md-->
+
 ## Query Parameters
 <!--@include: @/../components/common/query/schema.md-->
 

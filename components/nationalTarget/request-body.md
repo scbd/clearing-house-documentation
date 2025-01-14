@@ -145,7 +145,7 @@
     <tr>
       <td>Please indicate if additional means of implementation are needed for the attainment of this national target.</td>
       <td>additionalImplementation</td>
-      <td></td>
+      <td>True</td>
       <td>Lterm</td>
       <td><code>{ "identifier": "additionalImplementationRequired", "customValue": { "en": "&lt;p&gt;Test Info&lt;/p&gt;" } }</code></td>
     </tr>

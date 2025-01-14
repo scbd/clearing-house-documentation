@@ -22,6 +22,13 @@ This is the endpoint to which the POST request should be made to create a new do
 ## Header
 <!--@include: @/../components/common/header/authorization-realm.md-->
 
+<br>
+
+**Realm Values for Development:**
+
+<!--@include: @/../components/common/realm/abs-dev.md-->
+<!--@include: @/../components/common/realm/bch-dev.md-->
+
 ## Query Parameters
 <!--@include: @/../components/common/query/schema.md-->
 
