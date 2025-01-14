@@ -1,4 +1,4 @@
-<script>
+<script >
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
 import swaggerJson from "@/swagger/json/ircc/create.json";
 

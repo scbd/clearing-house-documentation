@@ -1,6 +1,6 @@
 <script setup>
-import { useClearingHouse } from "@/utils/composables"
-const { clearingHouseBase } = useClearingHouse()
+  import { useClearingHouse } from "@/utils/composables"
+  const { clearingHouseBase } = useClearingHouse()
 </script>
 
 The table below outlines the structure of the request body, including the fields, their types, and whether they are mandatory. Example values are provided for clarity.

@@ -1,10 +1,10 @@
 <script>
-import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
-import swaggerJson from "@/swagger/json/ircc/update.json";
+  import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
+  import swaggerJson from "@/swagger/json/ircc/update.json";
 
-const swaggerSpecs = [
-  { json: swaggerJson, protected: true },
-];
+  const swaggerSpecs = [
+    { json: swaggerJson, protected: true },
+  ];
 </script>
 
 # IRCC - Update
