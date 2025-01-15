@@ -74,7 +74,7 @@ This method is used for uploading files of unlimited size through a three-step p
 
 ```json
 {
-  "url": "https://s3.amazonaws.com/cbd.documents.temporary/1cfb1381f08ddb32071af684b5dc9d16?AWSAccessKeyId=AKIAIABSUSESLXAZRGMQ&Content-Type=application%2Fpdf&Expires=1734738728&Signature=MQM8MtjkESTjUMH2VJd3OypLa6o%3D&x-amz-acl=private&x-amz-meta-content-type=application%2Fpdf&x-amz-meta-filename=5_KB_file.pdf&x-amz-meta-user=301785",
+  "url": "https://s3.amazonaws.com/cbd.documents.temporary/1cfb1381f08ddb32071af684b5dc9d16?Expires=1734738728&Signature=...",
   "uid": "1cfb1381f08ddb32071af684b5dc9d16",
   "contentType": "application/pdf",
   "metadata": {
@@ -185,9 +185,10 @@ This method is used to upload a file with a size limit of 1MB. The file is uploa
 
 ##### Headers
 
-| Field         | Type   | Description                  |
-| ------------- | ------ | ---------------------------- |
-| Authorization | String | Required authorization token |
+| Field         | Type   | Description                       |
+| ------------- | ------ | --------------------------------- |
+| Authorization | String | Required authorization token      |
+| Content-Type  | String | multipart/form-data; boundary=... |
 
 ##### Body
 
