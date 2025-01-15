@@ -46,7 +46,7 @@
                     "url": {
                       "type": "string",
                       "description": "The presigned URL for uploading the file.",
-                      "example": "https://s3.amazonaws.com/cbd.documents.temporary/dae81456ba8dca98358217c0f54a8270?AWSAccessKeyId=AKIAIABSUSESLXAZRGMQ..."
+                      "example": "https://s3.amazonaws.com/cbd.documents.temporary/dae81456ba8dca98358217c0f54a8270?...."
                     },
                     "uid": {
                       "type": "string",

@@ -24,4 +24,4 @@ This API endpoint allows persisting a temporary file as an attachment to a docum
 
 ### Playground
 
-<SwaggerUI :swaggerSpecs="swaggerCHStorageSpecs" />
+<SwaggerUI :swaggerSpecs="swaggerUploadTemporaryStorageSpecs" />
