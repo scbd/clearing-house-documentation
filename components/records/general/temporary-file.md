@@ -27,7 +27,7 @@ const swaggerGetFileWithLimitSpecs = [
 
 ## Overview
 
-This API provides endpoints to upload temporary files either of unlimited size (via a multi-step process) or limited size (up to 1MB). The files are securely stored and can be retrieved later using a unique identifier (`uid`).
+This API is used to upload files to a intermediate location for furture uses in other CBD's system.
 
 ## Upload File - Unlimited Size
 
