@@ -83,6 +83,10 @@ export default [
         text: "Record Types",
         link: "/chm/record-types",
       },
+      {
+        text: "Realms",
+        link: "/abs/realms",
+      },
     ],
   },
   {

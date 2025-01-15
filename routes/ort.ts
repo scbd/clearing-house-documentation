@@ -140,6 +140,10 @@ export default [
         text: "Record Types",
         link: "/ort/record-types",
       },
+      {
+        text: "Realms",
+        link: "/abs/realms",
+      },
     ],
   },
   {
