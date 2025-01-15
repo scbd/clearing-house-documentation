@@ -35,7 +35,7 @@ This method is used for uploading files of unlimited size through a three-step p
 
 1. **Create a Slot**
 2. **Upload the File to the Slot**
-3. **Retrieve the File Details**
+3. **Retrieve the File slot details**
 
 ### Step 1: Create a Slot
 
@@ -68,7 +68,7 @@ This method is used for uploading files of unlimited size through a three-step p
 | url         | String |
 | uid         | String |
 | contentType | String |
-| metadata    | Object |
+| metadata    | Key-pair Object |
 
 ##### Response Example
 
@@ -115,7 +115,7 @@ Upload the file as binary data
 
 <SwaggerUI :swaggerSpecs="swaggerUploadFileSpecs" />
 
-### Step 3: Retrieve File Details
+### Step 3: Retrieve the File slot details
 
 <br>
 
@@ -147,7 +147,7 @@ Upload the file as binary data
 | filename    | String |
 | size        | Number |
 | contentType | String |
-| metadata    | Object |
+| metadata    | Key-pair Object |
 
 ##### Response Example
 
@@ -206,7 +206,7 @@ Form-Data:
 | hash        | String |
 | size        | Number |
 | contentType | String |
-| metadata    | Object |
+| metadata    | Key-pair Object |
 
 ##### Response Example
 
