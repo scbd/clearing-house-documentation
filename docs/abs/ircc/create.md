@@ -1,4 +1,4 @@
-<script setup>
+<script>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
 import swaggerJson from "@/swagger/json/ircc/create.json";
 
@@ -23,6 +23,21 @@ This is the endpoint to which the POST request should be made to create a new do
 
 ## Header
 <!--@include: @/../components/common/header/authorization-realm.md-->
+
+**Realm Values:**
+
+<table>
+    <thead>
+        <tr>
+            <th>Applications</th>
+            <th>Development Realm</th>
+            <th>Production Realm</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--@include: @/../components/common/realm/abs.md-->
+    </tbody>
+</table>
 
 ## Query Parameters
 <!--@include: @/../components/common/query/schema.md-->

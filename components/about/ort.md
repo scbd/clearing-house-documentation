@@ -1,0 +1,2 @@
+### Online Reporting Tool (ORT)
+According to CBD/COP/DEC/15/6, Parties will report the implementation of the KM-GBF directly using CBD’s online reporting tool. This reporting, as well as the corresponding data collection and compilation process, is led by Parties. For more details, refer to the official decision document: [CBD COP Decision 15/6](https://www.cbd.int/doc/decisions/cop-15/cop-15-dec-06-en.pdf).

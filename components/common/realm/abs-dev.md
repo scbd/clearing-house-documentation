@@ -1,1 +1,0 @@
-- **`abs-dev`**: Represents the development environment for ABS (Access and Benefit-sharing Clearing-House). Use this value when testing or developing features related to ABS in a non-production setting.

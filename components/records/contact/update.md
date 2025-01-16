@@ -1,4 +1,4 @@
-<script setup>
+<script>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
 import swaggerJson from "@/swagger/json/contact/update.json";
 
@@ -24,10 +24,21 @@ This is the endpoint to which the PUT request should be made to update an existi
 
 <br>
 
-**Realm Values for Development:**
+**Realm Values:**
 
-<!--@include: @/../components/common/realm/abs-dev.md-->
-<!--@include: @/../components/common/realm/bch-dev.md-->
+<table>
+    <thead>
+        <tr>
+            <th>Applications</th>
+            <th>Development Realm</th>
+            <th>Production Realm</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--@include: @/../components/common/realm/abs.md-->
+        <!--@include: @/../components/common/realm/bch.md-->
+    </tbody>
+</table>
 
 
 ## Query Parameters

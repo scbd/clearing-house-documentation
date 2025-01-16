@@ -28,10 +28,21 @@ This endpoint provides a way to retrieve draft records from the Contact system. 
 
 <br>
 
-**Realm Values for Development:**
+**Realm Values:**
 
-<!--@include: @/../components/common/realm/abs-dev.md-->
-<!--@include: @/../components/common/realm/bch-dev.md-->
+<table>
+    <thead>
+        <tr>
+            <th>Applications</th>
+            <th>Development Realm</th>
+            <th>Production Realm</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--@include: @/../components/common/realm/abs.md-->
+        <!--@include: @/../components/common/realm/bch.md-->
+    </tbody>
+</table>
 
 
 ## Query Parameters

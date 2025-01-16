@@ -20,9 +20,20 @@ This documentation describes the API endpoint for retrieving a specific NMCC doc
 ## Headers
 <!--@include: @/../components/common/header/realm-accept.md-->
 
-**Realm Values for Development:**
+**Realm Values:**
 
-<!--@include: @/../components/common/realm/abs-dev.md-->
+<table>
+    <thead>
+        <tr>
+            <th>Applications</th>
+            <th>Development Realm</th>
+            <th>Production Realm</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--@include: @/../components/common/realm/abs.md-->
+    </tbody>
+</table>
 
 ## URL Parameters
 <!--@include: @/../components/common/url/uid.md-->

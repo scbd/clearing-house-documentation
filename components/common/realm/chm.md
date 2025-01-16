@@ -1,1 +1,5 @@
-- **`chm`**: Specifies the production environment for CHM (Central Clearing-House Mechanism). This realm is used for live operations in the CHM context within the production environment.
+<tr>
+    <td>Clearing House Mechanism</td>
+    <td><strong>chm-dev</strong></td>
+    <td><strong>chm</strong></td>
+</tr>
