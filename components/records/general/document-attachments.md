@@ -4,7 +4,8 @@ import swaggerExistsJson from "@/swagger/json/general/document-attachments/exist
 import swaggerThumbnailJson from "@/swagger/json/general/document-attachments/thumbnail.json";
 import swaggerGetJson from "@/swagger/json/general/document-attachments/get.json";
 import swaggerListJson from "@/swagger/json/general/document-attachments/list.json";
-import swaggerUpdateJson from "@/swagger/json/general/document-attachments/update.json";
+import swaggerCreateJson from "@/swagger/json/general/document-attachments/create.json";
+import swaggerUploadTemporaryStorageJson from "@/swagger/json/general/document-attachments/upload-temporary-storage.json";
 
 const swaggerExistsSpecs = [
   { json: swaggerExistsJson, domId:"exists" },
@@ -18,8 +19,12 @@ const swaggerGetSpecs = [
 const swaggerListSpecs = [
   { json: swaggerListJson, domId:"list", protected: true },
 ];
-const swaggerUpdateSpecs = [
-  { json: swaggerUpdateJson, domId:"update", protected: true },
+const swaggerCreateSpecs = [
+  { json: swaggerCreateJson, domId:"create", protected: true },
+];
+
+const swaggerUploadTemporaryStorageSpecs = [
+  { json: swaggerUploadTemporaryStorageJson, domId:"ch-storage", protected:true },
 ];
 </script>
 
@@ -33,4 +38,6 @@ const swaggerUpdateSpecs = [
 
 <!--@include: @/../components/general/documents-attachments/list.md-->
 
-<!--@include: @/../components/general/documents-attachments/update.md-->
+<!--@include: @/../components/general/documents-attachments/create.md-->
+
+<!--@include: @/../components/general/documents-attachments/upload-temporary-storage.md-->

@@ -356,7 +356,7 @@ export default [
       },
       {
         text: "Documents Attachments",
-        link: "/abs/general/documents-attachments",
+        link: "/abs/general/document-attachments",
       },
       {
         text: "Drafts",
@@ -369,6 +369,10 @@ export default [
       {
         text: "Draft Locks",
         link: "/abs/general/draft-locks",
+      },
+      {
+        text: "Temporary File",
+        link: "/abs/general/temporary-file",
       },
     ],
   },

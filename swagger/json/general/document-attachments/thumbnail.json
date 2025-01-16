@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/documents/{uid}/attachments/{filename}/thumbnail": {
+    "/documents/{uid}/attachments/{attachmentId}/{filename}/{guid}/thumbnail": {
       "get": {
         "summary": "Get Document Attachment Thumbnail",
         "description": "Retrieves a thumbnail for a document attachment. This is only available for image files. If the thumbnail is not available, it may return a redirection to the image file.",
@@ -26,6 +26,24 @@
               "pattern": "^[A-Za-z0-9\\-_]{11,128}$"
             },
             "description": "Identifier of the document. The value is case-sensitive."
+          },
+          {
+            "name": "guid",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of the attachment.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "attachmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Id of the attached file."
           },
           {
             "name": "filename",
