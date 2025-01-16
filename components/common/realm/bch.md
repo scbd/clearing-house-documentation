@@ -1,1 +1,5 @@
-- **`bch`**: Indicates the production environment for BCH (Biosafety Clearing-House). This value is used for live functionalities related to BCH.
+<tr>
+    <td>Biosafety Clearing House</td>
+    <td><strong>bch-dev</strong></td>
+    <td><strong>bch</strong></td>
+</tr>
