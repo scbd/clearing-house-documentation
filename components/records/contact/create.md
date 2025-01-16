@@ -1,4 +1,4 @@
-<script setup>
+<script>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
 import swaggerJson from "@/swagger/json/contact/create.json";
 
