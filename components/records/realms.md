@@ -1,7 +1,7 @@
 # Realms
 
 ## Overview
-The **Realm** defines the specific context or environment in which a request is being made. It allows the system to appropriately route requests based on the specified environment. Realms are categorized into **Production** and **Development**, supporting both the **Clearing-House Mechanisms** and the **Online Reporting Tool (ORT)**.
+The **Realm** defines the specific application or environment in which a request is being made. It allows the system to appropriately route requests based on the specified environment. Realms are categorized into **Production** and **Development**, supporting both the **Clearing-House Mechanisms** and the **Online Reporting Tool (ORT)**.
 
 ---
 
@@ -23,7 +23,7 @@ The **Realm** defines the specific context or environment in which a request is 
     </tbody>
 </table>
 
-Use the appropriate realm based on the context and environment to ensure proper request routing and functionality.
+Use the appropriate realm based on the application and environment to ensure proper request routing and functionality.
 
 ## Applications
 
