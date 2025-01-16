@@ -12,7 +12,7 @@ const swaggerSpecs = [
 
 ## Overview
 
-This documentation describes the API endpoint for retrieving a specific VLR document using the `GET` method. This endpoint allows clients to fetch detailed information about a document from the system using its unique identifier (`uid`). It is used to retrieve and view the details of an existing document.
+This documentation describes the API endpoint for retrieving a specific VLR record using the `GET` method. This endpoint allows clients to fetch detailed information about a record from the system using its unique identifier (`uid`). It is used to retrieve and view the details of an existing record.
 
 ## Endpoint
 **GET** `/api/v2013/documents/:uid`
