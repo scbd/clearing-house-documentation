@@ -1,4 +1,4 @@
-<script setup>
+<script>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
 import swaggerJson from "@/swagger/json/contact/update.json";
 
@@ -21,6 +21,25 @@ This is the endpoint to which the PUT request should be made to update an existi
 
 ## Headers
 <!--@include: @/../components/common/header/authorization-realm.md-->
+
+<br>
+
+**Realm Values:**
+
+<table>
+    <thead>
+        <tr>
+            <th>Applications</th>
+            <th>Development Realm</th>
+            <th>Production Realm</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--@include: @/../components/common/realm/abs.md-->
+        <!--@include: @/../components/common/realm/bch.md-->
+    </tbody>
+</table>
+
 
 ## Query Parameters
 <!--@include: @/../components/common/query/schema.md-->

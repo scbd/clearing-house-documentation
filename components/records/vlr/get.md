@@ -20,6 +20,24 @@ This documentation describes the API endpoint for retrieving a specific VLR docu
 ## Headers
 <!--@include: @/../components/common/header/realm-accept.md-->
 
+**Realm Values:**
+
+<table>
+    <thead>
+        <tr>
+            <th>Applications</th>
+            <th>Development Realm</th>
+            <th>Production Realm</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--@include: @/../components/common/realm/abs.md-->
+        <!--@include: @/../components/common/realm/bch.md-->
+        <!--@include: @/../components/common/realm/chm.md-->
+    </tbody>
+</table>
+
+
 ## URL Parameters
 <!--@include: @/../components/common/url/uid.md-->
 

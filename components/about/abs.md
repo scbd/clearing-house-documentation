@@ -1,0 +1,2 @@
+### Access and Benefit-Sharing Clearing-House (ABSCH)
+The Access and Benefit-Sharing Clearing-House (ABSCH) is a platform that supports the Nagoya Protocol. It provides access to information about the fair and equitable sharing of benefits arising from the utilization of genetic resources.

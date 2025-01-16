@@ -1,7 +1,7 @@
 export const recordTypes = [
   {
     text: "National-Target",
-    fullName: "National Target Mapping",
+    fullName: "National Target",
     collapsed: true,
     items: [
       {
@@ -38,10 +38,14 @@ export const recordTypes = [
     ],
   },
   {
-    text: "NBSap",
-    fullName: "NBSap",
+    text: "NBSAP",
+    fullName: "NBSAP",
     collapsed: true,
     items: [
+      {
+        text: "Schema",
+        link: "/ort/nbsap/schema",
+      },
       {
         text: "Public Records",
         link: "/ort/nbsap/solr",
@@ -135,6 +139,10 @@ export default [
       {
         text: "Record Types",
         link: "/ort/record-types",
+      },
+      {
+        text: "Realms",
+        link: "/abs/realms",
       },
     ],
   },

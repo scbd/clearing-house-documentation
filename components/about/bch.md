@@ -1,0 +1,2 @@
+### Biosafety Clearing-House (BCH)
+The Biosafety Clearing-House (BCH) is an international exchange platform for biosafety information. It facilitates the implementation of the Cartagena Protocol on Biosafety and provides access to resources and information related to the safe transfer, handling, and use of living modified organisms.
