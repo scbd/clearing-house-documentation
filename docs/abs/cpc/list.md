@@ -18,7 +18,7 @@ const swaggerSpecs = [
 # Draft Records
 
 ## Overview
-This endpoint provides a way to retrieve draft records from the CPC (Checkpoint Communiqué) system. Draft records are documents that are still being prepared or are not yet finalized. This endpoint supports various query parameters to filter, sort, and paginate the results, making it easier to manage and review draft documents.
+This endpoint provides a way to retrieve draft records from the CPC (Checkpoint Communiqué) system. Draft records are records that are still being prepared or are not yet finalized. This endpoint supports various query parameters to filter, sort, and paginate the results, making it easier to manage and review draft records.
 
 
 ## Endpoint

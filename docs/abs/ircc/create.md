@@ -1,4 +1,4 @@
-<script setup>
+<script>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
 import swaggerJson from "@/swagger/json/ircc/create.json";
 
@@ -10,7 +10,7 @@ const swaggerSpecs = [
 # IRCC - Create
 
 ## Overview
-This documentation describes the API endpoint for creating a new IRCC (Internationally Recognized Certificate of Compliance) document using the `POST` method. The endpoint allows clients to submit a new document to the system, enabling the creation and storage of compliance certificates or other related documentation.
+This documentation describes the API endpoint for creating a new IRCC (Internationally Recognized Certificate of Compliance) record using the `POST` method. The endpoint allows clients to submit a new record to the system, enabling the creation and storage of compliance certificates or other related documentation.
 
 
 <!--@include: @/../components/ircc/introduction.md-->
@@ -19,7 +19,7 @@ This documentation describes the API endpoint for creating a new IRCC (Internati
 
 **POST** `/api/v2013/documents`
 
-This is the endpoint to which the POST request should be made to create a new document.
+This is the endpoint to which the POST request should be made to create a new record.
 
 ## Header
 <!--@include: @/../components/common/header/authorization-realm.md-->

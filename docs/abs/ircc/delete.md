@@ -19,7 +19,7 @@ const swaggerSpecs = [
 
 ## Overview
 
-This endpoint is used to delete a specific document from the system using its unique identifier (`uid`). This operation removes the document from the database and can be useful for managing and maintaining the document repository, ensuring that outdated or irrelevant documents are removed as needed.
+This endpoint is used to delete a specific record from the system using its unique identifier (`uid`). This operation removes the record from the database and can be useful for managing and maintaining the record repository, ensuring that outdated or irrelevant records are removed as needed.
 
 ## Endpoint
 **DELETE** `/api/v2013/documents/:uid`

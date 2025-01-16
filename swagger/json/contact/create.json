@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Documents API",
-    "description": "API to publish new documents.",
+    "title": "Records API",
+    "description": "API to publish new records.",
     "version": "2.13.0"
   },
   "servers": [
@@ -36,9 +36,9 @@
   "paths": {
     "/documents": {
       "post": {
-        "summary": "Create a new document",
-        "description": "Publish a new document.",
-        "tags": ["Create document"],
+        "summary": "Create a new record",
+        "description": "Publish a new record.",
+        "tags": ["Create record"],
         "security": [
           {
             "BearerAuth": []
