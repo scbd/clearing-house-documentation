@@ -1,4 +1,35 @@
 export const recordTypes = [
+    {
+    text: "Stakeholder-Commitments",
+    fullName: "Stakeholder commitments",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/ort/stakeholderCommitment/schema",
+      },
+      {
+        text: "Create/Update",
+        link: "/ort/stakeholderCommitment/workflow",
+      },
+      {
+        text: "Public Records",
+        link: "/ort/stakeholderCommitment/solr",
+      },
+      {
+        text: "Draft Records",
+        link: "/ort/stakeholderCommitment/list",
+      },
+      {
+        text: "Get",
+        link: "/ort/stakeholderCommitment/get",
+      },
+      {
+        text: "Delete",
+        link: "/ort/stakeholderCommitment/delete",
+      },
+    ],
+  },
   {
     text: "National-Target",
     fullName: "National Target",
