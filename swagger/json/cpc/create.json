@@ -38,7 +38,7 @@
         "post": {
           "summary": "Create ABS Checkpoint Communique",
           "description": "Endpoint to create an ABS Checkpoint Communique.",
-          "tags": ["Create document"],
+          "tags": ["Create record"],
           "security": [
             {
               "BearerAuth": []
@@ -460,7 +460,7 @@
                   "example": {
                     "statusCode": 403,
                     "code": "forbidden",
-                    "message": "Insufficient Privileges to create document [S10]"
+                    "message": "Insufficient Privileges to create record [S10]"
                   }
                 }
               }

@@ -12,14 +12,14 @@ const swaggerSpecs = [
 
 ## Overview
 
-This documentation describes the API endpoint for updating an existing CPC (Checkpoint Communiqué) document using the `PUT` method. This endpoint allows clients to modify the details of a document that is already present in the system. The update operation can be used to change various attributes of the document based on the provided `uid`.
+This documentation describes the API endpoint for updating an existing CPC (Checkpoint Communiqué) record using the `PUT` method. This endpoint allows clients to modify the details of a record that is already present in the system. The update operation can be used to change various attributes of the record based on the provided `uid`.
 
 
 ## Endpoint
 
 **PUT** `/api/v2013/documents/:uid`
 
-This is the endpoint to which the PUT request should be made to update an existing document.
+This is the endpoint to which the PUT request should be made to update an existing record.
 
 ## Headers
 <!--@include: @/../components/common/header/authorization-realm.md-->

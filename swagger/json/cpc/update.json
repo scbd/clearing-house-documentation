@@ -38,7 +38,7 @@
       "put": {
         "summary": "Update ABS Checkpoint Communique",
         "description": "Endpoint to update an ABS Checkpoint Communique.",
-        "tags": ["Update document"],
+        "tags": ["Update record"],
         "security": [
           {
             "BearerAuth": []
@@ -65,7 +65,7 @@
               "type": "string",
               "pattern": "^[A-Za-z0-9\\-_]{11,128}$"
             },
-            "description": "Identifier of the document. The value is case-sensitive."
+            "description": "Identifier of the record. The value is case-sensitive."
           },
           {
             "name": "Realm",
@@ -470,7 +470,7 @@
                 "example": {
                   "statusCode": 403,
                   "code": "forbidden",
-                  "message": "Insufficient Privileges to create document [S10]"
+                  "message": "Insufficient Privileges to create record [S10]"
                 }
               }
             }
