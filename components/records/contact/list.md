@@ -41,6 +41,7 @@ This endpoint provides a way to retrieve draft records from the Contact record. 
     <tbody>
         <!--@include: @/../components/common/realm/abs.md-->
         <!--@include: @/../components/common/realm/bch.md-->
+        <!--@include: @/../components/common/realm/chm.md-->
     </tbody>
 </table>
 

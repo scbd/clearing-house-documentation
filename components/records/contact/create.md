@@ -37,6 +37,7 @@ This is the endpoint to which the POST request should be made to create a new re
     <tbody>
         <!--@include: @/../components/common/realm/abs.md-->
         <!--@include: @/../components/common/realm/bch.md-->
+        <!--@include: @/../components/common/realm/chm.md-->
     </tbody>
 </table>
 

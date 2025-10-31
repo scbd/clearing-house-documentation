@@ -33,6 +33,7 @@ This documentation describes the API endpoint for retrieving a specific Contact 
     <tbody>
         <!--@include: @/../components/common/realm/abs.md-->
         <!--@include: @/../components/common/realm/bch.md-->
+        <!--@include: @/../components/common/realm/chm.md-->
     </tbody>
 </table>
 

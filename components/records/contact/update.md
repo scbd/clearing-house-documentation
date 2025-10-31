@@ -37,6 +37,7 @@ This is the endpoint to which the PUT request should be made to update an existi
     <tbody>
         <!--@include: @/../components/common/realm/abs.md-->
         <!--@include: @/../components/common/realm/bch.md-->
+        <!--@include: @/../components/common/realm/chm.md-->
     </tbody>
 </table>
 

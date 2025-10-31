@@ -39,6 +39,7 @@ This endpoint is used to delete a specific record from the system using its uniq
     </thead>
     <tbody>
         <!--@include: @/../components/common/realm/abs.md-->
+        <!--@include: @/../components/common/realm/chm.md-->
         <!--@include: @/../components/common/realm/bch.md-->
     </tbody>
 </table>
