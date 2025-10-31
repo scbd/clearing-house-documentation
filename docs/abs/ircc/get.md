@@ -21,6 +21,21 @@ This documentation describes the API endpoint for retrieving a specific IRCC (In
 ## Headers
 <!--@include: @/../components/common/header/realm-accept.md-->
 
+**Realm Values:**
+
+<table>
+    <thead>
+        <tr>
+            <th>Applications</th>
+            <th>Development Realm</th>
+            <th>Production Realm</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--@include: @/../components/common/realm/abs.md-->
+    </tbody>
+</table>
+
 ## URL Parameters
 <!--@include: @/../components/common/url/uid.md-->
 

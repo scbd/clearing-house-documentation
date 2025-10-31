@@ -271,6 +271,10 @@ export default [
         text: "Record Types",
         link: "/bch/record-types",
       },
+      {
+        text: "Realms",
+        link: "/abs/realms",
+      },
     ],
   },
   {
