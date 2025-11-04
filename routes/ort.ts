@@ -297,6 +297,32 @@ export default [
         ],
       },
       {
+        text: "Stakeholder commitments",
+        collapsed: true,
+        items: [
+          {
+            text: "Organization Types",
+            link: "/ort/thesaurus/stakeholderCommitment/organization-types",
+          },
+          {
+            text: "Jurisdiction",
+            link: "/ort/thesaurus/stakeholderCommitment/jurisdiction",
+          },
+          {
+            text: "GBF Targets",
+            link: "/ort/thesaurus/stakeholderCommitment/gbf-targets",
+          },
+          {
+            text: "GBF Headline Indicators",
+            link: "/ort/thesaurus/stakeholderCommitment/gbf-headline-indicators",
+          },
+          {
+            text: "GBF Target Considerations",
+            link: "/ort/thesaurus/stakeholderCommitment/gbf-target-considerations",
+          },
+        ],
+      },
+      {
         text: "NBSap",
         collapsed: true,
         items: [

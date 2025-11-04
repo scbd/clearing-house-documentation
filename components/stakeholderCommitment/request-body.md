@@ -40,7 +40,7 @@ The table below outlines the structure of the request body, including the fields
   <schema-row title="Is the funding sufficient for achieving the commitment?" field="isFundingSufficient" mandatory type="bool" />
   <schema-row title="International Frameworks" field="internationalFrameworks" type="lstring" />
   <schema-row title="Partners" field="partners" type="lstring" />
-  <schema-row title="Is Linked To NBSAP" field="isLinkedToNbsap" type="boo" />
+  <schema-row title="Is Linked To NBSAP" field="isLinkedToNbsap" type="bool" />
   <schema-row title="Linked To NBSAP Countries" field="linkedToNbsapCountries" type="ETerm[]" />
   <schema-row title="Will you report or provide information on Target 15 of the Framework?" field="isReportingOnTarget15" mandatory type="bool" />
   <schema-row title="Please provide details on what and how you will report or provide" field="target15Information" mandatory type="lstring" />
