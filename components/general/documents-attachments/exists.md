@@ -1,17 +1,17 @@
 ## Exists
 
 ### Overview
-The "Exists" API endpoint is used to check if a specific attachment is associated with a given document. By providing the document identifier (`uid`) and the attachment filename, this endpoint determines whether the specified attachment exists without retrieving or displaying the full content of the attachment. This is useful for validating the presence of attachments before attempting to access or manipulate them.
+This endpoint is used to check if a specific attachment is associated with a given document. By providing the document identifier (uid), the attachment identifier (attachmentId), and the attachment filename (filename), this endpoint determines whether the specified attachment exists without retrieving or displaying the full content of the attachment.
 
 ### Endpoint
 
-**HEAD** `/api/v2013/documents/{uid}/attachments/{filename}`
+**HEAD** `/api/v2013/documents/{uid}/attachments/{attachmentId}/{filename}`
 
 ### Headers
 <!--@include: @/../components/common/header/accept.md-->
 
 ### URL Parameters
-<!--@include: @/../components/common/url/uid-filename.md-->
+<!--@include: @/../components/common/url/uid-attachmentId-filename.md-->
 
 
 ### Playground

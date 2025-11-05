@@ -1,18 +1,18 @@
 ## Get
 
 ### Overview
-The "Get" API endpoint allows you to retrieve the data of a specific attachment associated with a given document. By providing the document identifier (`uid`) and the attachment filename, this endpoint returns the attachment in its original format, provided that it exists. This is useful for downloading or accessing the content of an attachment directly.
+This endpoint retrieves an attachment for a specific document. The endpoint uses the uid of the document and the attachmentId of the attachment to locate the file, allowing clients to download the attachment.
 
 ### Endpoint
 
-**GET** `/api/v2013/documents/{uid}/attachments/{filename}`
+**GET** `/api/v2013/documents/{uid}/attachments/{attachmentId}/{filename}`
 
 ### Headers
 <!--@include: @/../components/common/header/accept.md-->
 
 
 ### URL Parameters
-<!--@include: @/../components/common/url/uid-filename.md-->
+<!--@include: @/../components/common/url/uid-attachmentId-filename.md-->
 
 ### Playground
 

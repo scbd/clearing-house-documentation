@@ -1,0 +1,94 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Temporary Files API",
+    "description": "API to fetch details of temporary files.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz/api/v2015"
+    }
+  ],
+  "paths": {
+    "/temporary-files/{id}": {
+      "get": {
+        "summary": "Fetch Temporary File Details",
+        "description": "Retrieves the details of a temporary file using its unique ID.",
+        "tags": ["Get File"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of the temporary file.",
+            "schema": {
+              "type": "string",
+              "example": "1cfb1381f08ddb32071af684b5dc9d16"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with temporary file details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "The unique identifier of the temporary file."
+                    },
+                    "url": {
+                      "type": "string",
+                      "description": "The temporary file's URL."
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "description": "Additional metadata associated with the file.",
+                      "properties": {
+                        "filename": {
+                          "type": "string",
+                          "description": "Name of the file."
+                        },
+                        "contentType": {
+                          "type": "string",
+                          "description": "Content type of the file."
+                        },
+                        "user": {
+                          "type": "string",
+                          "description": "User who uploaded the file."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing authentication token."
+          },
+          "404": {
+            "description": "Not Found. The temporary file with the specified ID does not exist."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization"
+      }
+    }
+  }
+}
