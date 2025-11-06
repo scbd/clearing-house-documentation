@@ -1,0 +1,156 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Stakeholder Commitment API",
+    "description": "API for creating and managing stakeholder Commitment documents, including workflows and draft publishing.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://ort.cbddev.xyz/api/v2023"
+    }
+  ],
+  "security": [
+    {
+      "BearerAuth": []
+    },
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Add the `Realm` header with value `ort-dev`."
+      }
+    }
+  },
+  "paths": {
+    "/documents/schemas/{schema}": {
+      "post": {
+        "summary": "Create a new Stakeholder Commitment document",
+        "description": "Creates a new Stakeholder Commitment document schema and initiates the workflow process.",
+        "tags": ["Workflow - Create"],
+        "security": [
+            {
+              "BearerAuth": []
+            },
+            {
+              "ApiKeyAuth": []
+            }
+          ],
+        "parameters": [
+          {
+            "name": "schema",
+            "in": "path",
+            "description": "The document schema identifier",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "stakeholderCommitment"
+            }
+          },
+          {
+            "name": "realm",
+            "in": "query",
+            "description": "Realm used for the request",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "ort-dev"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "document": {
+                    "type": "object",
+                    "properties": {
+                      "header": {
+                        "type": "object",
+                        "properties": {
+                          "identifier": {
+                            "type": "string",
+                            "example": "CB51626B-CF45-2AA0-3A24-459669DDCC34"
+                          },
+                          "schema": {
+                            "type": "string",
+                            "example": "stakeholderCommitment"
+                          },
+                          "languages": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "example": ["en"]
+                          }
+                        }
+                      },
+
+                      "title": {
+                        "type": "object",
+                        "properties": {
+                          "en": {
+                            "type": "string",
+                            "example": "Test commitment title"
+                          }
+                        }
+                      },
+
+
+                      "notes": {
+                        "type": "string",
+                        "example": "[\"[ Pramod Sam | Jul 8, 2024 8:10:52 PM ] - aasdfasdf\"]"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Document created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "draft": {
+                      "type": "object",
+                      "properties": {
+                        "header": {
+                          "type": "object",
+                          "properties": {
+                            "identifier": {
+                              "type": "string",
+                              "example": "CB51626B-CF45-2AA0-3A24-459669DDCC34"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

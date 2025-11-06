@@ -11,17 +11,34 @@ const swaggerSpecs = [
 # CPC - Create
 
 ## Overview
-This documentation describes the API endpoint for creating a new CPC (Checkpoint Communiqué) document using the `POST` method. The endpoint allows clients to submit a new document to the system, enabling the creation and storage of compliance certificates or other related documentation.
+This documentation describes the API endpoint for creating a new CPC (Checkpoint Communiqué) record using the `POST` method. The endpoint allows clients to submit a new record to the system, enabling the creation and storage of compliance certificates or other related documentation.
 
 
 ## Endpoint
 
 **POST** `/api/v2013/documents`
 
-This is the endpoint to which the POST request should be made to create a new document.
+This is the endpoint to which the POST request should be made to create a new record.
 
 ## Header
 <!--@include: @/../components/common/header/authorization-realm.md-->
+
+<br>
+
+**Realm Values:**
+
+<table>
+    <thead>
+        <tr>
+            <th>Applications</th>
+            <th>Development Realm</th>
+            <th>Production Realm</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--@include: @/../components/common/realm/abs.md-->
+    </tbody>
+</table>
 
 ## Query Parameters
 <!--@include: @/../components/common/query/schema.md-->

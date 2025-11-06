@@ -1,0 +1,100 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Temporary Files API",
+    "description": "API to upload temporary files.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cbddev.xyz"
+    }
+  ],
+  "paths": {
+    "/api/v2015/temporary-files": {
+      "post": {
+        "summary": "Upload a Temporary File",
+        "description": "Uploads a file as `form-data` to the server. Requires authorization.",
+        "tags": ["Get File With Limit"],
+        "operationId": "uploadFile",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "file",
+                    "format": "formData",
+                    "description": "The file to be uploaded."
+                  }
+                },
+                "required": ["file"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "File uploaded successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "description": "The URL where the uploaded file is accessible."
+                    },
+                    "uid": {
+                      "type": "string",
+                      "description": "Unique identifier for the uploaded file."
+                    },
+                    "contentType": {
+                      "type": "string",
+                      "description": "The content type of the uploaded file."
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "filename": {
+                          "type": "string",
+                          "description": "The name of the uploaded file."
+                        },
+                        "user": {
+                          "type": "string",
+                          "description": "The user who uploaded the file."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing authentication token."
+          },
+          "400": {
+            "description": "Bad Request. The file was not provided or invalid."
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization"
+      }
+    }
+  }
+}

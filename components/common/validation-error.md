@@ -1,4 +1,4 @@
-The table below provides descriptions for each error type that may appear in the "errors" property. These errors are intended to help identify missing or incorrect fields and values within the document parameter, enabling precise adjustments to meet validation requirements.
+The table below provides descriptions for each error type that may appear in the "errors" property. These errors are intended to help identify missing or incorrect fields and values within the record parameter, enabling precise adjustments to meet validation requirements.
 
 | Error Type             | Description                           |
 | ---------------------- | ------------------------------------- |

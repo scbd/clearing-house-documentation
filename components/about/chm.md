@@ -1,0 +1,2 @@
+### Clearing-House Mechanism (CHM)
+The Clearing-House Mechanism (CHM) is designed to promote technical and scientific cooperation and to provide access to data and information relevant to the implementation of the Convention on Biological Diversity.

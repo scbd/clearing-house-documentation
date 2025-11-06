@@ -1,7 +1,38 @@
 export const recordTypes = [
+    {
+    text: "Stakeholder-Commitments",
+    fullName: "Stakeholder commitments",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/ort/stakeholderCommitment/schema",
+      },
+      {
+        text: "Create/Update",
+        link: "/ort/stakeholderCommitment/workflow",
+      },
+      {
+        text: "Public Records",
+        link: "/ort/stakeholderCommitment/solr",
+      },
+      {
+        text: "Draft Records",
+        link: "/ort/stakeholderCommitment/list",
+      },
+      {
+        text: "Get",
+        link: "/ort/stakeholderCommitment/get",
+      },
+      {
+        text: "Delete",
+        link: "/ort/stakeholderCommitment/delete",
+      },
+    ],
+  },
   {
     text: "National-Target",
-    fullName: "National Target Mapping",
+    fullName: "National Target",
     collapsed: true,
     items: [
       {
@@ -38,10 +69,14 @@ export const recordTypes = [
     ],
   },
   {
-    text: "NBSap",
-    fullName: "NBSap",
+    text: "NBSAP",
+    fullName: "NBSAP",
     collapsed: true,
     items: [
+      {
+        text: "Schema",
+        link: "/ort/nbsap/schema",
+      },
       {
         text: "Public Records",
         link: "/ort/nbsap/solr",
@@ -136,6 +171,10 @@ export default [
         text: "Record Types",
         link: "/ort/record-types",
       },
+      {
+        text: "Realms",
+        link: "/abs/realms",
+      },
     ],
   },
   {
@@ -156,7 +195,7 @@ export default [
       },
       {
         text: "Documents Attachments",
-        link: "/ort/general/documents-attachments",
+        link: "/ort/general/document-attachments",
       },
       {
         text: "Drafts",
@@ -169,6 +208,10 @@ export default [
       {
         text: "Draft Locks",
         link: "/ort/general/draft-locks",
+      },
+      {
+        text: "Temporary File",
+        link: "/ort/general/temporary-file",
       },
     ],
   },
@@ -250,6 +293,32 @@ export default [
           {
             text: "GBF Headline Indicators",
             link: "/ort/thesaurus/national-target-mapping/gbf-headline-indicators",
+          },
+        ],
+      },
+      {
+        text: "Stakeholder commitments",
+        collapsed: true,
+        items: [
+          {
+            text: "Organization Types",
+            link: "/ort/thesaurus/stakeholderCommitment/organization-types",
+          },
+          {
+            text: "Jurisdiction",
+            link: "/ort/thesaurus/stakeholderCommitment/jurisdiction",
+          },
+          {
+            text: "GBF Targets",
+            link: "/ort/thesaurus/stakeholderCommitment/gbf-targets",
+          },
+          {
+            text: "GBF Headline Indicators",
+            link: "/ort/thesaurus/stakeholderCommitment/gbf-headline-indicators",
+          },
+          {
+            text: "GBF Target Considerations",
+            link: "/ort/thesaurus/stakeholderCommitment/gbf-target-considerations",
           },
         ],
       },

@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Documents API",
-    "description": "API to fetch documents data in raw format.",
+    "title": "Records API",
+    "description": "API to fetch records data in raw format.",
     "version": "2.13.0"
   },
   "servers": [
@@ -13,9 +13,9 @@
   "paths": {
     "/documents/{uid}": {
       "get": {
-        "summary": "Get Document by UID",
-        "description": "Load documents data in raw format.",
-        "tags": ["Get document"],
+        "summary": "Get record by UID",
+        "description": "Load records data in raw format.",
+        "tags": ["Get record"],
         "parameters": [
           {
             "name": "Accept",
@@ -35,7 +35,7 @@
               "type": "string",
               "pattern": "^[A-Za-z0-9\\-_]{11,128}$"
             },
-            "description": "Identifier of the document. The value is case-sensitive."
+            "description": "Identifier of the record. The value is case-sensitive."
           }
         ],
         "responses": {

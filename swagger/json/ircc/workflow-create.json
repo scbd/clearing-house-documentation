@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "IRCC API",
-    "description": "API for creating and managing IRCC documents, including workflows and draft publishing.",
+    "description": "API for creating and managing IRCC records, including workflows and draft publishing.",
     "version": "1.0.0"
   },
   "servers": [
@@ -36,8 +36,8 @@
   "paths": {
     "/documents/schemas/{schema}": {
       "post": {
-        "summary": "Create a new IRCC document",
-        "description": "Creates a new IRCC document schema and initiates the workflow process.",
+        "summary": "Create a new IRCC record",
+        "description": "Creates a new IRCC record schema and initiates the workflow process.",
         "tags": ["Workflow - Create"],
         "security": [
             {
@@ -51,7 +51,7 @@
           {
             "name": "schema",
             "in": "path",
-            "description": "The document schema identifier",
+            "description": "The record schema identifier",
             "required": true,
             "schema": {
               "type": "string",
@@ -371,7 +371,7 @@
         },
         "responses": {
           "200": {
-            "description": "Document created successfully",
+            "description": "Record created successfully",
             "content": {
               "application/json": {
                 "schema": {

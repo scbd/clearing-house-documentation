@@ -31,6 +31,7 @@ onMounted(() => {
 
 const filteredRecords = computed(() => {
   return selectedFilter.value && recordTypes[selectedFilter.value].map((record)=>{
+   
     return {
       recordType: record.text,
       schemaUrl: `/${selectedFilter.value}/${record.text.toLowerCase()}/schema`,

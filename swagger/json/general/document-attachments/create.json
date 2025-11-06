@@ -17,27 +17,12 @@
       "ApiKeyAuth": []
     }
   ],
-  "components": {
-    "securitySchemes": {
-      "BearerAuth": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
-      },
-      "ApiKeyAuth": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "Authorization",
-        "description": "Add the `Realm` header with value `abs-dev`."
-      }
-    }
-  },
   "paths": {
     "/documents/{uid}/attachments/{filename}": {
-      "put": {
+      "post": {
         "summary": "Publish an update to a document's attachment",
         "description": "Allows administrators and authorized users to publish updates to a document's attachment. Requires an authentication token and specifies the document and filename.",
-        "tags":["Update attachment"],
+        "tags":["Create attachment"],
         "security": [
           {
             "BearerAuth": []
@@ -65,90 +50,26 @@
               "type": "string"
             },
             "description": "Name of the file."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Token used for authenticating the request."
-          },
-          {
-            "name": "Accept",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "default": "application/json"
-            },
-            "description": "Desired result format."
           }
         ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/octet-stream": {
+              "schema": {
+                "type": "file",
+                "format": "binary"
+              }
+            }
+          }
+        },
         "responses": {
-          "200": {
-            "description": "Document attachment updated successfully.",
+          "201": {
+            "description": "Attachment created successfully.",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "attachmentID": {
-                      "type": "integer",
-                      "example": 0
-                    },
-                    "documentID": {
-                      "type": "integer",
-                      "example": 789123
-                    },
-                    "documentUID": {
-                      "type": "string",
-                      "example": "012345abcf"
-                    },
-                    "filename": {
-                      "type": "string",
-                      "example": "report.pdf"
-                    },
-                    "isPublic": {
-                      "type": "string",
-                      "example": "isPublic"
-                    },
-                    "mediaType": {
-                      "type": "string",
-                      "example": "application/pdf"
-                    },
-                    "size": {
-                      "type": "integer",
-                      "example": 1234
-                    },
-                    "createdOn": {
-                      "type": "string",
-                      "format": "date-time",
-                      "example": "2013-10-01T22:08:17.073Z"
-                    },
-                    "createdBy": {
-                      "type": "object",
-                      "properties": {
-                        "userID": {
-                          "type": "integer",
-                          "example": 123
-                        },
-                        "firstName": {
-                          "type": "string",
-                          "example": "John"
-                        },
-                        "lastName": {
-                          "type": "string",
-                          "example": "Smith"
-                        },
-                        "email": {
-                          "type": "string",
-                          "example": "fake.john.smith@cbd.int"
-                        }
-                      }
-                    }
-                  }
+                  "$ref": "#/components/schemas/DocumentAttachmentInfo"
                 }
               }
             }
@@ -223,6 +144,98 @@
                 }
               }
             }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Add the `Realm` header with value `abs-dev`."
+      }
+    },
+    "schemas": {
+      "UserInfo": {
+        "type": "object",
+        "properties": {
+          "userID": {
+            "type": "integer",
+            "example": 12345
+          },
+          "userName": {
+            "type": "string",
+            "example": "john.doe"
+          }
+        }
+      },
+      "DocumentAttachmentInfo": {
+        "type": "object",
+        "properties": {
+          "attachmentID": {
+            "type": "integer",
+            "example": 98765
+          },
+          "documentID": {
+            "type": "integer",
+            "nullable": true,
+            "example": 123
+          },
+          "documentUID": {
+            "type": "string",
+            "example": "abcd-1234-efgh-5678"
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2024-08-24T12:34:56Z"
+          },
+          "createdBy": {
+            "$ref": "#/components/schemas/UserInfo"
+          },
+          "submittedOn": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2024-08-25T14:30:00Z"
+          },
+          "submittedBy": {
+            "$ref": "#/components/schemas/UserInfo"
+          },
+          "isPublic": {
+            "type": "boolean",
+            "example": true
+          },
+          "filename": {
+            "type": "string",
+            "example": "attachment.pdf"
+          },
+          "mediaType": {
+            "type": "string",
+            "example": "application/pdf"
+          },
+          "charset": {
+            "type": "string",
+            "example": "utf-8"
+          },
+          "hash": {
+            "type": "string",
+            "example": "e99a18c428cb38d5f260853678922e03"
+          },
+          "size": {
+            "type": "integer",
+            "example": 1024
+          },
+          "url": {
+            "type": "string",
+            "example": "/api/v2013/documents/abcd-1234-efgh-5678/attachments/98765/attachment.pdf"
           }
         }
       }

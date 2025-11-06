@@ -1,0 +1,26 @@
+<script setup>
+import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
+
+import scAllRecordsWithQueryJson from "@/swagger/json/stakeholderCommitment/solr/all-record-with-query.json";
+import scAllRecordsJson from "@/swagger/json/stakeholderCommitment/solr/all-record.json";
+
+import scAllRecordsWithSubFiltersJson from "@/swagger/json/stakeholderCommitment/solr/all-record-with-subfilters.json";
+
+import baseJson from "@/swagger/json/records/solr/base.json";
+
+import { mergeSwaggerWithBase, deepClone } from "@/utils"
+
+const swaggerSpecs = [
+  { json: mergeSwaggerWithBase(deepClone(baseJson), scAllRecordsJson, ['paths']) ,protected: false },
+  { json: mergeSwaggerWithBase(deepClone(baseJson), scAllRecordsWithQueryJson, ['paths']) ,protected: false },
+  { json: mergeSwaggerWithBase(deepClone(baseJson), scAllRecordsWithSubFiltersJson, ["paths"]), protected: false },
+];
+
+
+</script>
+
+<!--@include: @/../components/records/solr.md-->
+
+## Playground
+
+<SwaggerUI :swaggerSpecs="swaggerSpecs"/>

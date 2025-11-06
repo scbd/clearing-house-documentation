@@ -83,6 +83,10 @@ export default [
         text: "Record Types",
         link: "/chm/record-types",
       },
+      {
+        text: "Realms",
+        link: "/abs/realms",
+      },
     ],
   },
   {
@@ -103,7 +107,7 @@ export default [
       },
       {
         text: "Documents Attachments",
-        link: "/chm/general/documents-attachments",
+        link: "/chm/general/document-attachments",
       },
       {
         text: "Drafts",
@@ -116,6 +120,10 @@ export default [
       {
         text: "Draft Locks",
         link: "/chm/general/draft-locks",
+      },
+      {
+        text: "Temporary File",
+        link: "/chm/general/temporary-file",
       },
     ],
   },
