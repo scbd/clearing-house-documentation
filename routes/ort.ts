@@ -1,4 +1,35 @@
 export const recordTypes = [
+    {
+    text: "Stakeholder-Commitments",
+    fullName: "Stakeholder commitments",
+    collapsed: true,
+    items: [
+      {
+        text: "Schema",
+        link: "/ort/stakeholderCommitment/schema",
+      },
+      {
+        text: "Create/Update",
+        link: "/ort/stakeholderCommitment/workflow",
+      },
+      {
+        text: "Public Records",
+        link: "/ort/stakeholderCommitment/solr",
+      },
+      {
+        text: "Draft Records",
+        link: "/ort/stakeholderCommitment/list",
+      },
+      {
+        text: "Get",
+        link: "/ort/stakeholderCommitment/get",
+      },
+      {
+        text: "Delete",
+        link: "/ort/stakeholderCommitment/delete",
+      },
+    ],
+  },
   {
     text: "National-Target",
     fullName: "National Target",
@@ -262,6 +293,32 @@ export default [
           {
             text: "GBF Headline Indicators",
             link: "/ort/thesaurus/national-target-mapping/gbf-headline-indicators",
+          },
+        ],
+      },
+      {
+        text: "Stakeholder commitments",
+        collapsed: true,
+        items: [
+          {
+            text: "Organization Types",
+            link: "/ort/thesaurus/stakeholderCommitment/organization-types",
+          },
+          {
+            text: "Jurisdiction",
+            link: "/ort/thesaurus/stakeholderCommitment/jurisdiction",
+          },
+          {
+            text: "GBF Targets",
+            link: "/ort/thesaurus/stakeholderCommitment/gbf-targets",
+          },
+          {
+            text: "GBF Headline Indicators",
+            link: "/ort/thesaurus/stakeholderCommitment/gbf-headline-indicators",
+          },
+          {
+            text: "GBF Target Considerations",
+            link: "/ort/thesaurus/stakeholderCommitment/gbf-target-considerations",
           },
         ],
       },
