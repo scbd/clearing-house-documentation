@@ -37,7 +37,7 @@
     "/documents/schemas/{schema}/{identifier}": {
       "put": {
         "summary": "Update existing IRCC record",
-        "tags": ["Workflow- Update"],
+        "tags": ["Update Document"],
         "security": [
           {
             "BearerAuth": []

@@ -38,7 +38,7 @@
       "post": {
         "summary": "Create a new Stakeholder Commitment document",
         "description": "Creates a new Stakeholder Commitment document schema and initiates the workflow process.",
-        "tags": ["Workflow - Create"],
+        "tags": ["Create Document"],
         "security": [
             {
               "BearerAuth": []
