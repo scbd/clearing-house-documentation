@@ -76,6 +76,10 @@ import { AuthManager } from "../../utils/auth-manager";
 import "swagger-ui/dist/swagger-ui.css";
 import "../../style.css";
 
+import SwaggerUIBundle from 'swagger-ui-dist/swagger-ui-bundle.js';
+import SwaggerUIStandalonePreset from 'swagger-ui-dist/swagger-ui-standalone-preset.js';
+
+
 const props = defineProps({
   swaggerSpecs: {
     type: Array,
@@ -123,12 +127,11 @@ const initializeSwaggerUI = () => {
       const promises = props.swaggerSpecs.map(async (swaggerSpec, index) => {
         const domId = swaggerSpec.domId ? `${swaggerSpec.domId}-${index}` : `swagger-ui-${index}`;
         
-        const SwaggerUI = (await import("swagger-ui")).default;
         // Initialize Swagger UI
-        const ui = SwaggerUI({
+        const ui = SwaggerUIBundle({
           spec: swaggerSpec.json,
           dom_id: `#${domId}`,
-          presets: [SwaggerUI.presets.apis, SwaggerUI.SwaggerUIStandalonePreset],
+          presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
           layout: "BaseLayout",
         });
 
