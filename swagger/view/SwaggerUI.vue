@@ -39,6 +39,13 @@
             </div>
           </div>
         </div>
+        <div v-if="!canRunPlayground" class="alert alert-danger mx-2" role="alert">
+            <b>You don't have rights on your user roles to access this playground.</b>
+            <p v-if="schemaDetails?.nationalAuthorizedUser?.length > 0">
+              To run playground for {{ schemaDetails.title }} schema you must have one of the following roles:<br>
+              {{ schemaDetails.nationalAuthorizedUser.join(", ") }}.
+            </p>
+        </div>
       </div>
       <div :id="spec.domId ? `${spec.domId}-${index}` : `swagger-ui-${index}`"></div>
     </div>
@@ -57,14 +64,14 @@
   </div>
   <div v-show="isError">
     <div class="alert alert-danger" role="alert">
-      An error occurred while loading Swagger playgroud, please refresh the page.
+      An error occurred while loading Swagger playground, please refresh the page.
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, computed } from "vue";
-import { APP_CONFIG } from "../../docs/app-config"
+import { ref, onMounted, computed } from "vue";
+import { APP_CONFIG } from "../../docs/app-config";
 import { AuthManager } from "../../utils/auth-manager";
 import "swagger-ui/dist/swagger-ui.css";
 import "../../style.css";
@@ -83,14 +90,26 @@ const props = defineProps({
   },
 });
 
-const token = ref(null)
+const token = ref(null);
 const isLoading = ref(true);
-const isError = ref(null);
+const isError = ref(false);
 const user = ref(null);
 
 const devRoles = computed(() => {
   return user.value.roles.filter(role => role.includes("dev"));
 })
+
+const schemaDetails = computed(() => {
+  return props.swaggerSpecs[0].json?.schemaDetails;
+})
+
+const canRunPlayground = computed(() => {
+  if(props.swaggerSpecs[0].json?.schemaDetails?.nationalAuthorizedUser === undefined){
+    return true; // If no publishing authorities defined, allow access
+  }
+  const nationalAuthorizedUser = props.swaggerSpecs[0].json?.schemaDetails?.nationalAuthorizedUser || [];
+  return user.value?.roles?.some(role => nationalAuthorizedUser.includes(role)) || false;
+});
 
 const redirectToAccounts = () => {
   const currentUrl = window.location.href;
@@ -125,7 +144,7 @@ const initializeSwaggerUI = () => {
           const observer = new MutationObserver(() => {
             const tryOutButtons = document.querySelectorAll(".try-out__btn");
             tryOutButtons.forEach((button) => {
-              button.disabled = false;
+              button.disabled = !canRunPlayground.value; // Show Swagger docs but disable "Try it out" for unauthorized users
             });
           });
 
