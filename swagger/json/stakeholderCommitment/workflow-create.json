@@ -7,17 +7,22 @@
   },
   "servers": [
     {
-      "url": "https://ort.cbddev.xyz/api/v2023"
+      "url": "https://api.cbddev.xyz/api/v2023"
     }
   ],
   "security": [
-    {
-      "BearerAuth": []
-    },
-    {
-      "ApiKeyAuth": []
-    }
+    { "BearerAuth": [] },
+    { "ApiKeyAuth": [] }
   ],
+  "schemaDetails": {
+    "type": "national",
+    "title":  "Stakeholder Commitment",
+    "shortCode": "stakeholderCommitment",
+    "nationalAuthorizedUser": [
+      "OrtAdministrator-dev",
+      "ortStakeholderCommitmentAuthorizedUser"   
+    ]
+  },
   "components": {
     "securitySchemes": {
       "BearerAuth": {
@@ -40,13 +45,9 @@
         "description": "Creates a new Stakeholder Commitment document schema and initiates the workflow process.",
         "tags": ["Create Document"],
         "security": [
-            {
-              "BearerAuth": []
-            },
-            {
-              "ApiKeyAuth": []
-            }
-          ],
+          { "BearerAuth": [] },
+          { "ApiKeyAuth": [] }
+        ],
         "parameters": [
           {
             "name": "schema",
@@ -84,7 +85,7 @@
                         "properties": {
                           "identifier": {
                             "type": "string",
-                            "example": "CB51626B-CF45-2AA0-3A24-459669DDCC34"
+                            "example": "449F8792-14A7-195E-35C8-1E66D57892BC"
                           },
                           "schema": {
                             "type": "string",
@@ -92,25 +93,144 @@
                           },
                           "languages": {
                             "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
+                            "items": { "type": "string" },
                             "example": ["en"]
                           }
                         }
                       },
-
+                      "firstName": { "type": "string", "example": "Jack" },
+                      "lastName": { "type": "string", "example": "Sparrow" },
+                      "designation": {
+                        "type": "object",
+                        "properties": { "en": { "type": "string", "example": "Captain" } }
+                      },
+                      "department": {
+                        "type": "object",
+                        "properties": { "en": { "type": "string", "example": "Navigation" } }
+                      },
+                      "organization": {
+                        "type": "object",
+                        "properties": { "en": { "type": "string", "example": "Coalition of the Seas" } }
+                      },
+                      "organizationAcronym": {
+                        "type": "object",
+                        "properties": { "en": { "type": "string", "example": "COS" } }
+                      },
+                      "organizationType": {
+                        "type": "object",
+                        "properties": {
+                          "identifier": {
+                            "type": "string",
+                            "example": "A8CE34C5-A2D7-44F7-9F10-0AD69448E599"
+                          }
+                        }
+                      },
+                      "address": {
+                        "type": "object",
+                        "properties": { "en": { "type": "string", "example": "Indian ocean" } }
+                      },
+                      "city": {
+                        "type": "object",
+                        "properties": { "en": { "type": "string", "example": "IC" } }
+                      },
+                      "state": {
+                        "type": "object",
+                        "properties": { "en": { "type": "string", "example": "IDWS" } }
+                      },
+                      "postalCode": {
+                        "type": "object",
+                        "properties": { "en": { "type": "string", "example": "123456" } }
+                      },
+                      "country": {
+                        "type": "object",
+                        "properties": {
+                          "identifier": { "type": "string", "example": "au" }
+                        }
+                      },
+                      "emails": {
+                        "type": "array",
+                        "items": { "type": "string" },
+                        "example": ["test@c.com"]
+                      },
+                      "jurisdiction": {
+                        "type": "object",
+                        "properties": {
+                          "identifier": {
+                            "type": "string",
+                            "example": "528B1187-F1BD-4479-9FB3-ADBD9076D361"
+                          }
+                        }
+                      },
+                      "jurisdictionRegions": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "identifier": {
+                              "type": "string",
+                              "example": "5D13EC43-F3E0-415E-AF67-62CCC85899AF"
+                            }
+                          }
+                        }
+                      },
                       "title": {
+                        "type": "object",
+                        "properties": {
+                          "en": { "type": "string", "example": "The most amazing commitment" }
+                        }
+                      },
+                      "description": {
                         "type": "object",
                         "properties": {
                           "en": {
                             "type": "string",
-                            "example": "Test commitment title"
+                            "example": "<h2>What is Lorem Ipsum?</h2><p>Lorem Ipsum is simply dummy text...</p>"
                           }
                         }
                       },
-
-
+                      "partners": {
+                        "type": "object",
+                        "properties": { "en": { "type": "string", "example": "AMAZON Inc" } }
+                      },
+                      "timelineStartDate": {
+                        "type": "string",
+                        "format": "date",
+                        "example": "2025-09-29"
+                      },
+                      "coverageCountries": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "identifier": { "type": "string", "example": "ht" }
+                          }
+                        }
+                      },
+                      "linkedToNbsapCountries": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "identifier": { "type": "string", "example": "bj" }
+                          }
+                        },
+                        "example": [
+                          { "identifier": "bj" },
+                          { "identifier": "by" },
+                          { "identifier": "kh" },
+                          { "identifier": "cy" }
+                        ]
+                      },
+                      "isLinkedToNbsap": { "type": "boolean", "example": true },
+                      "primaryGlobalAlignment": {
+                        "type": "object",
+                        "properties": {
+                          "identifier": { "type": "string", "example": "GBF-TARGET-09" }
+                        }
+                      },
+                      "isFundingSufficient": { "type": "boolean", "example": false },
+                      "isReportingOnTarget15": { "type": "boolean", "example": false },
+                      "isProgressTracked": { "type": "boolean", "example": false },
                       "notes": {
                         "type": "string",
                         "example": "[\"[ Pramod Sam | Jul 8, 2024 8:10:52 PM ] - aasdfasdf\"]"
