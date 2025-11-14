@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://absch.cbddev.xyz/api/v2023"
+      "url": "https://api.cbddev.xyz/api/v2023"
     }
   ],
   "security": [
