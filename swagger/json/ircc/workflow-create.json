@@ -38,7 +38,7 @@
       "post": {
         "summary": "Create a new IRCC record",
         "description": "Creates a new IRCC record schema and initiates the workflow process.",
-        "tags": ["Workflow - Create"],
+        "tags": ["Create Document"],
         "security": [
             {
               "BearerAuth": []
