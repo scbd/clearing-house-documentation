@@ -10,9 +10,11 @@
       "name": "Launch with ABS",
       "skipFiles": ["<node_internals>/**"],
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev:abs"],
+      "runtimeArgs": ["run", "dev"],
       "env": {
-        "VITE_CLEARING_HOUSE": "abs"
+        "VITE_CLEARING_HOUSE": "abs",
+        "VITE_ACCOUNTS_HOST_URL":"https://accounts.cbddev.xyz",
+        "VITE_API_URL":"https://api.cbddev.xyz"
       },
       "console": "integratedTerminal"
     },
@@ -22,9 +24,11 @@
       "name": "Launch with BCH",
       "skipFiles": ["<node_internals>/**"],
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev:bch"],
+      "runtimeArgs": ["run", "dev"],
       "env": {
-        "VITE_CLEARING_HOUSE": "bch"
+        "VITE_CLEARING_HOUSE": "bch",
+        "VITE_ACCOUNTS_HOST_URL":"https://accounts.cbddev.xyz",
+        "VITE_API_URL":"https://api.cbddev.xyz"
       },
       "console": "integratedTerminal"
     },
@@ -34,9 +38,25 @@
       "name": "Launch with CHM",
       "skipFiles": ["<node_internals>/**"],
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev:chm"],
+      "runtimeArgs": ["run", "dev"],
       "env": {
-        "VITE_CLEARING_HOUSE": "chm"
+        "VITE_CLEARING_HOUSE": "chm",
+        "VITE_ACCOUNTS_HOST_URL":"https://accounts.cbddev.xyz",
+        "VITE_API_URL":"https://api.cbddev.xyz"
+      },
+      "console": "integratedTerminal"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "Launch with ORT",
+      "skipFiles": ["<node_internals>/**"],
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "env": {
+        "VITE_CLEARING_HOUSE": "ort",
+        "VITE_ACCOUNTS_HOST_URL":"https://accounts.cbddev.xyz",
+        "VITE_API_URL":"https://api.cbddev.xyz"
       },
       "console": "integratedTerminal"
     }
