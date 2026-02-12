@@ -76,10 +76,6 @@ import { AuthManager } from "../../utils/auth-manager";
 import "swagger-ui/dist/swagger-ui.css";
 import "../../style.css";
 
-import SwaggerUIBundle from 'swagger-ui-dist/swagger-ui-bundle.js';
-import SwaggerUIStandalonePreset from 'swagger-ui-dist/swagger-ui-standalone-preset.js';
-
-
 const props = defineProps({
   swaggerSpecs: {
     type: Array,
@@ -95,10 +91,12 @@ const props = defineProps({
 });
 
 const token = ref(null);
-const isLoading = ref(true);
+const isLoadingSwagger = ref(true);
+const isLoadingFiles = ref(true);
 const isError = ref(false);
 const user = ref(null);
 
+const isLoading = computed(() => isLoadingSwagger.value || isLoadingFiles.value)
 const devRoles = computed(() => {
   return user.value.roles.filter(role => role.includes("dev"));
 })
@@ -121,93 +119,89 @@ const redirectToAccounts = () => {
   window.location.href = loginUrl;
 };
 
-const initializeSwaggerUI = () => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      const promises = props.swaggerSpecs.map(async (swaggerSpec, index) => {
-        const domId = swaggerSpec.domId ? `${swaggerSpec.domId}-${index}` : `swagger-ui-${index}`;
-        
-        // Initialize Swagger UI
-        const ui = SwaggerUIBundle({
-          spec: swaggerSpec.json,
-          dom_id: `#${domId}`,
-          presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
-          layout: "BaseLayout",
+const initializeSwaggerUI = async () => {
+  const swaggerFiles = await lazyLoadSwaggerFiles()
+  const { SwaggerUIBundle, SwaggerUIStandalonePreset } = swaggerFiles
+
+  const promises = props.swaggerSpecs.map(async (swaggerSpec, index) => {
+    const domId = swaggerSpec.domId ? `${swaggerSpec.domId}-${index}` : `swagger-ui-${index}`;
+
+    // Initialize Swagger UI
+    const ui = SwaggerUIBundle({
+      spec: swaggerSpec.json,
+      dom_id: `#${domId}`,
+      presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+      layout: "BaseLayout",
+    });
+
+    // Handling protected APIs with token
+    if (swaggerSpec.protected && token.value) {
+      ui.initOAuth({
+        scopeSeparator: " ",
+        additionalQueryStringParams: {},
+      });
+      const prefixedAuthToken = `Ticket ${token.value}`;
+      ui.preauthorizeApiKey("ApiKeyAuth", prefixedAuthToken);
+
+      const observer = new MutationObserver(() => {
+        const tryOutButtons = document.querySelectorAll(".try-out__btn");
+        tryOutButtons.forEach((button) => {
+          button.disabled = !canRunPlayground.value; // Show Swagger docs but disable "Try it out" for unauthorized users
         });
-
-        // Handling protected APIs with token
-        if (swaggerSpec.protected && token.value) {
-          ui.initOAuth({
-            scopeSeparator: " ",
-            additionalQueryStringParams: {},
-          });
-          const prefixedAuthToken = `Ticket ${token.value}`;
-          ui.preauthorizeApiKey("ApiKeyAuth", prefixedAuthToken);
-
-          const observer = new MutationObserver(() => {
-            const tryOutButtons = document.querySelectorAll(".try-out__btn");
-            tryOutButtons.forEach((button) => {
-              button.disabled = !canRunPlayground.value; // Show Swagger docs but disable "Try it out" for unauthorized users
-            });
-          });
-
-          const targetNode = document.getElementById(domId);
-          if (targetNode) {
-            observer.observe(targetNode, { childList: true, subtree: true });
-          }
-        } else if ( swaggerSpec.protected && !token.value ) {
-          const observer = new MutationObserver(() => {
-            const tryOutButtons = document.querySelectorAll(".try-out__btn");
-            tryOutButtons.forEach((button) => {
-              button.disabled = true;
-            });
-          });
-
-          const targetNode = document.getElementById(domId);
-          if (targetNode) {
-            observer.observe(targetNode, { childList: true, subtree: true });
-          }
-        } else {
-          const observer = new MutationObserver(() => {
-            const tryOut = document.querySelectorAll(".try-out");
-            tryOut.forEach((button) => {
-              button.disabled = true;
-              button.title = "Authorization token is missing";
-            });
-          });
-
-          const targetNode = document.getElementById(domId);
-          if (targetNode) {
-            observer.observe(targetNode, { childList: true, subtree: true });
-          }
-        }
-
-        // Observer for removing unwanted elements
-        const observer = new MutationObserver(() => {
-          const informationContainer = document.querySelector(".information-container.wrapper");
-          if (informationContainer) {
-            informationContainer.parentNode.removeChild(informationContainer);
-          }
-          const authorizeBtn = document.querySelector(".auth-wrapper");
-          if (authorizeBtn) {
-            authorizeBtn.parentNode.removeChild(authorizeBtn);
-          }
-        });
-
-        const targetNode = document.getElementById(domId);
-        if (targetNode) {
-          observer.observe(targetNode, { childList: true, subtree: true });
-        }
-        return true;
       });
 
-      // Wait for all Swagger UI setups to complete
-      await Promise.all(promises);
-      resolve();  // Resolve when all the initialization is complete
-    } catch (error) {
-      reject(error);  // Reject in case of any error
+      const targetNode = document.getElementById(domId);
+      if (targetNode) {
+        observer.observe(targetNode, { childList: true, subtree: true });
+      }
+    } else if ( swaggerSpec.protected && !token.value ) {
+      const observer = new MutationObserver(() => {
+        const tryOutButtons = document.querySelectorAll(".try-out__btn");
+        tryOutButtons.forEach((button) => {
+          button.disabled = true;
+        });
+      });
+
+      const targetNode = document.getElementById(domId);
+      if (targetNode) {
+        observer.observe(targetNode, { childList: true, subtree: true });
+      }
+    } else {
+      const observer = new MutationObserver(() => {
+        const tryOut = document.querySelectorAll(".try-out");
+        tryOut.forEach((button) => {
+          button.disabled = true;
+          button.title = "Authorization token is missing";
+        });
+      });
+
+      const targetNode = document.getElementById(domId);
+      if (targetNode) {
+        observer.observe(targetNode, { childList: true, subtree: true });
+      }
     }
+
+    // Observer for removing unwanted elements
+    const observer = new MutationObserver(() => {
+      const informationContainer = document.querySelector(".information-container.wrapper");
+      if (informationContainer) {
+        informationContainer.parentNode.removeChild(informationContainer);
+      }
+      const authorizeBtn = document.querySelector(".auth-wrapper");
+      if (authorizeBtn) {
+        authorizeBtn.parentNode.removeChild(authorizeBtn);
+      }
+    });
+
+    const targetNode = document.getElementById(domId);
+    if (targetNode) {
+      observer.observe(targetNode, { childList: true, subtree: true });
+    }
+    return true;
   });
+
+  // Wait for all Swagger UI setups to complete
+  return await Promise.all(promises);
 };
 
 onMounted(async () => {
@@ -233,9 +227,9 @@ onMounted(async () => {
     await initializeSwaggerUI();  
   } catch (error) {
     isError.value = true;
+    console.error(error) // eslint-disable-line no-console -- show error in console
   } finally {
-
-    isLoading.value = false;
+    isLoadingSwagger.value = false;
   }
 });
 
@@ -265,6 +259,24 @@ const injectLoggedInNavLink = (user) => {
       console.error("Navigation menu not found.");
     }
   }
+}
+
+const lazyLoadSwaggerFiles = async () => {
+  isLoadingFiles.value = true
+  const errorString = 'Error loading file:'
+
+  const bundle = import('swagger-ui-dist/swagger-ui-bundle.js')
+    .catch(error => console.error(errorString, error)) // eslint-disable-line no-console -- show error in console
+
+  const preset = import('swagger-ui-dist/swagger-ui-standalone-preset.js')
+    .catch(error => console.error(errorString, error)) // eslint-disable-line no-console -- show error in console
+
+  const files = await Promise.all([bundle, preset])
+
+  const [SwaggerUIBundle, SwaggerUIStandalonePreset] = files
+
+  isLoadingFiles.value = false
+  return { SwaggerUIBundle: SwaggerUIBundle.default, SwaggerUIStandalonePreset: SwaggerUIStandalonePreset.default }
 }
 </script>
 
