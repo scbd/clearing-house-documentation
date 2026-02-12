@@ -91,12 +91,10 @@ const props = defineProps({
 });
 
 const token = ref(null);
-const isLoadingSwagger = ref(true);
-const isLoadingFiles = ref(true);
+const isLoading = ref(true);
 const isError = ref(false);
 const user = ref(null);
 
-const isLoading = computed(() => isLoadingSwagger.value || isLoadingFiles.value)
 const devRoles = computed(() => {
   return user.value.roles.filter(role => role.includes("dev"));
 })
@@ -229,7 +227,7 @@ onMounted(async () => {
     isError.value = true;
     console.error(error) // eslint-disable-line no-console -- show error in console
   } finally {
-    isLoadingSwagger.value = false;
+    isLoading.value = false;
   }
 });
 
@@ -262,7 +260,6 @@ const injectLoggedInNavLink = (user) => {
 }
 
 const lazyLoadSwaggerFiles = async () => {
-  isLoadingFiles.value = true
   const errorString = 'Error loading file:'
 
   const bundle = import('swagger-ui-dist/swagger-ui-bundle.js')
@@ -275,7 +272,6 @@ const lazyLoadSwaggerFiles = async () => {
 
   const [SwaggerUIBundle, SwaggerUIStandalonePreset] = files
 
-  isLoadingFiles.value = false
   return { SwaggerUIBundle: SwaggerUIBundle.default, SwaggerUIStandalonePreset: SwaggerUIStandalonePreset.default }
 }
 </script>
