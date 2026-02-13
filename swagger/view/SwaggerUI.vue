@@ -73,7 +73,6 @@
 import { ref, onMounted, computed } from "vue";
 import { APP_CONFIG } from "../../docs/app-config";
 import { AuthManager } from "../../utils/auth-manager";
-import "swagger-ui/dist/swagger-ui.css";
 import "../../style.css";
 
 const props = defineProps({
@@ -118,6 +117,7 @@ const redirectToAccounts = () => {
 };
 
 const initializeSwaggerUI = async () => {
+  // Lazy load swagger files to prevent the JavaScript from freezing when the files are loading.
   const swaggerFiles = await lazyLoadSwaggerFiles()
   const { SwaggerUIBundle, SwaggerUIStandalonePreset } = swaggerFiles
 
@@ -221,6 +221,7 @@ onMounted(async () => {
         token.value = null;
       }
     }  
+
     // Await Swagger UI initialization
     await initializeSwaggerUI();  
   } catch (error) {
@@ -259,8 +260,12 @@ const injectLoggedInNavLink = (user) => {
   }
 }
 
+// Lazy load swagger files to prevent the JavaScript from
+// freezing when the files are loading.
 const lazyLoadSwaggerFiles = async () => {
   const errorString = 'Error loading file:'
+
+  const css = import('swagger-ui/dist/swagger-ui.css')
 
   const bundle = import('swagger-ui-dist/swagger-ui-bundle.js')
     .catch(error => console.error(errorString, error)) // eslint-disable-line no-console -- show error in console
@@ -268,7 +273,7 @@ const lazyLoadSwaggerFiles = async () => {
   const preset = import('swagger-ui-dist/swagger-ui-standalone-preset.js')
     .catch(error => console.error(errorString, error)) // eslint-disable-line no-console -- show error in console
 
-  const files = await Promise.all([bundle, preset])
+  const files = await Promise.all([bundle, preset, css])
 
   const [SwaggerUIBundle, SwaggerUIStandalonePreset] = files
 
