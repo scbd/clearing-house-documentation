@@ -6,8 +6,10 @@ import contactAllRecordsJson from "@/swagger/json/contact/solr/all-record.json";
 import contactAllRecordsWithCountryJson from "@/swagger/json/contact/solr/all-record-with-country.json";
 import contactAllRecordsWithRegionJson from "@/swagger/json/contact/solr/all-record-with-region.json";
 import contactAllRecordsWithSubFiltersJson from "@/swagger/json/contact/solr/all-record-with-subfilters.json";
+import swaggerJson from "@/swagger/json/records/solr/base";
+import { useClearingHouse } from "@/utils/composables"
 
-import baseJson from "@/swagger/json/records/solr/base.json";
+const baseJson = swaggerJson(useClearingHouse().apiUrl)
 
 import { mergeSwaggerWithBase, deepClone } from "@/utils"
 

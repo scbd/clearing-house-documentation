@@ -1,9 +1,11 @@
-<script>
+<script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
-import swaggerJson from "@/swagger/json/contact/update.json";
+import RequestBody from '@/components/contact/request-body.md'
+import swaggerJson from "@/swagger/json/contact/update";
+import { useClearingHouse } from "@/utils/composables"
 
 const swaggerSpecs = [
-  { json: swaggerJson, protected: true },
+  { json: swaggerJson(useClearingHouse().apiUrl), protected: true },
 ];
 </script>
 
@@ -52,7 +54,7 @@ This is the endpoint to which the PUT request should be made to update an existi
 <!--@include: @/../components/common/validation-error.md-->
 
 ## Request Body
-<!--@include: @/../components/contact/request-body.md-->
+<RequestBody />
 
 ## Playground
 
