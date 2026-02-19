@@ -1,9 +1,12 @@
-<script>
+<script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
-import swaggerJson from "@/swagger/json/contact/create.json";
+import RequestBody from '@/components/contact/request-body.md'
+import swaggerJson from "@/swagger/json/contact/create";
+import { useClearingHouse } from "@/utils/composables"
+const url = useClearingHouse().apiUrl
 
 const swaggerSpecs = [
-  { json: swaggerJson, protected: true },
+  { json: swaggerJson(url), protected: true },
 ];
 </script>
 
@@ -51,8 +54,9 @@ This is the endpoint to which the POST request should be made to create a new re
 <!--@include: @/../components/common/validation-error.md-->
 
 ## Request Body
-<!--@include: @/../components/contact/request-body.md-->
+<RequestBody/>
 
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs" />
+

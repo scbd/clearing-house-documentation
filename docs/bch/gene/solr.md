@@ -6,10 +6,11 @@ import geneAllRecordsJson from "@/swagger/json/gene/solr/all-record.json";
 import geneAllRecordsWithCountryJson from "@/swagger/json/gene/solr/all-record-with-country.json";
 import geneAllRecordsWithRegionJson from "@/swagger/json/gene/solr/all-record-with-region.json";
 import geneAllRecordsWithSubFiltersJson from "@/swagger/json/gene/solr/all-record-with-subfilters.json";
-
-import baseJson from "@/swagger/json/records/solr/base.json";
-
+import swaggerJson from "@/swagger/json/records/solr/base";
 import { mergeSwaggerWithBase, deepClone } from "@/utils"
+import { useClearingHouse } from "@/utils/composables"
+
+const baseJson = swaggerJson(useClearingHouse().apiUrl)
 
 const swaggerSpecs = [
   { json: mergeSwaggerWithBase(deepClone(baseJson), geneAllRecordsJson, ['paths']) ,protected: false },
