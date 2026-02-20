@@ -6,21 +6,24 @@ export function deepClone(obj) {
 }
 
 export function getClearingHouseApiUrl (url: string): string {
-  const defaultApiUrl = 'https://absch.cbddev.xyz/api/v2013'
+  const defaultApiUrl = APP_CONFIG.API_URL ?? 'https://api.cbddev.xyz'
 
-  const clearingHouse = getClearingHouseFromUrl(url)
-  switch (clearingHouse) {
-    case '/abs':
-      return APP_CONFIG.ABS_API_URL ?? defaultApiUrl
-    case '/bch':
-      return APP_CONFIG.BCH_API_URL ?? defaultApiUrl
-    case '/chm':
-      return APP_CONFIG.CHM_API_URL ?? defaultApiUrl
-    case '/ort':
-      return APP_CONFIG.ORT_API_URL ?? defaultApiUrl
-    default:
-      return defaultApiUrl
+  const getApiUrl = (): string | undefined => {
+    const clearingHouse = getClearingHouseFromUrl(url)
+    switch (clearingHouse) {
+      case '/abs':
+        return APP_CONFIG.ABS_URL
+      case '/bch':
+        return APP_CONFIG.BCH_URL
+      case '/chm':
+        return APP_CONFIG.CHM_URL
+      case '/ort':
+        return APP_CONFIG.ORT_URL
+      default:
+        return defaultApiUrl
+    }
   }
+  return getApiUrl() ?? defaultApiUrl
 }
 
 export function getClearingHouseFromUrl(url: string): string | null {
