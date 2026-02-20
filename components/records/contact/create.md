@@ -3,10 +3,9 @@ import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
 import RequestBody from '@/components/contact/request-body.md'
 import swaggerJson from "@/swagger/json/contact/create";
 import { useClearingHouse } from "@/utils/composables"
-const url = useClearingHouse().apiUrl
 
 const swaggerSpecs = [
-  { json: swaggerJson(url), protected: true },
+  { json: swaggerJson(useClearingHouse().apiUrl), protected: true },
 ];
 </script>
 
