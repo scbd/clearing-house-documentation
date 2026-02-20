@@ -7,9 +7,12 @@ import nmccAllRecordsWithCountryJson from "@/swagger/json/nmcc/solr/all-record-w
 import nmccAllRecordsWithRegionJson from "@/swagger/json/nmcc/solr/all-record-with-region.json";
 import nmccAllRecordsWithSubFiltersJson from "@/swagger/json/nmcc/solr/all-record-with-subfilters.json";
 
-import baseJson from "@/swagger/json/records/solr/base.json";
+import swaggerJson from "@/swagger/json/records/solr/base";
+import { useClearingHouse } from "@/utils/composables"
 
 import { mergeSwaggerWithBase, deepClone } from "@/utils"
+
+const baseJson = swaggerJson(useClearingHouse().apiUrl)
 
 const swaggerSpecs = [
   { json: mergeSwaggerWithBase(deepClone(baseJson), nmccAllRecordsJson, ['paths']) ,protected: false },
