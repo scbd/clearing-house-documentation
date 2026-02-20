@@ -1,7 +1,8 @@
 <script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue";
 
-import baseJson from "@/swagger/json/records/solr/base.json";
+import swaggerJson from "@/swagger/json/records/solr/base";
+import { useClearingHouse } from "@/utils/composables"
 
 import orgAllRecordsWithQueryJson from "@/swagger/json/org/solr/all-record-with-query.json";
 import orgAllRecordsJson from "@/swagger/json/org/solr/all-record.json";
@@ -10,6 +11,8 @@ import orgAllRecordsWithRegionJson from "@/swagger/json/org/solr/all-record-with
 import orgAllRecordsWithSubFiltersJson from "@/swagger/json/org/solr/all-record-with-subfilters.json";
 
 import { mergeSwaggerWithBase, deepClone } from "@/utils"
+
+const baseJson = swaggerJson(useClearingHouse().apiUrl)
 
 function mergeJson(base, specific) {
   const merged = JSON.parse(JSON.stringify(base));

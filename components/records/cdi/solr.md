@@ -7,9 +7,12 @@ import cdiAllRecordsWithCountryJson from "@/swagger/json/cdi/solr/all-record-wit
 import cdiAllRecordsWithRegionJson from "@/swagger/json/cdi/solr/all-record-with-region.json";
 import cdiAllRecordsWithSubFiltersJson from "@/swagger/json/cdi/solr/all-record-with-subfilters.json";
 
-import baseJson from "@/swagger/json/records/solr/base.json";
+import swaggerJson from "@/swagger/json/records/solr/base";
+import { useClearingHouse } from "@/utils/composables"
 
 import { mergeSwaggerWithBase, deepClone } from "@/utils"
+
+const baseJson = swaggerJson(useClearingHouse().apiUrl)
 
 const swaggerSpecs = [
   { json: mergeSwaggerWithBase(deepClone(baseJson), cdiAllRecordsJson, ['paths']) ,protected: false },
