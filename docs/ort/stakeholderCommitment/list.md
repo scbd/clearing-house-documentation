@@ -1,6 +1,9 @@
 <script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
-import baseJson from "@/swagger/json/records/list.json";
+import swaggerJson from "@/swagger/json/records/list";
+import { useClearingHouse } from "@/utils/composables"
+
+const baseJson = swaggerJson(useClearingHouse().apiUrl)
 
 function mergeJson(base, specific) {
   const merged = JSON.parse(JSON.stringify(base));
