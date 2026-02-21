@@ -1,0 +1,150 @@
+import type { OpenAPI3 } from 'openapi-typescript'
+
+export default (url: string): OpenAPI3 => ({
+  openapi: '3.0.0',
+  info: {
+    title: 'Documents API',
+    version: '2.13.0',
+    description: 'API Documentation.'
+  },
+  servers: [
+    {
+      url,
+      description: '',
+      variables: {}
+    }
+  ],
+  paths: {
+    '/documents/{uid}/versions/{revision}': {
+      get: {
+        summary: 'Load document revision data in raw format',
+        description: 'Retrieve the raw data of a document\'s specified revision.',
+        tags: ['Get Document'],
+        operationId: 'getDocumentRevisionData',
+        parameters: [
+          {
+            name: 'uid',
+            in: 'path',
+            required: true,
+            description: 'Identifier of the document. The value is case-sensitive.',
+            schema: {
+              type: 'string',
+              pattern: '^[A-Za-z0-9\-_]{11,128}$'
+            }
+          },
+          {
+            name: 'revision',
+            in: 'path',
+            required: true,
+            description: 'Revision number of the document.',
+            schema: {
+              type: 'integer',
+              minimum: 1
+            }
+          },
+          {
+            name: 'Accept',
+            in: 'header',
+            description: 'Result format.',
+            required: true,
+            schema: {
+              type: 'string',
+              enum: ['*', 'application/json']
+            }
+          },
+          {
+            name: 'Realm',
+            in: 'header',
+            required: false,
+            schema: {
+              type: 'string',
+              enum: ['abs', 'chm', 'bch', 'abs-dev', 'bch-dev', 'chm-dev']
+            },
+            description: 'Context in which the Clearing-House request is made. Allowed values: `abs`, `chm`, `bch`.'
+          }
+        ],
+        responses: {
+          200: {
+            description: 'Successful response with document revision data in raw format.',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  additionalProperties: true,
+                  description: 'Raw data of the object sent in its original format.'
+                }
+              }
+            }
+          },
+          400: {
+            description: 'Bad Request - Invalid Parameters',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  properties: {
+                    statusCode: {
+                      type: 'integer'
+                    },
+                    code: {
+                      type: 'string'
+                    },
+                    fields: {
+                      type: 'array',
+                      items: {
+                        type: 'string'
+                      }
+                    },
+                    message: {
+                      type: 'string'
+                    }
+                  }
+                },
+                examples: {
+                  invalidDateFormat: {
+                    value: {
+                      statusCode: 400,
+                      code: 'invalidParameter',
+                      fields: ['date'],
+                      message: 'Date format is invalid'
+                    }
+                  }
+                }
+              }
+            }
+          },
+          404: {
+            description: 'Not Found - Document Not Found',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  properties: {
+                    statusCode: {
+                      type: 'integer'
+                    },
+                    code: {
+                      type: 'string'
+                    },
+                    message: {
+                      type: 'string'
+                    }
+                  }
+                },
+                examples: {
+                  documentNotFound: {
+                    value: {
+                      statusCode: 404,
+                      code: 'notFound',
+                      message: 'Document not found'
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+})
