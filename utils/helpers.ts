@@ -1,8 +1,7 @@
 import { APP_CONFIG } from '../docs/app-config'
-import { useData } from 'vitepress'
 
 export function deepClone(obj) {
-    return JSON.parse(JSON.stringify(obj));
+   return JSON.parse(JSON.stringify(obj));
 }
 
 export function getClearingHouseApiUrl (url: string): string {
@@ -23,20 +22,21 @@ export function getClearingHouseApiUrl (url: string): string {
         return defaultApiUrl
     }
   }
+  console.log('getApiUrl()', getApiUrl())
+
   return getApiUrl() ?? defaultApiUrl
 }
 
-export function getClearingHouseFromUrl(url: string): string | null {
-    if (url.includes("abs")) {
-      return "/abs";
-    } else if (url.includes("bch")) {
-      return "/bch";
-    } else if (url.includes("chm")) {
-      return "/chm";
-    } else if (url.includes("ort")) {
-      return "/ort";
-    }
-    
-    return null;
+export function getClearingHouseFromUrl (url: string): string | null {
+  if (url.includes('abs/')) {
+    return '/abs'
+  } else if (url.includes('bch/')) {
+    return '/bch'
+  } else if (url.includes('chm/')) {
+    return '/chm'
+  } else if (url.includes('ort/')) {
+    return '/ort'
   }
 
+  return null
+}

@@ -1,17 +1,18 @@
 <script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
-import swaggerCanCreateJson from "@/swagger/json/general/draft-securities/can-create.json";
-import swaggerCanDeleteJson from "@/swagger/json/general/draft-securities/can-delete.json";
-import swaggerCanUpdateJson from "@/swagger/json/general/draft-securities/can-update.json";
+import swaggerCanCreateJson from "@/swagger/json/general/draft-securities/can-create";
+import swaggerCanDeleteJson from "@/swagger/json/general/draft-securities/can-delete";
+import swaggerCanUpdateJson from "@/swagger/json/general/draft-securities/can-update";
+import { useClearingHouse } from "@/utils/composables"
 
 const swaggerCanCreateSpecs = [
-  { json: swaggerCanCreateJson, domId:"canCreate", protected:true },
+  { json: swaggerCanCreateJson(useClearingHouse().apiUrl), domId:"canCreate", protected:true },
 ];
 const swaggerCanDeleteSpecs = [
-  { json: swaggerCanDeleteJson, domId:"canDelete", protected:true },
+  { json: swaggerCanDeleteJson(useClearingHouse().apiUrl), domId:"canDelete", protected:true },
 ];
 const swaggerCanUpdateSpecs = [
-  { json: swaggerCanUpdateJson, domId:"canUpdate", protected:true },
+  { json: swaggerCanUpdateJson(useClearingHouse().apiUrl), domId:"canUpdate", protected:true },
 ];
 </script>
 
