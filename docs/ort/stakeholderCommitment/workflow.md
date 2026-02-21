@@ -1,11 +1,12 @@
 <script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
-import swaggerWorkflowCreateJson from "@/swagger/json/stakeholderCommitment/workflow-create.json";
-import swaggerWorkflowUpdateJson from "@/swagger/json/stakeholderCommitment/workflow-update.json"
+import swaggerWorkflowCreateJson from "@/swagger/json/stakeholderCommitment/workflow-create";
+import swaggerWorkflowUpdateJson from "@/swagger/json/stakeholderCommitment/workflow-update"
+import { useClearingHouse } from "@/utils/composables"
 
 const swaggerSpecs = [
-  { json: swaggerWorkflowCreateJson, protected: true },
-  { json: swaggerWorkflowUpdateJson, protected: true },
+  { json: swaggerWorkflowCreateJson(useClearingHouse().apiUrl), protected: true },
+  { json: swaggerWorkflowUpdateJson(useClearingHouse().apiUrl), protected: true },
 ];
 
 </script>

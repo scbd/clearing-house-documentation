@@ -6,7 +6,6 @@ import nfpAllRecordsJson from "@/swagger/json/nfp/solr/all-record.json";
 import nfpAllRecordsWithCountryJson from "@/swagger/json/nfp/solr/all-record-with-country.json";
 import nfpAllRecordsWithRegionJson from "@/swagger/json/nfp/solr/all-record-with-region.json";
 import nfpAllRecordsWithSubFiltersJson from "@/swagger/json/nfp/solr/all-record-with-subfilters.json";
-
 import swaggerJson from "@/swagger/json/records/solr/base";
 import { useClearingHouse } from "@/utils/composables"
 
