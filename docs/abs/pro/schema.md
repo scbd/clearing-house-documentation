@@ -1,3 +1,6 @@
+---
+aside: false
+---
 # Schema for PRO
 
 This section provides an overview of the schemas related to the ABS Procedures (PRO). Each schema details the structure and fields required for the PRO-related requests and responses. 
