@@ -1,13 +1,16 @@
 <script setup>
+import { computed } from 'vue'
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
 import swaggerWorkflowCreateJson from "@/swagger/json/ircc/workflow-create";
 import swaggerWorkflowUpdateJson from "@/swagger/json/ircc/workflow-update"
 import { useClearingHouse } from "@/utils/composables"
 
-const swaggerSpecs = [
-  { json: swaggerWorkflowCreateJson(useClearingHouse().apiUrl), protected: true },
-  { json: swaggerWorkflowUpdateJson(useClearingHouse().apiUrl), protected: true },
-];
+const { apiUrl } = useClearingHouse()
+
+const swaggerSpecs = computed(() => [
+  { json: swaggerWorkflowCreateJson(apiUrl), protected: true },
+  { json: swaggerWorkflowUpdateJson(apiUrl), protected: true },
+]);
 
 </script>
 

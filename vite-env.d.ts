@@ -8,6 +8,7 @@ interface ImportMetaEnv {
   readonly VITE_BCH_URL?: string;
   readonly VITE_CHM_URL?: string;
   readonly VITE_ORT_URL?: string;
+  readonly VITE_API_EXTENSION?: string;
 }
 
 interface ImportMeta {
