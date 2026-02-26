@@ -1,0 +1,98 @@
+import type { OpenAPI3 } from 'openapi-typescript'
+import type { ClearingHouse } from '@/utils/composables/useClearingHouse'
+
+export default ({ apiUrl, baseUrl, name, domain }: ClearingHouse): OpenAPI3 => ({
+  openapi: '3.0.0',
+  info: {
+    title: 'Records API',
+    description: 'API to publish new records.',
+    version: '2.13.0'
+  },
+  servers: [
+    {
+      url: apiUrl,
+      description: '',
+      variables: {}
+    }
+  ],
+  security: [
+    {
+      BearerAuth: []
+    },
+    {
+      ApiKeyAuth: []
+    }
+  ],
+  components: {
+    securitySchemes: {
+      BearerAuth: {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT'
+      },
+      ApiKeyAuth: {
+        type: 'apiKey',
+        in: 'header',
+        name: 'Authorization',
+        description: 'Add the `Realm` header with value `abs-dev`.'
+      }
+    }
+  },
+  paths: {
+    '/index': {
+      get: {
+        summary: 'Query Solr with government, usage, and keyword criteria',
+        description: 'Retrieve records by schema, government, usage, and keyword criteria. Note: The value of `usages_ss` and `keywords_ss` fields may contain special characters that need to be escaped. Refer to the [Apache Solr](/apache-solr) for a list of special characters and how to escape them.',
+        tags: ['Get All results with sub-filters'],
+        parameters: [
+          {
+            name: 'q',
+            in: 'query',
+            required: true,
+            schema: {
+              type: 'string',
+              example: 'schema_s:absNationalModelContractualClause AND government_s:cy AND usages_ss:60EA2F49\\-A9DD\\-406F\\-921A\\-8A1C9AA8DFDD AND keywords_ss:357DBB22\\-6A6C\\-4C49-BA1F\\-037320B09247'
+            },
+            description: 'Query parameter for searching results based on schema, government, usage, and keyword criteria.'
+          }
+        ],
+        responses: {
+          200: {
+            description: 'Successful response with a list of records matching the criteria',
+            content: {
+              'application/json': {
+                example: {
+                  response: {
+                    numFound: 25,
+                    start: 0,
+                    docs: [
+                      {
+                        uniqueIdentifier_s: `${domain}-nmcc-ht-261144-1`,
+                        schema_s: `${name.value}NationalModelContractualClause`,
+                        title_s: 'Material Transfer Agreement and Benefit Sharing Agreement',
+                        title_AR_s: 'اتفاقية نقل المواد واتفاقية تقاسم المنافع',
+                        title_EN_s: 'Material Transfer Agreement and Benefit Sharing Agreement',
+                        title_ES_s: 'Acuerdo de Transferencia de Material y Acuerdo de Distribución de Beneficios',
+                        title_FR_s: 'Accord de Transfert de Matériel et Accord de Partage des Avantages',
+                        schemaType_s: 'national',
+                        government_s: 'ht',
+                        url_ss: [
+                          `${baseUrl}/database/record?documentID=240870`
+                        ]
+                      }
+                    ]
+                  },
+                  nonSupportedParams: []
+                }
+              }
+            }
+          },
+          400: {
+            description: 'Bad request, possibly due to malformed query parameter'
+          }
+        }
+      }
+    }
+  },
+  definitions: {}
+})
