@@ -5,7 +5,6 @@ import swaggerGetInfoJson from "@/swagger/json/general/document-versions/get-inf
 import swaggerGetJson from "@/swagger/json/general/document-versions/get";
 import swaggerListJson from "@/swagger/json/general/document-versions/list";
 import { useClearingHouse } from "@/utils/composables"
-console.log('useClearingHouse().apiUrl', useClearingHouse().apiUrl)
 
 const swaggerExistsSpecs = [
   { json: swaggerExistsJson(useClearingHouse().apiUrl), domId:"exists" },
