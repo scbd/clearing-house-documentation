@@ -1,11 +1,12 @@
 import { APP_CONFIG } from '../docs/app-config'
 
 export function deepClone(obj) {
-   return JSON.parse(JSON.stringify(obj));
+  return JSON.parse(JSON.stringify(obj));
 }
 
 export function getClearingHouseUrl (url: string): string | undefined {
   const clearingHouse = getClearingHouseFromUrl(url)
+
   switch (clearingHouse) {
     case 'abs':
       return APP_CONFIG.ABS_URL
@@ -27,13 +28,13 @@ export function getClearinghouseApiUrl (clearinghouseUrl: string | undefined): s
 }
 
 export function getClearingHouseFromUrl (url: string): string | null {
-  if (url.includes('abs/')) {
+  if (url.includes('/abs/')) {
     return 'abs'
-  } else if (url.includes('bch/')) {
+  } else if (url.includes('/bch/')) {
     return 'bch'
-  } else if (url.includes('chm/')) {
+  } else if (url.includes('/chm/')) {
     return 'chm'
-  } else if (url.includes('ort/')) {
+  } else if (url.includes('/ort/')) {
     return 'ort'
   }
 

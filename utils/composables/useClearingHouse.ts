@@ -19,7 +19,7 @@ export function useClearingHouse (): ClearingHouse {
 
   const clearingHouseBase = (url: string): string => `/${name.value}/${url.replace(/^\/+/v, '')}`
 
-  const baseUrl = getClearingHouseUrl(url)
+  const baseUrl = getClearingHouseUrl(`/${url}`)
 
   const apiUrl = getClearinghouseApiUrl(baseUrl)
 
