@@ -7,13 +7,13 @@ export function deepClone(obj) {
 export function getClearingHouseUrl (url: string): string | undefined {
   const clearingHouse = getClearingHouseFromUrl(url)
   switch (clearingHouse) {
-    case '/abs':
+    case 'abs':
       return APP_CONFIG.ABS_URL
-    case '/bch':
+    case 'bch':
       return APP_CONFIG.BCH_URL
-    case '/chm':
+    case 'chm':
       return APP_CONFIG.CHM_URL
-    case '/ort':
+    case 'ort':
       return APP_CONFIG.ORT_URL
     default:
       return APP_CONFIG.ABS_URL
