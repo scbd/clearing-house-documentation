@@ -15,9 +15,9 @@ export interface ClearingHouse {
 export function useClearingHouse (): ClearingHouse {
   const { page: { value: { relativePath: url } } } = useData()
 
-  const name = computed(() => getClearingHouseFromUrl(url) ?? '')
+  const name = computed(() => getClearingHouseFromUrl(`/${url}`) ?? '')
 
-  const clearingHouseBase = (url: string) => `${name.value}/${url.replace(/^\/+/,"")}`
+  const clearingHouseBase = (path: string): string => `/${name.value}/${path.replace(/^\/+/,'')}`
 
   const baseUrl = getClearingHouseUrl(`/${url}`)
 
