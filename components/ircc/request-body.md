@@ -192,7 +192,7 @@ The table below outlines the structure of the request body, including the fields
       <td></td>
       <td>gisMapCenter</td>
       <td></td>
-      <td><a :href="clearingHouseBase('/custom-types.html#emaplocation')">MapLocation</a></td>
+      <td><a :href="clearingHouseBase('/custom-types.html#maplocation')">MapLocation</a></td>
       <td></td>
     </tr>
     <tr>
