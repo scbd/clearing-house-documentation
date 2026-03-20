@@ -3,8 +3,10 @@ import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
 import swaggerJson from "@/swagger/json/user/authentication";
 import { useClearingHouse } from "@/utils/composables"
 
+const clearinghouse = useClearingHouse()
+
 const swaggerSpecs = [
-  { json: swaggerJson(useClearingHouse().apiUrl), protected: false },
+  { json: swaggerJson(clearinghouse.apiUrl), protected: false },
 ];
 </script>
 
@@ -32,7 +34,7 @@ The "User - Authentication" endpoint allows users to authenticate and obtain an 
 
 To authenticate and obtain the `Authorization` token for accessing the API endpoints, follow these steps:
 
-1. **Endpoint:** Send a `POST` request to the following URL: `https://absch.cbddev.xyz/api/v2013/authentication/token`
+1. **Endpoint:** Send a `POST` request to the following URL: `{{ clearinghouse.apiUrl + '/authentication/token' }}`
 2. **Payload:** Include your CBD email address and password in the request body as JSON:
 ```json
 {
