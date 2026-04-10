@@ -59,6 +59,16 @@ Additionally, for the project to work, you need to have a launch configuration w
 
 ```json
 "VITE_CLEARING_HOUSE": "abs"
+
+"VITE_ABS_URL": "https://absch.cbddev.xyz"
+
+"VITE_BCH_URL": "https://bch.cbddev.xyz"
+
+"VITE_CHM_URL": "https://chm.cbddev.xyz"
+
+"VITE_ORT_URL": "https://ort.cbddev.xyz"
+
+"VITE_API_EXTENSION: "api/v2013"
 ```
 
 
