@@ -2,12 +2,6 @@
   "devDependencies": {
     "@dotenvx/dotenvx": "^1.5.0",
     "@types/node": "^22.7.4",
-    "@vue/eslint-config-typescript": "^14.7.0",
-    "eslint-config-love": "^151.0.0",
-    "eslint-plugin-vue": "^10.8.0",
-    "globals": "^17.3.0",
-    "neostandard": "^0.12.2",
-    "openapi-typescript": "^7.13.0",
     "vitepress": "^1.2.3"
   },
   "scripts": {
