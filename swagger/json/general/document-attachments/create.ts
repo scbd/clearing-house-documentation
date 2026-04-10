@@ -1,0 +1,248 @@
+import type { OpenAPI3 } from 'openapi-typescript'
+
+export default (url: string): OpenAPI3 => ({
+  openapi: '3.0.0',
+  info: {
+    title: 'Documents Attachments API',
+    version: '2.13.0'
+  },
+  servers: [
+    {
+      url,
+      description: '',
+      variables: {}
+    }
+  ],
+  security: [
+    {
+      BearerAuth: []
+    },
+    {
+      ApiKeyAuth: []
+    }
+  ],
+  paths: {
+    '/documents/{uid}/attachments/{filename}': {
+      post: {
+        summary: "Publish an update to a document's attachment",
+        description: "Allows administrators and authorized users to publish updates to a document's attachment. Requires an authentication token and specifies the document and filename.",
+        tags: ['Create attachment'],
+        security: [
+          {
+            BearerAuth: []
+          },
+          {
+            ApiKeyAuth: []
+          }
+        ],
+        parameters: [
+          {
+            name: 'uid',
+            in: 'path',
+            required: true,
+            schema: {
+              type: 'string',
+              pattern: '^[A-Za-z0-9\-_]{11,128}$'
+            },
+            description: 'Identifier of the document. The value is case-sensitive.'
+          },
+          {
+            name: 'filename',
+            in: 'path',
+            required: true,
+            schema: {
+              type: 'string'
+            },
+            description: 'Name of the file.'
+          }
+        ],
+        requestBody: {
+          required: true,
+          content: {
+            'application/octet-stream': {
+              schema: {
+                type: 'string',
+                format: 'binary'
+              }
+            }
+          }
+        },
+        responses: {
+          201: {
+            description: 'Attachment created successfully.',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/DocumentAttachmentInfo'
+                }
+              }
+            }
+          },
+          401: {
+            description: 'Unauthorized access. Authentication required.',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  properties: {
+                    statusCode: {
+                      type: 'integer',
+                      example: 401
+                    },
+                    code: {
+                      type: 'string',
+                      example: 'unauthorized'
+                    }
+                  }
+                }
+              }
+            }
+          },
+          403: {
+            description: 'Forbidden. The user does not have the necessary permissions.',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  properties: {
+                    statusCode: {
+                      type: 'integer',
+                      example: 403
+                    },
+                    code: {
+                      type: 'string',
+                      example: 'forbidden'
+                    }
+                  }
+                }
+              }
+            }
+          },
+          400: {
+            description: 'Bad Request. The request contains invalid parameters.',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  properties: {
+                    statusCode: {
+                      type: 'integer',
+                      example: 400
+                    },
+                    code: {
+                      type: 'string',
+                      example: 'invalidParameter'
+                    },
+                    fields: {
+                      type: 'array',
+                      items: {
+                        type: 'string'
+                      },
+                      example: ['date']
+                    },
+                    message: {
+                      type: 'string',
+                      example: 'Date format is invalid'
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  components: {
+    securitySchemes: {
+      BearerAuth: {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT'
+      },
+      ApiKeyAuth: {
+        type: 'apiKey',
+        in: 'header',
+        name: 'Authorization',
+        description: 'Add the `Realm` header with value `abs-dev`.'
+      }
+    },
+    schemas: {
+      UserInfo: {
+        type: 'object',
+        properties: {
+          userID: {
+            type: 'integer',
+            example: 12345
+          },
+          userName: {
+            type: 'string',
+            example: 'john.doe'
+          }
+        }
+      },
+      DocumentAttachmentInfo: {
+        type: 'object',
+        properties: {
+          attachmentID: {
+            type: 'integer',
+            example: 98765
+          },
+          documentID: {
+            type: 'integer',
+            nullable: true,
+            example: 123
+          },
+          documentUID: {
+            type: 'string',
+            example: 'abcd-1234-efgh-5678'
+          },
+          createdOn: {
+            type: 'string',
+            format: 'date-time',
+            example: '2024-08-24T12:34:56Z'
+          },
+          createdBy: {
+            $ref: '#/components/schemas/UserInfo'
+          },
+          submittedOn: {
+            type: 'string',
+            format: 'date-time',
+            example: '2024-08-25T14:30:00Z'
+          },
+          submittedBy: {
+            $ref: '#/components/schemas/UserInfo'
+          },
+          isPublic: {
+            type: 'boolean',
+            example: true
+          },
+          filename: {
+            type: 'string',
+            example: 'attachment.pdf'
+          },
+          mediaType: {
+            type: 'string',
+            example: 'application/pdf'
+          },
+          charset: {
+            type: 'string',
+            example: 'utf-8'
+          },
+          hash: {
+            type: 'string',
+            example: 'e99a18c428cb38d5f260853678922e03'
+          },
+          size: {
+            type: 'integer',
+            example: 1024
+          },
+          url: {
+            type: 'string',
+            example: '/api/v2013/documents/abcd-1234-efgh-5678/attachments/98765/attachment.pdf'
+          }
+        }
+      }
+    }
+  }
+})

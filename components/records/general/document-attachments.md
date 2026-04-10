@@ -1,30 +1,31 @@
 <script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
-import swaggerExistsJson from "@/swagger/json/general/document-attachments/exists.json";
-import swaggerThumbnailJson from "@/swagger/json/general/document-attachments/thumbnail.json";
-import swaggerGetJson from "@/swagger/json/general/document-attachments/get.json";
-import swaggerListJson from "@/swagger/json/general/document-attachments/list.json";
-import swaggerCreateJson from "@/swagger/json/general/document-attachments/create.json";
-import swaggerUploadTemporaryStorageJson from "@/swagger/json/general/document-attachments/upload-temporary-storage.json";
+import swaggerExistsJson from "@/swagger/json/general/document-attachments/exists";
+import swaggerThumbnailJson from "@/swagger/json/general/document-attachments/thumbnail";
+import swaggerGetJson from "@/swagger/json/general/document-attachments/get";
+import swaggerListJson from "@/swagger/json/general/document-attachments/list";
+import swaggerCreateJson from "@/swagger/json/general/document-attachments/create";
+import swaggerUploadTemporaryStorageJson from "@/swagger/json/general/document-attachments/upload-temporary-storage";
+import { useClearingHouse } from "@/utils/composables"
 
 const swaggerExistsSpecs = [
-  { json: swaggerExistsJson, domId:"exists" },
+  { json: swaggerExistsJson(useClearingHouse().apiUrl), domId:"exists" },
 ];
 const swaggerThumbnailSpecs = [
-  { json: swaggerThumbnailJson, domId:"thumbnail" },
+  { json: swaggerThumbnailJson(useClearingHouse().apiUrl), domId:"thumbnail" },
 ];
 const swaggerGetSpecs = [
-  { json: swaggerGetJson, domId:"get" },
+  { json: swaggerGetJson(useClearingHouse().apiUrl), domId:"get" },
 ];
 const swaggerListSpecs = [
-  { json: swaggerListJson, domId:"list", protected: true },
+  { json: swaggerListJson(useClearingHouse().apiUrl), domId:"list", protected: true },
 ];
 const swaggerCreateSpecs = [
-  { json: swaggerCreateJson, domId:"create", protected: true },
+  { json: swaggerCreateJson(useClearingHouse().apiUrl), domId:"create", protected: true },
 ];
 
 const swaggerUploadTemporaryStorageSpecs = [
-  { json: swaggerUploadTemporaryStorageJson, domId:"ch-storage", protected:true },
+  { json: swaggerUploadTemporaryStorageJson(useClearingHouse().apiUrl), domId:"ch-storage", protected:true },
 ];
 </script>
 

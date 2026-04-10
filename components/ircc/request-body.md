@@ -3,6 +3,7 @@ import { useClearingHouse } from "@/utils/composables"
 const { clearingHouseBase } = useClearingHouse()
 </script>
 
+
 The table below outlines the structure of the request body, including the fields, their types, and whether they are mandatory. Example values are provided for clarity.
 
 <table class="schema-table" style="table-layout: fixed; width: 100%;">
@@ -191,7 +192,7 @@ The table below outlines the structure of the request body, including the fields
       <td></td>
       <td>gisMapCenter</td>
       <td></td>
-      <td><a :href="clearingHouseBase('/custom-types.html#emaplocation')">MapLocation</a></td>
+      <td><a :href="clearingHouseBase('/custom-types.html#maplocation')">MapLocation</a></td>
       <td></td>
     </tr>
     <tr>

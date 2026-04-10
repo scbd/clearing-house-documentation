@@ -1,0 +1,329 @@
+import type { OpenAPI3 } from 'openapi-typescript'
+
+export default (url: string): OpenAPI3 => ({
+  openapi: '3.0.0',
+  info: {
+    title: 'Records API',
+    description: 'API to publish updates to records.',
+    version: '2.13.0'
+  },
+  servers: [
+    {
+      url,
+      description: '',
+      variables: {}
+    }
+  ],
+  security: [
+    {
+      BearerAuth: []
+    },
+    {
+      ApiKeyAuth: []
+    }
+  ],
+  components: {
+    securitySchemes: {
+      BearerAuth: {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT'
+      },
+      ApiKeyAuth: {
+        type: 'apiKey',
+        in: 'header',
+        name: 'Authorization',
+        description: 'Add the `Realm` header with value `abs-dev`.'
+      }
+    }
+  },
+  paths: {
+    '/documents/{uid}': {
+      put: {
+        summary: 'Update a record',
+        description: 'Publish an update to a record.',
+        tags: ['Update record'],
+        security: [
+          {
+            BearerAuth: []
+          },
+          {
+            ApiKeyAuth: []
+          }
+        ],
+        parameters: [
+          {
+            name: 'uid',
+            in: 'path',
+            required: true,
+            schema: {
+              type: 'string',
+              pattern: '^[A-Za-z0-9\\-_]{11,128}$'
+            },
+            description: 'Identifier of the record. The value is case-sensitive.'
+          },
+          {
+            name: 'schema',
+            in: 'query',
+            required: true,
+            schema: {
+              type: 'string',
+              example: 'contact'
+            }
+          },
+          {
+            name: 'Realm',
+            in: 'header',
+            required: false,
+            schema: {
+              type: 'string',
+              enum: ['abs', 'chm', 'bch', 'abs-dev', 'bch-dev', 'chm-dev']
+            },
+            description: 'Context in which the Clearing-House request is made. Allowed values: `abs`, `chm`, `bch`.'
+          }
+        ],
+        requestBody: {
+          required: true,
+          content: {
+            'application/json': {
+              schema: {
+                type: 'object',
+                properties: {
+                  header: {
+                    type: 'object',
+                    properties: {
+                      identifier: {
+                        type: 'string',
+                        example: '068C83BA-995F-08C3-50CE-AD43545B3EB5'
+                      },
+                      schema: {
+                        type: 'string',
+                        example: 'contact'
+                      },
+                      languages: {
+                        type: 'array',
+                        items: {
+                          type: 'string'
+                        },
+                        example: ['en']
+                      }
+                    }
+                  },
+                  type: {
+                    type: 'string',
+                    example: 'organization'
+                  },
+                  address: {
+                    type: 'object',
+                    properties: {
+                      en: {
+                        type: 'string',
+                        example: '560 Franklin'
+                      }
+                    }
+                  },
+                  city: {
+                    type: 'object',
+                    properties: {
+                      en: {
+                        type: 'string',
+                        example: 'Cambridge'
+                      }
+                    }
+                  },
+                  state: {
+                    type: 'object',
+                    properties: {
+                      en: {
+                        type: 'string',
+                        example: 'Ontario'
+                      }
+                    }
+                  },
+                  postalCode: {
+                    type: 'object',
+                    properties: {
+                      en: {
+                        type: 'string',
+                        example: 'N1R 7Z1'
+                      }
+                    }
+                  },
+                  country: {
+                    type: 'object',
+                    properties: {
+                      identifier: {
+                        type: 'string',
+                        example: 'ca'
+                      }
+                    }
+                  },
+                  department: {
+                    type: 'object',
+                    properties: {
+                      en: {
+                        type: 'string',
+                        example: 'Division'
+                      }
+                    }
+                  },
+                  designation: {
+                    type: 'object',
+                    properties: {
+                      en: {
+                        type: 'string',
+                        example: 'Software'
+                      }
+                    }
+                  },
+                  emails: {
+                    type: 'array',
+                    items: {
+                      type: 'string'
+                    },
+                    example: ['pramodjsam@gmail.com']
+                  },
+                  faxes: {
+                    type: 'array',
+                    items: {
+                      type: 'string'
+                    },
+                    example: ['123456']
+                  },
+                  phones: {
+                    type: 'array',
+                    items: {
+                      type: 'string'
+                    },
+                    example: ['54825578896']
+                  },
+                  organization: {
+                    type: 'object',
+                    properties: {
+                      en: {
+                        type: 'string',
+                        example: 'Test Organization'
+                      }
+                    }
+                  },
+                  organizationAcronym: {
+                    type: 'object',
+                    properties: {
+                      en: {
+                        type: 'string',
+                        example: 'CSBD'
+                      }
+                    }
+                  },
+                  organizationType: {
+                    type: 'object',
+                    properties: {
+                      identifier: {
+                        type: 'string',
+                        example: '86D464C3-B5BB-4B02-85E4-1AAD8D64CD27'
+                      }
+                    }
+                  },
+                  websites: {
+                    type: 'array',
+                    items: {
+                      type: 'object',
+                      properties: {
+                        url: {
+                          type: 'string',
+                          example: 'http://www.google.com'
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        responses: {
+          200: {
+            description: 'Successful operation',
+            content: {
+              'application/json': {
+                example: {
+                  identifier: 'abcdefgh-123',
+                  documentID: 12345,
+                  type: 'organization',
+                  owner: 'user:123',
+                  revision: 3,
+                  size: 1234,
+                  realm: 'CHM',
+                  mediaType: 'application/json',
+                  charset: 'utf-8',
+                  title: {
+                    en: 'Secretariat of the Convention on Biological Diversity (SCBD)',
+                    fr: 'Secrétariat de la Convention sur la diversité biologique (SCDB)'
+                  },
+                  summary: {
+                    en: 'UN and other specialized agency of the UN Common System',
+                    es: 'Organismo de la ONU y otros organismos especializados del Sistema Común de la ONU',
+                    fr: 'Nations Unies et autres agences spécialisées du régime commun des Nations Unies',
+                    ar: 'وكالة من وكالات الأمم المتحدة ووكالات متخصصة أخرى في المنظومة العامة للأمم المتحدة',
+                    ru: 'ООН и другое специализированное учреждение общей системы ООН',
+                    zh: '联合国和联合国共同制度的其他专门机构'
+                  },
+                  createdOn: '2013-04-08T19:44:04.943Z',
+                  createdBy: {
+                    userID: 123,
+                    firstName: 'John',
+                    lastName: 'Smith',
+                    email: 'fake.john.smith@cbd.int'
+                  },
+                  updatedOn: '2013-10-01T22:08:17.073Z',
+                  updatedBy: {
+                    userID: 123,
+                    firstName: 'John',
+                    lastName: 'Smith',
+                    email: 'fake.john.smith@cbd.int'
+                  }
+                }
+              }
+            }
+          },
+          400: {
+            description: 'Bad request',
+            content: {
+              'application/json': {
+                example: {
+                  statusCode: 400,
+                  code: 'invalidParameter',
+                  fields: ['date'],
+                  message: 'Date format is invalid'
+                }
+              }
+            }
+          },
+          401: {
+            description: 'Unauthorized',
+            content: {
+              'application/json': {
+                example: {
+                  statusCode: 401,
+                  code: 'unauthorized'
+                }
+              }
+            }
+          },
+          403: {
+            description: 'Forbidden',
+            content: {
+              'application/json': {
+                example: {
+                  statusCode: 403,
+                  code: 'forbidden',
+                  message: 'Insufficient Privileges to create document [S10]'
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+})

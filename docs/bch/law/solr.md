@@ -1,22 +1,26 @@
 <script setup>
-import SwaggerUI from "@/swagger/view/SwaggerUI.vue";
+import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
 
-import lawAllRecordsWithQueryJson from "@/swagger/json/law/solr/all-record-with-query.json";
-import lawAllRecordsJson from "@/swagger/json/law/solr/all-record.json";
-import lawAllRecordsWithCountryJson from "@/swagger/json/law/solr/all-record-with-country.json";
-import lawAllRecordsWithRegionJson from "@/swagger/json/law/solr/all-record-with-region.json";
-import lawAllRecordsWithSubFiltersJson from "@/swagger/json/law/solr/all-record-with-subfilters.json";
+import lawAllRecordsWithQueryJson from "@/swagger/json/law/solr/all-record-with-query";
+import lawAllRecordsJson from "@/swagger/json/law/solr/all-record";
+import lawAllRecordsWithCountryJson from "@/swagger/json/law/solr/all-record-with-country";
+import lawAllRecordsWithRegionJson from "@/swagger/json/law/solr/all-record-with-region";
+import lawAllRecordsWithSubFiltersJson from "@/swagger/json/law/solr/all-record-with-subfilters";
 
-import baseJson from "@/swagger/json/records/solr/base.json";
+import swaggerJson from "@/swagger/json/records/solr/base";
+import { useClearingHouse } from "@/utils/composables"
 
 import { mergeSwaggerWithBase, deepClone } from "@/utils"
 
+const clearinghouse = useClearingHouse()
+const baseJson = swaggerJson(clearinghouse.apiUrl)
+
 const swaggerSpecs = [
-  { json: mergeSwaggerWithBase(deepClone(baseJson), lawAllRecordsJson, ['paths']) ,protected: false },
-  { json: mergeSwaggerWithBase(deepClone(baseJson), lawAllRecordsWithCountryJson, ['paths']) ,protected: false },
-  { json: mergeSwaggerWithBase(deepClone(baseJson), lawAllRecordsWithQueryJson, ['paths']) ,protected: false },
-  { json: mergeSwaggerWithBase(deepClone(baseJson), lawAllRecordsWithRegionJson, ['paths']), protected: false },
-  { json: mergeSwaggerWithBase(deepClone(baseJson), lawAllRecordsWithSubFiltersJson, ["paths"]), protected: false },
+  { json: mergeSwaggerWithBase(deepClone(baseJson), lawAllRecordsJson(clearinghouse), ['paths']) ,protected: false },
+  { json: mergeSwaggerWithBase(deepClone(baseJson), lawAllRecordsWithCountryJson(clearinghouse), ['paths']) ,protected: false },
+  { json: mergeSwaggerWithBase(deepClone(baseJson), lawAllRecordsWithQueryJson(clearinghouse), ['paths']) ,protected: false },
+  { json: mergeSwaggerWithBase(deepClone(baseJson), lawAllRecordsWithRegionJson(clearinghouse), ['paths']), protected: false },
+  { json: mergeSwaggerWithBase(deepClone(baseJson), lawAllRecordsWithSubFiltersJson(clearinghouse), ["paths"]), protected: false },
 ];
 
 

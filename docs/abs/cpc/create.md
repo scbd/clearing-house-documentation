@@ -1,10 +1,11 @@
 <script setup>
 import "@/style.css"
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
-import swaggerJson from "@/swagger/json/cpc/create.json";
+import swaggerJson from "@/swagger/json/cpc/create";
+import { useClearingHouse } from "@/utils/composables"
 
 const swaggerSpecs = [
-  { json: swaggerJson, protected: true },
+  { json: swaggerJson(useClearingHouse().apiUrl), protected: true },
 ];
 </script>
 
