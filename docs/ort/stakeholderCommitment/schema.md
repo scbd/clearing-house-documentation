@@ -1,6 +1,12 @@
 ---
 aside: false
 ---
+
+<script setup>
+import { useClearingHouse } from "@/utils/composables"
+const { clearingHouseBase } = useClearingHouse()
+</script>
+
 # Schema for Stakeholder Commitment
 
 This section provides an overview of the schemas related to the Stakeholder commitment (Stakeholder). Each schema details the structure and fields required for the stakeholderCommitment related requests and responses.
