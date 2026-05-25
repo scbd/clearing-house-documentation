@@ -1,3 +1,6 @@
+---
+aside: false
+---
 # Schema for NMCC
 
 This section provides an overview of the schemas related to the National Model Contractual Clause (NMCC). Each schema details the structure and fields required for the NMCC-related requests and responses. 

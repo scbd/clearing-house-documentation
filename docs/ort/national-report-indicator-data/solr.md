@@ -7,9 +7,12 @@ import nationalReportIndicatorDataAllRecordsWithCountryJson from "@/swagger/json
 import nationalReportIndicatorDataAllRecordsWithRegionJson from "@/swagger/json/nationalReportIndicatorData/solr/all-record-with-region.json";
 import nationalReportIndicatorDataAllRecordsWithSubFiltersJson from "@/swagger/json/nationalReportIndicatorData/solr/all-record-with-subfilters.json";
 
-import baseJson from "@/swagger/json/records/solr/base.json";
+import swaggerJson from "@/swagger/json/records/solr/base";
+import { useClearingHouse } from "@/utils/composables"
 
 import { mergeSwaggerWithBase, deepClone } from "@/utils"
+
+const baseJson = swaggerJson(useClearingHouse().apiUrl)
 
 const swaggerSpecs = [
   { json: mergeSwaggerWithBase(deepClone(baseJson), nationalReportIndicatorDataAllRecordsJson, ['paths']) ,protected: false },

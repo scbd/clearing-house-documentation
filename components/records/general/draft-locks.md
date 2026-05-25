@@ -1,25 +1,26 @@
 <script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
-import swaggerExistsJson from "@/swagger/json/general/draft-locks/exists.json";
-import swaggerGetJson from "@/swagger/json/general/draft-locks/get.json";
-import swaggerListJson from "@/swagger/json/general/draft-locks/list.json";
-import swaggerLockJson from "@/swagger/json/general/draft-locks/lock.json";
-import swaggerUnLockJson from "@/swagger/json/general/draft-locks/unlock.json";
+import swaggerExistsJson from "@/swagger/json/general/draft-locks/exists";
+import swaggerGetJson from "@/swagger/json/general/draft-locks/get";
+import swaggerListJson from "@/swagger/json/general/draft-locks/list";
+import swaggerLockJson from "@/swagger/json/general/draft-locks/lock";
+import swaggerUnLockJson from "@/swagger/json/general/draft-locks/unlock";
+import { useClearingHouse } from "@/utils/composables"
 
 const swaggerExistsSpecs = [
-  { json: swaggerExistsJson, domId:"exists", protected:false },
+  { json: swaggerExistsJson(useClearingHouse().apiUrl), domId:"exists", protected:false },
 ];
 const swaggerGetSpecs = [
-  { json: swaggerGetJson, domId:"get", protected:false },
+  { json: swaggerGetJson(useClearingHouse().apiUrl), domId:"get", protected:false },
 ];
 const swaggerListSpecs = [
-  { json: swaggerListJson, domId:"list", protected:true },
+  { json: swaggerListJson(useClearingHouse().apiUrl), domId:"list", protected:true },
 ];
 const swaggerLockSpecs = [
-  { json: swaggerLockJson, domId:"lock", protected:true },
+  { json: swaggerLockJson(useClearingHouse().apiUrl), domId:"lock", protected:true },
 ];
 const swaggerUnLockSpecs = [
-  { json: swaggerUnLockJson, domId:"unlock", protected:true },
+  { json: swaggerUnLockJson(useClearingHouse().apiUrl), domId:"unlock", protected:true },
 ];
 </script>
 

@@ -1,3 +1,6 @@
+---
+aside: false
+---
 # Schema for CPP
 
 This section provides an overview of the schemas related to the Community Protocols and Procedures and Customary Laws (CPP). Each schema details the structure and fields required for the CP-related requests and responses. 

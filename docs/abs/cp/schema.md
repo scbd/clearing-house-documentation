@@ -1,3 +1,6 @@
+---
+aside: false
+---
 # Schema for CP
 
 This section provides an overview of the schemas related to the Checkpoint (CP). Each schema details the structure and fields required for the CP-related requests and responses. 

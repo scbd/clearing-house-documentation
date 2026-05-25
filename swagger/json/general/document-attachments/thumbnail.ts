@@ -1,0 +1,184 @@
+import type { OpenAPI3 } from 'openapi-typescript'
+
+export default (url: string): OpenAPI3 => ({
+  openapi: '3.0.0',
+  info: {
+    title: 'Document Attachment Thumbnail API',
+    version: '2.13.0',
+    description: 'API Documentation.'
+  },
+  servers: [
+    {
+      url,
+      description: '',
+      variables: {}
+    }
+  ],
+  paths: {
+    '/documents/{uid}/attachments/{attachmentId}/{filename}/{guid}/thumbnail': {
+      get: {
+        summary: 'Get Document Attachment Thumbnail',
+        description: 'Retrieves a thumbnail for a document attachment. This is only available for image files. If the thumbnail is not available, it may return a redirection to the image file.',
+        tags: ['Get thumbnail'],
+        parameters: [
+          {
+            name: 'uid',
+            in: 'path',
+            required: true,
+            schema: {
+              type: 'string',
+              pattern: '^[A-Za-z0-9\\-_]{11,128}$'
+            },
+            description: 'Identifier of the document. The value is case-sensitive.'
+          },
+          {
+            name: 'guid',
+            in: 'path',
+            required: true,
+            description: 'The unique identifier of the attachment.',
+            schema: {
+              type: 'string'
+            }
+          },
+          {
+            name: 'attachmentId',
+            in: 'path',
+            required: true,
+            schema: {
+              type: 'string'
+            },
+            description: 'Id of the attached file.'
+          },
+          {
+            name: 'filename',
+            in: 'path',
+            required: true,
+            schema: {
+              type: 'string'
+            },
+            description: 'Name of the file.'
+          }
+        ],
+        responses: {
+          200: {
+            description: 'Successful response with the thumbnail image data.',
+            content: {
+              'image/*': {
+                schema: {
+                  type: 'string',
+                  format: 'binary'
+                }
+              }
+            }
+          },
+          302: {
+            description: 'Redirect to the location of the thumbnail image.',
+            headers: {
+              Location: {
+                description: 'URL where the thumbnail can be found.',
+                schema: {
+                  type: 'string',
+                  format: 'uri'
+                }
+              }
+            }
+          },
+          400: {
+            description: 'Bad Request due to invalid parameters.',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  properties: {
+                    statusCode: {
+                      type: 'integer',
+                      example: 400
+                    },
+                    code: {
+                      type: 'string',
+                      example: 'invalidParameter'
+                    },
+                    fields: {
+                      type: 'array',
+                      items: {
+                        type: 'string'
+                      }
+                    },
+                    message: {
+                      type: 'string',
+                      example: 'Date format is invalid'
+                    }
+                  }
+                }
+              }
+            }
+          },
+          404: {
+            description: 'Document or attachment not found.',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  properties: {
+                    statusCode: {
+                      type: 'integer',
+                      example: 404
+                    },
+                    code: {
+                      type: 'string',
+                      example: 'notFound'
+                    },
+                    message: {
+                      type: 'string',
+                      example: 'Document not found'
+                    }
+                  }
+                }
+              }
+            }
+          },
+          401: {
+            description: 'Unauthorized access.',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  properties: {
+                    statusCode: {
+                      type: 'integer',
+                      example: 401
+                    },
+                    code: {
+                      type: 'string',
+                      example: 'unauthorized'
+                    }
+                  }
+                }
+              }
+            }
+          },
+          403: {
+            description: 'Forbidden access.',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  properties: {
+                    statusCode: {
+                      type: 'integer',
+                      example: 403
+                    },
+                    code: {
+                      type: 'string',
+                      example: 'forbidden'
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+})
