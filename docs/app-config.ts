@@ -6,5 +6,5 @@ export const APP_CONFIG = {
   BCH_URL: import.meta.env.VITE_BCH_URL,
   CHM_URL: import.meta.env.VITE_CHM_URL,
   ORT_URL: import.meta.env.VITE_ORT_URL,
-  API_EXTENSION: import.meta.env.VITE_API_EXTENSION
+  API_EXTENSION: import.meta.env.VITE_API_EXTENSION || 'api/v2013'
 }

@@ -22,9 +22,14 @@ export function getClearingHouseUrl (url: string): string | undefined {
 }
 
 export function getClearinghouseApiUrl (clearinghouseUrl: string | undefined): string {
+
+  // if(typeof clearinghouseUrl === 'string') {
+  //   return `${clearinghouseUrl}/${APP_CONFIG.API_EXTENSION}`
+  // }
+
   const defaultApiUrl = APP_CONFIG.API_URL ?? 'https://api.cbddev.xyz'
 
-  return typeof clearinghouseUrl === 'string' ? `${clearinghouseUrl}/${APP_CONFIG.API_EXTENSION}` : defaultApiUrl
+  return `${defaultApiUrl}/${APP_CONFIG.API_EXTENSION}`;
 }
 
 export function getClearingHouseFromUrl (url: string): string | null {
