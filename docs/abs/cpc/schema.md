@@ -1,3 +1,6 @@
+---
+aside: false
+---
 <script setup>
 </script>
 

@@ -1,3 +1,6 @@
+---
+aside: false
+---
 <script setup>
 import "@/style.css"
 </script>

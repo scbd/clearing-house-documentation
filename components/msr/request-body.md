@@ -1,7 +1,3 @@
-<script setup>
-import { useClearingHouse } from "@/utils/composables"
-const { clearingHouseBase } = useClearingHouse()
-</script>
 
 <table class="schema-table" style="table-layout: fixed; width: 100%;">
   <thead>

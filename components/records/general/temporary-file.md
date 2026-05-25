@@ -1,25 +1,27 @@
 <script setup>
+import { APP_CONFIG } from '@/docs/app-config'
 import { ref } from "vue";
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
-import swaggerSlotCreationJson from "@/swagger/json/general/file-upload/without-limit/slot-creation.json";
-import swaggerUploadFileJson from "@/swagger/json/general/file-upload/without-limit/upload-file.json";
-import swaggerGetFileJson from "@/swagger/json/general/file-upload/without-limit/get-file.json";
-import swaggerGetFileWithLimitJson from "@/swagger/json/general/file-upload/with-limit/get-file.json";
+import swaggerSlotCreationJson from "@/swagger/json/general/file-upload/without-limit/slot-creation";
+import swaggerUploadFileJson from "@/swagger/json/general/file-upload/without-limit/upload-file";
+import swaggerGetFileJson from "@/swagger/json/general/file-upload/without-limit/get-file";
+import swaggerGetFileWithLimitJson from "@/swagger/json/general/file-upload/with-limit/get-file";
+const apiUrl = APP_CONFIG.API_URL
 
 const swaggerSlotCreationSpecs = [
-  { json: swaggerSlotCreationJson, domId:"slot-creation", protected:true },
+  { json: swaggerSlotCreationJson(apiUrl), domId:"slot-creation", protected:true },
 ];
 
 const swaggerUploadFileSpecs = ref([
-  { json: { ...swaggerUploadFileJson }, domId: "upload-file", protected: false },
+  { json: { ...swaggerUploadFileJson(apiUrl) }, domId: "upload-file", protected: false },
 ]);
 
 const swaggerGetFileSpecs = [
-  { json: swaggerGetFileJson, domId:"get-file", protected:true },
+  { json: swaggerGetFileJson(apiUrl), domId:"get-file", protected:true },
 ];
 
 const swaggerGetFileWithLimitSpecs = [
-  { json: swaggerGetFileWithLimitJson, domId:"get-file-with-limit", protected:true },
+  { json: swaggerGetFileWithLimitJson(apiUrl), domId:"get-file-with-limit", protected:true },
 ];
 </script>
 

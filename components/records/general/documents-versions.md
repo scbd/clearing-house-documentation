@@ -1,21 +1,22 @@
 <script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
-import swaggerExistsJson from "@/swagger/json/general/document-versions/exists.json";
-import swaggerGetInfoJson from "@/swagger/json/general/document-versions/get-info.json";
-import swaggerGetJson from "@/swagger/json/general/document-versions/get.json";
-import swaggerListJson from "@/swagger/json/general/document-versions/list.json";
+import swaggerExistsJson from "@/swagger/json/general/document-versions/exists";
+import swaggerGetInfoJson from "@/swagger/json/general/document-versions/get-info";
+import swaggerGetJson from "@/swagger/json/general/document-versions/get";
+import swaggerListJson from "@/swagger/json/general/document-versions/list";
+import { useClearingHouse } from "@/utils/composables"
 
 const swaggerExistsSpecs = [
-  { json: swaggerExistsJson, domId:"exists" },
+  { json: swaggerExistsJson(useClearingHouse().apiUrl), domId:"exists" },
 ];
 const swaggerGetInfoSpecs = [
-  { json: swaggerGetInfoJson, domId:"getInfo" },
+  { json: swaggerGetInfoJson(useClearingHouse().apiUrl), domId:"getInfo" },
 ];
 const swaggerGetSpecs = [
-  { json: swaggerGetJson, domId:"get" },
+  { json: swaggerGetJson(useClearingHouse().apiUrl), domId:"get" },
 ];
 const swaggerListSpecs = [
-  { json: swaggerListJson, domId:"list" },
+  { json: swaggerListJson(useClearingHouse().apiUrl), domId:"list" },
 ];
 </script>
 
