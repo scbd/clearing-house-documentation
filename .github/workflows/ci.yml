@@ -89,7 +89,7 @@ jobs:
 
       - name: Test image
         run: |
-          docker run --name chmApiDocs -d -p 8000:8000 \
+          docker run --name clearing-house-documentation -d -p 8000:8000 \
             -e VITE_API_URL=https://api.cbddev.xyz \
             -e VITE_ACCOUNTS_HOST_URL=https://accounts.cbddev.xyz \
             -e VITE_ABS_URL=https://absch.cbddev.xyz \
@@ -98,7 +98,7 @@ jobs:
             -e VITE_ORT_URL=https://ort.cbddev.xyz \
             ci-build:local
           sleep 10
-          docker exec chmApiDocs curl --retry 10 --retry-delay 5 -v http://localhost:8000
+          docker exec clearing-house-documentation curl --retry 10 --retry-delay 5 -v http://localhost:8000
 
       - name: Push image
         if: steps.meta.outputs.push == 'true'
