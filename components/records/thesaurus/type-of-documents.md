@@ -26,7 +26,7 @@ This endpoint provides access to a list of standardized types of documents used 
 
 | Title            | Field   | Schema                    |
 | ---------------- | ------ | ------------------------------ |
-| Type of document/measure   | type | <a href="/msr/schema">MSR</a>  |
+| Type of document/measure   | type | [MSR](/msr/schema)  |
 
 ## Playground
 

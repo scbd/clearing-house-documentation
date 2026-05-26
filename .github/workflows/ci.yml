@@ -46,26 +46,33 @@ jobs:
 
           if [[ "${REF}" =~ ^refs/tags/[0-9]{4}\.[0-9]+(\.[0-9]+)*$ ]]; then
             TAG="${REF#refs/tags/}"
-            echo "tags<<EOF"          >> $GITHUB_OUTPUT
-            echo "${IMAGE}:${TAG}"    >> $GITHUB_OUTPUT
-            echo "${IMAGE}:latest"    >> $GITHUB_OUTPUT
-            echo "EOF"                >> $GITHUB_OUTPUT
-            echo "push=true"          >> $GITHUB_OUTPUT
-            echo "branch="            >> $GITHUB_OUTPUT
-            echo "build_tag=${TAG}"   >> $GITHUB_OUTPUT
+            echo "tags<<EOF"                    >> $GITHUB_OUTPUT
+            echo "${IMAGE}:${TAG}"              >> $GITHUB_OUTPUT
+            echo "${IMAGE}:latest"              >> $GITHUB_OUTPUT
+            echo "EOF"                          >> $GITHUB_OUTPUT
+            echo "push=true"                    >> $GITHUB_OUTPUT
+            echo "branch="                      >> $GITHUB_OUTPUT
+            echo "build_tag=${TAG}"             >> $GITHUB_OUTPUT
+            echo "base_path=/clearing-house/"   >> $GITHUB_OUTPUT
 
           elif [[ "${REF}" =~ ^refs/heads/(master|dev)$ ]]; then
             BRANCH="${BASH_REMATCH[1]}"
-            echo "tags=${IMAGE}:${BRANCH}" >> $GITHUB_OUTPUT
-            echo "push=true"               >> $GITHUB_OUTPUT
-            echo "branch=${BRANCH}"        >> $GITHUB_OUTPUT
-            echo "build_tag="              >> $GITHUB_OUTPUT
+            echo "tags=${IMAGE}:${BRANCH}"      >> $GITHUB_OUTPUT
+            echo "push=true"                    >> $GITHUB_OUTPUT
+            echo "branch=${BRANCH}"             >> $GITHUB_OUTPUT
+            echo "build_tag="                   >> $GITHUB_OUTPUT
+            if [[ "${BRANCH}" == "master" ]]; then
+              echo "base_path=/clearing-house/" >> $GITHUB_OUTPUT
+            else
+              echo "base_path=/"               >> $GITHUB_OUTPUT
+            fi
 
           else
             echo "tags=${IMAGE}:build-${SHORT_SHA}" >> $GITHUB_OUTPUT
             echo "push=false"                        >> $GITHUB_OUTPUT
             echo "branch="                           >> $GITHUB_OUTPUT
             echo "build_tag="                        >> $GITHUB_OUTPUT
+            echo "base_path=/"                       >> $GITHUB_OUTPUT
           fi
 
       - name: Log in to Docker Hub
@@ -78,10 +85,11 @@ jobs:
       - name: Build image
         uses: docker/build-push-action@v6
         with:
-          build-args: 
+          build-args: |
             COMMIT=${{ github.sha }}
             BRANCH=${{ steps.meta.outputs.branch }}
             TAG=${{ steps.meta.outputs.build_tag }}
+            BASE_PATH=${{ steps.meta.outputs.base_path }}
           load: true
           tags: ci-build:local
           cache-from: type=gha

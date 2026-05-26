@@ -26,10 +26,10 @@ This endpoint provides access to a list of country terms from the thesaurus. Thi
 
 | Title            | Field   | Schema                    |
 | ---------------- | ------ | ------------------------------ |
-| Country           | government | <a href="/abs/ircc/schema">IRCC</a>  |
-| Country           | government | <a href="/abs/contact/schema">Contact</a>  |
-| Country           | country | <a href="/abs/nfp/schema">NFP</a>  |
-| Country           | government | <a href="/abs/msr/schema">MSR</a>  |
+| Country           | government | [IRCC](/abs/ircc/schema)  |
+| Country           | government | [Contact](/abs/contact/schema)  |
+| Country           | country | [NFP](/abs/nfp/schema)  |
+| Country           | government | [MSR](/abs/msr/schema)  |
 
 ## Playground
 

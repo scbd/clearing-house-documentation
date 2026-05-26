@@ -4,6 +4,7 @@ import routes from "../../routes/index";
 
 export default defineConfig({
   title: "API Documentation",
+  base: process.env.BASE_PATH || "/",
   appearance: false,
   themeConfig: {
     aside: true,
