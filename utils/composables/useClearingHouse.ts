@@ -1,5 +1,5 @@
 import { computed, type ComputedRef } from 'vue'
-import { useData } from 'vitepress'
+import { useData, withBase } from 'vitepress'
 import {
   getClearingHouseFromUrl, getClearingHouseUrl, getClearinghouseApiUrl
 } from '@/utils/helpers'
@@ -17,7 +17,7 @@ export function useClearingHouse (): ClearingHouse {
 
   const name = computed(() => getClearingHouseFromUrl(`/${url}`) ?? '')
 
-  const clearingHouseBase = (path: string): string => `/${name.value}/${path.replace(/^\/+/,'')}`
+  const clearingHouseBase = (path: string): string => withBase(`/${name.value}/${path.replace(/^\/+/, '')}`)
 
   const baseUrl = getClearingHouseUrl(`/${url}`)
 
