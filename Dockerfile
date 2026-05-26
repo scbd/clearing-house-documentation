@@ -11,6 +11,9 @@ ENV TAG=$TAG
 ARG COMMIT
 ENV COMMIT=$COMMIT
 
+ARG BASE_PATH='/'
+ENV BASE_PATH=$BASE_PATH
+
 # Set working directory
 WORKDIR /usr/src/app
 
