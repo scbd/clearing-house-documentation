@@ -68,7 +68,6 @@ Additionally, for the project to work, you need to have a launch configuration w
 
 "VITE_ORT_URL": "https://ort.cbddev.xyz"
 
-"VITE_API_EXTENSION: "api/v2013"
 ```
 
 

@@ -3,16 +3,13 @@ FROM node:20
 
 # Set build arguments and environment variables
 ARG BRANCH='master'
-ENV BRANCH $BRANCH
-
-ARG VERSION
-ENV VERSION $VERSION
+ENV BRANCH=$BRANCH
 
 ARG TAG
-ENV TAG $TAG
+ENV TAG=$TAG
 
 ARG COMMIT
-ENV COMMIT $COMMIT
+ENV COMMIT=$COMMIT
 
 # Set working directory
 WORKDIR /usr/src/app
@@ -28,16 +25,12 @@ COPY . .
 # Change to the docs directory and run the VitePress build script
 WORKDIR /usr/src/app/docs
 
-# Set the environment variable required by VitePress
-ENV VITE_ACCOUNTS_HOST_URL https://accounts.cbddev.xyz
-ENV VITE_API_URL https://api.cbddev.xyz
-
 
 # Build the VitePress site
 RUN npm run build
 
 # Set port and expose it
-ENV PORT 8000
+ENV PORT=8000
 EXPOSE 8000
 
 # Command to start the VitePress preview
