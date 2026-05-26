@@ -96,7 +96,6 @@ jobs:
             -e VITE_BCH_URL=https://bch.cbddev.xyz \
             -e VITE_CHM_URL=https://chm.cbddev.xyz \
             -e VITE_ORT_URL=https://ort.cbddev.xyz \
-            -e VITE_API_EXTENSION=api/v2013 \
             ci-build:local
           sleep 10
           docker exec chmApiDocs curl --retry 10 --retry-delay 5 -v http://localhost:8000
