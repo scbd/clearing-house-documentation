@@ -4,23 +4,23 @@
     
     <div class="row d-flex justify-content-center">
       <!-- BCH Clearing House -->
-      <a href="/bch/" class="col-sm-6 col-md-3 box box-orange text-center text-decoration-none mb-3 mb-md-0">
+      <a :href="withBase('/bch/')" class="col-sm-6 col-md-3 box box-orange text-center text-decoration-none mb-3 mb-md-0">
         <p>Biosafety Clearing-House (BCH)</p>
       </a>
 
       <!-- ABSCH Clearing House -->
-      <a href="/abs/" class="col-sm-6 col-md-3 box mx-5 box-green text-center text-decoration-none mb-3 mb-md-0">
+      <a :href="withBase('/abs/')" class="col-sm-6 col-md-3 box mx-5 box-green text-center text-decoration-none mb-3 mb-md-0">
         <p>Access and Benefit-Sharing Clearing-House (ABSCH)</p>
-      </a>      
+      </a>
 
       <!-- CHM Clearing House -->
-      <a href="/chm/" class="col-sm-6 col-md-3 box box-orange text-center text-decoration-none mb-3 mb-md-0">
+      <a :href="withBase('/chm/')" class="col-sm-6 col-md-3 box box-orange text-center text-decoration-none mb-3 mb-md-0">
         <p>Clearing-House Mechanism (CHM)</p>
       </a>
 
       <div class="row d-flex justify-content-center mt-5">
       <!-- ORT Clearing House -->
-      <a href="/ort/" class="col-sm-6 col-md-3 box box-green text-center text-decoration-none mb-3 mb-md-0">
+      <a :href="withBase('/ort/')" class="col-sm-6 col-md-3 box box-green text-center text-decoration-none mb-3 mb-md-0">
         <p>Online Reporting Tool (ORT)</p>
       </a>
     </div>
@@ -29,6 +29,7 @@
 </template>
 
 <script setup>
+import { withBase } from 'vitepress'
 </script>
 
 <style scoped>

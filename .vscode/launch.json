@@ -12,53 +12,22 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "env": {
-        "VITE_CLEARING_HOUSE": "abs",
         "VITE_ACCOUNTS_HOST_URL":"https://accounts.cbddev.xyz",
-        "VITE_API_URL":"https://api.cbddev.xyz"
+        "VITE_API_URL":"https://api.cbddev.xyz",
+        "BASE_PATH":"/clearing-house/"
       },
       "console": "integratedTerminal"
     },
     {
-      "type": "pwa-node",
+      "type": "node-terminal",
       "request": "launch",
-      "name": "Launch with BCH",
-      "skipFiles": ["<node_internals>/**"],
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "name": "Build & Preview (/clearing-house/)",
+      "command": "BASE_PATH=/clearing-house/ npm run build && npx vitepress preview docs --port 4173",
       "env": {
-        "VITE_CLEARING_HOUSE": "bch",
         "VITE_ACCOUNTS_HOST_URL":"https://accounts.cbddev.xyz",
-        "VITE_API_URL":"https://api.cbddev.xyz"
-      },
-      "console": "integratedTerminal"
-    },
-    {
-      "type": "pwa-node",
-      "request": "launch",
-      "name": "Launch with CHM",
-      "skipFiles": ["<node_internals>/**"],
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "env": {
-        "VITE_CLEARING_HOUSE": "chm",
-        "VITE_ACCOUNTS_HOST_URL":"https://accounts.cbddev.xyz",
-        "VITE_API_URL":"https://api.cbddev.xyz"
-      },
-      "console": "integratedTerminal"
-    },
-    {
-      "type": "pwa-node",
-      "request": "launch",
-      "name": "Launch with ORT",
-      "skipFiles": ["<node_internals>/**"],
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "env": {
-        "VITE_CLEARING_HOUSE": "ort",
-        "VITE_ACCOUNTS_HOST_URL":"https://accounts.cbddev.xyz",
-        "VITE_API_URL":"https://api.cbddev.xyz"
-      },
-      "console": "integratedTerminal"
+        "VITE_API_URL":"https://api.cbddev.xyz",
+        "BASE_PATH":"/clearing-house/"
+      }
     }
   ]
 }
