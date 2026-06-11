@@ -28,7 +28,7 @@ This table describes the `keywords` field that is used to indicate if the permit
 
 | Title            | Field   | Schema                    |
 | ---------------- | ------ | ------------------------------ |
-| Indicate if the permit or its equivalent covers commercial and/or non-commercial use          | keywords &nbsp; &nbsp; | [IRCC - create](/ircc/published/create)  |
+| Indicate if the permit or its equivalent covers commercial and/or non-commercial use          | keywords &nbsp; &nbsp; | [IRCC - create](/abs/ircc/create)  |
 
 ## Playground
 
