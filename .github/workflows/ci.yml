@@ -6,6 +6,10 @@
 #
 # Deployment webhooks (repo-level, optional — omit if no deploy target):
 #   WEBHOOK_URL_DEV     - Portainer service webhook URL for dev redeploy
+#
+# Images built:
+#   scbd/clearing-house-documentation  - VitePress docs site
+#   scbd/developer.cbd.int             - Landing page
 name: CI
 on:
   push:
@@ -17,6 +21,7 @@ permissions:
   contents: read
 env:
   IMAGE_NAME: scbd/clearing-house-documentation
+  LANDING_IMAGE_NAME: scbd/developer.cbd.int
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -101,6 +106,32 @@ jobs:
             docker tag ci-build:local "$tag"
             docker push "$tag"
           done <<< "${{ steps.meta.outputs.tags }}"
+      - name: Build landing image
+        uses: docker/build-push-action@v6
+        with:
+          context: landing
+          load: true
+          tags: ci-landing:local
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Test landing image
+        run: |
+          docker run --name landing -d -p 3000:3000 ci-landing:local
+          sleep 5
+          docker exec landing wget -qO- http://localhost:3000
+      - name: Push landing image
+        if: steps.meta.outputs.push == 'true'
+        run: |
+          IMAGE="${{ env.LANDING_IMAGE_NAME }}"
+          if [[ -n "${{ steps.meta.outputs.build_tag }}" ]]; then
+            docker tag ci-landing:local "${IMAGE}:${{ steps.meta.outputs.build_tag }}"
+            docker tag ci-landing:local "${IMAGE}:latest"
+            docker push "${IMAGE}:${{ steps.meta.outputs.build_tag }}"
+            docker push "${IMAGE}:latest"
+          else
+            docker tag ci-landing:local "${IMAGE}:${{ steps.meta.outputs.branch }}"
+            docker push "${IMAGE}:${{ steps.meta.outputs.branch }}"
+          fi
       # Portainer webhooks — non-critical, a failed redeploy never blocks CI.
       - name: Deploy to Portainer (dev)
         if: steps.meta.outputs.branch == 'dev'
