@@ -2,7 +2,8 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-RUN npm init -y && npm install express && npm pkg set type=module
+COPY package.json ./
+RUN apk add --no-cache curl && npm install --omit=dev
 
 COPY . .
 
