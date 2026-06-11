@@ -8,7 +8,7 @@ This document provides a comprehensive overview of the various schemas used in o
 | Legislative, Administrative or Policy Measure (MSR)                      | measure                            |
 | ABS Procedure (PRO)                                                      | absProcedure                       |
 | National Modal Contractual Clause (NMCC)                                 | absNationalModelContractualClause  |
-| [Internationally Recognized Certificates of Compliance (IRCC)](/ircc/published/schema) | absPermit                          |
+| [Internationally Recognized Certificates of Compliance (IRCC)](/abs/ircc/schema) | absPermit                          |
 | National Websites or Databases (NDB)                                     | database                           |
 | Checkpoint (CP)                                                          | absCheckpoint                      |
 | Checkpoint Communique (CPC)                                              | absCheckpointCommunique            |

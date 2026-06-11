@@ -26,7 +26,7 @@ This endpoint provides access to a list of terms relevant to describing the subj
 
 | Title            | Field   | Schema                    |
 | ---------------- | ------ | ------------------------------ |
-| Keywords to describe the subject-matter or genetic resource(s) covered by the permit or its equivalent           | keywords | [IRCC - create](/ircc/create)  |
+| Keywords to describe the subject-matter or genetic resource(s) covered by the permit or its equivalent           | keywords | [IRCC - create](/abs/ircc/create)  |
 
 ## Playground
 

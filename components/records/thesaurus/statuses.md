@@ -26,7 +26,7 @@ This endpoint provides access to a list of statuses relevant to measures and pol
 
 | Title            | Field   | Schema                    |
 | ---------------- | ------ | ------------------------------ |
-| Legal status of the measure   | status | [MSR](/msr/schema)  |
+| Legal status of the measure   | status | [MSR](/abs/msr/schema)  |
 
 
 ## Playground
