@@ -1,5 +1,9 @@
 <template>
   <div class="mt-4" v-show="!isLoading && !isError">
+    <div class="alert alert-info" role="alert">
+      This playground connects to the sandbox environment (<code>cbddev.xyz</code>) for testing purposes.
+      In production, replace <code>cbddev.xyz</code> with <code>cbd.int</code> in request URLs.
+    </div>
     <div v-for="(spec, index) in swaggerSpecs" :key="index">
       <div v-if="spec.protected && !token">
         <div class="container">
