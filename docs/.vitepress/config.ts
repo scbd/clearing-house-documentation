@@ -3,10 +3,12 @@ import { resolve } from "path";
 import routes from "../../routes/index";
 
 export default defineConfig({
-  title: "API Documentation",
+  title: "CH documentation",
   base: process.env.BASE_PATH || "/",
   appearance: false,
   themeConfig: {
+    logo: "/logo.png",
+    siteTitle: "CH documentation",
     aside: true,
     nav: [
       {
