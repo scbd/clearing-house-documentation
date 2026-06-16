@@ -3,7 +3,7 @@ import { resolve } from "path";
 import routes from "../../routes/index";
 
 export default defineConfig({
-  title: "CBD Developers",
+  title: "CH documentation",
   base: process.env.BASE_PATH || "/",
   appearance: true,
   head: [
@@ -19,7 +19,7 @@ export default defineConfig({
   ],
   themeConfig: {
     logo: "/logo.png",
-    siteTitle: "CBD Developers",
+    siteTitle: "CH documentation",
     aside: true,
     nav: [
       {

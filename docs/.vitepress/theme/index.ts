@@ -21,10 +21,13 @@ export default {
     // Register global components
     app.component('SchemaRow', SchemaRow)
     app.component('SchemaTable', SchemaTable)
-    // Add onMounted here if needed for further setup
-    onMounted(async () => {
-      // Import the global CSS and JS for Bootstrap
-      
+  },
+  setup() {
+    // VPNavBarTitle doesn't expose a slot for a title/tooltip attribute,
+    // so set it directly on the nav brand link.
+    onMounted(() => {
+      document.querySelector(".VPNavBarTitle .title")
+        ?.setAttribute("title", "Clearing-House Documentation");
     });
   }
 };
