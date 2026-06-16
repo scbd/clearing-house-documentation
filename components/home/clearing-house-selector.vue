@@ -1,68 +1,121 @@
 <template>
-  <div class="my-5 text-center">
-    <h2 class="mb-4">Explore Our Clearing-Houses</h2>
-    
-    <div class="row d-flex justify-content-center">
-      <!-- BCH Clearing House -->
-      <a :href="withBase('/bch/')" class="col-sm-6 col-md-3 box box-orange text-center text-decoration-none mb-3 mb-md-0">
-        <p>Biosafety Clearing-House (BCH)</p>
-      </a>
-
-      <!-- ABSCH Clearing House -->
-      <a :href="withBase('/abs/')" class="col-sm-6 col-md-3 box mx-5 box-green text-center text-decoration-none mb-3 mb-md-0">
-        <p>Access and Benefit-Sharing Clearing-House (ABSCH)</p>
-      </a>
-
-      <!-- CHM Clearing House -->
-      <a :href="withBase('/chm/')" class="col-sm-6 col-md-3 box box-orange text-center text-decoration-none mb-3 mb-md-0">
-        <p>Clearing-House Mechanism (CHM)</p>
-      </a>
-
-      <div class="row d-flex justify-content-center mt-5">
-      <!-- ORT Clearing House -->
-      <a :href="withBase('/ort/')" class="col-sm-6 col-md-3 box box-green text-center text-decoration-none mb-3 mb-md-0">
-        <p>Online Reporting Tool (ORT)</p>
-      </a>
-    </div>
-    </div>
+  <div class="net-grid">
+    <a
+      v-for="ch in clearingHouses"
+      :key="ch.code"
+      :href="withBase(ch.path)"
+      class="net"
+    >
+      <span class="ab">{{ ch.code }}</span>
+      <span class="nname">{{ ch.name }}</span>
+      <span class="ndesc">{{ ch.desc }}</span>
+      <span class="ngo">
+        View reference
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+          <path d="M5 12h14m-6-6 6 6-6 6" />
+        </svg>
+      </span>
+    </a>
   </div>
 </template>
 
 <script setup>
 import { withBase } from 'vitepress'
+
+const clearingHouses = [
+  {
+    code: 'CHM',
+    path: '/chm/',
+    name: 'Clearing-House Mechanism',
+    desc: "Information-sharing records under the Convention — national targets, NBSAPs, contacts and resources.",
+  },
+  {
+    code: 'ABSCH',
+    path: '/abs/',
+    name: 'Access & Benefit-Sharing Clearing-House',
+    desc: 'Permits, checkpoints and national records under the Nagoya Protocol.',
+  },
+  {
+    code: 'BCH',
+    path: '/bch/',
+    name: 'Biosafety Clearing-House',
+    desc: 'Decisions, risk assessments and LMO registries under the Cartagena Protocol.',
+  },
+  {
+    code: 'ORT',
+    path: '/ort/',
+    name: 'Online Reporting Tool',
+    desc: 'Structured national report data submitted by Parties through the reporting tool.',
+  },
+]
 </script>
 
 <style scoped>
-.box {
-  height: 10rem;
+.net-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 2.5rem 0;
+}
+.net {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 11px;
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-border);
+  text-decoration: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.net:hover {
+  border-color: var(--cbd-green-300);
+  box-shadow: 0 10px 24px -16px rgba(8, 54, 31, 0.4);
+}
+.net .ab {
+  align-self: flex-start;
+  font-family: var(--vp-font-family-mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--cbd-green-800);
+  background: var(--cbd-green-50);
+  border: 1px solid var(--cbd-green-100);
+  padding: 4px 9px;
+  border-radius: 6px;
+}
+.net .nname {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+  line-height: 1.3;
+}
+.net .ndesc {
+  flex: 1;
+  font-size: 13px;
+  color: var(--vp-c-text-2);
+  line-height: 1.5;
+}
+.net .ngo {
+  display: inline-flex;
   align-items: center;
-  border-radius: 1rem;
-  cursor: pointer;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--vp-c-brand-1);
 }
-
-.box-green{
-  color: #1FA65D;
-  border: 0.4rem solid #1FA65D;
+.net .ngo svg {
+  width: 13px;
+  height: 13px;
 }
-
-.box-orange{
-  color: #fa6938;
-  border: 0.4rem solid #fa6938;
+.dark .net .ab {
+  color: var(--cbd-green-300);
+  background: rgba(124, 194, 148, 0.1);
+  border-color: #1d3326;
 }
-
-.box p {
-  font-size: 1.2rem;
-}
-
-.box-green:hover {
-  background: #1FA65D;
-  color: white;
-}
-
-.box-orange:hover {
-  background: #fa6938;
-  color: white;
+@media (max-width: 640px) {
+  .net-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

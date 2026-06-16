@@ -3,6 +3,7 @@ import DefaultTheme from 'vitepress/theme';
 import { onMounted } from 'vue';
 
 import "../../../style.css"
+import "./custom.css"
 
 // Import your custom components
 import SchemaRow from '../components/schema-row.vue'
