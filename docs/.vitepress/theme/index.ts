@@ -18,23 +18,6 @@ if (!import.meta.env.SSR) {
 export default {
   ...DefaultTheme,
   enhanceApp({ app }: { app: any }) {
-    // Validate mandatory environment variables at runtime
-    if (!import.meta.env.SSR) {
-      const mandatoryEnvVars = [
-        'VITE_ACCOUNTS_HOST_URL', 
-        'VITE_API_URL',
-        'VITE_ABS_URL',
-        'VITE_BCH_URL',
-        'VITE_CHM_URL',
-        'VITE_ORT_URL'
-      ];
-      mandatoryEnvVars.forEach((variable) => {
-        if (!import.meta.env[variable]) {
-          console.error(`Missing mandatory environment variable: ${variable}`);
-        }
-      });
-    }
-
     // Register global components
     app.component('SchemaRow', SchemaRow)
     app.component('SchemaTable', SchemaTable)
