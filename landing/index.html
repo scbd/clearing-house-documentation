@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CBD Developers — Build with data from the Convention on Biological Diversity</title>
+<meta name="description" content="Documentation and reference material for building on the Convention's data — starting with the Clearing-House API across CHM, ABSCH, BCH and ORT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green-900:#08361f; --green-800:#0c4a2a; --green-700:#0f5c34;
+  --green-600:#157a43; --green-300:#7cc294; --green-100:#e7f2ea; --green-50:#f1f8f3;
+  --ink:#15201b; --body:#33433b; --muted:#6a786f;
+  --line:#e3e7e4; --line-soft:#eef1ef; --page:#fbfcfb;
+  --accent:#157a43; --accent-ink:#0f5c34;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{font-family:var(--sans);color:var(--body);background:var(--page);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  display:flex;flex-direction:column;min-height:100vh;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 36px;width:100%;}
+
+/* buttons + labels */
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:15px;
+  padding:13px 22px;border-radius:10px;white-space:nowrap;}
+.btn svg{width:16px;height:16px;}
+.btn.primary{background:var(--green-700);color:#fff;}
+.btn.primary:hover{background:var(--green-800);}
+.btn.ghost{border:1.5px solid var(--line);color:var(--green-800);background:#fff;}
+.btn.ghost:hover{border-color:var(--green-300);}
+.sec-label{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 18px;white-space:nowrap;}
+.sec-label::after{content:"";flex:1;height:1px;background:var(--line);}
+h2.sec-title{margin:0 0 8px;font-size:27px;font-weight:800;letter-spacing:-.4px;color:var(--ink);}
+.sec-sub{margin:0 0 28px;font-size:15.5px;color:var(--muted);max-width:62ch;line-height:1.55;}
+
+/* header */
+.topbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+.top-inner{display:flex;align-items:center;gap:14px;height:64px;}
+.blogo{display:flex;align-items:center;gap:11px;}
+.blogo .bt{font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-.2px;}
+.blogo .bt span{color:var(--green-700);}
+.crumb{font-family:var(--mono);font-size:13px;color:var(--muted);margin-left:4px;}
+.topnav{margin-left:auto;display:flex;align-items:center;gap:24px;font-size:14px;font-weight:600;color:var(--body);}
+.topnav a{white-space:nowrap;}
+.topnav a:hover,.topnav a.on{color:var(--green-700);}
+.searchbox{display:flex;align-items:center;gap:9px;border:1px solid var(--line);
+  border-radius:9px;padding:8px 13px;font-size:13px;color:var(--muted);background:var(--page);
+  min-width:200px;white-space:nowrap;}
+.searchbox svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;}
+.searchbox kbd{margin-left:auto;font-family:var(--mono);font-size:10.5px;border:1px solid var(--line);
+  border-radius:4px;padding:1px 5px;background:#fff;color:var(--muted);}
+
+/* hero */
+.hero{border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,#fbfcfb);position:relative;overflow:hidden;}
+.hero-grid-bg{position:absolute;inset:0;
+  background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+  background-size:44px 44px;
+  -webkit-mask-image:radial-gradient(75% 90% at 30% 20%,#000 30%,transparent 75%);
+  mask-image:radial-gradient(75% 90% at 30% 20%,#000 30%,transparent 75%);}
+.hero-inner{position:relative;padding-top:62px;padding-bottom:58px;display:grid;grid-template-columns:1.15fr 1fr;gap:54px;align-items:center;}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;color:var(--green-600);
+  text-transform:uppercase;font-weight:700;}
+.hero h1{margin:16px 0 14px;font-size:44px;font-weight:800;letter-spacing:-1.2px;line-height:1.1;color:var(--ink);text-wrap:balance;}
+.hero p.lede{margin:0 0 28px;font-size:16.5px;line-height:1.65;color:var(--body);max-width:52ch;}
+.ctas{display:flex;gap:12px;margin-bottom:26px;}
+.endpoint{display:inline-flex;align-items:center;gap:11px;font-family:var(--mono);font-size:13.5px;
+  background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 16px;color:var(--green-800);}
+.endpoint .get{font-size:11px;font-weight:800;color:#fff;background:var(--green-600);
+  border-radius:5px;padding:3px 8px;letter-spacing:.05em;}
+
+/* code block */
+.code{background:#0d1f15;border-radius:13px;overflow:hidden;border:1px solid #16331f;}
+.code .chead{display:flex;align-items:center;justify-content:space-between;
+  padding:11px 18px;border-bottom:1px solid rgba(255,255,255,.08);}
+.code .cdots{display:flex;gap:6px;}
+.code .cdots i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.18);}
+.code .clang{font-family:var(--mono);font-size:11.5px;color:#7cc294;letter-spacing:.06em;}
+.code pre{margin:0;padding:20px 22px;font-family:var(--mono);font-size:13.5px;
+  line-height:1.75;color:#d6e8dc;overflow-x:auto;}
+.c-cm{color:#5f8a6e;} .c-str{color:#a7d8b8;} .c-flag{color:#7cc294;} .c-kw{color:#e8d49a;}
+
+/* sections */
+section.band{padding:54px 0;}
+.nets-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:26px;}
+.net-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.net{display:flex;flex-direction:column;gap:10px;padding:20px;border-radius:11px;
+  background:#fff;border:1px solid var(--line);transition:border-color .15s,box-shadow .15s;}
+.net:hover{border-color:var(--green-300);box-shadow:0 10px 24px -16px rgba(8,54,31,.4);}
+.net .ab{font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.04em;
+  color:var(--accent-ink);background:var(--green-50);border:1px solid var(--green-100);
+  padding:4px 9px;border-radius:6px;align-self:flex-start;}
+.net .nname{font-size:15.5px;font-weight:700;color:var(--ink);line-height:1.3;}
+.net .ndesc{font-size:13px;color:var(--muted);line-height:1.5;flex:1;}
+.net .ngo{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--accent-ink);}
+.net .ngo svg{width:13px;height:13px;}
+.soonline{margin-top:22px;font-family:var(--mono);font-size:12.5px;color:var(--muted);
+  display:flex;align-items:center;gap:10px;}
+.soonline::before{content:"";width:8px;height:8px;border-radius:50%;background:#d8b94a;}
+
+/* quickstart */
+.qs{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.qs-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:start;}
+.qs-code{padding-top:52px;}
+.steps{display:flex;flex-direction:column;counter-reset:step;}
+.step{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid var(--line-soft);}
+.step:last-child{border-bottom:none;}
+.step .snum{counter-increment:step;flex-shrink:0;width:34px;height:34px;border-radius:10px;
+  background:var(--green-50);border:1px solid var(--green-100);display:flex;align-items:center;
+  justify-content:center;font-family:var(--mono);font-size:14px;font-weight:700;color:var(--green-700);}
+.step .snum::before{content:counter(step);}
+.step .st{font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.step .sd{font-size:14px;color:var(--muted);line-height:1.55;}
+.step .sd code{font-family:var(--mono);font-size:12.5px;background:var(--green-50);
+  border:1px solid var(--green-100);border-radius:5px;padding:1px 6px;color:var(--green-800);}
+
+/* support */
+.sup-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.sup{display:flex;flex-direction:column;gap:9px;padding:22px;border-radius:13px;
+  background:#fff;border:1px solid var(--line);transition:border-color .15s,box-shadow .15s;}
+.sup:hover{border-color:var(--green-300);box-shadow:0 10px 24px -16px rgba(8,54,31,.4);}
+.sup .sicon{width:38px;height:38px;border-radius:10px;background:var(--green-50);
+  display:flex;align-items:center;justify-content:center;color:var(--green-700);margin-bottom:4px;}
+.sup .sicon svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.9;
+  stroke-linecap:round;stroke-linejoin:round;}
+.sup .sname{font-size:15.5px;font-weight:700;color:var(--ink);}
+.sup .sdesc{font-size:13.5px;color:var(--muted);line-height:1.55;flex:1;}
+.sup .slink{font-size:13.5px;font-weight:700;color:var(--accent-ink);font-family:var(--mono);}
+
+/* status */
+.status-overall{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;
+  color:var(--ink);margin-bottom:22px;}
+.svc-list{border:1px solid var(--line);border-radius:13px;background:#fff;overflow:hidden;}
+.svc{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid var(--line);}
+.svc:last-child{border-bottom:none;}
+.svc-name{font-weight:700;color:var(--ink);min-width:170px;}
+.svc-url{font-family:var(--mono);font-size:13px;color:var(--muted);flex:1;}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--muted);flex-shrink:0;}
+.dot.up{background:var(--green-600);}
+.dot.down{background:#b3261e;}
+.svc-badge{font-size:13px;font-weight:700;color:var(--muted);white-space:nowrap;}
+.svc-badge.up{color:var(--green-700);}
+.svc-badge.down{color:#b3261e;}
+.status-note{margin-top:18px;font-size:13px;color:var(--muted);line-height:1.6;}
+@media (max-width:560px){
+  .svc{flex-wrap:wrap;}
+  .svc-name{min-width:0;width:100%;}
+  .svc-url{width:100%;}
+}
+
+/* footer */
+.foot{border-top:1px solid var(--line);padding:26px 0 30px;margin-top:auto;}
+.foot .frow{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.foot .fnote{font-size:12.5px;color:var(--muted);line-height:1.5;}
+.foot .flinks{display:flex;gap:22px;font-size:13px;font-weight:600;color:var(--green-800);}
+.foot .flinks a{white-space:nowrap;}
+.foot .flinks a:hover{color:var(--green-600);}
+
+/* responsive */
+@media (max-width:900px){
+  .hero-inner,.qs-grid{grid-template-columns:1fr;}
+  .net-grid,.sup-grid{grid-template-columns:1fr 1fr;}
+  .crumb,.searchbox{display:none;}
+  .qs-code{padding-top:0;}
+  .hero h1{font-size:36px;}
+}
+@media (max-width:560px){
+  .wrap{padding:0 20px;}
+  .net-grid,.sup-grid{grid-template-columns:1fr;}
+  .topnav{gap:16px;}
+  .foot .frow{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<!-- header -->
+<div class="topbar">
+  <div class="wrap top-inner">
+    <a class="blogo" href="/">
+      <img src="data:image/png;base64,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" alt="CBD" height="28">
+      <!-- <span class="bt">CBD <span>Developers</span></span> -->
+    </a>
+    <span class="crumb">developer.cbd.int</span>
+    <nav class="topnav">
+      <a href="#" class="on">Docs</a>
+      <a href="#">API reference</a>
+      <a href="#status">Status</a>
+      <a href="#support">Support</a>
+      <div class="searchbox">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
+        Search docs… <kbd>/</kbd>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<!-- hero -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="wrap hero-inner">
+    <div>
+      <span class="eyebrow">Open biodiversity data</span>
+      <h1>The developer hub for CBD APIs</h1>
+      <p class="lede">Documentation and reference material for building on the Convention's data — starting with the Clearing-House API across CHM, ABSCH, BCH and ORT.</p>
+      <div class="ctas">
+        <a class="btn primary" href="/clearing-house">Clearing-House docs
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
+        </a>
+        <a class="btn ghost" href="#quickstart">Quickstart</a>
+      </div>
+      <span class="endpoint"><span class="get">GET</span> api.cbd.int/api/v2013/index</span>
+    </div>
+    <div class="code">
+      <div class="chead">
+        <div class="cdots"><i></i><i></i><i></i></div>
+        <span class="clang">shell</span>
+      </div>
+<pre><span class="c-cm"># Search published Clearing-House records</span>
+<span class="c-kw">curl</span> <span class="c-flag">-G</span> <span class="c-str">"https://api.cbd.int/api/v2013/index"</span> <span class="c-flag">\</span>
+  <span class="c-flag">--data-urlencode</span> <span class="c-str">"q=schema_s:resource"</span> <span class="c-flag">\</span>
+  <span class="c-flag">-H</span> <span class="c-str">"Accept: application/json"</span>
+
+<span class="c-cm"># → 200 OK · JSON list of matching records</span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- networks -->
+<section class="band">
+  <div class="wrap">
+    <div class="nets-head">
+      <div>
+        <h2 class="sec-title">One API, four platforms</h2>
+        <p class="sec-sub" style="margin:0;">The Clearing-House API serves records from each of the Convention's information-sharing platforms through a common schema model.</p>
+      </div>
+    </div>
+    <div class="net-grid">
+      <a class="net" href="/clearing-house/chm">
+        <span class="ab">CHM</span>
+        <span class="nname">Clearing-House Mechanism</span>
+        <span class="ndesc">Information-sharing records under the Convention — national targets, NBSAPs, contacts and resources.</span>
+        <span class="ngo">View reference <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></span>
+      </a>
+      <a class="net" href="/clearing-house/abs">
+        <span class="ab">ABSCH</span>
+        <span class="nname">Access &amp; Benefit-Sharing Clearing-House</span>
+        <span class="ndesc">Permits, checkpoints and national records under the Nagoya Protocol.</span>
+        <span class="ngo">View reference <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></span>
+      </a>
+      <a class="net" href="/clearing-house/bch">
+        <span class="ab">BCH</span>
+        <span class="nname">Biosafety Clearing-House</span>
+        <span class="ndesc">Decisions, risk assessments and LMO registries under the Cartagena Protocol.</span>
+        <span class="ngo">View reference <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></span>
+      </a>
+      <a class="net" href="/clearing-house/ort">
+        <span class="ab">ORT</span>
+        <span class="nname">Online Reporting Tool</span>
+        <span class="ndesc">Structured national report data submitted by Parties through the reporting tool.</span>
+        <span class="ngo">View reference <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></span>
+      </a>
+    </div>
+    <div class="soonline">More CBD APIs — meetings, notifications, documents — coming soon</div>
+  </div>
+</section>
+
+<!-- quickstart -->
+<section class="band qs" id="quickstart">
+  <div class="wrap qs-grid">
+    <div>
+      <div class="sec-label">Getting started</div>
+      <h2 class="sec-title">Three steps to your first record</h2>
+      <p class="sec-sub">Plain HTTPS and JSON — usable from any language, no SDK needed.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="snum"></div>
+          <div>
+            <div class="st">Browse the record schemas</div>
+            <div class="sd">Every record in the Clearing-House follows a published schema. Start with the schema reference to see what's available across CHM, ABSCH, BCH and ORT.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="snum"></div>
+          <div>
+            <div class="st">Make your first request</div>
+            <div class="sd">Published records are readable without an API key. Query the search index with a simple <code>GET</code> request and filter by schema, government or realm.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="snum"></div>
+          <div>
+            <div class="st">Authenticate for more</div>
+            <div class="sd">Draft records and national workflows require a CBD account. The docs cover tokens, roles and the publishing lifecycle.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="qs-code">
+      <div class="code">
+        <div class="chead">
+          <div class="cdots"><i></i><i></i><i></i></div>
+          <span class="clang">shell</span>
+        </div>
+<pre><span class="c-cm"># Search published Clearing-House records</span>
+<span class="c-kw">curl</span> <span class="c-flag">-G</span> <span class="c-str">"https://api.cbd.int/api/v2013/index"</span> <span class="c-flag">\</span>
+  <span class="c-flag">--data-urlencode</span> <span class="c-str">"q=schema_s:resource"</span> <span class="c-flag">\</span>
+  <span class="c-flag">-H</span> <span class="c-str">"Accept: application/json"</span>
+
+<span class="c-cm"># → 200 OK · JSON list of matching records</span></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- support -->
+<section class="band" id="support">
+  <div class="wrap">
+    <div class="sec-label">Support &amp; contact</div>
+    <div class="sup-grid">
+      <a class="sup" href="mailto:secretariat@cbd.int">
+        <span class="sicon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span>
+        <span class="sname">Write to the Secretariat</span>
+        <span class="sdesc">Questions about API access, data coverage or national records — the team replies within a few business days.</span>
+        <span class="slink">secretariat@cbd.int</span>
+      </a>
+      <a class="sup" href="https://github.com/scbd">
+        <span class="sicon"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-2.85 17.54c.45.08.62-.2.62-.43v-1.7c-2.51.55-3.04-1.07-3.04-1.07-.41-1.04-1-1.32-1-1.32-.82-.56.06-.55.06-.55.9.06 1.38.93 1.38.93.8 1.38 2.11.98 2.62.75.08-.58.31-.98.57-1.2-2-.23-4.1-1-4.1-4.45 0-.98.35-1.79.93-2.42-.1-.23-.4-1.15.08-2.4 0 0 .76-.24 2.48.92a8.6 8.6 0 0 1 4.51 0c1.72-1.16 2.47-.92 2.47-.92.49 1.25.18 2.17.09 2.4.58.63.93 1.44.93 2.42 0 3.47-2.1 4.22-4.11 4.44.32.28.61.83.61 1.67v2.47c0 .24.16.52.62.43A9 9 0 0 0 12 3Z"></path></svg></span>
+        <span class="sname">SCBD on GitHub</span>
+        <span class="sdesc">Open-source tooling and issue trackers for the Clearing-House platforms.</span>
+        <span class="slink">github.com/scbd</span>
+      </a>
+      <a class="sup" href="mailto:MEA-CBD-it@un.org">
+        <span class="sicon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9.2 9.2a2.8 2.8 0 0 1 5.5.7c0 1.8-2.7 2.2-2.7 3.6"></path><circle cx="12" cy="17.2" r=".4"></circle></svg></span>
+        <span class="sname">Service desk</span>
+        <span class="sdesc">Account problems, publishing workflows and focal-point support for Parties.</span>
+        <span class="slink">MEA-CBD-it@un.org</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- status -->
+<section class="band" id="status">
+  <div class="wrap">
+    <div class="sec-label">API status</div>
+    <div class="status-overall" id="status-overall">
+      <span class="dot" id="status-overall-dot"></span>
+      <span id="status-overall-text">Checking services…</span>
+    </div>
+    <div class="svc-list" id="svc-list"></div>
+    <p class="status-note">Checks run in your browser using <code>fetch(..., {mode:"no-cors"})</code> with a 5s timeout, so they only detect whether a connection could be established — not HTTP status codes.</p>
+  </div>
+</section>
+
+<!-- footer -->
+<footer class="foot">
+  <div class="wrap frow">
+    <div class="fnote">© Secretariat of the Convention on Biological Diversity<br>413 Saint-Jacques Street, Montreal, Quebec, Canada</div>
+    <div class="flinks">
+      <a href="https://www.cbd.int">cbd.int</a><a href="https://www.cbd.int/terms">Terms of use</a><a href="https://www.cbd.int/privacy">Privacy</a><a href="#status">API status</a>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
+const STATUS_SERVICES = [
+  { name: "Clearing-House API", url: "https://api.cbd.int/" },
+  { name: "ABS Clearing-House", url: "https://absch.cbd.int/" },
+  { name: "Biosafety Clearing-House", url: "https://bch.cbd.int/" },
+  { name: "Clearing-House Mechanism", url: "https://chm.cbd.int/" },
+  { name: "Online Reporting Tool", url: "https://ort.cbd.int/" },
+  { name: "Accounts", url: "https://accounts.cbd.int/" },
+];
+
+const STATUS_TIMEOUT_MS = 5000;
+
+function checkService(url) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), STATUS_TIMEOUT_MS);
+  return fetch(url, { mode: "no-cors", cache: "no-store", signal: controller.signal })
+    .then(() => true)
+    .catch(() => false)
+    .finally(() => clearTimeout(timer));
+}
+
+function renderServiceRow(svc) {
+  const row = document.createElement("div");
+  row.className = "svc";
+  row.innerHTML = `
+    <span class="dot" data-dot></span>
+    <span class="svc-name">${svc.name}</span>
+    <span class="svc-url">${svc.url}</span>
+    <span class="svc-badge" data-badge>Checking…</span>
+  `;
+  return row;
+}
+
+async function runStatusChecks() {
+  const list = document.getElementById("svc-list");
+  if (!list) return;
+
+  const rows = STATUS_SERVICES.map((svc) => {
+    const row = renderServiceRow(svc);
+    list.appendChild(row);
+    return row;
+  });
+
+  const results = await Promise.all(STATUS_SERVICES.map((svc) => checkService(svc.url)));
+
+  results.forEach((up, i) => {
+    const row = rows[i];
+    row.querySelector("[data-dot]").classList.add(up ? "up" : "down");
+    const badge = row.querySelector("[data-badge]");
+    badge.classList.add(up ? "up" : "down");
+    badge.textContent = up ? "Reachable" : "Unreachable";
+  });
+
+  const allUp = results.every(Boolean);
+  document.getElementById("status-overall-dot").classList.add(allUp ? "up" : "down");
+  document.getElementById("status-overall-text").textContent = allUp
+    ? "All services reachable"
+    : "Some services are unreachable";
+}
+
+runStatusChecks();
+</script>
+</body>
+</html>

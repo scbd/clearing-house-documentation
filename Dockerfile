@@ -1,5 +1,5 @@
 # Use a node base image
-FROM node:20
+FROM node:24
 
 # Set build arguments and environment variables
 ARG BRANCH='master'
@@ -11,9 +11,6 @@ ENV TAG=$TAG
 ARG COMMIT
 ENV COMMIT=$COMMIT
 
-ARG BASE_PATH='/'
-ENV BASE_PATH=$BASE_PATH
-
 # Set working directory
 WORKDIR /usr/src/app
 
@@ -24,17 +21,17 @@ RUN npm install --prefer-offline && \
 
 # Copy the rest of the application code
 COPY . .
+RUN chmod +x docker-entrypoint.sh
 
-# Change to the docs directory and run the VitePress build script
+# Build with a placeholder base path; the real path is substituted at
+# container startup by docker-entrypoint.sh, based on $BASE_PATH. Set only
+# for this RUN step, not as an image-level ENV, so it doesn't leak into
+# the runtime default.
 WORKDIR /usr/src/app/docs
-
-
-# Build the VitePress site
-RUN npm run build
+RUN BASE_PATH=/__BASE_PATH__/ npm run build
 
 # Set port and expose it
 ENV PORT=8000
 EXPOSE 8000
 
-# Command to start the VitePress preview
-CMD ["npm", "run", "preview"]
+ENTRYPOINT ["/usr/src/app/docker-entrypoint.sh"]
