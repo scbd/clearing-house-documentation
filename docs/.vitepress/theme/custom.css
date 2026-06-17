@@ -1,0 +1,196 @@
+/**
+ * CBD Developers theme for VitePress.
+ * Ports the design tokens from developer.cbd.int so the docs site and the
+ * developer hub share one visual language (green palette, Public Sans +
+ * JetBrains Mono, refined surfaces). Defines both light and dark token sets.
+ */
+
+:root {
+  /* CBD green palette (from developer.cbd.int) */
+  --cbd-green-900: #08361f;
+  --cbd-green-800: #0c4a2a;
+  --cbd-green-700: #0f5c34;
+  --cbd-green-600: #157a43;
+  --cbd-green-300: #7cc294;
+  --cbd-green-100: #e7f2ea;
+  --cbd-green-50: #f1f8f3;
+  --cbd-ink: #15201b;
+  --cbd-body: #33433b;
+  --cbd-muted: #6a786f;
+  --cbd-line: #e3e7e4;
+  --cbd-page: #fbfcfb;
+  --cbd-code-bg: #0d1f15;
+
+  /* Typography */
+  --vp-font-family-base: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --vp-font-family-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ---- Light mode brand mapping ---- */
+:root {
+  --vp-c-brand-1: var(--cbd-green-600);
+  --vp-c-brand-2: var(--cbd-green-700);
+  --vp-c-brand-3: var(--cbd-green-800);
+  --vp-c-brand-soft: rgba(21, 122, 67, 0.12);
+  /* legacy aliases still referenced by some VitePress internals */
+  --vp-c-brand: var(--cbd-green-600);
+  --vp-c-brand-light: var(--cbd-green-600);
+  --vp-c-brand-dark: var(--cbd-green-800);
+
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: var(--cbd-page);
+  --vp-c-text-1: var(--cbd-ink);
+  --vp-c-text-2: var(--cbd-body);
+  --vp-c-divider: var(--cbd-line);
+  --vp-c-border: var(--cbd-line);
+
+  /* dark green-black code blocks, matching the landing page */
+  --vp-code-block-bg: var(--cbd-code-bg);
+
+  /* home hero accent (index page) */
+  --vp-home-hero-name-color: var(--cbd-green-700);
+}
+
+/* ---- Dark mode brand mapping ---- */
+.dark {
+  --vp-c-brand-1: var(--cbd-green-300);
+  --vp-c-brand-2: #97d2ab;
+  --vp-c-brand-3: var(--cbd-green-600);
+  --vp-c-brand-soft: rgba(124, 194, 148, 0.16);
+  --vp-c-brand: var(--cbd-green-300);
+
+  --vp-c-bg: #0b1410;
+  --vp-c-bg-alt: #0e1a14;
+  --vp-c-bg-soft: #11231a;
+  --vp-c-text-1: #eaf2ec;
+  --vp-c-text-2: #b4c4ba;
+  --vp-c-divider: #1d3326;
+  --vp-c-border: #1d3326;
+  --vp-code-block-bg: #08130d;
+}
+
+/* ---- Reclaim body surface from Bootstrap ----
+   Bootstrap forces `body { background-color/color }` globally, which is
+   invisible in light mode but breaks VitePress dark mode. Win on specificity
+   (html body) so the VitePress tokens drive the page surface. */
+html body {
+  background-color: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+}
+
+/* ---- Sidebar: active item reads as a green pill ---- */
+.VPSidebarItem.is-active > .item > .link > .text,
+.VPSidebarItem.is-link.is-active > .item .link.active .text {
+  color: var(--vp-c-brand-1);
+}
+.VPSidebarItem.is-active > .item .link.active {
+  background: var(--cbd-green-50);
+  border-radius: 6px;
+}
+.dark .VPSidebarItem.is-active > .item .link.active {
+  background: rgba(124, 194, 148, 0.1);
+}
+
+/* ---- Nav brand wordmark ---- */
+.VPNavBarTitle .title {
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+/* ---- Inline code chips, matching the landing page ---- */
+:not(pre) > code {
+  background: var(--cbd-green-50) !important;
+  border: 1px solid var(--cbd-green-100);
+  color: var(--cbd-green-800) !important;
+  border-radius: 5px;
+  font-size: 0.85em;
+}
+.dark :not(pre) > code {
+  background: rgba(124, 194, 148, 0.08) !important;
+  border-color: #1d3326;
+  color: var(--cbd-green-300) !important;
+}
+
+/* ---- Code blocks are dark green-black in BOTH modes (landing-page intent).
+   VitePress emits dual Shiki tokens (--shiki-light / --shiki-dark) and uses
+   --shiki-light in light mode — which is dark text, unreadable on our dark
+   block. Force the dark-background token colors in every mode. ---- */
+.vp-doc [class*="language-"] code span {
+  color: var(--shiki-dark) !important;
+}
+
+/* ===========================================================
+   Swagger UI — reconcile with the CBD theme.
+   HTTP method colors are intentionally LEFT semantic
+   (GET/POST/PUT/DELETE) so the API reference stays readable.
+   We only restyle typography, surfaces, and action buttons.
+   =========================================================== */
+.swagger-ui,
+.swagger-ui .info .title,
+.swagger-ui .opblock-tag,
+.swagger-ui .parameter__name,
+.swagger-ui .response-col_status {
+  font-family: var(--vp-font-family-base) !important;
+}
+.swagger-ui .opblock-summary-path,
+.swagger-ui .model,
+.swagger-ui .prop-type,
+.swagger-ui code,
+.swagger-ui pre {
+  font-family: var(--vp-font-family-mono) !important;
+}
+
+/* swagger-ui.css is dynamically imported at runtime (SwaggerUI.vue), so it
+   loads AFTER this file — visual overrides need !important to win. */
+.swagger-ui .opblock {
+  border-radius: 11px !important;
+  border-color: var(--cbd-line) !important;
+  box-shadow: none !important;
+  margin: 0 0 14px !important;
+}
+.dark .swagger-ui .opblock {
+  border-color: #1d3326 !important;
+  background: var(--vp-c-bg-alt) !important;
+}
+
+/* primary action buttons → CBD green */
+.swagger-ui .btn.authorize,
+.swagger-ui .btn.execute {
+  background: var(--cbd-green-600) !important;
+  border-color: var(--cbd-green-600) !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+}
+.swagger-ui .btn.authorize svg { fill: #fff !important; }
+.swagger-ui .btn.authorize:hover,
+.swagger-ui .btn.execute:hover {
+  background: var(--cbd-green-700) !important;
+  border-color: var(--cbd-green-700) !important;
+}
+.swagger-ui .btn {
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+
+/* dark-mode legibility for Swagger's light-by-default chrome */
+.dark .swagger-ui,
+.dark .swagger-ui .opblock-tag,
+.dark .swagger-ui .opblock .opblock-summary-path,
+.dark .swagger-ui .opblock-description-wrapper p,
+.dark .swagger-ui table thead tr td,
+.dark .swagger-ui table thead tr th,
+.dark .swagger-ui .parameter__name,
+.dark .swagger-ui .response-col_status,
+.dark .swagger-ui .model-title,
+.dark .swagger-ui label {
+  color: var(--vp-c-text-1) !important;
+}
+.dark .swagger-ui .opblock-section-header {
+  background: var(--vp-c-bg-soft) !important;
+}
+.dark .swagger-ui select,
+.dark .swagger-ui input[type="text"] {
+  background: var(--vp-c-bg) !important;
+  color: var(--vp-c-text-1) !important;
+  border-color: #1d3326 !important;
+}
