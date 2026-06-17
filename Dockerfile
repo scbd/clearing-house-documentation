@@ -1,5 +1,5 @@
 # Use a node base image
-FROM node:20
+FROM node:24
 
 # Set build arguments and environment variables
 ARG BRANCH='master'
