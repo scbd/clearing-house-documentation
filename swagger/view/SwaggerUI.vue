@@ -1,8 +1,8 @@
 <template>
   <div class="mt-4" v-show="!isLoading && !isError">
     <div class="alert alert-info" role="alert">
-      This playground connects to the production environment (<code>cbd.int</code>).
-      Requests made here affect real, live data.
+      This playground connects to the {{ isProductionApi ? "production" : "test" }} environment (<code>{{ apiHost }}</code>).
+      <span v-if="isProductionApi">Requests made here affect real, live data.</span>
     </div>
     <div v-for="(spec, index) in swaggerSpecs" :key="index">
       <div v-if="spec.protected && !token">
@@ -33,10 +33,19 @@
               <div class="alert alert-success" role="alert">
                 <div>
                   <p class="lh-lg">
-                    Welcome {{user.name}}, you are connected to the test site.
+                    Welcome <strong>{{user.name}}</strong>, <br>You are connected to
+                    <strong>{{ realmConfig?.displayName || "this site" }}</strong>.
+                    <span v-if="realmRoles.length > 0">You currently have the following roles on this realm.</span>
                   </p>
-                  <p v-if="devRoles.length > 0">
-                    You currently have {{ devRoles.join(", ") }} roles on the test site.
+                  <p v-if="realmRoles.length > 0">
+                    <small>
+                      <ul>
+                        <li class="list-group-item"
+                          v-for="(role, index) in realmRoles" :key="index">
+                          {{index+1}}. {{ role }}
+                        </li>
+                      </ul>
+                    </small>
                   </p>
                 </div>
               </div>
@@ -75,6 +84,7 @@
 
 <script setup>
 import { ref, onMounted, computed } from "vue";
+import axios from "axios";
 import { APP_CONFIG } from "../../docs/app-config";
 import { AuthManager } from "../../utils/auth-manager";
 import "../../style.css";
@@ -93,13 +103,40 @@ const props = defineProps({
   },
 });
 
+const apiHost = new URL(APP_CONFIG.API_URL).hostname;
+const isProductionApi = apiHost.endsWith("cbd.int");
+
 const token = ref(null);
 const isLoading = ref(true);
 const isError = ref(false);
 const user = ref(null);
+const realmConfig = ref(null);
 
-const devRoles = computed(() => {
-  return user.value.roles.filter(role => role.includes("dev"));
+const APP_HOSTS = {
+  absch: APP_CONFIG.ABS_URL,
+  bch: APP_CONFIG.BCH_URL,
+  chm: APP_CONFIG.CHM_URL,
+  ort: APP_CONFIG.ORT_URL,
+};
+
+// The first matching path segment identifies the app (e.g. /absch/pro/get).
+const fetchRealmConfiguration = async () => {
+  const appSegment = window.location.pathname
+    .split("/")
+    .find((segment) => APP_HOSTS[segment]);
+  if (!appSegment) return null;
+
+  const host = new URL(APP_HOSTS[appSegment]).hostname;
+  const response = await axios.get(
+    `${APP_CONFIG.API_URL}/api/v2018/realm-configurations/${host}`
+  );
+  return Array.isArray(response.data) ? response.data[0] : response.data;
+};
+
+// User roles that exist in the current realm's configuration.
+const realmRoles = computed(() => {
+  const configuredRoles = Object.values(realmConfig.value?.roles || {}).flat();
+  return (user.value?.roles || []).filter((role) => configuredRoles.includes(role));
 })
 
 const schemaDetails = computed(() => {
@@ -219,6 +256,12 @@ onMounted(async () => {
 
       if (loggedInUser.isAuthenticated) {
         user.value = loggedInUser;
+
+        // Realm config failure only hides the roles list; it must not break the playground.
+        realmConfig.value = await fetchRealmConfiguration().catch((error) => {
+          console.error("Failed to load realm configuration", error); // eslint-disable-line no-console -- show error in console
+          return null;
+        });
 
         injectLoggedInNavLink(loggedInUser);
       } else {

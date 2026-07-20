@@ -46,29 +46,25 @@ By following these steps, you can successfully add new routes to your applicatio
 
 ## Environment Variables
 
-To ensure the project runs correctly, you must set the following environment variables in your `.env` file located in the `docs` folder:
+The app config (`docs/app-config.ts`) is driven by `VITE_*` environment variables, loaded by Vite from env files in the `docs` folder depending on the mode:
 
-`VITE_ACCOUNTS_HOST_URL=<your-accounts-host-url>` 
+- `docs/.env.development` — loaded by `npm run dev`. Point these at the dev environment (`cbddev.xyz`).
+- `docs/.env.production` — loaded by `npm run build` / `npm run preview`. Point these at production (`cbd.int`).
 
-`VITE_API_URL=<your-api-url>`
+Both files are git-ignored (they are local). If a variable is not set, the config falls back to the production (`cbd.int`) URLs.
 
+The variables, with example dev values:
 
-You can find examples of these environment variables in the `.env.example` file located in the `/docs` directory.
-
-Additionally, for the project to work, you need to have a launch configuration where the `VITE_CLEARING_HOUSE` value is set to the clearing house you are viewing. For example:
-
-```json
-"VITE_CLEARING_HOUSE": "abs"
-
-"VITE_ABS_URL": "https://absch.cbddev.xyz"
-
-"VITE_BCH_URL": "https://bch.cbddev.xyz"
-
-"VITE_CHM_URL": "https://chm.cbddev.xyz"
-
-"VITE_ORT_URL": "https://ort.cbddev.xyz"
-
+```sh
+VITE_ACCOUNTS_HOST_URL=https://accounts.cbddev.xyz
+VITE_API_URL=https://api.cbddev.xyz
+VITE_ABS_URL=https://absch.cbddev.xyz
+VITE_BCH_URL=https://bch.cbddev.xyz
+VITE_CHM_URL=https://chm.cbddev.xyz
+VITE_ORT_URL=https://ort.cbddev.xyz
 ```
+
+You can find a template in `docs/.env.example`. All of `VITE_ACCOUNTS_HOST_URL`, `VITE_API_URL`, and the app URLs must point at the **same** environment — authentication tokens from one environment are not valid on the other.
 
 
 ## Steps to Run the Project
@@ -83,27 +79,17 @@ npm install
 
 ### 2. Running the Development Server
 
-You can start the development server for different clearing houses by using the following commands:
-
-- For ABS:
+Start the VitePress development server (all clearing houses are served from the same site, under `/absch`, `/bch`, `/chm` and `/ort`):
 
 ```sh
-npm run dev:abs
+npm run dev
 ```
 
-- For CHM:
+This runs in development mode and reads `docs/.env.development`. To run the dev server against the **production** environment instead:
 
 ```sh
-npm run dev:chm
+npm run dev:prod
 ```
-
-- For ABS:
-
-```sh
-npm run dev:bch
-```
-
-These commands will set the appropriate environment variable and start the VitePress development server.
 
 ### 3. Building the Project
 
@@ -113,14 +99,18 @@ To build the project for production, use the following command:
 npm run build
 ```
 
-This will generate the static files for the documentation in the dist folder inside the docs directory.
+This runs in production mode (reads `docs/.env.production`) and generates the static files for the documentation in the dist folder inside the docs directory. To build against the **dev** environment (`cbddev.xyz`) instead, e.g. for the dev docs site deployment:
 
-### 2. Serving the Built Project
+```sh
+npm run build:dev
+```
+
+### 4. Serving the Built Project
 
 After building the project, you can serve the static files using:
 
 ```sh
-npm run serve
+npm run preview
 ```
 
 This will start a server to serve the built documentation locally.

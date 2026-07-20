@@ -6,9 +6,11 @@
     "vitepress": "^1.2.3"
   },
   "scripts": {
-    "dev": "vitepress dev docs",
+    "dev": "dotenvx run -f docs/.env.development --overload -- vitepress dev docs",
+    "dev:prod": "dotenvx run -f docs/.env.production --overload -- vitepress dev docs",
     "clean-reinstall": "rm -rf ./node_modules && npm install",
     "build": "vitepress build docs",
+    "build:dev": "dotenvx run -f docs/.env.development --overload -- vitepress build docs",
     "preview": "vitepress preview docs --port 8000"
   },
   "dependencies": {
