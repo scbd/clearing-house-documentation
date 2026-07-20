@@ -1,12 +1,13 @@
 import { computed, type ComputedRef } from 'vue'
 import { useData, withBase } from 'vitepress'
 import {
-  getClearingHouseFromUrl, getClearingHouseUrl, getClearinghouseApiUrl
+  getClearingHouseFromUrl, getClearingHouseUrl, getClearinghouseApiUrl, getRealm
 } from '@/utils/helpers'
 
 export interface ClearingHouse {
   baseUrl: string
   apiUrl: string
+  realm: string
   clearingHouseBase: (url: string)=> string
   domain: string
   name: ComputedRef<string>
@@ -29,9 +30,12 @@ export function useClearingHouse (): ClearingHouse {
 
   const domain = ((/\/\/(?<domain>.*?)\./v).exec(baseUrl ?? '') ?? [])[1] ?? ''
 
+  const realm = getRealm(getClearingHouseFromUrl(`/${url}`) ?? 'abs')
+
   return {
     name,
     apiUrl,
+    realm,
     clearingHouseBase,
     baseUrl: baseUrl ?? apiUrl,
     domain

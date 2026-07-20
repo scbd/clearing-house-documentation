@@ -32,6 +32,13 @@ export function getClearinghouseApiUrl (clearinghouseUrl: string | undefined): s
   return `${defaultApiUrl}/${APP_CONFIG.API_EXTENSION}`;
 }
 
+// Realm header value for an app, derived from the environment this site was
+// built for: `abs` against api.cbd.int, `abs-dev` against api.cbddev.xyz.
+export function getRealm (clearingHouse: string): string {
+  const isProductionApi = new URL(APP_CONFIG.API_URL).hostname.endsWith('cbd.int')
+  return isProductionApi ? clearingHouse : `${clearingHouse}-dev`
+}
+
 export function getClearingHouseFromUrl (url: string): string | null {
   if (url.includes('/absch/')) {
     return 'abs'
