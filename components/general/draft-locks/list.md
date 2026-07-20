@@ -14,6 +14,9 @@ The "List" endpoint retrieves a collection of locks associated with the draft ve
 ### URL Parameters
 <!--@include: @/../components/common/url/uid.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerListSpecs" />

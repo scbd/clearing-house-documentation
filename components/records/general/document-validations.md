@@ -2,10 +2,11 @@
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
 import swaggerJson from "@/swagger/json/general/document-validations/validations";
 import { useClearingHouse } from "@/utils/composables"
-import { withBase } from 'vitepress'
+
+const { apiUrl, clearingHouseBase } = useClearingHouse()
 
 const swaggerSpecs = [
-  { json: swaggerJson(useClearingHouse().apiUrl), protected: true },
+  { json: swaggerJson(apiUrl), protected: true },
 ];
 </script>
 
@@ -45,7 +46,7 @@ The "Document Validations" API endpoint is designed to validate documents. This 
       <td></td>
       <td>header</td>
       <td></td>
-      <td><a :href="withBase(`/${useClearingHouse().name.value}/custom-types.html#header`)">Header</a></td>
+      <td><a :href="clearingHouseBase('/custom-types.html#header')">Header</a></td>
       <td><code>
             {
               "identifier": "CB51626B-CF45-2AA0-3A24-459669DDCC34"
@@ -53,10 +54,10 @@ The "Document Validations" API endpoint is designed to validate documents. This 
           </code></td>
     </tr>
      <tr>
-      <td><strong><a :href="withBase(`/${useClearingHouse().name.value}/abs/thesaurus/general/countries`)">Country</a></strong></td>
+      <td><strong><a :href="clearingHouseBase('/thesaurus/general/countries')">Country</a></strong></td>
       <td>government</td>
       <td>True</td>
-      <td><a :href="withBase(`/${useClearingHouse().name.value}/custom-types.html#term`)">Term</a></td>
+      <td><a :href="clearingHouseBase('/custom-types.html#term')">Term</a></td>
       <td><code>{"identifier": "af"}</code></td>
     </tr>
     <tr>
@@ -66,6 +67,9 @@ The "Document Validations" API endpoint is designed to validate documents. This 
     </tr>
   </tbody>
 </table>
+
+## Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
 
 ## Playground
 

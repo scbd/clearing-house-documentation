@@ -22,6 +22,9 @@ This endpoint provides a list of terms related to different types of organizatio
 ## Headers
 <!--@include: @/../components/common/header/accept.md-->
 
+## Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs" />

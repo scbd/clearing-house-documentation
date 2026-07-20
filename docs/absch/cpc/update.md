@@ -54,6 +54,9 @@ This is the endpoint to which the PUT request should be made to update an existi
 ## Request Body
 <!--@include: @/../components/cpc/request-body.md-->
 
+## Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs"/>

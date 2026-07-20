@@ -22,6 +22,9 @@ This endpoint provides access to a list of terms from the thesaurus related to r
 ## Headers
 <!--@include: @/../components/common/header/accept.md-->
 
+## Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs" />

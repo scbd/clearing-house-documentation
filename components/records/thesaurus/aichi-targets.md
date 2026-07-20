@@ -21,6 +21,9 @@ This endpoint retrieves terms related to the Aichi Biodiversity Targets, which a
 ## Headers
 <!--@include: @/../components/common/header/accept.md-->
 
+## Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs" />

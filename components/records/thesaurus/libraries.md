@@ -21,6 +21,9 @@ This endpoint allows you to retrieve a list of terms related to CBD clearing hou
 ## Headers
 <!--@include: @/../components/common/header/accept.md-->
 
+## Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs" />

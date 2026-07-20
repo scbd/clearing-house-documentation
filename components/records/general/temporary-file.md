@@ -31,6 +31,9 @@ const swaggerGetFileWithLimitSpecs = [
 
 This API is used to upload files to a intermediate location for furture uses in other CBD's system.
 
+## Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ## Upload File - Unlimited Size
 
 This method is used for uploading files of unlimited size through a three-step process:
@@ -45,7 +48,7 @@ This method is used for uploading files of unlimited size through a three-step p
 
 ##### Request
 
-**POST** `https://api.cbddev.xyz/api/v2015/temporary-files`
+**POST** `/api/v2015/temporary-files`
 
 ---
 
@@ -123,7 +126,7 @@ Upload the file as binary data
 
 ##### Request
 
-**GET** `https://api.cbddev.xyz/api/v2015/temporary-files/{uid}`
+**GET** `/api/v2015/temporary-files/{uid}`
 
 ---
 
@@ -181,7 +184,7 @@ This method is used to upload a file with a size limit of 1MB. The file is uploa
 
 ##### Request
 
-**POST** `https://api.cbddev.xyz/api/v2015/temporary-files`
+**POST** `/api/v2015/temporary-files`
 
 ---
 

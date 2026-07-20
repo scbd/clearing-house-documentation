@@ -39,6 +39,9 @@ This documentation describes the API endpoint for retrieving a specific CPC reco
 ## URL Parameters
 <!--@include: @/../components/common/url/uid.md-->
 
+## Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs" />

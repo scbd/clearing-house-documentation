@@ -13,6 +13,9 @@ The "Get Info" API endpoint retrieves detailed information about a specific revi
 ### URL Parameters
 <!--@include: @/../components/common/url/uid-revision.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerGetInfoSpecs" />

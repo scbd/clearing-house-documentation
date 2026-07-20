@@ -21,6 +21,9 @@ This endpoint provides access to a list of jurisdictional terms used in the cont
 ## Headers
 <!--@include: @/../components/common/header/accept.md-->
 
+## Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs" />

@@ -14,6 +14,9 @@ The "Delete" API endpoint allows clients to remove a draft version of a document
 ### URL Parameters
 <!--@include: @/../components/common/url/uid.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerDeleteSpecs" />

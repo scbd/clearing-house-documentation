@@ -14,6 +14,9 @@ This API endpoint is used to determine whether a specific revision of a document
 ### URL Parameters
 <!--@include: @/../components/common/url/uid-revision.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerExistsSpecs"/>

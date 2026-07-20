@@ -13,6 +13,9 @@ The "Lock" endpoint is used to apply or update a lock on the draft version of a 
 ### URL Parameters
 <!--@include: @/../components/common/url/uid-lockid.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerLockSpecs" />

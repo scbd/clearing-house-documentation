@@ -15,6 +15,9 @@ The "List" API endpoint retrieves a list of all available revisions for a specif
 ### Query String Parameters
 <!--@include: @/../components/common/query/filter-orderby-top-skip.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerListSpecs" />

@@ -55,6 +55,9 @@ This is the endpoint to which the POST request should be made to create a new re
 ## Request Body
 <RequestBody/>
 
+## Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs" />

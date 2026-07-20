@@ -14,6 +14,9 @@ The "List" API endpoint retrieves a comprehensive list of attachments associated
 ### Query Parameters
 <!--@include: @/../components/common/query/filter-orderby-top-skip.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerListSpecs" />

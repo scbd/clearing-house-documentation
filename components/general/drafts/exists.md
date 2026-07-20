@@ -14,6 +14,9 @@ The "Exists" API endpoint checks whether a draft version of a document exists in
 ### URL Parameters
 <!--@include: @/../components/common/url/uid.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerExistsSpecs" />

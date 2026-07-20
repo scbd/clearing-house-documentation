@@ -14,6 +14,9 @@ The "Get" API endpoint retrieves the draft version of a document based on the pr
 ### URL Parameters
 <!--@include: @/../components/common/url/uid.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerGetSpecs" />

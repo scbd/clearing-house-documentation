@@ -26,7 +26,10 @@ This endpoint provides access to a list of jurisdictions relevant to the Convent
 
 | Title            | Field   | Schema                    |
 | ---------------- | ------ | ------------------------------ |
-| Area of jurisdiction   | jurisdiction | [MSR](/abs/msr/schema)  |
+| Area of jurisdiction   | jurisdiction | [MSR](/absch/msr/schema)  |
+
+## Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
 
 ## Playground
 

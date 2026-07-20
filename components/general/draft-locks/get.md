@@ -13,6 +13,9 @@ The "Get" endpoint retrieves information about a specific lock associated with a
 ### URL Parameters
 <!--@include: @/../components/common/url/uid-lockid.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerGetSpecs" />

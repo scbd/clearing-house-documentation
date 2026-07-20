@@ -14,6 +14,9 @@ The "Get Info" API endpoint retrieves detailed information about the draft versi
 ### URL Parameters
 <!--@include: @/../components/common/url/uid.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerGetInfoSpecs" />

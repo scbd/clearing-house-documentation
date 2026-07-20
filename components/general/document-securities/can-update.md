@@ -16,6 +16,9 @@ This API endpoint allows clients to determine whether a specific document can be
 ### URL Parameters
 <!--@include: @/../components/common/url/uid.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerUpdateSpecs" />

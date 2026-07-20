@@ -14,6 +14,9 @@ This endpoint allows users to upload a file as an attachment to a specific docum
 ### URL Parameters
 <!--@include: @/../components/common/url/uid-filename.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerCreateSpecs" />

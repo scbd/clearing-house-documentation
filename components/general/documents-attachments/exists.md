@@ -14,6 +14,9 @@ This endpoint is used to check if a specific attachment is associated with a giv
 <!--@include: @/../components/common/url/uid-attachmentId-filename.md-->
 
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerExistsSpecs" />

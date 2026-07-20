@@ -52,6 +52,9 @@ This endpoint provides a way to retrieve draft records from the Contact record. 
 ## Query Parameters
 <!--@include: @/../components/common/query/collection-filter-orderby-top-skip.md-->
 
+## Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs" />

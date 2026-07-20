@@ -22,6 +22,9 @@ This API endpoint allows persisting a temporary file as an attachment to a docum
 
 ---
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerUploadTemporaryStorageSpecs" />

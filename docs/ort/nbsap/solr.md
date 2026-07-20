@@ -27,6 +27,9 @@ const swaggerSpecs = [
 
 <!--@include: @/../components/records/solr.md-->
 
+## Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs"/>

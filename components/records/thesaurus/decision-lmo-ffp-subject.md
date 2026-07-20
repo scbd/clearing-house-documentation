@@ -22,6 +22,9 @@ This endpoint retrieves terms specifically related to LMOs (Living Modified Orga
 ## Headers
 <!--@include: @/../components/common/header/accept.md-->
 
+## Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs" />

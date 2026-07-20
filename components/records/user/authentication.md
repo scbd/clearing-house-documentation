@@ -57,6 +57,9 @@ Authorization: Bearer <AUTHENTICATION TOKEN>
 Replace `<AUTHENTICATION TOKEN>` with the actual token received from the authentication endpoint.
 This authentication process ensures secure access to the API endpoints using your CBD credentials.
 
+## Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs" />

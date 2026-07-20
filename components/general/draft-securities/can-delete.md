@@ -13,6 +13,9 @@ The "Can Delete" endpoint checks whether the current user has the necessary perm
 ### URL Parameters
 <!--@include: @/../components/common/url/uid.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerCanDeleteSpecs" />

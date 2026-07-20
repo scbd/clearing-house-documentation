@@ -12,6 +12,9 @@ The "Get" API endpoint is used to retrieve the content of a specific revision of
 ### URL Parameters
 <!--@include: @/../components/common/url/uid-revision.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerGetSpecs" />

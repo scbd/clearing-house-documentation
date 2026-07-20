@@ -18,6 +18,9 @@ This API endpoint allows clients to determine if a document can be created given
 
 
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerCreateSpecs" />

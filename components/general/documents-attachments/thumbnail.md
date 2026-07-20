@@ -14,6 +14,9 @@ This endpoint retrieves a thumbnail image of a specific document attachment. Thi
 ### URL Parameters
 <!--@include: @/../components/common/url/uid-attachmentId-filename.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerThumbnailSpecs" />

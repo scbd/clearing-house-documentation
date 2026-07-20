@@ -13,6 +13,9 @@ The "Exists" endpoint checks whether a specific lock associated with a draft ver
 ### URL Parameters
 <!--@include: @/../components/common/url/uid-lockid.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerExistsSpecs" />

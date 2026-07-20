@@ -14,6 +14,9 @@ This endpoint retrieves an attachment for a specific document. The endpoint uses
 ### URL Parameters
 <!--@include: @/../components/common/url/uid-attachmentId-filename.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerGetSpecs" />

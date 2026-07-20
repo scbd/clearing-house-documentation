@@ -14,6 +14,9 @@ The "List" API endpoint retrieves a paginated list of document drafts based on t
 ### Query Parameters
 <!--@include: @/../components/common/query/collection-filter-orderby-top-skip.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerListSpecs" />

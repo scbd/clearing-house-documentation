@@ -17,6 +17,9 @@ The "Can Create" endpoint determines whether a user has the necessary permission
 ### URL Parameters
 <!--@include: @/../components/common/url/uid.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerCanCreateSpecs" />

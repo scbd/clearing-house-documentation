@@ -13,6 +13,9 @@ The "Unlock" endpoint is used to remove or release a lock from the draft version
 ### URL Parameters
 <!--@include: @/../components/common/url/uid-lockid.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerUnLockSpecs" />

@@ -17,6 +17,9 @@ The "Save" API endpoint is used to update or create a draft version of a documen
 <!--@include: @/../components/common/url/uid.md-->
 
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSaveSpecs" />

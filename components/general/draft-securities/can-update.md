@@ -17,6 +17,9 @@ The "Can Update" endpoint is used to determine if the current user has the neces
 ### URL Parameters
 <!--@include: @/../components/common/url/uid.md-->
 
+### Environment URLs
+<!--@include: @/../components/common/environment-urls.md-->
+
 ### Playground
 
 <SwaggerUI :swaggerSpecs="swaggerCanUpdateSpecs" />
