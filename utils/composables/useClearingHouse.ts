@@ -17,7 +17,11 @@ export function useClearingHouse (): ClearingHouse {
 
   const name = computed(() => getClearingHouseFromUrl(`/${url}`) ?? '')
 
-  const clearingHouseBase = (path: string): string => withBase(`/${name.value}/${path.replace(/^\/+/, '')}`)
+  // The route segment (e.g. 'absch') can differ from the clearing-house code
+  // (e.g. 'abs' used in Solr schema names), so links are built from the path.
+  const routeSegment = computed(() => url.split('/')[0] || name.value)
+
+  const clearingHouseBase = (path: string): string => withBase(`/${routeSegment.value}/${path.replace(/^\/+/, '')}`)
 
   const baseUrl = getClearingHouseUrl(`/${url}`)
 

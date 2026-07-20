@@ -85,7 +85,7 @@ export default [
       },
       {
         text: "Realms",
-        link: "/abs/realms",
+        link: "/absch/realms",
       },
     ],
   },

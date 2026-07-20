@@ -6,27 +6,27 @@ export const recordTypes = [
     items: [
       {
         text: "Schema",
-        link: "/abs/ircc/schema",
+        link: "/absch/ircc/schema",
       },
       {
         text: "Create/Update",
-        link: "/abs/ircc/workflow",
+        link: "/absch/ircc/workflow",
       },
       {
         text: "Public Records",
-        link: "/abs/ircc/solr",
+        link: "/absch/ircc/solr",
       },
       {
         text: "Draft Records",
-        link: "/abs/ircc/list",
+        link: "/absch/ircc/list",
       },
       {
         text: "Get",
-        link: "/abs/ircc/get",
+        link: "/absch/ircc/get",
       },
       {
         text: "Delete",
-        link: "/abs/ircc/delete",
+        link: "/absch/ircc/delete",
       },
     ],
   },
@@ -37,31 +37,31 @@ export const recordTypes = [
     items: [
       {
         text: "Schema",
-        link: "/abs/contact/schema",
+        link: "/absch/contact/schema",
       },
       {
         text: "Public Records",
-        link: "/abs/contact/solr",
+        link: "/absch/contact/solr",
       },
       {
         text: "Draft Records",
-        link: "/abs/contact/list",
+        link: "/absch/contact/list",
       },
       {
         text: "Get",
-        link: "/abs/contact/get",
+        link: "/absch/contact/get",
       },
       {
         text: "Create",
-        link: "/abs/contact/create",
+        link: "/absch/contact/create",
       },
       {
         text: "Update",
-        link: "/abs/contact/update",
+        link: "/absch/contact/update",
       },
       {
         text: "Delete",
-        link: "/abs/contact/delete",
+        link: "/absch/contact/delete",
       },
     ],
   },
@@ -72,15 +72,15 @@ export const recordTypes = [
     items: [
       {
         text: "Schema",
-        link: "/abs/cp/schema",
+        link: "/absch/cp/schema",
       },
       {
         text: "Public Records",
-        link: "/abs/cp/solr",
+        link: "/absch/cp/solr",
       },
       {
         text: "Get",
-        link: "/abs/cp/get",
+        link: "/absch/cp/get",
       },
     ],
   },
@@ -91,15 +91,15 @@ export const recordTypes = [
     items: [
       {
         text: "Schema",
-        link: "/abs/msr/schema",
+        link: "/absch/msr/schema",
       },
       {
         text: "Public Records",
-        link: "/abs/msr/solr",
+        link: "/absch/msr/solr",
       },
       {
         text: "Get",
-        link: "/abs/msr/get",
+        link: "/absch/msr/get",
       },
     ],
   },
@@ -110,31 +110,31 @@ export const recordTypes = [
     items: [
       {
         text: "Schema",
-        link: "/abs/cpc/schema",
+        link: "/absch/cpc/schema",
       },
       {
         text: "Public Records",
-        link: "/abs/cpc/solr",
+        link: "/absch/cpc/solr",
       },
       {
         text: "Draft Records",
-        link: "/abs/cpc/list",
+        link: "/absch/cpc/list",
       },
       {
         text: "Get",
-        link: "/abs/cpc/get",
+        link: "/absch/cpc/get",
       },
       {
         text: "Create",
-        link: "/abs/cpc/create",
+        link: "/absch/cpc/create",
       },
       {
         text: "Update",
-        link: "/abs/cpc/update",
+        link: "/absch/cpc/update",
       },
       {
         text: "Delete",
-        link: "/abs/cpc/delete",
+        link: "/absch/cpc/delete",
       },
     ],
   },
@@ -145,15 +145,15 @@ export const recordTypes = [
     items: [
       {
         text: "Schema",
-        link: "/abs/cna/schema",
+        link: "/absch/cna/schema",
       },
       {
         text: "Public Records",
-        link: "/abs/cna/solr",
+        link: "/absch/cna/solr",
       },
       {
         text: "Get",
-        link: "/abs/cna/get",
+        link: "/absch/cna/get",
       },
     ],
   },
@@ -164,15 +164,15 @@ export const recordTypes = [
     items: [
       {
         text: "Schema",
-        link: "/abs/nfp/schema",
+        link: "/absch/nfp/schema",
       },
       {
         text: "Public Records",
-        link: "/abs/nfp/solr",
+        link: "/absch/nfp/solr",
       },
       {
         text: "Get",
-        link: "/abs/nfp/get",
+        link: "/absch/nfp/get",
       },
     ],
   },
@@ -183,15 +183,15 @@ export const recordTypes = [
     items: [
       {
         text: "Schema",
-        link: "/abs/vlr/schema",
+        link: "/absch/vlr/schema",
       },
       {
         text: "Public Records",
-        link: "/abs/vlr/solr",
+        link: "/absch/vlr/solr",
       },
       {
         text: "Get",
-        link: "/abs/vlr/get",
+        link: "/absch/vlr/get",
       },
     ],
   },
@@ -202,15 +202,15 @@ export const recordTypes = [
     items: [
       {
         text: "Schema",
-        link: "/abs/pro/schema",
+        link: "/absch/pro/schema",
       },
       {
         text: "Public Records",
-        link: "/abs/pro/solr",
+        link: "/absch/pro/solr",
       },
       {
         text: "Get",
-        link: "/abs/pro/get",
+        link: "/absch/pro/get",
       },
     ],
   },
@@ -221,15 +221,15 @@ export const recordTypes = [
     items: [
       {
         text: "Schema",
-        link: "/abs/nmcc/schema",
+        link: "/absch/nmcc/schema",
       },
       {
         text: "Public Records",
-        link: "/abs/nmcc/solr",
+        link: "/absch/nmcc/solr",
       },
       {
         text: "Get",
-        link: "/abs/nmcc/get",
+        link: "/absch/nmcc/get",
       },
     ],
   },
@@ -240,15 +240,15 @@ export const recordTypes = [
     items: [
       {
         text: "Schema",
-        link: "/abs/ndb/schema",
+        link: "/absch/ndb/schema",
       },
       {
         text: "Public Records",
-        link: "/abs/ndb/solr",
+        link: "/absch/ndb/solr",
       },
       {
         text: "Get",
-        link: "/abs/ndb/get",
+        link: "/absch/ndb/get",
       },
     ],
   },
@@ -259,15 +259,15 @@ export const recordTypes = [
     items: [
       {
         text: "Schema",
-        link: "/abs/cdi/schema",
+        link: "/absch/cdi/schema",
       },
       {
         text: "Public Records",
-        link: "/abs/cdi/solr",
+        link: "/absch/cdi/solr",
       },
       {
         text: "Get",
-        link: "/abs/cdi/get",
+        link: "/absch/cdi/get",
       },
     ],
   },
@@ -278,15 +278,15 @@ export const recordTypes = [
     items: [
       {
         text: "Schema",
-        link: "/abs/cpp/schema",
+        link: "/absch/cpp/schema",
       },
       {
         text: "Public Records",
-        link: "/abs/cpp/solr",
+        link: "/absch/cpp/solr",
       },
       {
         text: "Get",
-        link: "/abs/cpp/get",
+        link: "/absch/cpp/get",
       },
     ],
   },
@@ -297,15 +297,15 @@ export const recordTypes = [
     items: [
       {
         text: "Schema",
-        link: "/abs/org/schema",
+        link: "/absch/org/schema",
       },
       {
         text: "Public Records",
-        link: "/abs/org/solr",
+        link: "/absch/org/solr",
       },
       {
         text: "Get",
-        link: "/abs/org/get",
+        link: "/absch/org/get",
       },
     ],
   },
@@ -318,27 +318,27 @@ export default [
     items: [
       {
         text: "Introduction",
-        link: "/abs/",
+        link: "/absch/",
       },
       {
         text: "Custom Types",
-        link: "/abs/custom-types",
+        link: "/absch/custom-types",
       },
       {
         text: "User Management",
-        link: "/abs/user-management",
+        link: "/absch/user-management",
       },
       {
         text: "Apache Solr",
-        link: "/abs/apache-solr",
+        link: "/absch/apache-solr",
       },
       {
         text: "Record Types",
-        link: "/abs/record-types",
+        link: "/absch/record-types",
       },
       {
         text: "Realms",
-        link: "/abs/realms",
+        link: "/absch/realms",
       },
     ],
   },
@@ -348,35 +348,35 @@ export default [
     items: [
       {
         text: "Document Validations",
-        link: "/abs/general/document-validations",
+        link: "/absch/general/document-validations",
       },
       {
         text: "Document Securities",
-        link: "/abs/general/document-securities",
+        link: "/absch/general/document-securities",
       },
       {
         text: "Documents Versions",
-        link: "/abs/general/documents-versions",
+        link: "/absch/general/documents-versions",
       },
       {
         text: "Documents Attachments",
-        link: "/abs/general/document-attachments",
+        link: "/absch/general/document-attachments",
       },
       {
         text: "Drafts",
-        link: "/abs/general/drafts",
+        link: "/absch/general/drafts",
       },
       {
         text: "Draft Securities",
-        link: "/abs/general/draft-securities",
+        link: "/absch/general/draft-securities",
       },
       {
         text: "Draft Locks",
-        link: "/abs/general/draft-locks",
+        link: "/absch/general/draft-locks",
       },
       {
         text: "Temporary File",
-        link: "/abs/general/temporary-file",
+        link: "/absch/general/temporary-file",
       },
     ],
   },
@@ -386,7 +386,7 @@ export default [
     items: [
       {
         text: "Authentication",
-        link: "/abs/user/authentication",
+        link: "/absch/user/authentication",
       },
     ],
   },
@@ -401,19 +401,19 @@ export default [
         items: [
           {
             text: "Countries",
-            link: "/abs/thesaurus/general/countries",
+            link: "/absch/thesaurus/general/countries",
           },
           {
             text: "Libraries",
-            link: "/abs/thesaurus/general/libraries",
+            link: "/absch/thesaurus/general/libraries",
           },
           {
             text: "Regions",
-            link: "/abs/thesaurus/general/regions",
+            link: "/absch/thesaurus/general/regions",
           },
           {
             text: "Other",
-            link: "/abs/thesaurus/general/other",
+            link: "/absch/thesaurus/general/other",
           },
         ],
       },
@@ -423,7 +423,7 @@ export default [
         items: [
           {
             text: "CP Jurisdiction",
-            link: "/abs/thesaurus/checkpoint/cp-jurisdiction",
+            link: "/absch/thesaurus/checkpoint/cp-jurisdiction",
           },
         ],
       },
@@ -433,7 +433,7 @@ export default [
         items: [
           {
             text: "CPC Keywords",
-            link: "/abs/thesaurus/checkpoint-communique/cpc-keywords",
+            link: "/absch/thesaurus/checkpoint-communique/cpc-keywords",
           },
         ],
       },
@@ -443,7 +443,7 @@ export default [
         items: [
           {
             text: "Organization Types",
-            link: "/abs/thesaurus/contact/organization-types",
+            link: "/absch/thesaurus/contact/organization-types",
           },
         ],
       },
@@ -453,11 +453,11 @@ export default [
         items: [
           {
             text: "Permit Usage",
-            link: "/abs/thesaurus/permit/permit-usage",
+            link: "/absch/thesaurus/permit/permit-usage",
           },
           {
             text: "Permit Keywords",
-            link: "/abs/thesaurus/permit/permit-keywords",
+            link: "/absch/thesaurus/permit/permit-keywords",
           },
         ],
       },
@@ -467,43 +467,43 @@ export default [
         items: [
           {
             text: "Organization Types",
-            link: "/abs/thesaurus/authority/organization-types",
+            link: "/absch/thesaurus/authority/organization-types",
           },
           {
             text: "CBD Subjects",
-            link: "/abs/thesaurus/authority/cbd-subjects",
+            link: "/absch/thesaurus/authority/cbd-subjects",
           },
           {
             text: "Jurisdictions",
-            link: "/abs/thesaurus/authority/jurisdictions",
+            link: "/absch/thesaurus/authority/jurisdictions",
           },
           {
             text: "ABS Jurisdictions",
-            link: "/abs/thesaurus/authority/abs-jurisdictions",
+            link: "/absch/thesaurus/authority/abs-jurisdictions",
           },
           {
             text: "ABS Genetic Resource Types",
-            link: "/abs/thesaurus/authority/abs-genetic-resource-types",
+            link: "/absch/thesaurus/authority/abs-genetic-resource-types",
           },
           {
             text: "ABS Genetic Resource Areas",
-            link: "/abs/thesaurus/authority/abs-genetic-resource-areas",
+            link: "/absch/thesaurus/authority/abs-genetic-resource-areas",
           },
           {
             text: "CPB Functions",
-            link: "/abs/thesaurus/authority/cpb-functions",
+            link: "/absch/thesaurus/authority/cpb-functions",
           },
           {
             text: "CPB Organism Types",
-            link: "/abs/thesaurus/authority/cpb-organism-types",
+            link: "/absch/thesaurus/authority/cpb-organism-types",
           },
           {
             text: "ABS Functions",
-            link: "/abs/thesaurus/authority/abs-functions",
+            link: "/absch/thesaurus/authority/abs-functions",
           },
           {
             text: "Keywords",
-            link: "/abs/thesaurus/authority/keywords",
+            link: "/absch/thesaurus/authority/keywords",
           },
         ],
       },
@@ -513,31 +513,31 @@ export default [
         items: [
           {
             text: "Languages",
-            link: "/abs/thesaurus/measure/languages",
+            link: "/absch/thesaurus/measure/languages",
           },
           {
             text: "ABS Measures",
-            link: "/abs/thesaurus/measure/abs-measures",
+            link: "/absch/thesaurus/measure/abs-measures",
           },
           {
             text: "Type Of Documents",
-            link: "/abs/thesaurus/measure/type-of-documents",
+            link: "/absch/thesaurus/measure/type-of-documents",
           },
           {
             text: "Jurisdictions",
-            link: "/abs/thesaurus/measure/jurisdictions",
+            link: "/absch/thesaurus/measure/jurisdictions",
           },
           {
             text: "Statuses",
-            link: "/abs/thesaurus/measure/statuses",
+            link: "/absch/thesaurus/measure/statuses",
           },
           {
             text: "Document Links Ext",
-            link: "/abs/thesaurus/measure/document-links-ext",
+            link: "/absch/thesaurus/measure/document-links-ext",
           },
           {
             text: "Translation Type",
-            link: "/abs/thesaurus/measure/translation-type",
+            link: "/absch/thesaurus/measure/translation-type",
           },
         ],
       },
@@ -547,35 +547,35 @@ export default [
         items: [
           {
             text: "Resource Type VLR",
-            link: "/abs/thesaurus/resource/resource-type-vlr",
+            link: "/absch/thesaurus/resource/resource-type-vlr",
           },
           {
             text: "Aichi Targets",
-            link: "/abs/thesaurus/resource/aichi-targets",
+            link: "/absch/thesaurus/resource/aichi-targets",
           },
           {
             text: "CPB Themtic Areas",
-            link: "/abs/thesaurus/resource/cpb-thematic-areas",
+            link: "/absch/thesaurus/resource/cpb-thematic-areas",
           },
           {
             text: "BCH RA Author Affiliation",
-            link: "/abs/thesaurus/resource/bch-ra-author-affiliation",
+            link: "/absch/thesaurus/resource/bch-ra-author-affiliation",
           },
           {
             text: "BCH RA Subjects",
-            link: "/abs/thesaurus/resource/bch-ra-subjects",
+            link: "/absch/thesaurus/resource/bch-ra-subjects",
           },
           {
             text: "Key Areas",
-            link: "/abs/thesaurus/resource/key-areas",
+            link: "/absch/thesaurus/resource/key-areas",
           },
           {
             text: "ABS Subjects",
-            link: "/abs/thesaurus/resource/abs-subjects",
+            link: "/absch/thesaurus/resource/abs-subjects",
           },
           {
             text: "CBD Subjects",
-            link: "/abs/thesaurus/resource/cbd-subjects",
+            link: "/absch/thesaurus/resource/cbd-subjects",
           },
         ],
       },
@@ -585,35 +585,35 @@ export default [
         items: [
           {
             text: "Resource Type VLR",
-            link: "/abs/thesaurus/community-protocol/resource-type-vlr",
+            link: "/absch/thesaurus/community-protocol/resource-type-vlr",
           },
           {
             text: "Aichi Targets",
-            link: "/abs/thesaurus/community-protocol/aichi-targets",
+            link: "/absch/thesaurus/community-protocol/aichi-targets",
           },
           {
             text: "CPB Themtic Areas",
-            link: "/abs/thesaurus/community-protocol/cpb-thematic-areas",
+            link: "/absch/thesaurus/community-protocol/cpb-thematic-areas",
           },
           {
             text: "BCH RA Author Affiliation",
-            link: "/abs/thesaurus/community-protocol/bch-ra-author-affiliation",
+            link: "/absch/thesaurus/community-protocol/bch-ra-author-affiliation",
           },
           {
             text: "BCH RA Subjects",
-            link: "/abs/thesaurus/community-protocol/bch-ra-subjects",
+            link: "/absch/thesaurus/community-protocol/bch-ra-subjects",
           },
           {
             text: "Key Areas",
-            link: "/abs/thesaurus/community-protocol/key-areas",
+            link: "/absch/thesaurus/community-protocol/key-areas",
           },
           {
             text: "ABS Subjects",
-            link: "/abs/thesaurus/community-protocol/abs-subjects",
+            link: "/absch/thesaurus/community-protocol/abs-subjects",
           },
           {
             text: "CBD Subjects",
-            link: "/abs/thesaurus/community-protocol/cbd-subjects",
+            link: "/absch/thesaurus/community-protocol/cbd-subjects",
           },
         ],
       },
@@ -623,15 +623,15 @@ export default [
         items: [
           {
             text: "Organization Types",
-            link: "/abs/thesaurus/organization/organization-types",
+            link: "/absch/thesaurus/organization/organization-types",
           },
           {
             text: "CBD Subjects",
-            link: "/abs/thesaurus/organization/cbd-subjects",
+            link: "/absch/thesaurus/organization/cbd-subjects",
           },
           {
             text: "Regions",
-            link: "/abs/thesaurus/organization/regions",
+            link: "/absch/thesaurus/organization/regions",
           },
         ],
       },
@@ -641,11 +641,11 @@ export default [
         items: [
           {
             text: "Jurisdictions",
-            link: "/abs/thesaurus/abs-procedure/jurisdictions",
+            link: "/absch/thesaurus/abs-procedure/jurisdictions",
           },
           {
             text: "All Keywords",
-            link: "/abs/thesaurus/abs-procedure/all-keywords",
+            link: "/absch/thesaurus/abs-procedure/all-keywords",
           },
         ],
       },
@@ -655,15 +655,15 @@ export default [
         items: [
           {
             text: "Jurisdictions",
-            link: "/abs/thesaurus/nmcc/jurisdictions",
+            link: "/absch/thesaurus/nmcc/jurisdictions",
           },
           {
             text: "MCC Keywords",
-            link: "/abs/thesaurus/nmcc/mcc-keywords",
+            link: "/absch/thesaurus/nmcc/mcc-keywords",
           },
           {
             text: "Thematic Areas",
-            link: "/abs/thesaurus/nmcc/thematic-areas",
+            link: "/absch/thesaurus/nmcc/thematic-areas",
           },
         ],
       },
@@ -673,47 +673,47 @@ export default [
         items: [
           {
             text: "CBI CPB Types",
-            link: "/abs/thesaurus/cdi/cbi-cpb-types",
+            link: "/absch/thesaurus/cdi/cbi-cpb-types",
           },
           {
             text: "CBI Audience",
-            link: "/abs/thesaurus/cdi/cbi-audience",
+            link: "/absch/thesaurus/cdi/cbi-audience",
           },
           {
             text: "Jurisdictions",
-            link: "/abs/thesaurus/cdi/jurisdictions",
+            link: "/absch/thesaurus/cdi/jurisdictions",
           },
           {
             text: "Aichi Targets",
-            link: "/abs/thesaurus/cdi/aichi-targets",
+            link: "/absch/thesaurus/cdi/aichi-targets",
           },
           {
             text: "Key Areas",
-            link: "/abs/thesaurus/cdi/key-areas",
+            link: "/absch/thesaurus/cdi/key-areas",
           },
           {
             text: "CBI Status",
-            link: "/abs/thesaurus/cdi/cbi-status",
+            link: "/absch/thesaurus/cdi/cbi-status",
           },
           {
             text: "CBI Cats",
-            link: "/abs/thesaurus/cdi/cbi-cats",
+            link: "/absch/thesaurus/cdi/cbi-cats",
           },
           {
             text: "CBI Thematic Areas",
-            link: "/abs/thesaurus/cdi/cbi-thematic-areas",
+            link: "/absch/thesaurus/cdi/cbi-thematic-areas",
           },
           {
             text: "Regions",
-            link: "/abs/thesaurus/cdi/regions",
+            link: "/absch/thesaurus/cdi/regions",
           },
           {
             text: "Countries",
-            link: "/abs/thesaurus/cdi/countries",
+            link: "/absch/thesaurus/cdi/countries",
           },
           {
             text: "CBI Funding Src",
-            link: "/abs/thesaurus/cdi/cbi-funding-src",
+            link: "/absch/thesaurus/cdi/cbi-funding-src",
           },
         ],
       },

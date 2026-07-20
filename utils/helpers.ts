@@ -33,7 +33,7 @@ export function getClearinghouseApiUrl (clearinghouseUrl: string | undefined): s
 }
 
 export function getClearingHouseFromUrl (url: string): string | null {
-  if (url.includes('/abs/')) {
+  if (url.includes('/absch/')) {
     return 'abs'
   } else if (url.includes('/bch/')) {
     return 'bch'

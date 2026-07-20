@@ -31,7 +31,7 @@ const clearingHouses = [
   },
   {
     code: 'ABSCH',
-    path: '/abs/',
+    path: '/absch/',
     name: 'Access & Benefit-Sharing Clearing-House',
     desc: 'Permits, checkpoints and national records under the Nagoya Protocol.',
   },

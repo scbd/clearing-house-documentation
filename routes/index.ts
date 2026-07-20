@@ -5,7 +5,7 @@ import ort, {recordTypes as ortRecordTypes } from "./ort";
 
 export default {
   "/": [],
-  "/abs/": abs,
+  "/absch/": abs,
   "/bch/": bch,
   "/chm/": chm,
   "/ort/": ort,
