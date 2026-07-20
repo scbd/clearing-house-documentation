@@ -26,8 +26,8 @@ verify against the realm configurations before starting each row.
 
 | Record type | Apps | Status |
 | --- | --- | --- |
-| contact | A B | in progress — create done (prototype); get/update/delete/list/solr/schema pending |
-| user (authentication) | A B C O | legacy page restored as-is; rebuild early — every playground links to it |
+| contact | A B | descriptors + create generator exist (`swagger/schemas/`, prototype code only); pages pending review |
+| user (authentication) | A B C O | rebuild early — every playground links to the auth guide |
 | org | A B C | pending |
 | vlr | A B C | pending |
 | cdi | A B C | pending |
