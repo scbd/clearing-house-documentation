@@ -92,19 +92,13 @@ and links never leave the app's context.
       eyeball the undocumented-by-default remainder (scope only grows by
       explicit decision; the subset invariant is re-checked manually at each
       review gate).
-- [ ] Make `useClearingHouse().apiUrl` return the bare API host; each endpoint
-      generator owns its full versioned path (`/api/v2013/...`, `/api/v2023/...`).
-      Remove `API_EXTENSION` from app-config.
-- [ ] Redo `createSpec` against the v2023 publishing endpoint and add an
-      `updateSpec` (v2023) — create/update pages always document v2023
-      (ADR 0002). Add generators for `get`, `delete`, `list`, `solr` on their
-      existing v2013 endpoints.
-      Solr pages keep the legacy layout of five playground blocks per record
-      type (all-record / country / query / region / subfilters), emitted as
-      five variants of the one parameterized solr generator.
-- [ ] Build a reusable legacy-notice component (banner: "legacy v2013 flow —
-      use the v2023 endpoint for new integrations", linking to the app's
-      create/update docs) for the unlisted legacy pages.
+- [x] `useClearingHouse().apiUrl` returns the bare API host; each endpoint
+      generator owns its full versioned path. `API_EXTENSION` removed.
+- [x] Generator set complete: `createSpec`/`updateSpec` on v2023 (ADR 0002),
+      `getSpec`/`deleteSpec`/`listSpec` on v2013, `solrSpecs` emitting the
+      five legacy variant blocks from one parameterized source.
+- [x] Legacy-notice banner component built
+      (`docs/components/common/legacy-notice.vue`).
 - [ ] Endgame: drop redundant `swagger-ui` dep, unpin axios, multi-stage
       Docker image serving `dist/` via nginx, remove SwaggerUI.vue MutationObserver hacks.
 - Parked (out of rebuild scope): `landing/` stays as-is; after parity, dedupe

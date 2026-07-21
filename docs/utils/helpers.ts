@@ -21,15 +21,10 @@ export function getClearingHouseUrl (url: string): string | undefined {
   }
 }
 
+// Bare API host. Endpoint generators own their full versioned paths
+// (/api/v2013/..., /api/v2023/...) — there is no global API version.
 export function getClearinghouseApiUrl (clearinghouseUrl: string | undefined): string {
-
-  // if(typeof clearinghouseUrl === 'string') {
-  //   return `${clearinghouseUrl}/${APP_CONFIG.API_EXTENSION}`
-  // }
-
-  const defaultApiUrl = APP_CONFIG.API_URL ?? 'https://api.cbddev.xyz'
-
-  return `${defaultApiUrl}/${APP_CONFIG.API_EXTENSION}`;
+  return APP_CONFIG.API_URL
 }
 
 // Realm header value for an app, derived from the environment this site was

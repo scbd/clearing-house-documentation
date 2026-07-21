@@ -24,4 +24,8 @@ export interface SchemaDescriptor {
   description: string
   /** Request-body fields, in display order. The `header` field is implicit. */
   fields: Record<string, Field>
+  /** Example `$filter` expression for the list endpoint, e.g. "(type eq 'contact')". */
+  listFilterExample?: string
+  /** Schema name used in the Solr index (`schema_s`), when it differs from `schema`. */
+  solrSchema?: string
 }

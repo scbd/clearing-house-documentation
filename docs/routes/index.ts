@@ -9,6 +9,16 @@ interface SidebarItem {
   items?: SidebarItem[]
 }
 
+const contact = (base: string): SidebarItem => ({
+  text: 'Contact',
+  collapsed: false,
+  items: [
+    { text: 'Create', link: `${base}/contact/create` }
+  ]
+})
+
 export default {
-  '/': []
+  '/': [],
+  '/absch/': [contact('/absch')],
+  '/bch/': [contact('/bch')]
 } as Record<string, SidebarItem[]>

@@ -1,7 +1,9 @@
 import type { Field, FieldType, SchemaDescriptor } from '../schemas/types'
 
 // Shared OpenAPI plumbing for every clearing-house endpoint. Written once:
-// a change to auth, servers or the realm header is a change to this file only.
+// a change to auth, servers or the realm parameter is a change to this file
+// only. Each endpoint generator owns its full versioned path — servers.url
+// is always the bare API host.
 
 const FIELD_SHAPES: Record<FieldType, object> = {
   string: { type: 'string' },
@@ -27,14 +29,20 @@ const headerProperty = (schema: string) => ({
   }
 })
 
-export const schemaParameter = (schema: string) => ({
-  name: 'schema',
-  in: 'query',
-  required: true,
-  schema: { type: 'string', example: schema }
+export const documentProperties = (descriptor: SchemaDescriptor) => ({
+  header: headerProperty(descriptor.schema),
+  ...Object.fromEntries(
+    Object.entries(descriptor.fields).map(([name, field]) => [name, fieldToOpenApi(field)])
+  )
 })
 
-export const realmParameter = (realm: string) => ({
+export const mandatoryFieldNames = (descriptor: SchemaDescriptor) =>
+  Object.entries(descriptor.fields)
+    .filter(([, field]) => field.mandatory)
+    .map(([name]) => name)
+
+// v2013 style: realm travels as an HTTP header.
+export const realmHeaderParameter = (realm: string) => ({
   name: 'Realm',
   in: 'header',
   required: false,
@@ -44,29 +52,24 @@ export const realmParameter = (realm: string) => ({
     `For this application and environment the value is \`${realm}\`.`
 })
 
-export const requestBodyFor = (descriptor: SchemaDescriptor) => {
-  const required = Object.entries(descriptor.fields)
-    .filter(([, field]) => field.mandatory)
-    .map(([name]) => name)
+// v2023 style: realm travels as a query parameter.
+export const realmQueryParameter = (realm: string) => ({
+  name: 'realm',
+  in: 'query',
+  required: true,
+  schema: { type: 'string', example: realm },
+  description:
+    'Realm used for the request. ' +
+    `For this application and environment the value is \`${realm}\`.`
+})
 
-  return {
-    required: true,
-    content: {
-      'application/json': {
-        schema: {
-          type: 'object',
-          ...(required.length && { required }),
-          properties: {
-            header: headerProperty(descriptor.schema),
-            ...Object.fromEntries(
-              Object.entries(descriptor.fields).map(([name, field]) => [name, fieldToOpenApi(field)])
-            )
-          }
-        }
-      }
-    }
-  }
-}
+export const uidParameter = () => ({
+  name: 'uid',
+  in: 'path',
+  required: true,
+  schema: { type: 'string', pattern: '^[A-Za-z0-9\\-_]{11,128}$' },
+  description: 'Identifier of the record. The value is case-sensitive.'
+})
 
 export const standardErrorResponses = () => ({
   400: {
@@ -89,7 +92,7 @@ export const standardErrorResponses = () => ({
     description: 'Forbidden',
     content: {
       'application/json': {
-        example: { statusCode: 403, code: 'forbidden', message: 'Insufficient Privileges to create document [S10]' }
+        example: { statusCode: 403, code: 'forbidden', message: 'Insufficient Privileges [S10]' }
       }
     }
   }

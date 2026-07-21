@@ -8,6 +8,7 @@ const contact: SchemaDescriptor = {
   schema: 'contact',
   name: 'Contact',
   description: 'A contact record in the Biosafety Clearing-House.',
+  listFilterExample: "(type eq 'contact')",
   fields: {
     ...contactFields
     // Example of overriding a shared field for this app only:

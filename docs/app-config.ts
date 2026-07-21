@@ -8,6 +8,5 @@ export const APP_CONFIG = {
   ABS_URL: import.meta.env.VITE_ABS_URL || 'https://absch.cbd.int',
   BCH_URL: import.meta.env.VITE_BCH_URL || 'https://bch.cbd.int',
   CHM_URL: import.meta.env.VITE_CHM_URL || 'https://chm.cbd.int',
-  ORT_URL: import.meta.env.VITE_ORT_URL || 'https://ort.cbd.int',
-  API_EXTENSION: 'api/v2013'
+  ORT_URL: import.meta.env.VITE_ORT_URL || 'https://ort.cbd.int'
 }
