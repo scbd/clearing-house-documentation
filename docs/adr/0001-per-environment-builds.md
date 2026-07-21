@@ -49,4 +49,11 @@ build. Only `BASE_PATH` remains runtime-substituted by the entrypoint.
   trustworthy in the rendered HTML because it is baked consistently at build
   time.
 - The `VITE_*` values must be available to CI at build time (they are public
-  hostnames, not secrets); how they are supplied is a follow-up decision.
+  hostnames, not secrets); they are committed as `docs/.env.development` and
+  `docs/.env.production`.
+- `BASE_PATH` is also baked at build time. The hosting layout is fixed by
+  design: the landing app owns each environment's main domain root and the
+  docs site is mounted at `/clearing-house/`. With no runtime path variance
+  left, the `/__BASE_PATH__/` placeholder build and the sed rewrite in
+  `docker-entrypoint.sh` are retired; the container runs the serve command
+  directly.

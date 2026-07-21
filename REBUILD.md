@@ -85,6 +85,9 @@ and links never leave the app's context.
 
 - [ ] Fix build-time `VITE_*` inlining: CI must produce per-environment images
       (`build` vs `build:dev`) — the dev site currently falls back to prod URLs.
+      In the same PR: bake `BASE_PATH=/clearing-house/` at build time (landing
+      owns the domain root by design) and delete `docker-entrypoint.sh` — the
+      placeholder/sed rewrite has no remaining purpose (see ADR 0001).
 - [ ] Fetch realm configurations for all 4 apps × 2 environments once, to
       eyeball the undocumented-by-default remainder (scope only grows by
       explicit decision; the subset invariant is re-checked manually at each
