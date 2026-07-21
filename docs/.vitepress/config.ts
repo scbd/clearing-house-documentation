@@ -1,10 +1,14 @@
 import { defineConfig } from "vitepress";
 import { resolve } from "path";
-import routes from "../../routes/index";
+import routes from "../routes/index";
 
 export default defineConfig({
   title: "CH documentation",
   base: process.env.BASE_PATH || "/",
+  // Everything under docs/ that isn't a site page: ADRs are internal
+  // documentation; components/swagger/utils/routes are the docs app's
+  // source (markdown partials in components/ must not become pages).
+  srcExclude: ["adr/**", "components/**", "swagger/**", "utils/**", "routes/**"],
   appearance: true,
   head: [
     ["script", { async: "", src: "https://www.googletagmanager.com/gtag/js?id=G-6EJJLWGHYC" }],
@@ -41,7 +45,7 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        "@": resolve(__dirname, "../../"), 
+        "@": resolve(__dirname, "../"),
       },
     },
   }    

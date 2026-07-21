@@ -2,5 +2,3 @@ node_modules
 /docs/.vitepress/cache/**
 /docs/.vitepress/dist/**
 /docs/.env
-/docs/.env.development
-/docs/.env.production

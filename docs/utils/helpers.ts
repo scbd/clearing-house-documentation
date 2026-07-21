@@ -1,4 +1,4 @@
-import { APP_CONFIG } from '../docs/app-config'
+import { APP_CONFIG } from '../app-config'
 
 export function deepClone(obj) {
   return JSON.parse(JSON.stringify(obj));

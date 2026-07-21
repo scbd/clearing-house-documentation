@@ -1,4 +1,4 @@
-/// <reference path="../vite-env.d.ts" />
+/// <reference path="./vite-env.d.ts" />
 // Environment-driven config. Vite loads these from docs/.env.development
 // (npm run dev) or docs/.env.production (npm run build); real environment
 // variables override the files. Falls back to production (cbd.int).

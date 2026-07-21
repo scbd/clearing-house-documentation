@@ -6,18 +6,32 @@ by copy-paste; every page is re-derived from a reviewed schema descriptor.
 
 ## How a record type is migrated
 
-1. Draft the descriptor(s) in `swagger/schemas/` from the archived table, spec
+1. Draft the descriptor(s) in `docs/swagger/schemas/` from the archived table, spec
    and page prose (`.archive/components/`, `.archive/swagger-json/`),
    flagging inconsistencies between those sources instead of silently resolving them.
-2. **Review gate:** confirm every field against the real backend schema and
-   encode per-realm differences (mandatory flags, missing fields, vocabularies)
-   in each app's descriptor file.
+2. **Review gate:** confirm the record type is supported by the production
+   realm configuration of every app that will document it (documented types
+   must always be a subset of the realm configuration — checked manually here,
+   once per type). Then confirm every field against the real backend schema
+   and encode per-realm differences (mandatory flags, missing fields,
+   vocabularies) in each app's descriptor file. The review happens on the
+   **rendered field table** (dev server or dev docs site), with the PR diff
+   of the descriptor as the formal record of what was approved.
+   The gate also fixes the record type's **operation set** per app (default
+   proposal: create/get/update/delete/list/solr + field reference; trimmed or
+   extended per type). That decision is recorded per app per type and drives
+   both which pages exist and the sidebar entries.
 3. Wire the pages in `docs/<app>/<type>/` for each app that supports the type,
-   add sidebar entries in `routes/index.ts`, verify the playground against the
+   add sidebar entries in `docs/routes/index.ts`, verify the playground against the
    dev environment (`api.cbddev.xyz`).
 4. Delete the record type's superseded files from `.archive/` in the same PR.
 
 Done means: `.archive/` is empty and every page is descriptor-driven.
+
+**Deployment during the rebuild:** once the contact record type is complete,
+`rebuild` merges into `dev` early and often — the dev docs site is the living
+preview where each migrated playground is exercised with dev tokens.
+Production (`master`) keeps serving the legacy site until parity is declared.
 
 ## Record types
 
@@ -26,7 +40,7 @@ verify against the realm configurations before starting each row.
 
 | Record type | Apps | Status |
 | --- | --- | --- |
-| contact | A B | descriptors + create generator exist (`swagger/schemas/`, prototype code only); pages pending review |
+| contact | A B | descriptors + create generator exist (`docs/swagger/schemas/`, prototype code only); pages pending review |
 | user (authentication) | A B C O | rebuild early — every playground links to the auth guide |
 | org | A B C | pending |
 | vlr | A B C | pending |
@@ -63,12 +77,26 @@ Each app had: `index`, `custom-types`, `realms`, `record-types`, `schemas`,
 reviews, but several rebuilt pages link to `custom-types` anchors, so schedule
 them right after `contact`.
 
+Decision: these stay **per-app pages built from a shared source** (same
+mechanism as record pages) — each clearing house's section is self-contained
+and links never leave the app's context.
+
 ## Foundation tasks (not record types)
 
 - [ ] Fix build-time `VITE_*` inlining: CI must produce per-environment images
       (`build` vs `build:dev`) — the dev site currently falls back to prod URLs.
-- [ ] Fetch realm configurations for all 4 apps × 2 environments; reconcile
-      with the table above (documented-but-unsupported / supported-but-undocumented).
+- [ ] Fetch realm configurations for all 4 apps × 2 environments once, to
+      eyeball the undocumented-by-default remainder (scope only grows by
+      explicit decision; the subset invariant is re-checked manually at each
+      review gate).
+- [ ] Make `useClearingHouse().apiUrl` return the bare API host; each endpoint
+      generator owns its full versioned path (`/api/v2013/...`, `/api/v2023/...`).
+      Remove `API_EXTENSION` from app-config.
 - [ ] Add generators for `get`, `update`, `delete`, `list`, `solr` alongside `createSpec`.
+      Solr pages keep the legacy layout of five playground blocks per record
+      type (all-record / country / query / region / subfilters), emitted as
+      five variants of the one parameterized solr generator.
 - [ ] Endgame: drop redundant `swagger-ui` dep, unpin axios, multi-stage
       Docker image serving `dist/` via nginx, remove SwaggerUI.vue MutationObserver hacks.
+- Parked (out of rebuild scope): `landing/` stays as-is; after parity, dedupe
+  its hand-copied styling/GA config. Never hand-copy styles to match it.

@@ -85,7 +85,7 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
 import axios from "axios";
-import { APP_CONFIG } from "../../docs/app-config";
+import { APP_CONFIG } from "../../app-config";
 import { AuthManager } from "../../utils/auth-manager";
 import "../../style.css";
 

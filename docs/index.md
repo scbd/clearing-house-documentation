@@ -20,10 +20,10 @@ Please select one of the following clearing-houses to get started with their res
 
 ## About the Clearing Houses
 
-<!--@include: @/../components/about/bch.md-->
-<!--@include: @/../components/about/abs.md-->
-<!--@include: @/../components/about/chm.md-->
-<!--@include: @/../components/about/ort.md-->
+<!--@include: @/components/about/bch.md-->
+<!--@include: @/components/about/abs.md-->
+<!--@include: @/components/about/chm.md-->
+<!--@include: @/components/about/ort.md-->
 
 <script setup>
 import ClearingHouseSelector from "@/components/home/clearing-house-selector.vue"

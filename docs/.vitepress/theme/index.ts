@@ -2,12 +2,8 @@
 import DefaultTheme from 'vitepress/theme';
 import { onMounted } from 'vue';
 
-import "../../../style.css"
+import "../../style.css"
 import "./custom.css"
-
-// Import your custom components
-import SchemaRow from '../components/schema-row.vue'
-import SchemaTable from '../components/schema-table.vue'
 
 // Only import Bootstrap if not in server-side rendering (SSR)
 if (!import.meta.env.SSR) {
@@ -17,11 +13,6 @@ if (!import.meta.env.SSR) {
 
 export default {
   ...DefaultTheme,
-  enhanceApp({ app }: { app: any }) {
-    // Register global components
-    app.component('SchemaRow', SchemaRow)
-    app.component('SchemaTable', SchemaTable)
-  },
   setup() {
     // VPNavBarTitle doesn't expose a slot for a title/tooltip attribute,
     // so set it directly on the nav brand link.

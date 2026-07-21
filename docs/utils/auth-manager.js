@@ -1,5 +1,5 @@
 import axios from "axios";
-import { APP_CONFIG } from "../docs/app-config";
+import { APP_CONFIG } from "../app-config";
 
 export class AuthManager {
   constructor(accountsHostUrl) {
