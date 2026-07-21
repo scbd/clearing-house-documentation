@@ -50,4 +50,4 @@ Other wiring:
 
 ## Deployment
 
-Single-stage `Dockerfile` builds with placeholder `BASE_PATH=/__BASE_PATH__/` which `docker-entrypoint.sh` rewrites via sed at container start; the container serves with `vitepress preview`. CI (`.github/workflows/ci.yml`) builds and pushes the docs and landing images; only the dev branch auto-deploys (Portainer webhook). Remember: `VITE_*` values are baked at image build time — an image built without env files falls back to production (`cbd.int`) URLs.
+Per-environment images (ADR 0001): CI (`.github/workflows/ci.yml`) selects the build script by branch — `master` and calver tags run `npm run build` (production), every other branch runs `build:dev` (dev environment). Everything is baked at build time: `VITE_*` URLs, realms, and `BASE_PATH=/clearing-house/` (an image-level ENV in the `Dockerfile`, read by both the build and the `vitepress preview` serve command). There is no runtime configuration and no entrypoint script; never promote an image across environments. The landing app owns each environment's domain root; docs are always mounted at `/clearing-house/`. Only the dev branch auto-deploys (Portainer webhook).

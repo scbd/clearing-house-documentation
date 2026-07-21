@@ -21,17 +21,19 @@ RUN npm install --prefer-offline && \
 
 # Copy the rest of the application code
 COPY . .
-RUN chmod +x docker-entrypoint.sh
 
-# Build with a placeholder base path; the real path is substituted at
-# container startup by docker-entrypoint.sh, based on $BASE_PATH. Set only
-# for this RUN step, not as an image-level ENV, so it doesn't leak into
-# the runtime default.
-WORKDIR /usr/src/app/docs
-RUN BASE_PATH=/__BASE_PATH__/ npm run build
+# Per-environment image (ADR 0001): the environment (VITE_* URLs, realms) and
+# the base path are baked at build time. BUILD_SCRIPT is "build" for
+# production (master/tags) and "build:dev" for the dev environment. The
+# hosting layout is fixed: landing owns the domain root, docs are always
+# mounted at /clearing-house/. BASE_PATH is an image-level ENV because the
+# build AND `vitepress preview` (the serve command) both read it from config.
+ARG BUILD_SCRIPT=build
+ENV BASE_PATH=/clearing-house/
+RUN npm run ${BUILD_SCRIPT}
 
 # Set port and expose it
 ENV PORT=8000
 EXPOSE 8000
 
-ENTRYPOINT ["/usr/src/app/docker-entrypoint.sh"]
+CMD ["npm", "run", "preview"]

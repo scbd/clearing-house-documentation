@@ -35,9 +35,11 @@ jobs:
       #   master/dev           → tags=<branch>,                     push=true
       #   other branches       → tags=build-<sha>,                  push=false
       #
-      # The image itself is base-path-agnostic: docker-entrypoint.sh rewrites
-      # the built site to whatever $BASE_PATH the container is run with, so
-      # no branch-specific base path needs to be baked in at build time.
+      # Per-environment images (ADR 0001): everything — VITE_* URLs, realms,
+      # BASE_PATH — is baked at build time. master + calver tags build against
+      # production (npm run build); every other branch builds against the dev
+      # environment (npm run build:dev). Never promote an image across
+      # environments.
       - name: Resolve image tags
         id: meta
         run: |
@@ -53,17 +55,25 @@ jobs:
             echo "push=true"                    >> $GITHUB_OUTPUT
             echo "branch="                      >> $GITHUB_OUTPUT
             echo "build_tag=${TAG}"             >> $GITHUB_OUTPUT
-          elif [[ "${REF}" =~ ^refs/heads/(master|dev)$ ]]; then
-            BRANCH="${BASH_REMATCH[1]}"
-            echo "tags=${IMAGE}:${BRANCH}"      >> $GITHUB_OUTPUT
+            echo "build_script=build"           >> $GITHUB_OUTPUT
+          elif [[ "${REF}" =~ ^refs/heads/master$ ]]; then
+            echo "tags=${IMAGE}:master"         >> $GITHUB_OUTPUT
             echo "push=true"                    >> $GITHUB_OUTPUT
-            echo "branch=${BRANCH}"             >> $GITHUB_OUTPUT
+            echo "branch=master"                >> $GITHUB_OUTPUT
             echo "build_tag="                   >> $GITHUB_OUTPUT
+            echo "build_script=build"           >> $GITHUB_OUTPUT
+          elif [[ "${REF}" =~ ^refs/heads/dev$ ]]; then
+            echo "tags=${IMAGE}:dev"            >> $GITHUB_OUTPUT
+            echo "push=true"                    >> $GITHUB_OUTPUT
+            echo "branch=dev"                   >> $GITHUB_OUTPUT
+            echo "build_tag="                   >> $GITHUB_OUTPUT
+            echo "build_script=build:dev"       >> $GITHUB_OUTPUT
           else
             echo "tags=${IMAGE}:build-${SHORT_SHA}" >> $GITHUB_OUTPUT
             echo "push=false"                        >> $GITHUB_OUTPUT
             echo "branch="                           >> $GITHUB_OUTPUT
             echo "build_tag="                        >> $GITHUB_OUTPUT
+            echo "build_script=build:dev"            >> $GITHUB_OUTPUT
           fi
       - name: Log in to Docker Hub
         if: steps.meta.outputs.push == 'true'
@@ -78,26 +88,20 @@ jobs:
             COMMIT=${{ github.sha }}
             BRANCH=${{ steps.meta.outputs.branch }}
             TAG=${{ steps.meta.outputs.build_tag }}
+            BUILD_SCRIPT=${{ steps.meta.outputs.build_script }}
           load: true
           tags: ci-build:local
           cache-from: type=gha
           cache-to: type=gha,mode=max
+      # No runtime env vars: everything is baked at build time (ADR 0001).
       - name: Test image
         run: |
-          docker run --name clearing-house-documentation -d -p 8000:8000 \
-            -e BASE_PATH=/clearing-house/ \
-            -e VITE_API_URL=https://api.cbddev.xyz \
-            -e VITE_ACCOUNTS_HOST_URL=https://accounts.cbddev.xyz \
-            -e VITE_ABS_URL=https://absch.cbddev.xyz \
-            -e VITE_BCH_URL=https://bch.cbddev.xyz \
-            -e VITE_CHM_URL=https://chm.cbddev.xyz \
-            -e VITE_ORT_URL=https://ort.cbddev.xyz \
-            ci-build:local
+          docker run --name clearing-house-documentation -d -p 8000:8000 ci-build:local
           sleep 10
           docker exec clearing-house-documentation curl --retry 10 --retry-delay 5 -v http://localhost:8000/clearing-house/
           docker exec clearing-house-documentation sh -c \
             "curl -sf http://localhost:8000/clearing-house/ | grep -q '/clearing-house/assets/' \
-            && echo 'base path correctly rewritten' || (echo 'base path NOT rewritten' && exit 1)"
+            && echo 'base path baked correctly' || (echo 'base path NOT baked' && exit 1)"
       - name: Push image
         if: steps.meta.outputs.push == 'true'
         run: |
