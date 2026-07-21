@@ -1,5 +1,5 @@
 // Sidebar for the rebuilt documentation. It grows as record types are
-// migrated from .archive/ — one record type per PR (see REBUILD.md).
+// migrated from .archive/ — one reviewed step at a time (see REBUILD.md).
 // The previous hand-maintained sidebars are in .archive/routes/ for reference.
 
 interface SidebarItem {

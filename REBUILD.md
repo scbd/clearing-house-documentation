@@ -1,6 +1,6 @@
 # Documentation Rebuild Tracker
 
-The site is being rebuilt from scratch, one record type at a time. All previous
+The site is being rebuilt from scratch, one record type at a time, reviewed step by step in-session; each reviewed step becomes a commit (no PRs). All previous
 content lives in [.archive/](.archive/) as reference — nothing is carried over
 by copy-paste; every page is re-derived from a reviewed schema descriptor.
 
@@ -15,8 +15,8 @@ by copy-paste; every page is re-derived from a reviewed schema descriptor.
    once per type). Then confirm every field against the real backend schema
    and encode per-realm differences (mandatory flags, missing fields,
    vocabularies) in each app's descriptor file. The review happens on the
-   **rendered field table** (dev server or dev docs site), with the PR diff
-   of the descriptor as the formal record of what was approved.
+   **rendered field table** (dev server or dev docs site), with the
+   descriptor's commit diff as the formal record of what was approved.
    The gate also fixes the record type's **operation set** per app (default
    proposal: create/get/update/delete/list/solr + field reference; trimmed or
    extended per type). That decision is recorded per app per type and drives
@@ -25,7 +25,8 @@ by copy-paste; every page is re-derived from a reviewed schema descriptor.
 3. Wire the pages in `docs/<app>/<type>/` for each app that supports the type,
    add sidebar entries in `docs/routes/index.ts`, verify the playground against the
    dev environment (`api.cbddev.xyz`).
-4. Delete the record type's superseded files from `.archive/` in the same PR.
+4. Delete the record type's superseded files from `.archive/` in the same
+   commit series.
 
 Done means: `.archive/` is empty and every page is descriptor-driven.
 
@@ -86,7 +87,7 @@ and links never leave the app's context.
 
 - [ ] Fix build-time `VITE_*` inlining: CI must produce per-environment images
       (`build` vs `build:dev`) — the dev site currently falls back to prod URLs.
-      In the same PR: bake `BASE_PATH=/clearing-house/` at build time (landing
+      In the same step: bake `BASE_PATH=/clearing-house/` at build time (landing
       owns the domain root by design) and delete `docker-entrypoint.sh` — the
       placeholder/sed rewrite has no remaining purpose (see ADR 0001).
 - [ ] Fetch realm configurations for all 4 apps × 2 environments once, to
