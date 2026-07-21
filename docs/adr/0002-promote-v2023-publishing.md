@@ -29,7 +29,12 @@ SCBD wants new integrators steered to v2023.
   decision — no global API version).
 - The v2013 multi-call publishing chain (drafts, securities, locks,
   validation) is documented **once per app** as a legacy publishing-flow
-  reference — never again per record type.
+  reference — never again per record type. These legacy pages are
+  **published but unlisted**: no sidebar entry, reachable only by direct
+  link (each create/update page links to them for existing v2013
+  integrators), and every legacy page opens with a prominent notice that
+  this is the legacy flow and new integrations should use the v2023
+  endpoint.
 
 ## Consequences
 

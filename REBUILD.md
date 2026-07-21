@@ -20,7 +20,8 @@ by copy-paste; every page is re-derived from a reviewed schema descriptor.
    The gate also fixes the record type's **operation set** per app (default
    proposal: create/get/update/delete/list/solr + field reference; trimmed or
    extended per type). That decision is recorded per app per type and drives
-   both which pages exist and the sidebar entries.
+   both which pages exist and the sidebar entries. (Sole exception: the
+   per-app legacy publishing pages are deliberately sidebar-less, ADR 0002.)
 3. Wire the pages in `docs/<app>/<type>/` for each app that supports the type,
    add sidebar entries in `docs/routes/index.ts`, verify the playground against the
    dev environment (`api.cbddev.xyz`).
@@ -48,7 +49,7 @@ verify against the realm configurations before starting each row.
 | cna | A B | pending |
 | ndb | A B | pending |
 | nfp | A B | pending |
-| general (drafts, attachments, files) | A B C O | pending — becomes the once-per-app **legacy publishing flow** reference (v2013, ADR 0002) plus attachments/files |
+| general (drafts, attachments, files) | A B C O | pending — becomes the once-per-app **legacy publishing flow** reference (v2013, ADR 0002): published but **unlisted** (no sidebar entry; linked from create/update pages) with a legacy notice pointing to v2023. Attachments/files stay normal pages |
 | cp | A | pending |
 | cpc | A | pending |
 | cpp | A | pending |
@@ -102,6 +103,9 @@ and links never leave the app's context.
       Solr pages keep the legacy layout of five playground blocks per record
       type (all-record / country / query / region / subfilters), emitted as
       five variants of the one parameterized solr generator.
+- [ ] Build a reusable legacy-notice component (banner: "legacy v2013 flow —
+      use the v2023 endpoint for new integrations", linking to the app's
+      create/update docs) for the unlisted legacy pages.
 - [ ] Endgame: drop redundant `swagger-ui` dep, unpin axios, multi-stage
       Docker image serving `dist/` via nginx, remove SwaggerUI.vue MutationObserver hacks.
 - Parked (out of rebuild scope): `landing/` stays as-is; after parity, dedupe
