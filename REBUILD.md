@@ -48,7 +48,7 @@ verify against the realm configurations before starting each row.
 | cna | A B | pending |
 | ndb | A B | pending |
 | nfp | A B | pending |
-| general (drafts, attachments, files) | A B C O | pending |
+| general (drafts, attachments, files) | A B C O | pending — becomes the once-per-app **legacy publishing flow** reference (v2013, ADR 0002) plus attachments/files |
 | cp | A | pending |
 | cpc | A | pending |
 | cpp | A | pending |
@@ -95,7 +95,10 @@ and links never leave the app's context.
 - [ ] Make `useClearingHouse().apiUrl` return the bare API host; each endpoint
       generator owns its full versioned path (`/api/v2013/...`, `/api/v2023/...`).
       Remove `API_EXTENSION` from app-config.
-- [ ] Add generators for `get`, `update`, `delete`, `list`, `solr` alongside `createSpec`.
+- [ ] Redo `createSpec` against the v2023 publishing endpoint and add an
+      `updateSpec` (v2023) — create/update pages always document v2023
+      (ADR 0002). Add generators for `get`, `delete`, `list`, `solr` on their
+      existing v2013 endpoints.
       Solr pages keep the legacy layout of five playground blocks per record
       type (all-record / country / query / region / subfilters), emitted as
       five variants of the one parameterized solr generator.

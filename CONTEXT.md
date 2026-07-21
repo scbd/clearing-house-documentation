@@ -68,6 +68,15 @@ clearing houses genuinely coincide) — and are the single source from which
 both the human-readable field table and the playground specification are
 produced.
 
+## Publishing Workflow
+
+The sequence a record goes through to be published: identifier/lock check,
+security creation, validation, draft save, workflow initiation. The 2023
+generation of the API executes the whole workflow in a single create or
+update call, and is the promoted way to publish. The 2013 generation exposes
+the individual steps as separate endpoints and remains in service as the
+legacy publishing flow.
+
 ## Environment
 
 One of the two deployments of the API and of the documentation site:
