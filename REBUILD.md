@@ -42,7 +42,7 @@ verify against the realm configurations before starting each row.
 
 | Record type | Apps | Status |
 | --- | --- | --- |
-| contact | A B | descriptors + create generator exist (`docs/swagger/schemas/`, prototype code only); pages pending review |
+| contact | A B C | draft pages complete for all three apps (create/get/update/delete/list/solr/fields) + sidebar; **awaiting review gate** on the rendered field tables. CHM added by explicit scope decision 2026-07-30 (realm configuration supports it; the archived docs never documented it, so the CHM descriptor starts from the shared base with no archived table to compare against) |
 | user (authentication) | A B C O | rebuild early — every playground links to the auth guide |
 | org | A B C | pending |
 | vlr | A B C | pending |
@@ -88,10 +88,10 @@ and links never leave the app's context.
 - [x] Per-environment images (ADR 0001): CI selects `build` (master/tags) vs
       `build:dev` (all other branches); `BASE_PATH=/clearing-house/` baked as
       image ENV; `docker-entrypoint.sh` deleted.
-- [ ] Fetch realm configurations for all 4 apps × 2 environments once, to
+- [x] Fetch realm configurations for all 4 apps × 2 environments once, to
       eyeball the undocumented-by-default remainder (scope only grows by
       explicit decision; the subset invariant is re-checked manually at each
-      review gate).
+      review gate). Snapshot below (2026-07-30).
 - [x] `useClearingHouse().apiUrl` returns the bare API host; each endpoint
       generator owns its full versioned path. `API_EXTENSION` removed.
 - [x] Generator set complete: `createSpec`/`updateSpec` on v2023 (ADR 0002),
@@ -103,3 +103,40 @@ and links never leave the app's context.
       Docker image serving `dist/` via nginx, remove SwaggerUI.vue MutationObserver hacks.
 - Parked (out of rebuild scope): `landing/` stays as-is; after parity, dedupe
   its hand-copied styling/GA config. Never hand-copy styles to match it.
+
+## Realm configuration snapshot (2026-07-30)
+
+Schemas per realm from `GET /api/v2018/realm-configurations/<app-host>`;
+re-check live at each review gate — this is an eyeball reference, not a
+source of truth.
+
+- **ABS** (prod): absCheckpoint, absCheckpointCommunique,
+  absNationalModelContractualClause, absNationalReport, absNationalReport1,
+  absPermit, absProcedure, authority, capacityBuildingInitiative,
+  communityProtocol, contact, database, focalPoint, measure,
+  modelContractualClause, organization, resource.
+  **ABS-DEV** additionally has: absLegalFramework, absMeasureStatus,
+  capacityBuildingResource.
+- **BCH / BCH-DEV** (identical): authority, biosafetyDecision,
+  biosafetyExpert, biosafetyLaw, biosafetyNews, capacityBuildingInitiative,
+  contact, countryProfile, cpbNationalReport1–5, cpbNationalReportInterim,
+  database, dnaSequence, focalPoint, independentRiskAssessment,
+  laboratoryDetection, modifiedOrganism, nationalRiskAssessment, organism,
+  organization, resource, submission, supplementaryAuthority.
+- **CHM** (prod): bbiContact, bbiOpportunity, bbiProfile, bbiRequest,
+  capacityBuildingInitiative, capacityBuildingResource, contact, event,
+  focalPoint, marineEbsa, nationalAssessment, nationalReport,
+  nationalReport6, nationalTarget, nbsap, organization, resource,
+  strategicPlanIndicator, submission, undbAction, undbActor, undbPartner,
+  undbParty. **CHM-DEV**: adds action, drops bbiRequest.
+- **ORT / ORT-DEV** (identical): nationalReport7,
+  nationalReport7BinaryIndicatorData, nationalReport7IndicatorData,
+  nationalTarget7, nationalTarget7Mapping, nbsap, stakeholderCommitment,
+  stakeholderCredential.
+
+Eyeball notes: `contact` is supported by ABS, BCH **and CHM** (both
+environments) — the archived docs documented it for A B only; extending to
+CHM was decided explicitly on 2026-07-30 (see the contact row above). The API returns realm values
+uppercase (`ABS`, `ABS-DEV`); the docs use lowercase in the `Realm` header
+as before. ORT's schema names carry a `7` suffix
+(`nationalReport7`, `nationalTarget7`) relative to the tracker's row names.

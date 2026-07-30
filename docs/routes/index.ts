@@ -13,12 +13,19 @@ const contact = (base: string): SidebarItem => ({
   text: 'Contact',
   collapsed: false,
   items: [
-    { text: 'Create', link: `${base}/contact/create` }
+    { text: 'Create', link: `${base}/contact/create` },
+    { text: 'Get', link: `${base}/contact/get` },
+    { text: 'Update', link: `${base}/contact/update` },
+    { text: 'Delete', link: `${base}/contact/delete` },
+    { text: 'List', link: `${base}/contact/list` },
+    { text: 'Search', link: `${base}/contact/solr` },
+    { text: 'Field Reference', link: `${base}/contact/fields` }
   ]
 })
 
 export default {
   '/': [],
   '/absch/': [contact('/absch')],
-  '/bch/': [contact('/bch')]
+  '/bch/': [contact('/bch')],
+  '/chm/': [contact('/chm')]
 } as Record<string, SidebarItem[]>
