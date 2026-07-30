@@ -13,8 +13,6 @@ const swaggerSpecs = [
 
 # Contact - List
 
-> **Draft** — pending review (REBUILD.md review gate).
-
 ## Overview
 
 Lists Contact records in the Biosafety Clearing-House with OData-style query parameters for filtering, sorting and paging. Use the `collection` parameter to restrict the query, e.g. `my` for your own records (including drafts).

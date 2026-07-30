@@ -14,8 +14,6 @@ const swaggerSpecs = [
 
 # Contact - Create
 
-> **Draft** — fields pending review (REBUILD.md review gate).
-
 ## Overview
 
 Creates a new Contact record in the Clearing-House Mechanism and initiates the publishing workflow — identifier check, securities, validation, draft and workflow — in a single call.

@@ -14,8 +14,6 @@ const swaggerSpecs = [
 
 # Contact - Update
 
-> **Draft** — fields pending review (REBUILD.md review gate).
-
 ## Overview
 
 Updates an existing Contact record in the ABS Clearing-House and re-runs the publishing workflow — identifier check, securities, validation, draft and workflow — in a single call.

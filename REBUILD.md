@@ -42,7 +42,7 @@ verify against the realm configurations before starting each row.
 
 | Record type | Apps | Status |
 | --- | --- | --- |
-| contact | A B C | draft pages complete for all three apps (create/get/update/delete/list/solr/fields) + sidebar; **awaiting review gate** on the rendered field tables. CHM added by explicit scope decision 2026-07-30 (realm configuration supports it; the archived docs never documented it, so the CHM descriptor starts from the shared base with no archived table to compare against) |
+| contact | A B C | **fields reviewed 2026-07-30**: identical across all three apps — every descriptor is the shared base with no overrides. Full operation set (create/get/update/delete/list/solr/fields) + sidebar live; CHM added by explicit scope decision 2026-07-30. Remaining: verify playgrounds against the dev environment, then delete superseded `.archive/` contact files |
 | user (authentication) | A B C O | rebuild early — every playground links to the auth guide |
 | org | A B C | pending |
 | vlr | A B C | pending |
