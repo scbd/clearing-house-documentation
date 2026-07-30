@@ -23,6 +23,8 @@ Lists Contact records in the Clearing-House Mechanism with OData-style query par
 
 **Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header)
 
+Calls to this endpoint require a bearer token — see [User - Authentication](/chm/user/authentication).
+
 ## Query Parameters
 
 | Parameter | Description |

@@ -23,6 +23,8 @@ Deletes a Contact record from the Clearing-House Mechanism by its unique identif
 
 **Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header)
 
+Calls to this endpoint require a bearer token — see [User - Authentication](/chm/user/authentication).
+
 ## URL Parameters
 
 | Parameter | Description |

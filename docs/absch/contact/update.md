@@ -24,6 +24,8 @@ Updates an existing Contact record in the ABS Clearing-House and re-runs the pub
 
 **Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `realm` query parameter)
 
+Calls to this endpoint require a bearer token — see [User - Authentication](/absch/user/authentication).
+
 ## URL Parameters
 
 | Parameter | Description |

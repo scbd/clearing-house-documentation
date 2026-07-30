@@ -24,6 +24,8 @@ Creates a new Contact record in the ABS Clearing-House and initiates the publish
 
 **Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `realm` query parameter)
 
+Calls to this endpoint require a bearer token — see [User - Authentication](/absch/user/authentication).
+
 ## Request Body
 
 The record's fields, wrapped in a `document` object. The table below outlines the fields, their types, and whether they are mandatory.

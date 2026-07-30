@@ -9,6 +9,14 @@ interface SidebarItem {
   items?: SidebarItem[]
 }
 
+const user = (base: string): SidebarItem => ({
+  text: 'User',
+  collapsed: false,
+  items: [
+    { text: 'Authentication', link: `${base}/user/authentication` }
+  ]
+})
+
 const contact = (base: string): SidebarItem => ({
   text: 'Contact',
   collapsed: false,
@@ -25,7 +33,8 @@ const contact = (base: string): SidebarItem => ({
 
 export default {
   '/': [],
-  '/absch/': [contact('/absch')],
-  '/bch/': [contact('/bch')],
-  '/chm/': [contact('/chm')]
+  '/absch/': [user('/absch'), contact('/absch')],
+  '/bch/': [user('/bch'), contact('/bch')],
+  '/chm/': [user('/chm'), contact('/chm')],
+  '/ort/': [user('/ort')]
 } as Record<string, SidebarItem[]>

@@ -23,6 +23,8 @@ Lists Contact records in the Biosafety Clearing-House with OData-style query par
 
 **Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header)
 
+Calls to this endpoint require a bearer token — see [User - Authentication](/bch/user/authentication).
+
 ## Query Parameters
 
 | Parameter | Description |

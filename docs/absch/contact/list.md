@@ -23,6 +23,8 @@ Lists Contact records in the ABS Clearing-House with OData-style query parameter
 
 **Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header)
 
+Calls to this endpoint require a bearer token — see [User - Authentication](/absch/user/authentication).
+
 ## Query Parameters
 
 | Parameter | Description |

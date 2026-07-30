@@ -24,6 +24,8 @@ Creates a new Contact record in the Clearing-House Mechanism and initiates the p
 
 **Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `realm` query parameter)
 
+Calls to this endpoint require a bearer token — see [User - Authentication](/chm/user/authentication).
+
 ## Request Body
 
 The record's fields, wrapped in a `document` object. The table below outlines the fields, their types, and whether they are mandatory.
