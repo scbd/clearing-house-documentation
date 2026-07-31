@@ -83,6 +83,28 @@ Decision: these stay **per-app pages built from a shared source** (same
 mechanism as record pages) — each clearing house's section is self-contained
 and links never leave the app's context.
 
+Status: drafted 2026-07-30, **reviewed 2026-07-31** for all four apps. Shared
+bodies live in `docs/components/getting-started/`; per-app pages include them
+(`custom-types`, `realms`, `user-management`, `apache-solr`), while `index`
+and `record-types` are hand-written per app. Deviations from the archive,
+flagged not silently resolved:
+
+- `schemas` page dropped — merged into `record-types` (one table: record
+  type ↔ schema value). The archived `schemas.md` was ABS-specific content
+  served identically to all four apps.
+- `custom-types` documents only the types the rebuilt descriptors use;
+  `lstring` documented as its JSON shape (`{ "en": … }`) — the archived
+  table showed the backend-internal `SortedList mValues` representation,
+  which contradicts every payload example.
+- `user-management` keeps role descriptions but drops the archived
+  per-role "Permissions" lists (realm configuration is the sole authority
+  on authorization, per CONTEXT.md).
+- `apache-solr`: archived escaping example (`1\+1:2`) didn't match its own
+  prose — corrected; dropped the stale pinned GitHub link into the absch
+  app source.
+- `index` pages are new per-app landing pages (also fixes the home-page
+  selector 404s).
+
 ## Foundation tasks (not record types)
 
 - [x] Per-environment images (ADR 0001): CI selects `build` (master/tags) vs

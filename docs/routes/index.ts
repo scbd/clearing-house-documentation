@@ -9,6 +9,19 @@ interface SidebarItem {
   items?: SidebarItem[]
 }
 
+const gettingStarted = (base: string): SidebarItem => ({
+  text: 'Getting Started',
+  collapsed: false,
+  items: [
+    { text: 'Introduction', link: `${base}/` },
+    { text: 'Realms', link: `${base}/realms` },
+    { text: 'Record Types', link: `${base}/record-types` },
+    { text: 'Custom Types', link: `${base}/custom-types` },
+    { text: 'User Management', link: `${base}/user-management` },
+    { text: 'Apache Solr', link: `${base}/apache-solr` }
+  ]
+})
+
 const user = (base: string): SidebarItem => ({
   text: 'User',
   collapsed: false,
@@ -33,8 +46,8 @@ const contact = (base: string): SidebarItem => ({
 
 export default {
   '/': [],
-  '/absch/': [user('/absch'), contact('/absch')],
-  '/bch/': [user('/bch'), contact('/bch')],
-  '/chm/': [user('/chm'), contact('/chm')],
-  '/ort/': [user('/ort')]
+  '/absch/': [gettingStarted('/absch'), user('/absch'), contact('/absch')],
+  '/bch/': [gettingStarted('/bch'), user('/bch'), contact('/bch')],
+  '/chm/': [gettingStarted('/chm'), user('/chm'), contact('/chm')],
+  '/ort/': [gettingStarted('/ort'), user('/ort')]
 } as Record<string, SidebarItem[]>
