@@ -6,3 +6,15 @@ Record types documented for the ABS Clearing-House, with the schema value that s
 | --- | --- |
 | [Contact](/absch/contact/fields) | `contact` |
 | [Organization](/absch/org/fields) | `organization` |
+| [Virtual Library Resource](/absch/vlr/fields) | `resource` |
+| [Capacity Development Initiative](/absch/cdi/fields) | `capacityBuildingInitiative` |
+| [Competent National Authority](/absch/cna/fields) | `authority` |
+| [National Website or Database](/absch/ndb/fields) | `database` |
+| [National Focal Point](/absch/nfp/fields) | `focalPoint` |
+| [Checkpoint](/absch/cp/fields) | `absCheckpoint` |
+| [Checkpoint Communique](/absch/cpc/fields) | `absCheckpointCommunique` |
+| [Community Protocol](/absch/cpp/fields) | `communityProtocol` |
+| [Internationally Recognized Certificate of Compliance](/absch/ircc/fields) | `absPermit` |
+| [Measure](/absch/msr/fields) | `measure` |
+| [National Model Contractual Clause](/absch/nmcc/fields) | `absNationalModelContractualClause` |
+| [ABS Procedure](/absch/pro/fields) | `absProcedure` |
