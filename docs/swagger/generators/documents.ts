@@ -15,7 +15,9 @@ export interface DocumentSpecOptions {
   schema: SchemaDescriptor
 }
 
-// v2023 request body: the record's fields wrapped in a `document` object.
+// v2023 request body: the record's fields wrapped in a `document` object,
+// optionally accompanied by `additionalInfo` and `batchId` (backend Joi
+// schema: document required, additionalInfo max 1000, batchId max 100).
 const workflowRequestBody = (schema: SchemaDescriptor) => {
   const required = mandatoryFieldNames(schema)
   return {
@@ -24,11 +26,22 @@ const workflowRequestBody = (schema: SchemaDescriptor) => {
       'application/json': {
         schema: {
           type: 'object',
+          required: ['document'],
           properties: {
             document: {
               type: 'object',
               ...(required.length && { required }),
               properties: documentProperties(schema)
+            },
+            additionalInfo: {
+              type: 'string',
+              maxLength: 1000,
+              description: 'Optional free-text information accompanying the publication.'
+            },
+            batchId: {
+              type: 'string',
+              maxLength: 100,
+              description: 'If multiple records are batched for publishing together.'
             }
           }
         }
@@ -37,9 +50,16 @@ const workflowRequestBody = (schema: SchemaDescriptor) => {
   }
 }
 
-const workflowSuccessResponse = () => ({
+// Responses of the v2023 publish endpoints, per the backend controller:
+// success returns { draft, workflow }; validation failures ALSO return 200
+// with an { errors } body (the backend mirrors the legacy validator's
+// status), so consumers must check the body, not just the status code.
+const workflowResponses = (op: 'create' | 'update') => ({
   200: {
-    description: 'Document created successfully; the publishing workflow has been initiated.',
+    description:
+      'The record was published: the body carries the saved draft and the publishing workflow ' +
+      'that was started. **Validation failures also return 200** — with an `errors` array in the ' +
+      'body instead. Always check the response body, not just the status code.',
     content: {
       'application/json': {
         schema: {
@@ -47,19 +67,39 @@ const workflowSuccessResponse = () => ({
           properties: {
             draft: {
               type: 'object',
+              description: 'The saved draft (identifier, documentID, working title, …).',
               properties: {
-                header: {
-                  type: 'object',
-                  properties: {
-                    identifier: { type: 'string', example: 'CB51626B-CF45-2AA0-3A24-459669DDCC34' }
-                  }
-                }
+                identifier: { type: 'string', example: 'CB51626B-CF45-2AA0-3A24-459669DDCC34' }
               }
+            },
+            workflow: {
+              type: 'object',
+              description: 'The publishing workflow that was started.'
+            },
+            errors: {
+              type: 'array',
+              items: { type: 'object' },
+              description: 'Validation errors — present instead of draft/workflow, still with HTTP 200.'
             }
           }
         }
       }
     }
+  },
+  ...standardErrorResponses(),
+  400: {
+    description:
+      'Bad request: the realm is missing or not configured, the record type is not configured ' +
+      'for the realm, the identifier in the path does not match `document.header.identifier`, ' +
+      (op === 'create'
+        ? 'a record or draft with the identifier already exists, '
+        : 'no record or draft with the identifier exists, ') +
+      'or the record is locked by a running workflow.'
+  },
+  403: {
+    description:
+      'Forbidden: the request is anonymous (`authorization_required`) or the account lacks ' +
+      `the rights to ${op} a draft record of this type for the document's government.`
   }
 })
 
@@ -89,10 +129,7 @@ export const createSpec = ({ apiUrl, realm, schema }: DocumentSpecOptions) =>
           security: [{ BearerAuth: [] }, { ApiKeyAuth: [] }],
           parameters: [schemaPathParameter(schema.schema), realmQueryParameter(realm)],
           requestBody: workflowRequestBody(schema),
-          responses: {
-            ...workflowSuccessResponse(),
-            ...standardErrorResponses()
-          }
+          responses: workflowResponses('create')
         }
       }
     }
@@ -125,10 +162,7 @@ export const updateSpec = ({ apiUrl, realm, schema }: DocumentSpecOptions) =>
             realmQueryParameter(realm)
           ],
           requestBody: workflowRequestBody(schema),
-          responses: {
-            ...workflowSuccessResponse(),
-            ...standardErrorResponses()
-          }
+          responses: workflowResponses('update')
         }
       }
     }

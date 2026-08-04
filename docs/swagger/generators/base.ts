@@ -60,7 +60,8 @@ export const realmQueryParameter = (realm: string) => ({
   schema: { type: 'string', example: realm },
   description:
     'Realm used for the request. ' +
-    `For this application and environment the value is \`${realm}\`.`
+    `For this application and environment the value is \`${realm}\`. ` +
+    'May alternatively be sent as the `Realm` HTTP header.'
 })
 
 export const uidParameter = () => ({

@@ -34,9 +34,13 @@ Calls to this endpoint require a bearer token — see [User - Authentication](/b
 
 ## Request Body
 
-The record's fields, wrapped in a `document` object. The table below outlines the fields, their types, and whether they are mandatory.
+The record's fields, wrapped in a `document` object. Two optional fields may accompany it: `additionalInfo` (free text, up to 1000 characters) and `batchId` (up to 100 characters, when multiple records are batched for publishing together). The `:identifier` path parameter must match the `header.identifier` inside the document. The table below outlines the fields, their types, and whether they are mandatory.
 
 <SchemaTable :schema="contact" />
+
+## Response
+
+A successful call returns the saved draft and the publishing workflow that was started. Validation failures **also return HTTP 200**, with an `errors` array in the body instead — always check the response body, not just the status code.
 
 ## Playground
 
