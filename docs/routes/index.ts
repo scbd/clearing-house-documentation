@@ -34,12 +34,12 @@ const contact = (base: string): SidebarItem => ({
   text: 'Contact',
   collapsed: false,
   items: [
-    { text: 'Create', link: `${base}/contact/create` },
-    { text: 'Get', link: `${base}/contact/get` },
-    { text: 'Update', link: `${base}/contact/update` },
-    { text: 'Delete', link: `${base}/contact/delete` },
     { text: 'List', link: `${base}/contact/list` },
     { text: 'Search', link: `${base}/contact/solr` },
+    { text: 'Get', link: `${base}/contact/get` },
+    { text: 'Create', link: `${base}/contact/create` },
+    { text: 'Update', link: `${base}/contact/update` },
+    { text: 'Delete', link: `${base}/contact/delete` },
     { text: 'Field Reference', link: `${base}/contact/fields` }
   ]
 })
