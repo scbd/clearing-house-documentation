@@ -4,7 +4,8 @@
 
 export type FieldType =
   'string' | 'string[]' | 'lstring' | 'lstring[]' | 'term' | 'term[]' |
-  'reference' | 'reference[]' | 'link[]' | 'mapLocation'
+  'reference' | 'reference[]' | 'link[]' | 'mapLocation' |
+  'bool' | 'int' | 'decimal' | 'datetime' | 'date' | 'object' | 'object[]'
 
 export interface Field {
   /** Human-readable label shown in the request-body table. */

@@ -18,7 +18,14 @@ const FIELD_SHAPES: Record<FieldType, object> = {
   mapLocation: {
     type: 'object',
     properties: { zoom: { type: 'integer' }, lat: { type: 'number' }, lng: { type: 'number' } }
-  }
+  },
+  bool: { type: 'boolean' },
+  int: { type: 'integer' },
+  decimal: { type: 'number' },
+  datetime: { type: 'string', format: 'date-time' },
+  date: { type: 'string', format: 'date' },
+  object: { type: 'object' },
+  'object[]': { type: 'array', items: { type: 'object' } }
 }
 
 const fieldToOpenApi = (field: Field) => ({

@@ -18,6 +18,12 @@ const TYPE_LINKS = {
   mapLocation: { label: 'MapLocation', href: '/custom-types.html#maplocation' }
 }
 
+// Friendlier labels for scalar/composite types that don't link anywhere.
+const TYPE_LABELS = {
+  bool: 'Boolean', int: 'Integer', decimal: 'Decimal',
+  datetime: 'DateTime', date: 'Date', object: 'Object', 'object[]': 'Object[]'
+}
+
 const formatExample = (example) =>
   typeof example === 'string' ? example : JSON.stringify(example)
 </script>
@@ -52,7 +58,7 @@ const formatExample = (example) =>
         <td>{{ field.mandatory ? 'True' : '' }}</td>
         <td>
           <a v-if="TYPE_LINKS[field.type]" :href="clearingHouseBase(TYPE_LINKS[field.type].href)">{{ TYPE_LINKS[field.type].label }}</a>
-          <template v-else>{{ field.type }}</template>
+          <template v-else>{{ TYPE_LABELS[field.type] || field.type }}</template>
         </td>
         <td><code v-if="field.example !== undefined">{{ formatExample(field.example) }}</code></td>
       </tr>
