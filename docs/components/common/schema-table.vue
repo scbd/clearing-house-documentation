@@ -11,8 +11,11 @@ defineProps({
 
 const TYPE_LINKS = {
   term: { label: 'Term', href: '/custom-types.html#term' },
+  'term[]': { label: 'Term[]', href: '/custom-types.html#term' },
   reference: { label: 'Reference', href: '/custom-types.html#reference' },
-  'link[]': { label: 'Link[]', href: '/custom-types.html#link' }
+  'reference[]': { label: 'Reference[]', href: '/custom-types.html#reference' },
+  'link[]': { label: 'Link[]', href: '/custom-types.html#link' },
+  mapLocation: { label: 'MapLocation', href: '/custom-types.html#maplocation' }
 }
 
 const formatExample = (example) =>

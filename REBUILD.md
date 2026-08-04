@@ -44,7 +44,7 @@ verify against the realm configurations before starting each row.
 | --- | --- | --- |
 | contact | A B C | **fields reviewed 2026-07-30**: identical across all three apps — every descriptor is the shared base with no overrides. Full operation set (create/get/update/delete/list/solr/fields) + sidebar live; CHM added by explicit scope decision 2026-07-30. Remaining: verify playgrounds against the dev environment, then delete superseded `.archive/` contact files |
 | user (authentication) | A B C O | draft pages for all four apps (`<app>/user/authentication`) + sidebar; generator `authentication.ts` (no realm, no descriptor — not a documents record type); every protected contact page links to the guide. Live check 2026-07-30: invalid credentials return **403 empty-body**, not the 400/401 the archived spec claimed — encoded as observed. **Awaiting review gate** |
-| org | A B C | pending |
+| org | A B C | drafted 2026-08-04, **awaiting review gate**. Operation set proposal: read-only (search/get/fields), matching the archive — org was never documented with create/update/delete/list. Flags for review: the archive served one shared field table to all three apps (including `absThematicAreas` even for BCH/CHM); nine fields are untitled in the archive; archived `Link` examples carry a `language` key the Link type doesn't define (examples drafted with `url`/`name` only). New field types added for org: `term[]`, `reference[]`, `lstring[]`, `mapLocation` (MapLocation added to custom-types page) |
 | vlr | A B C | pending |
 | cdi | A B C | pending |
 | cna | A B | pending |

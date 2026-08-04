@@ -44,10 +44,20 @@ const contact = (base: string): SidebarItem => ({
   ]
 })
 
+const org = (base: string): SidebarItem => ({
+  text: 'Organization',
+  collapsed: false,
+  items: [
+    { text: 'Search', link: `${base}/org/solr` },
+    { text: 'Get', link: `${base}/org/get` },
+    { text: 'Field Reference', link: `${base}/org/fields` }
+  ]
+})
+
 export default {
   '/': [],
-  '/absch/': [gettingStarted('/absch'), user('/absch'), contact('/absch')],
-  '/bch/': [gettingStarted('/bch'), user('/bch'), contact('/bch')],
-  '/chm/': [gettingStarted('/chm'), user('/chm'), contact('/chm')],
+  '/absch/': [gettingStarted('/absch'), user('/absch'), contact('/absch'), org('/absch')],
+  '/bch/': [gettingStarted('/bch'), user('/bch'), contact('/bch'), org('/bch')],
+  '/chm/': [gettingStarted('/chm'), user('/chm'), contact('/chm'), org('/chm')],
   '/ort/': [gettingStarted('/ort'), user('/ort')]
 } as Record<string, SidebarItem[]>

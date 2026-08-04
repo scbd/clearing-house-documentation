@@ -9,9 +9,16 @@ const FIELD_SHAPES: Record<FieldType, object> = {
   string: { type: 'string' },
   lstring: { type: 'object', properties: { en: { type: 'string' } } },
   'string[]': { type: 'array', items: { type: 'string' } },
+  'lstring[]': { type: 'array', items: { type: 'object', properties: { en: { type: 'string' } } } },
   term: { type: 'object', properties: { identifier: { type: 'string' } } },
+  'term[]': { type: 'array', items: { type: 'object', properties: { identifier: { type: 'string' } } } },
   reference: { type: 'object', properties: { identifier: { type: 'string' } } },
-  'link[]': { type: 'array', items: { type: 'object', properties: { url: { type: 'string' } } } }
+  'reference[]': { type: 'array', items: { type: 'object', properties: { identifier: { type: 'string' } } } },
+  'link[]': { type: 'array', items: { type: 'object', properties: { url: { type: 'string' } } } },
+  mapLocation: {
+    type: 'object',
+    properties: { zoom: { type: 'integer' }, lat: { type: 'number' }, lng: { type: 'number' } }
+  }
 }
 
 const fieldToOpenApi = (field: Field) => ({

@@ -2,7 +2,9 @@
 // app (realm): it drives BOTH the request-body table in the docs page and the
 // generated OpenAPI spec for the playground.
 
-export type FieldType = 'string' | 'lstring' | 'string[]' | 'term' | 'reference' | 'link[]'
+export type FieldType =
+  'string' | 'string[]' | 'lstring' | 'lstring[]' | 'term' | 'term[]' |
+  'reference' | 'reference[]' | 'link[]' | 'mapLocation'
 
 export interface Field {
   /** Human-readable label shown in the request-body table. */

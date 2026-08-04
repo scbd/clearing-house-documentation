@@ -54,6 +54,16 @@ A link to an external resource. Fields of type `link[]` carry a list of these.
 { "url": "http://www.example.com" }
 ```
 
+## MapLocation
+
+A point on the map.
+
+| Variable | Type | Description |
+| --- | --- | --- |
+| `zoom` | `int` | Map zoom level. |
+| `lat` | `double` | Latitude. |
+| `lng` | `double` | Longitude. |
+
 ## lstring
 
 A localized string: an object keyed by language code.

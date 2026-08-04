@@ -5,3 +5,4 @@ Record types documented for the Biosafety Clearing-House, with the schema value 
 | Record Type | Schema |
 | --- | --- |
 | [Contact](/bch/contact/fields) | `contact` |
+| [Organization](/bch/org/fields) | `organization` |

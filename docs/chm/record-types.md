@@ -5,3 +5,4 @@ Record types documented for the Clearing-House Mechanism, with the schema value 
 | Record Type | Schema |
 | --- | --- |
 | [Contact](/chm/contact/fields) | `contact` |
+| [Organization](/chm/org/fields) | `organization` |

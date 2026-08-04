@@ -5,3 +5,4 @@ Record types documented for the ABS Clearing-House, with the schema value that s
 | Record Type | Schema |
 | --- | --- |
 | [Contact](/absch/contact/fields) | `contact` |
+| [Organization](/absch/org/fields) | `organization` |
