@@ -44,6 +44,10 @@ A successful call returns the saved draft and the publishing workflow that was s
 
 Publishing through the legacy v2013 API uses the [Save Draft](/bch/general/save-draft) endpoint plus a workflow call; new integrations should use this single v2023 call instead. The record's other document operations (drafts, locks, securities, validation, versions) are documented under Document Operations.
 
+## Errors
+
+<!--@include: @/components/common/workflow-request-errors.md-->
+
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs" />
