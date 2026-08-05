@@ -22,6 +22,8 @@ Creates a new Contact record in the Biosafety Clearing-House and initiates the p
 
 **POST** `/api/v2023/documents/schemas/contact`
 
+The identifier may also be supplied in the path — **POST** `/api/v2023/documents/schemas/contact/:identifier?` — otherwise it is taken from the document's `header.identifier`.
+
 **Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `realm` query parameter)
 
 Calls to this endpoint require a bearer token — see [User - Authentication](/bch/user/authentication).
@@ -37,6 +39,8 @@ The fields of the `document` object are below. The record's identifier is taken 
 ## Response
 
 A successful call returns the saved draft and the publishing workflow that was started. Validation failures **also return HTTP 200**, with an `errors` array in the body instead — always check the response body, not just the status code.
+
+<!--@include: @/components/common/workflow-validation-errors.md-->
 
 Publishing through the legacy v2013 API uses the [Save Draft](/bch/general/save-draft) endpoint plus a workflow call; new integrations should use this single v2023 call instead. The record's other document operations (drafts, locks, securities, validation, versions) are documented under Document Operations.
 

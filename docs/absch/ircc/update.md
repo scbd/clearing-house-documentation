@@ -44,6 +44,8 @@ The fields of the `document` object are below.
 
 A successful call returns the saved draft and the publishing workflow that was started. Validation failures **also return HTTP 200**, with an `errors` array in the body instead — always check the response body, not just the status code.
 
+<!--@include: @/components/common/workflow-validation-errors.md-->
+
 Publishing through the legacy v2013 API uses the [Save Draft](/absch/general/save-draft) endpoint plus a workflow call; new integrations should use this single v2023 call instead. The record's other document operations (drafts, locks, securities, validation, versions) are documented under Document Operations.
 
 ## Playground
