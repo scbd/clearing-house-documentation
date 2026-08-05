@@ -6,7 +6,7 @@ const nationalTargetMapping: SchemaDescriptor = {
   name: "National Target Mapping",
   description: "A National Target Mapping record in the Online Reporting Tool.",
   fields: {
-  "government": { title: "Government", type: 'term', mandatory: true, example: {"identifier":"af"} },
+  "government": { title: "Government", titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: {"identifier":"af"} },
   "globalGoalOrTarget": { title: "", type: 'term' },
   "elementOfGlobalTargetsInfo": { title: "Elements of the global targets addressed by national targets (Please also include which aspects of the global targets have not been covered by the national targets)", type: 'lstring', mandatory: true, example: {"en":"<p>Test Info</p>"} },
   "referencePeriod": { title: "Reference Period", type: 'object', example: [{"headlineIndicator":{"identifier":"GBF-INDICATOR-1.1"},"hasReferencePeriod":true,"referencePeriodInfo":{"en":"<p>TEst Info</p>"}}] },

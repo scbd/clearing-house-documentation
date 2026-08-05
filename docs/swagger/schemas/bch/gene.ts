@@ -9,7 +9,7 @@ const gene: SchemaDescriptor = {
   "name": { title: "Name of genetic element", type: 'lstring', mandatory: true, example: {"en":"Test Name"} },
   "synonymNames": { title: "Alternate genetic element name(s) (synonym(s))", type: 'lstring[]', example: [{"en":"Test Information"}] },
   "abbreviation": { title: "Abbreviation", type: 'lstring', mandatory: true, example: {"en":"Test Abbreviation"} },
-  "family": { title: "Category", type: 'term', mandatory: true, example: {"identifier":"1ECB698D-3F3D-41BC-BEBD-DD5C734BCDCF"} },
+  "family": { title: "Category", titleLink: '/thesaurus/dna-sequence-family', type: 'term', mandatory: true, example: {"identifier":"1ECB698D-3F3D-41BC-BEBD-DD5C734BCDCF"} },
   "isSynthetic": { title: "Is the genetic element a synthetic molecule?", type: 'bool', mandatory: true, example: true },
   "donorOrganisms": { title: "Donor organism(s)", type: 'reference[]', example: [{"identifier":"50D6389D-5F07-2343-ABB1-E7CE26AFADCA@5"}] },
   "donorOrganismCollectionPoint": { title: "Point of collection or acquisition of the donor organism(s)", type: 'lstring', example: {"en":"<div><!--block-->Test Information</div>"} },

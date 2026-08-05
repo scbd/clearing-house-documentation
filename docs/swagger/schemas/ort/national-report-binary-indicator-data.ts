@@ -6,7 +6,7 @@ const nationalReportBinaryIndicatorData: SchemaDescriptor = {
   name: "National Report Binary Indicator Data",
   description: "A National Report Binary Indicator Data record in the Online Reporting Tool.",
   fields: {
-  "government": { title: "Government", type: 'term', mandatory: true, example: {"identifier":"af"} },
+  "government": { title: "Government", titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: {"identifier":"af"} },
   "binaryResponseGoalC": { title: "BIN.B Number of countries with national constitution or legislation recognizing and implementing and monitoring a right to a healthy environment", type: 'object', example: {"indicator":{"identifier":"KMGBF-INDICATOR-BIN-C-13"},"responses":{"13_1":"??","13_2":"??","13_3":"yesFully","13_3_alt":"??"},"comments":{"en":"<p>Test Info</p>"}} },
   "binaryResponseGoalB": { title: "BIN.C.13 Number of countries that have operational legislative, administrative or policy frameworks which relate to Target 13", type: 'object', example: {"indicator":{"identifier":"KMGBF-INDICATOR-BIN-B"},"responses":{"b_1":"yesFully","b_2":"yesFully"},"comments":{"en":"<p>Test Info</p>"}} },
   "binaryResponseTarget1": { title: "BIN.1 Number of countries using terrestrial and marine spatial planning to identify areas of high biodiversity importance in national development planning", type: 'object', example: {"indicator":{"identifier":"KMGBF-INDICATOR-BIN-1"},"responses":{"1_a":"yesFully","1_b":"yesFully","1_c":"yesFully"},"comments":{"en":"<p>Test Info</p>"}} },

@@ -21,7 +21,7 @@ export const organizationFields: Record<string, Field> = {
   city: { title: 'City', type: 'lstring', mandatory: true, example: { en: 'Test Info' } },
   state: { title: 'State or Province', type: 'lstring', example: { en: 'Test Info' } },
   postalCode: { title: 'Postal Code or Zip', type: 'lstring', example: { en: 'TestINFO' } },
-  country: { title: 'Country', type: 'term', mandatory: true, example: { identifier: 'af' } },
+  country: { title: 'Country', titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: { identifier: 'af' } },
   phones: { title: 'Phone number(s)', type: 'string[]', mandatory: true, example: ['1234561234'] },
   faxes: { title: 'Fax number(s)', type: 'string[]', example: ['1234561234'] },
   emails: { title: 'Email(s)', type: 'string[]', mandatory: true, example: ['test@email.com'] },

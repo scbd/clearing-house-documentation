@@ -6,7 +6,7 @@ const pro: SchemaDescriptor = {
   name: "ABS Procedure",
   description: "A ABS Procedure record in the ABS Clearing-House.",
   fields: {
-  "government": { title: "Country", type: 'term', mandatory: true, example: {"identifier":"af"} },
+  "government": { title: "Country", titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: {"identifier":"af"} },
   "name": { title: "This is an ABS procedure for:", type: 'lstring', mandatory: true, example: {"en":"Test Info"} },
   "jurisdiction": { title: "Area of jurisdiction", type: 'term', mandatory: true, example: {"identifier":"5B6177DD-5E5E-434E-8CB7-D63D67D5EBED","customValue":{"en":"Test Jurisdiction"}} },
   "contacts": { title: "Where should applications for access be made?", type: 'reference[]', mandatory: true, example: [{"identifier":"DECLARE-ORGANISATION_24185_20241104154859186@1"}] },

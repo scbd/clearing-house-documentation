@@ -12,7 +12,7 @@ const ira: SchemaDescriptor = {
   "dateOfRaNotAvailable": { title: "Date not available", type: 'bool', mandatory: true },
   "contacts": { title: "Contact details of the main responsible risk assessor", type: 'reference[]', example: [{"identifier":"3CBDA8AA-4A16-CA5C-D405-7F4E865A60AA@1"}] },
   "modifiedOrganisms": { title: "Living modified organism(s)", type: 'reference[]', mandatory: true, example: [{"identifier":"1E027990-5D44-F3AF-75E3-715B60BFD3CD@8"}] },
-  "scopes": { title: "Scope of the risk assessment", type: 'term[]', mandatory: true, example: [{"identifier":"D6B59E8A-D82C-4516-917A-A745ACDA5931"},{"identifier":"015737FC-ABC2-460C-A099-06A1B01E649A"},{"identifier":"BEBF757E-E3CC-4913-8D9F-2D165CD63ECE"}] },
+  "scopes": { title: "Scope of the risk assessment", titleLink: '/thesaurus/risk-assessment-scope', type: 'term[]', mandatory: true, example: [{"identifier":"D6B59E8A-D82C-4516-917A-A745ACDA5931"},{"identifier":"015737FC-ABC2-460C-A099-06A1B01E649A"},{"identifier":"BEBF757E-E3CC-4913-8D9F-2D165CD63ECE"}] },
   "documents": { title: "Risk assessment report / summary", type: 'link[]', mandatory: true, example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },
   "documentsSummary": { title: "Please use this field to provide a summary of the risk assessment.", type: 'lstring', example: {"en":"<div><!--block-->Test field</div>"} },
   "adverseEffects": { title: "Potential adverse effects identified in the risk assessment", type: 'lstring', example: {"en":"<div><!--block-->Test information</div>"} },

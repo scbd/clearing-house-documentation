@@ -23,7 +23,7 @@ export const contactFields: Record<string, Field> = {
   city: { title: 'City', type: 'lstring', example: { en: 'Cambridge' } },
   state: { title: 'State or Province', type: 'lstring', example: { en: 'Ontario' } },
   postalCode: { title: 'Postal Code or Zip', type: 'lstring', example: { en: 'N1R 7Z1' } },
-  country: { title: 'Country of Contact', type: 'term', mandatory: true, example: { identifier: 'ca' } },
+  country: { title: 'Country of Contact', titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: { identifier: 'ca' } },
   phones: { title: 'Phone Number(s)', type: 'string[]', example: ['54825578896'] },
   faxes: { title: 'Fax Number(s)', type: 'string[]', example: ['123456'] },
   emails: { title: 'Email(s)', type: 'string[]', mandatory: true, example: ['john.doe@example.com'] },

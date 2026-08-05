@@ -4,7 +4,7 @@ import type { Field } from '../types'
 // served to ABS Clearing-House, Biosafety Clearing-House. Per-app differences were never
 // encoded there — review gate confirms. Untitled fields are untitled in the archive.
 export const ndbFields: Record<string, Field> = {
-  "government": { title: "Country", type: 'term', mandatory: true, example: {"identifier":"af"} },
+  "government": { title: "Country", titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: {"identifier":"af"} },
   "title": { title: "Website or database name", type: 'lstring', mandatory: true, example: {"en":"Test Info"} },
   "description": { title: "Description", type: 'lstring', mandatory: true, example: {"en":"<div><!--block-->Test Description</div>"} },
   "websites": { title: "Website address", type: 'link[]', mandatory: true, example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },

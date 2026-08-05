@@ -6,7 +6,7 @@ const cp: SchemaDescriptor = {
   name: "Checkpoint",
   description: "A Checkpoint record in the ABS Clearing-House.",
   fields: {
-  "government": { title: "Country", type: 'term', example: {"identifier":"us"} },
+  "government": { title: "Country", titleLink: '/thesaurus/countries', type: 'term', example: {"identifier":"us"} },
   "name": { title: "Name of the checkpoint", type: 'lstring', mandatory: true, example: {"en":"Test Checkpoint"} },
   "responsibilities": { title: "Short description of any additional responsibilities (maximum 300 characters)", type: 'lstring', mandatory: true, example: {"en":"<div><!--block-->Test description</div>"} },
   "jurisdiction": { title: "Area of jurisdiction:", type: 'term', example: {"identifier":"7437F880-7B12-4F26-AA91-CED37250DD0A"} },

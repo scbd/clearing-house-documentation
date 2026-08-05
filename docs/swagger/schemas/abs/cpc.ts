@@ -8,11 +8,11 @@ const cpc: SchemaDescriptor = {
   listFilterExample: "(type eq 'absCheckpointCommunique')",
   fields: {
   "title": { title: "Title of this checkpoint communique", type: 'lstring', mandatory: true, example: {"en":"Test Title"} },
-  "government": { title: "Country issuing this checkpoint communique", type: 'term', mandatory: true, example: {"identifier":"af"} },
+  "government": { title: "Country issuing this checkpoint communique", titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: {"identifier":"af"} },
   "absIRCCs": { title: "Links to internationally recognized certificate(s) of compliance (IRCC) that relate to this communique", type: 'reference[]', mandatory: true, example: [{"identifier":"CB51626B-CF45-2AA0-3A24-459669DDCC34@1"}] },
   "absCheckpoints": { title: "Checkpoint/s that collected or received the information", type: 'reference[]', mandatory: true, example: [{"identifier":"3E387C20-E70C-997B-EABB-BC4C9A1E142F@1"}] },
   "absIRCCsNotAvailable": { title: "The internationally recognized certificate of compliance (IRCC) is not available", type: 'bool', example: true },
-  "sourceCountries": { title: "Source of the genetic resource", type: 'term[]', example: [{"identifier":"af"}] },
+  "sourceCountries": { title: "Source of the genetic resource", titleLink: '/thesaurus/countries', type: 'term[]', example: [{"identifier":"af"}] },
   "entityWhoGrantedPIC": { title: "Person or entity who granted prior informed consent (PIC)", type: 'reference', example: {"identifier":"DECLARE-ORGANISATION_19584_20241007134350919@1"} },
   "subjectMatter": { title: "Subject-matter or genetic resources relevant to the information collected or received", type: 'lstring', example: {"en":"<div><!--block-->Test Info</div>"} },
   "specimens": { title: "Specimen data", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },

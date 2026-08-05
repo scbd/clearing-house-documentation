@@ -4,14 +4,14 @@ import type { Field } from '../types'
 // served to ABS Clearing-House, Biosafety Clearing-House. Per-app differences were never
 // encoded there — review gate confirms. Untitled fields are untitled in the archive.
 export const cnaFields: Record<string, Field> = {
-  "government": { title: "Country", type: 'term', mandatory: true, example: {"identifier":"af"} },
+  "government": { title: "Country", titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: {"identifier":"af"} },
   "name": { title: "Name of the Competent National Authority", type: 'lstring', mandatory: true, example: {"en":"your name"} },
   "websites": { title: "Website address(es)", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },
   "address": { title: "Address", type: 'lstring', example: {"en":"650 Franklin Blvd"} },
   "city": { title: "City", type: 'lstring', mandatory: true, example: {"en":"Cambridge"} },
   "state": { title: "State or Province", type: 'lstring', example: {"en":"Ontario"} },
   "postalCode": { title: "Postal Code or Zip", type: 'lstring', example: {"en":"N3h0E2"} },
-  "country": { title: "Country of Contact", type: 'term', mandatory: true, example: {"identifier":"ca"} },
+  "country": { title: "Country of Contact", titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: {"identifier":"ca"} },
   "phones": { title: "Phone number(s)", type: 'string[]', mandatory: true, example: ["5487899632"] },
   "faxes": { title: "Fax number(s)", type: 'string[]', example: ["5487899632"] },
   "emails": { title: "Email(s)", type: 'string[]', mandatory: true, example: ["email@cbd.int"] },
