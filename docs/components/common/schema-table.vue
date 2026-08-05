@@ -1,15 +1,14 @@
 <script setup>
-import { withBase } from "vitepress"
 import { useClearingHouse } from "@/utils/composables"
 
 // Renders a schema descriptor's fields as the standard request-body table, so
 // the table and the playground spec always describe the same schema.
 const { clearingHouseBase } = useClearingHouse()
 
-// Thesaurus vocabularies live in one global section (not per app); their links
-// are absolute. Everything else is resolved within the current app.
-const fieldLink = (link) =>
-  link.startsWith('/thesaurus/') ? withBase(link) : clearingHouseBase(link)
+// All title links — including thesaurus vocabularies — resolve within the
+// current app, so a Term field opens the vocabulary page under this CH
+// (/<app>/thesaurus/<slug>) and the CH sidebar stays put.
+const fieldLink = (link) => clearingHouseBase(link)
 
 defineProps({
   schema: { type: Object, required: true }
