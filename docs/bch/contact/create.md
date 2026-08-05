@@ -36,6 +36,8 @@ The record's fields, wrapped in a `document` object. Two optional fields may acc
 
 A successful call returns the saved draft and the publishing workflow that was started. Validation failures **also return HTTP 200**, with an `errors` array in the body instead — always check the response body, not just the status code.
 
+Existing v2013 integrations can follow the multi-call [legacy v2013 publishing flow](/bch/general/drafts) instead.
+
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs" />

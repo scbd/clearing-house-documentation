@@ -176,6 +176,14 @@ export default {
       ]
     },
     {
+      text: 'Files & Attachments',
+      collapsed: true,
+      items: [
+        { text: 'Document Attachments', link: '/absch/general/document-attachments' },
+        { text: 'Temporary Files', link: '/absch/general/temporary-file' }
+      ]
+    },
+    {
       text: 'Thesaurus',
       collapsed: true,
       items: [
@@ -315,6 +323,14 @@ export default {
       ]
     },
     {
+      text: 'Files & Attachments',
+      collapsed: true,
+      items: [
+        { text: 'Document Attachments', link: '/bch/general/document-attachments' },
+        { text: 'Temporary Files', link: '/bch/general/temporary-file' }
+      ]
+    },
+    {
       text: 'Thesaurus',
       collapsed: true,
       items: [
@@ -381,6 +397,14 @@ export default {
         { text: "Field Reference", link: '/chm/cdi/fields' },
         { text: "Search", link: '/chm/cdi/solr' },
         { text: "Get", link: '/chm/cdi/get' }
+      ]
+    },
+    {
+      text: 'Files & Attachments',
+      collapsed: true,
+      items: [
+        { text: 'Document Attachments', link: '/chm/general/document-attachments' },
+        { text: 'Temporary Files', link: '/chm/general/temporary-file' }
       ]
     },
     {
@@ -469,6 +493,14 @@ export default {
         { text: "Create", link: '/ort/stakeholderCommitment/create' },
         { text: "Update", link: '/ort/stakeholderCommitment/update' },
         { text: "Delete", link: '/ort/stakeholderCommitment/delete' }
+      ]
+    },
+    {
+      text: 'Files & Attachments',
+      collapsed: true,
+      items: [
+        { text: 'Document Attachments', link: '/ort/general/document-attachments' },
+        { text: 'Temporary Files', link: '/ort/general/temporary-file' }
       ]
     },
     {
