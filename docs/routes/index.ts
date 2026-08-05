@@ -176,6 +176,18 @@ export default {
       ]
     },
     {
+      text: 'Document Operations',
+      collapsed: true,
+      items: [
+        { text: 'Drafts', link: '/absch/general/drafts' },
+        { text: 'Draft Locks', link: '/absch/general/draft-locks' },
+        { text: 'Draft Securities', link: '/absch/general/draft-securities' },
+        { text: 'Document Securities', link: '/absch/general/document-securities' },
+        { text: 'Document Validations', link: '/absch/general/document-validations' },
+        { text: 'Document Versions', link: '/absch/general/documents-versions' }
+      ]
+    },
+    {
       text: 'Files & Attachments',
       collapsed: true,
       items: [
@@ -329,6 +341,18 @@ export default {
       ]
     },
     {
+      text: 'Document Operations',
+      collapsed: true,
+      items: [
+        { text: 'Drafts', link: '/bch/general/drafts' },
+        { text: 'Draft Locks', link: '/bch/general/draft-locks' },
+        { text: 'Draft Securities', link: '/bch/general/draft-securities' },
+        { text: 'Document Securities', link: '/bch/general/document-securities' },
+        { text: 'Document Validations', link: '/bch/general/document-validations' },
+        { text: 'Document Versions', link: '/bch/general/documents-versions' }
+      ]
+    },
+    {
       text: 'Files & Attachments',
       collapsed: true,
       items: [
@@ -408,6 +432,18 @@ export default {
         { text: "Field Reference", link: '/chm/cdi/fields' },
         { text: "Search", link: '/chm/cdi/solr' },
         { text: "Get", link: '/chm/cdi/get' }
+      ]
+    },
+    {
+      text: 'Document Operations',
+      collapsed: true,
+      items: [
+        { text: 'Drafts', link: '/chm/general/drafts' },
+        { text: 'Draft Locks', link: '/chm/general/draft-locks' },
+        { text: 'Draft Securities', link: '/chm/general/draft-securities' },
+        { text: 'Document Securities', link: '/chm/general/document-securities' },
+        { text: 'Document Validations', link: '/chm/general/document-validations' },
+        { text: 'Document Versions', link: '/chm/general/documents-versions' }
       ]
     },
     {
@@ -504,6 +540,18 @@ export default {
         { text: "Create", link: '/ort/stakeholderCommitment/create' },
         { text: "Update", link: '/ort/stakeholderCommitment/update' },
         { text: "Delete", link: '/ort/stakeholderCommitment/delete' }
+      ]
+    },
+    {
+      text: 'Document Operations',
+      collapsed: true,
+      items: [
+        { text: 'Drafts', link: '/ort/general/drafts' },
+        { text: 'Draft Locks', link: '/ort/general/draft-locks' },
+        { text: 'Draft Securities', link: '/ort/general/draft-securities' },
+        { text: 'Document Securities', link: '/ort/general/document-securities' },
+        { text: 'Document Validations', link: '/ort/general/document-validations' },
+        { text: 'Document Versions', link: '/ort/general/documents-versions' }
       ]
     },
     {

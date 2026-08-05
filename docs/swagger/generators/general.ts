@@ -1,12 +1,13 @@
-// Legacy v2013 publishing-flow generator (ADR 0002/0003). These endpoints are
-// the multi-call chain the v2023 single-call publish supersedes; they are
-// documented once per app as an unlisted reference. Attachments and temporary
-// files are normal (non-legacy) pages that reuse the same generator.
+// Generator for the shared document operations (v2013). Only "Save Draft" is
+// legacy — it is the publish step the v2023 single-call Create/Update
+// supersedes (ADR 0002/0003), so it carries the legacy notice and is unlisted.
+// All other operations (drafts read/list/delete, locks, securities checks,
+// validation, versions, attachments, temporary files) are active and listed;
+// they are {uid}-based and schema-agnostic, so documented once per app.
 //
 // Operations are described compactly (method, full versioned path, params);
 // this generator infers each parameter's location and builds the OpenAPI spec.
-// Response bodies are documented generically — these are reference pages for an
-// endpoint set that is being phased out.
+// Response bodies are documented generically.
 
 const HEADER_PARAMS = new Set(['Authorization', 'Accept', 'Content-Type', 'Realm'])
 
@@ -87,10 +88,18 @@ export interface GeneralTopic {
 
 export const generalTopics: GeneralTopic[] = [
   {
-    slug: 'drafts', title: 'Drafts', legacy: true,
-    intro: 'A draft is the working copy of a document before it is published. In the legacy v2013 flow, saving a draft is one step of the publishing chain.',
+    // The ONLY legacy topic: saving a draft is the v2013 publish step that the
+    // v2023 single-call create/update supersedes (ADR 0002/0003). Unlisted.
+    slug: 'save-draft', title: 'Save Draft', legacy: true,
+    intro: 'Saving a draft is the publish step of the legacy v2013 flow. New integrations should publish with the v2023 single-call Create/Update endpoints instead; this endpoint is documented for existing v2013 integrations.',
     ops: [
-      { key: 'save', method: 'put', path: '/api/v2013/documents/{uid}/versions/draft', summary: 'Save a draft', params: ['Authorization', 'uid', 'Content-Type', 'Accept', 'schema'], body: true },
+      { key: 'save', method: 'put', path: '/api/v2013/documents/{uid}/versions/draft', summary: 'Save a draft', params: ['Authorization', 'uid', 'Content-Type', 'Accept', 'schema'], body: true }
+    ]
+  },
+  {
+    slug: 'drafts', title: 'Drafts', legacy: false,
+    intro: 'Read, list and remove document drafts. (The v2023 Create/Update endpoints write drafts for you; these endpoints operate on existing drafts directly.)',
+    ops: [
       { key: 'get', method: 'get', path: '/api/v2013/documents/{uid}/versions/draft', summary: 'Get a draft', params: ['Authorization', 'uid', 'Accept'] },
       { key: 'get-info', method: 'get', path: '/api/v2013/documents/{uid}/versions/draft/info', summary: 'Get draft info', params: ['Authorization', 'uid', 'Accept'] },
       { key: 'list', method: 'get', path: '/api/v2013/document-drafts', summary: 'List drafts', params: ['Authorization', 'Accept', 'collection', '$filter', '$orderby', '$top', '$skip'] },
@@ -99,7 +108,7 @@ export const generalTopics: GeneralTopic[] = [
     ]
   },
   {
-    slug: 'draft-locks', title: 'Draft Locks', legacy: true,
+    slug: 'draft-locks', title: 'Draft Locks', legacy: false,
     intro: 'A draft is locked while a workflow runs against it. These endpoints inspect and manage those locks.',
     ops: [
       { key: 'lock', method: 'put', path: '/api/v2013/documents/{uid}/versions/draft/locks/{lockID}', summary: 'Lock a draft', params: ['Authorization', 'uid', 'lockID'] },
@@ -110,7 +119,7 @@ export const generalTopics: GeneralTopic[] = [
     ]
   },
   {
-    slug: 'draft-securities', title: 'Draft Securities', legacy: true,
+    slug: 'draft-securities', title: 'Draft Securities', legacy: false,
     intro: 'Pre-flight authorization checks: whether the current user may create, update or delete a draft for the given metadata.',
     ops: [
       { key: 'can-create', method: 'get', path: '/api/v2013/documents/{uid}/versions/draft/securities/create', summary: 'Can create a draft', params: ['Authorization', 'uid', 'schema', 'metadata', 'Realm', 'Accept'] },
@@ -119,7 +128,7 @@ export const generalTopics: GeneralTopic[] = [
     ]
   },
   {
-    slug: 'document-securities', title: 'Document Securities', legacy: true,
+    slug: 'document-securities', title: 'Document Securities', legacy: false,
     intro: 'Authorization checks against published documents (as opposed to drafts).',
     ops: [
       { key: 'create', method: 'get', path: '/api/v2013/documents/{uid}/securities/create', summary: 'Can create a document', params: ['Authorization', 'uid', 'schema', 'metadata', 'government', 'Accept'] },
@@ -128,14 +137,14 @@ export const generalTopics: GeneralTopic[] = [
     ]
   },
   {
-    slug: 'document-validations', title: 'Document Validations', legacy: true,
+    slug: 'document-validations', title: 'Document Validations', legacy: false,
     intro: 'Validate a document against its record-type schema before saving it as a draft.',
     ops: [
       { key: 'validate', method: 'post', path: '/api/v2013/documents/x/validate', summary: 'Validate a document', params: ['Authorization', 'schema'], body: true }
     ]
   },
   {
-    slug: 'documents-versions', title: 'Document Versions', legacy: true,
+    slug: 'documents-versions', title: 'Document Versions', legacy: false,
     intro: 'Every publish creates a numbered revision. These endpoints read the revision history of a published document.',
     ops: [
       { key: 'list', method: 'get', path: '/api/v2013/documents/{uid}/versions', summary: 'List document versions', params: ['uid', 'Realm', 'Accept', '$filter', '$orderby', '$top', '$skip'] },

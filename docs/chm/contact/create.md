@@ -36,7 +36,7 @@ The record's fields, wrapped in a `document` object. Two optional fields may acc
 
 A successful call returns the saved draft and the publishing workflow that was started. Validation failures **also return HTTP 200**, with an `errors` array in the body instead — always check the response body, not just the status code.
 
-Existing v2013 integrations can follow the multi-call [legacy v2013 publishing flow](/chm/general/drafts) instead.
+Publishing through the legacy v2013 API uses the [Save Draft](/chm/general/save-draft) endpoint plus a workflow call; new integrations should use this single v2023 call instead. The record's other document operations (drafts, locks, securities, validation, versions) are documented under Document Operations.
 
 ## Playground
 
