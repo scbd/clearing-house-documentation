@@ -174,6 +174,29 @@ export default {
         { text: "Search", link: '/absch/pro/solr' },
         { text: "Get", link: '/absch/pro/get' }
       ]
+    },
+    {
+      text: 'Thesaurus',
+      collapsed: true,
+      items: [
+        { text: "CBD Subjects", link: '/thesaurus/cbd-subjects' },
+        { text: "CBI Audience", link: '/thesaurus/cbi-audience' },
+        { text: "CBI Cats", link: '/thesaurus/cbi-cats' },
+        { text: "CBI CPB Types", link: '/thesaurus/cbi-cpb-types' },
+        { text: "CBI Funding Src", link: '/thesaurus/cbi-funding-src' },
+        { text: "CBI Status", link: '/thesaurus/cbi-status' },
+        { text: "GBF Targets", link: '/thesaurus/gbf-targets' },
+        { text: "General - Countries", link: '/thesaurus/countries' },
+        { text: "Jurisdictions", link: '/thesaurus/jurisdictions' },
+        { text: "Key Areas", link: '/thesaurus/key-areas' },
+        { text: "MCC Keywords", link: '/thesaurus/mcc-keywords' },
+        { text: "Measure - Statuses", link: '/thesaurus/statuses' },
+        { text: "Measure - Type of Documents", link: '/thesaurus/type-of-documents' },
+        { text: "Organization Types", link: '/thesaurus/organization-types' },
+        { text: "Permit - Permit Keywords (Keywords to describe the subject-matter or genetic resource(s) covered by the permit or its equivalent)", link: '/thesaurus/permit-keywords' },
+        { text: "Permit - Permit Usage (Indicate if the permit or its equivalent covers commercial and/or non-commercial use)", link: '/thesaurus/permit-usage' },
+        { text: "Resource Type VLR", link: '/thesaurus/resource-type-vlr' }
+      ]
     }
   ],
   '/bch/': [
@@ -290,6 +313,31 @@ export default {
         { text: "Search", link: '/bch/lmo/solr' },
         { text: "Get", link: '/bch/lmo/get' }
       ]
+    },
+    {
+      text: 'Thesaurus',
+      collapsed: true,
+      items: [
+        { text: "Biosafety Decision - Decision Results", link: '/thesaurus/decision-results' },
+        { text: "Biosafety Decision - Decision Types", link: '/thesaurus/decision-types' },
+        { text: "Biosafety Decision - Transboundary Movement Types", link: '/thesaurus/transboundary-movement-types' },
+        { text: "Biosafety Law - Legislation Agreement Types", link: '/thesaurus/legislation-agreement-types' },
+        { text: "CBD Subjects", link: '/thesaurus/cbd-subjects' },
+        { text: "CBI Audience", link: '/thesaurus/cbi-audience' },
+        { text: "CBI Cats", link: '/thesaurus/cbi-cats' },
+        { text: "CBI CPB Types", link: '/thesaurus/cbi-cpb-types' },
+        { text: "CBI Funding Src", link: '/thesaurus/cbi-funding-src' },
+        { text: "CBI Status", link: '/thesaurus/cbi-status' },
+        { text: "DNA Sequence - DNA Sequence Family", link: '/thesaurus/dna-sequence-family' },
+        { text: "GBF Targets", link: '/thesaurus/gbf-targets' },
+        { text: "General - Countries", link: '/thesaurus/countries' },
+        { text: "Independent Risk Assessment - Risk Assessment Scope", link: '/thesaurus/risk-assessment-scope' },
+        { text: "Key Areas", link: '/thesaurus/key-areas' },
+        { text: "Modified Organism - Organism Common Uses", link: '/thesaurus/organism-common-uses' },
+        { text: "Modified Organism - Technique Used", link: '/thesaurus/technique-used' },
+        { text: "Organization Types", link: '/thesaurus/organization-types' },
+        { text: "Resource Type VLR", link: '/thesaurus/resource-type-vlr' }
+      ]
     }
   ],
   '/chm/': [
@@ -333,6 +381,23 @@ export default {
         { text: "Field Reference", link: '/chm/cdi/fields' },
         { text: "Search", link: '/chm/cdi/solr' },
         { text: "Get", link: '/chm/cdi/get' }
+      ]
+    },
+    {
+      text: 'Thesaurus',
+      collapsed: true,
+      items: [
+        { text: "CBD Subjects", link: '/thesaurus/cbd-subjects' },
+        { text: "CBI Audience", link: '/thesaurus/cbi-audience' },
+        { text: "CBI Cats", link: '/thesaurus/cbi-cats' },
+        { text: "CBI CPB Types", link: '/thesaurus/cbi-cpb-types' },
+        { text: "CBI Funding Src", link: '/thesaurus/cbi-funding-src' },
+        { text: "CBI Status", link: '/thesaurus/cbi-status' },
+        { text: "GBF Targets", link: '/thesaurus/gbf-targets' },
+        { text: "General - Countries", link: '/thesaurus/countries' },
+        { text: "Key Areas", link: '/thesaurus/key-areas' },
+        { text: "Organization Types", link: '/thesaurus/organization-types' },
+        { text: "Resource Type VLR", link: '/thesaurus/resource-type-vlr' }
       ]
     }
   ],
@@ -404,6 +469,22 @@ export default {
         { text: "Create", link: '/ort/stakeholderCommitment/create' },
         { text: "Update", link: '/ort/stakeholderCommitment/update' },
         { text: "Delete", link: '/ort/stakeholderCommitment/delete' }
+      ]
+    },
+    {
+      text: 'Thesaurus',
+      collapsed: true,
+      items: [
+        { text: "Approving Body", link: '/thesaurus/approving-body' },
+        { text: "Approving Status", link: '/thesaurus/approved-status' },
+        { text: "Binary Indicator", link: '/thesaurus/binary-indicator' },
+        { text: "GBF Goals", link: '/thesaurus/gbf-goals' },
+        { text: "GBF Headline Indicators", link: '/thesaurus/gbf-headline-indicators' },
+        { text: "GBF Target Considerations", link: '/thesaurus/gbf-target-considerations' },
+        { text: "GBF Targets", link: '/thesaurus/gbf-targets' },
+        { text: "General - Countries", link: '/thesaurus/countries' },
+        { text: "Policy Instruments", link: '/thesaurus/policy-instruments' },
+        { text: "Report Status", link: '/thesaurus/report-status' }
       ]
     }
   ],

@@ -7,7 +7,7 @@ const nationalReportIndicatorData: SchemaDescriptor = {
   description: "A National Report Indicator Data record in the Online Reporting Tool.",
   fields: {
   "government": { title: "Government", titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: [{"identifier":"ao"},{"identifier":"A23DD6C0-44C5-418D-83B5-461D79D2721A"}] },
-  "indicator": { title: "", titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: [{"identifier":"ao"},{"identifier":"A23DD6C0-44C5-418D-83B5-461D79D2721A"}] },
+  "indicator": { title: "", type: 'term', mandatory: true, example: [{"identifier":"ao"},{"identifier":"A23DD6C0-44C5-418D-83B5-461D79D2721A"}] },
   "sourceOfData": { title: "Source of Data", type: 'string', mandatory: true },
   "globalDataSources": { title: "Global source of data", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google.com","language":"en"}] },
   "globalIndicatorProviders": { title: "Indicator providers", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google.com","language":"en"}] },
