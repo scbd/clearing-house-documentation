@@ -5,8 +5,6 @@ import nationalReportIndicatorData from "@/swagger/schemas/ort/national-report-i
 
 # National Report Indicator Data - Field Reference
 
-> **Draft** — fields pending review (REBUILD.md review gate).
-
 The fields of the National Report Indicator Data record type as documented for the Online Reporting Tool. In API calls the record type is selected with the schema value `nationalReport7IndicatorData`.
 
 <SchemaTable :schema="nationalReportIndicatorData" />

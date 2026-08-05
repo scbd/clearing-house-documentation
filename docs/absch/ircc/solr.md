@@ -12,8 +12,6 @@ const swaggerSpecs = solrSpecs({ apiUrl, realm, schema: ircc })
 
 # Internationally Recognized Certificate of Compliance - Search
 
-> **Draft** — pending review (REBUILD.md review gate).
-
 ## Overview
 
 Searches public Internationally Recognized Certificate of Compliance records of the ABS Clearing-House through the Apache Solr index. The playground below shows the common query patterns: all records of the type, filtered by country, by free text, by region, and with combined sub-filters.

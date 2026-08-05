@@ -5,8 +5,6 @@ import nbsap from "@/swagger/schemas/ort/nbsap"
 
 # NBSAP - Field Reference
 
-> **Draft** — fields pending review (REBUILD.md review gate).
-
 The fields of the NBSAP record type as documented for the Online Reporting Tool. In API calls the record type is selected with the schema value `nbsap`.
 
 <SchemaTable :schema="nbsap" />

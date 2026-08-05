@@ -13,8 +13,6 @@ const swaggerSpecs = [
 
 # National Report Binary Indicator Data - Get
 
-> **Draft** — pending review (REBUILD.md review gate).
-
 ## Overview
 
 Retrieves a single National Report Binary Indicator Data record from the Online Reporting Tool by its unique identifier (`uid`). The `Accept` header controls the result format: `*` returns the record raw as submitted, `application/json` casts it to JSON.

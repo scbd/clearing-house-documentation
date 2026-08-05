@@ -13,8 +13,6 @@ const swaggerSpecs = [
 
 # Internationally Recognized Certificate of Compliance - List
 
-> **Draft** — pending review (REBUILD.md review gate).
-
 ## Overview
 
 Lists Internationally Recognized Certificate of Compliance records in the ABS Clearing-House with OData-style query parameters for filtering, sorting and paging. Use the `collection` parameter to restrict the query, e.g. `my` for your own records (including drafts).

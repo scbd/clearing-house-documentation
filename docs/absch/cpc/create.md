@@ -14,8 +14,6 @@ const swaggerSpecs = [
 
 # Checkpoint Communique - Create
 
-> **Draft** — fields pending review (REBUILD.md review gate).
-
 ## Overview
 
 Creates a new Checkpoint Communique record in the ABS Clearing-House and initiates the publishing workflow — identifier check, securities, validation, draft and workflow — in a single call.

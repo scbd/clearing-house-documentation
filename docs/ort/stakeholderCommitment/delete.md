@@ -13,8 +13,6 @@ const swaggerSpecs = [
 
 # Stakeholder Commitment - Delete
 
-> **Draft** — pending review (REBUILD.md review gate).
-
 ## Overview
 
 Deletes a Stakeholder Commitment record from the Online Reporting Tool by its unique identifier (`uid`). Use this to remove records that are outdated or no longer relevant.

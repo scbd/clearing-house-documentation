@@ -12,8 +12,6 @@ const swaggerSpecs = solrSpecs({ apiUrl, realm, schema: pro })
 
 # ABS Procedure - Search
 
-> **Draft** — pending review (REBUILD.md review gate).
-
 ## Overview
 
 Searches public ABS Procedure records of the ABS Clearing-House through the Apache Solr index. The playground below shows the common query patterns: all records of the type, filtered by country, by free text, by region, and with combined sub-filters.

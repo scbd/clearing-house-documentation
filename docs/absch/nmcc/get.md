@@ -13,8 +13,6 @@ const swaggerSpecs = [
 
 # National Model Contractual Clause - Get
 
-> **Draft** — pending review (REBUILD.md review gate).
-
 ## Overview
 
 Retrieves a single National Model Contractual Clause record from the ABS Clearing-House by its unique identifier (`uid`). The `Accept` header controls the result format: `*` returns the record raw as submitted, `application/json` casts it to JSON.

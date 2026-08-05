@@ -13,8 +13,6 @@ const swaggerSpecs = [
 
 # Virtual Library Resource - Get
 
-> **Draft** — pending review (REBUILD.md review gate).
-
 ## Overview
 
 Retrieves a single Virtual Library Resource record from the ABS Clearing-House by its unique identifier (`uid`). The `Accept` header controls the result format: `*` returns the record raw as submitted, `application/json` casts it to JSON.

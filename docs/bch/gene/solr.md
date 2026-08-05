@@ -12,8 +12,6 @@ const swaggerSpecs = solrSpecs({ apiUrl, realm, schema: gene })
 
 # Gene / DNA Sequence - Search
 
-> **Draft** — pending review (REBUILD.md review gate).
-
 ## Overview
 
 Searches public Gene / DNA Sequence records of the Biosafety Clearing-House through the Apache Solr index. The playground below shows the common query patterns: all records of the type, filtered by country, by free text, by region, and with combined sub-filters.

@@ -5,8 +5,6 @@ import gene from "@/swagger/schemas/bch/gene"
 
 # Gene / DNA Sequence - Field Reference
 
-> **Draft** — fields pending review (REBUILD.md review gate).
-
 The fields of the Gene / DNA Sequence record type as documented for the Biosafety Clearing-House. In API calls the record type is selected with the schema value `dnaSequence`.
 
 <SchemaTable :schema="gene" />

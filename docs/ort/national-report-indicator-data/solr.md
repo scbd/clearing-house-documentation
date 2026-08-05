@@ -12,8 +12,6 @@ const swaggerSpecs = solrSpecs({ apiUrl, realm, schema: nationalReportIndicatorD
 
 # National Report Indicator Data - Search
 
-> **Draft** — pending review (REBUILD.md review gate).
-
 ## Overview
 
 Searches public National Report Indicator Data records of the Online Reporting Tool through the Apache Solr index. The playground below shows the common query patterns: all records of the type, filtered by country, by free text, by region, and with combined sub-filters.

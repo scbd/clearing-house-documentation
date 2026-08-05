@@ -13,8 +13,6 @@ const swaggerSpecs = [
 
 # Checkpoint Communique - Delete
 
-> **Draft** — pending review (REBUILD.md review gate).
-
 ## Overview
 
 Deletes a Checkpoint Communique record from the ABS Clearing-House by its unique identifier (`uid`). Use this to remove records that are outdated or no longer relevant.

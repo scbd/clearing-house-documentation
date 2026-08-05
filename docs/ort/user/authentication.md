@@ -12,8 +12,6 @@ const swaggerSpecs = [
 
 # User - Authentication
 
-> **Draft** — pending review (REBUILD.md review gate).
-
 ## Overview
 
 Authenticates a CBD account and returns the authorization token used by the protected endpoints of the Online Reporting Tool API. CBD accounts are shared across the clearing houses, so this call takes no realm.

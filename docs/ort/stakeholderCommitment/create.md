@@ -14,8 +14,6 @@ const swaggerSpecs = [
 
 # Stakeholder Commitment - Create
 
-> **Draft** — fields pending review (REBUILD.md review gate).
-
 ## Overview
 
 Creates a new Stakeholder Commitment record in the Online Reporting Tool and initiates the publishing workflow — identifier check, securities, validation, draft and workflow — in a single call.

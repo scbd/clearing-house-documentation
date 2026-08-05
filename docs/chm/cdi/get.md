@@ -13,8 +13,6 @@ const swaggerSpecs = [
 
 # Capacity Development Initiative - Get
 
-> **Draft** — pending review (REBUILD.md review gate).
-
 ## Overview
 
 Retrieves a single Capacity Development Initiative record from the Clearing-House Mechanism by its unique identifier (`uid`). The `Accept` header controls the result format: `*` returns the record raw as submitted, `application/json` casts it to JSON.

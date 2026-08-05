@@ -13,8 +13,6 @@ const swaggerSpecs = [
 
 # Stakeholder Commitment - List
 
-> **Draft** — pending review (REBUILD.md review gate).
-
 ## Overview
 
 Lists Stakeholder Commitment records in the Online Reporting Tool with OData-style query parameters for filtering, sorting and paging. Use the `collection` parameter to restrict the query, e.g. `my` for your own records (including drafts).

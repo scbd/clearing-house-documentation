@@ -14,8 +14,6 @@ const swaggerSpecs = [
 
 # Internationally Recognized Certificate of Compliance - Create
 
-> **Draft** — fields pending review (REBUILD.md review gate).
-
 ## Overview
 
 Creates a new Internationally Recognized Certificate of Compliance record in the ABS Clearing-House and initiates the publishing workflow — identifier check, securities, validation, draft and workflow — in a single call.

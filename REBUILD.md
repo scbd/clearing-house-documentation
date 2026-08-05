@@ -43,33 +43,33 @@ verify against the realm configurations before starting each row.
 | Record type | Apps | Status |
 | --- | --- | --- |
 | contact | A B C | **fields reviewed 2026-07-30**: identical across all three apps — every descriptor is the shared base with no overrides. Full operation set (create/get/update/delete/list/solr/fields) + sidebar live; CHM added by explicit scope decision 2026-07-30. Remaining: verify playgrounds against the dev environment, then delete superseded `.archive/` contact files |
-| user (authentication) | A B C O | draft pages for all four apps (`<app>/user/authentication`) + sidebar; generator `authentication.ts` (no realm, no descriptor — not a documents record type); every protected contact page links to the guide. Live check 2026-07-30: invalid credentials return **403 empty-body**, not the 400/401 the archived spec claimed — encoded as observed. **Awaiting review gate** |
-| org | A B C | drafted 2026-08-04, **awaiting review gate**. Operation set proposal: read-only (search/get/fields), matching the archive — org was never documented with create/update/delete/list. Flags for review: the archive served one shared field table to all three apps (including `absThematicAreas` even for BCH/CHM); nine fields are untitled in the archive; archived `Link` examples carry a `language` key the Link type doesn't define (examples drafted with `url`/`name` only). New field types added for org: `term[]`, `reference[]`, `lstring[]`, `mapLocation` (MapLocation added to custom-types page) |
-| vlr | A B C | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. Shared table served to all three apps (see contact/org note) |
-| cdi | A B C | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. |
-| cna | A B | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. |
-| ndb | A B | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. |
-| nfp | A B | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. CHM also supports `focalPoint` but archive documented A B only — scope decision to extend |
+| user (authentication) | A B C O | draft pages for all four apps (`<app>/user/authentication`) + sidebar; generator `authentication.ts` (no realm, no descriptor — not a documents record type); every protected contact page links to the guide. Live check 2026-07-30: invalid credentials return **403 empty-body**, not the 400/401 the archived spec claimed — encoded as observed. Schemas **approved 2026-08-05** |
+| org | A B C | drafted 2026-08-04, schemas **approved 2026-08-05**. Operation set proposal: read-only (search/get/fields), matching the archive — org was never documented with create/update/delete/list. Flags for review: the archive served one shared field table to all three apps (including `absThematicAreas` even for BCH/CHM); nine fields are untitled in the archive; archived `Link` examples carry a `language` key the Link type doesn't define (examples drafted with `url`/`name` only). New field types added for org: `term[]`, `reference[]`, `lstring[]`, `mapLocation` (MapLocation added to custom-types page) |
+| vlr | A B C | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. Shared table served to all three apps (see contact/org note) |
+| cdi | A B C | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. |
+| cna | A B | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. |
+| ndb | A B | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. |
+| nfp | A B | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. CHM also supports `focalPoint` but archive documented A B only — scope decision to extend |
 | general (drafts, attachments, files) | A B C O | pending — becomes the once-per-app **legacy publishing flow** reference (v2013, ADR 0002): published but **unlisted** (no sidebar entry; linked from create/update pages) with a legacy notice pointing to v2023. Attachments/files stay normal pages |
-| cp | A | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. |
-| cpc | A | drafted 2026-08-04, **awaiting review gate**; publish set (create/update on v2023 + get/delete/list/search/fields). |
-| cpp | A | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. |
-| ircc | A | drafted 2026-08-04, **awaiting review gate**; publish set (create/update on v2023 + get/delete/list/search/fields). Archived `workflow.md` was the original v2023 publish page (ADR 0002); create/update now cover it |
-| msr | A | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. `AbsMeasure` composite fields rendered as `object` — review |
-| nmcc | A | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. |
-| pro | A | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. |
-| dec | B | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. |
-| gene | B | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. schema value `dnaSequence` |
-| ira | B | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. |
-| law | B | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. |
-| lmo | B | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. `TranscriptElement[][]` rendered as `object[]` — review |
-| national-report | O | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. **Archive bug flagged**: the archived field table's header names `nationalTarget7`; the realm config confirms `nationalReport7` — descriptor uses `nationalReport7`. Section* fields blank-typed → `object` |
-| national-report-binary-indicator-data | O | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. `binaryResponse*` fields blank-typed in archive → `object` |
-| national-report-indicator-data | O | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. `data` field blank-typed → `object` |
-| national-target | O | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. `NationalIndicators[]` → `object[]`; `Lterm` → `term` (keeps `customValue`) |
-| national-target-mapping | O | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. `referencePeriod` blank-typed → `object` |
-| nbsap | O | drafted 2026-08-04, **awaiting review gate**; read-only set (search/get/fields), matching the archive. |
-| stakeholderCommitment | O | drafted 2026-08-04, **awaiting review gate**; publish set (create/update on v2023 + get/delete/list/search/fields). Archive had get/list/delete/solr + workflow; create/update = v2023 publish |
+| cp | A | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. |
+| cpc | A | drafted 2026-08-04, schemas **approved 2026-08-05**; publish set (create/update on v2023 + get/delete/list/search/fields). |
+| cpp | A | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. |
+| ircc | A | drafted 2026-08-04, schemas **approved 2026-08-05**; publish set (create/update on v2023 + get/delete/list/search/fields). Archived `workflow.md` was the original v2023 publish page (ADR 0002); create/update now cover it |
+| msr | A | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. `AbsMeasure` composite fields rendered as `object` — review |
+| nmcc | A | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. |
+| pro | A | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. |
+| dec | B | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. |
+| gene | B | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. schema value `dnaSequence` |
+| ira | B | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. |
+| law | B | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. |
+| lmo | B | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. `TranscriptElement[][]` rendered as `object[]` — review |
+| national-report | O | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. **Archive bug flagged**: the archived field table's header names `nationalTarget7`; the realm config confirms `nationalReport7` — descriptor uses `nationalReport7`. Section* fields blank-typed → `object` |
+| national-report-binary-indicator-data | O | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. `binaryResponse*` fields blank-typed in archive → `object` |
+| national-report-indicator-data | O | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. `data` field blank-typed → `object` |
+| national-target | O | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. `NationalIndicators[]` → `object[]`; `Lterm` → `term` (keeps `customValue`) |
+| national-target-mapping | O | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. `referencePeriod` blank-typed → `object` |
+| nbsap | O | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. |
+| stakeholderCommitment | O | drafted 2026-08-04, schemas **approved 2026-08-05**; publish set (create/update on v2023 + get/delete/list/search/fields). Archive had get/list/delete/solr + workflow; create/update = v2023 publish |
 | thesaurus | A B C O | pending — structurally different (controlled vocabularies); do last. Needs its own design (not the documents descriptor+generator pattern) |
 
 **Composite/blank types (review):** several ORT and ABS types had fields the

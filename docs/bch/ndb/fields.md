@@ -5,8 +5,6 @@ import ndb from "@/swagger/schemas/bch/ndb"
 
 # National Website or Database - Field Reference
 
-> **Draft** — fields pending review (REBUILD.md review gate).
-
 The fields of the National Website or Database record type as documented for the Biosafety Clearing-House. In API calls the record type is selected with the schema value `database`.
 
 <SchemaTable :schema="ndb" />
