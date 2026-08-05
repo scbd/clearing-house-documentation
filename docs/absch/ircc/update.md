@@ -4,6 +4,7 @@ import SchemaTable from "@/components/common/schema-table.vue"
 import ircc from "@/swagger/schemas/abs/ircc"
 import { updateSpec } from "@/swagger/generators/documents"
 import { useClearingHouse } from "@/utils/composables"
+import LegacyPublishNote from "@/components/common/legacy-publish-note.vue"
 
 const { apiUrl, realm } = useClearingHouse()
 
@@ -53,7 +54,6 @@ A successful call returns the saved draft and the publishing workflow that was s
 
 <!--@include: @/components/common/workflow-validation-errors.md-->
 
-Publishing through the legacy v2013 API uses the [Save Draft](/absch/general/save-draft) endpoint plus a workflow call; new integrations should use this single v2023 call instead. The record's other document operations (drafts, locks, securities, validation, versions) are documented under Document Operations.
 
 ## Errors
 
@@ -62,3 +62,5 @@ Publishing through the legacy v2013 API uses the [Save Draft](/absch/general/sav
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs" />
+
+<LegacyPublishNote />
