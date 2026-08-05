@@ -9,7 +9,7 @@ const nbsap: SchemaDescriptor = {
   "government": { title: "Government", titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: {"identifier":"af"} },
   "title": { title: "Enter NBSAP title", type: 'lstring', mandatory: true, example: {"en":"Test Info"} },
   "summary": { title: "Summary", type: 'lstring', example: {"en":"<p>Test Info</p>"} },
-  "jurisdiction": { title: "Level of application", type: 'term', mandatory: true, example: {"identifier":"7437F880-7B12-4F26-AA91-CED37250DD0A"} },
+  "jurisdiction": { title: "Level of application", titleLink: '/thesaurus/jurisdictions', type: 'term', mandatory: true, example: {"identifier":"7437F880-7B12-4F26-AA91-CED37250DD0A"} },
   "jurisdictionInfo": { title: "Additional Information (Level of application)", type: 'lstring' },
   "isGbfAligned": { title: "Is the submission in alignment with the Kunming-Montreal Global Biodiversity Framework?", type: 'bool', mandatory: true, example: true },
   "startDate": { title: "From", type: 'datetime', mandatory: true },

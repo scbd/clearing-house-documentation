@@ -13,7 +13,7 @@ const nationalReport: SchemaDescriptor = {
   "hasRevisedNbsap": { title: "Has your country revised or updated NBSAPs in the light of the Kunming-Montreal Global Biodiversity Framework?", type: 'string' },
   "anticipatedNbsapDate": { title: "Please indicate the anticipated date of completion of the revision or updating of the NBSAP", type: 'datetime' },
   "hasStakeholderEngagement": { title: "Did your country involve and engage stakeholders in revising or updating NBSAPs?", type: 'bool', example: true },
-  "stakeholders": { title: "Stakeholders", type: 'term[]', example: [{"identifier":"EC872EB8-02B0-46E7-AAB0-C79AC629356A"}] },
+  "stakeholders": { title: "Stakeholders", titleLink: '/thesaurus/stakeholders', type: 'term[]', example: [{"identifier":"EC872EB8-02B0-46E7-AAB0-C79AC629356A"}] },
   "hasNbsapAdopted": { title: "Has your country's revised or updated NBSAPs been adopted as policy or legal instruments?", type: 'string' },
   "anticipatedNbsapAdoptionDate": { title: "Please indicate the anticipated date of adoption", type: 'datetime' },
   "policyInstrument": { title: "Please indicate the type of policy instrument your country's revised or updated NBSAPs has been adopted as", titleLink: '/thesaurus/policy-instruments', type: 'term', example: {"identifier":"14FB02A6-46FB-4932-9F42-630416271B3A"} },

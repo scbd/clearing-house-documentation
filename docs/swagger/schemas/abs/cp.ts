@@ -9,7 +9,7 @@ const cp: SchemaDescriptor = {
   "government": { title: "Country", titleLink: '/thesaurus/countries', type: 'term', example: {"identifier":"us"} },
   "name": { title: "Name of the checkpoint", type: 'lstring', mandatory: true, example: {"en":"Test Checkpoint"} },
   "responsibilities": { title: "Short description of any additional responsibilities (maximum 300 characters)", type: 'lstring', mandatory: true, example: {"en":"<div><!--block-->Test description</div>"} },
-  "jurisdiction": { title: "Area of jurisdiction:", type: 'term', example: {"identifier":"7437F880-7B12-4F26-AA91-CED37250DD0A"} },
+  "jurisdiction": { title: "Area of jurisdiction:", titleLink: '/thesaurus/cp-jurisdiction', type: 'term', example: {"identifier":"7437F880-7B12-4F26-AA91-CED37250DD0A"} },
   "jurisdictionName": { title: "Name of the sub-national jurisdiction", type: 'lstring', example: {"en":"Test Sub jurisdiction"} },
   "informAllAuthorities": { title: "Send a copy of the communiqué to all competent national authorities within my country", type: 'bool', mandatory: true, example: true },
   "contactsToInform": { title: "Please select any national authorities whom you wish to send a copy of the communiqué", type: 'reference[]', example: [{"identifier":"DECLARE-ORGANISATION_13394_20240830135408832@1"}] },

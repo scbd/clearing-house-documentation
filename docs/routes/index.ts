@@ -187,23 +187,29 @@ export default {
       text: 'Thesaurus',
       collapsed: true,
       items: [
+        { text: "All Keywords", link: '/absch/thesaurus/all-keywords' },
+        { text: "Authority - ABS Genetic Resource Types", link: '/absch/thesaurus/abs-genetic-resource-types' },
+        { text: "Authority - ABS Jurisdictions", link: '/absch/thesaurus/abs-jurisdictions' },
         { text: "CBD Subjects", link: '/absch/thesaurus/cbd-subjects' },
         { text: "CBI Audience", link: '/absch/thesaurus/cbi-audience' },
         { text: "CBI Cats", link: '/absch/thesaurus/cbi-cats' },
         { text: "CBI CPB Types", link: '/absch/thesaurus/cbi-cpb-types' },
         { text: "CBI Funding Src", link: '/absch/thesaurus/cbi-funding-src' },
         { text: "CBI Status", link: '/absch/thesaurus/cbi-status' },
+        { text: "Checkpoint - CP Jurisdiction", link: '/absch/thesaurus/cp-jurisdiction' },
         { text: "GBF Targets", link: '/absch/thesaurus/gbf-targets' },
         { text: "General - Countries", link: '/absch/thesaurus/countries' },
         { text: "Jurisdictions", link: '/absch/thesaurus/jurisdictions' },
         { text: "Key Areas", link: '/absch/thesaurus/key-areas' },
         { text: "MCC Keywords", link: '/absch/thesaurus/mcc-keywords' },
+        { text: "Measure - Jurisdictions", link: '/absch/thesaurus/msr-jurisdictions' },
         { text: "Measure - Statuses", link: '/absch/thesaurus/statuses' },
         { text: "Measure - Type of Documents", link: '/absch/thesaurus/type-of-documents' },
         { text: "Organization Types", link: '/absch/thesaurus/organization-types' },
         { text: "Permit - Permit Keywords (Keywords to describe the subject-matter or genetic resource(s) covered by the permit or its equivalent)", link: '/absch/thesaurus/permit-keywords' },
         { text: "Permit - Permit Usage (Indicate if the permit or its equivalent covers commercial and/or non-commercial use)", link: '/absch/thesaurus/permit-usage' },
-        { text: "Resource Type VLR", link: '/absch/thesaurus/resource-type-vlr' }
+        { text: "Resource Type VLR", link: '/absch/thesaurus/resource-type-vlr' },
+        { text: "Thematic Areas", link: '/absch/thesaurus/thematic-areas' }
       ]
     }
   ],
@@ -334,10 +340,15 @@ export default {
       text: 'Thesaurus',
       collapsed: true,
       items: [
+        { text: "Authority - ABS Genetic Resource Types", link: '/bch/thesaurus/abs-genetic-resource-types' },
+        { text: "Authority - ABS Jurisdictions", link: '/bch/thesaurus/abs-jurisdictions' },
+        { text: "Authority - CPB Organism Types", link: '/bch/thesaurus/cpb-organism-types' },
         { text: "Biosafety Decision - Decision Results", link: '/bch/thesaurus/decision-results' },
         { text: "Biosafety Decision - Decision Types", link: '/bch/thesaurus/decision-types' },
         { text: "Biosafety Decision - Transboundary Movement Types", link: '/bch/thesaurus/transboundary-movement-types' },
+        { text: "Biosafety Law - Law Jurisdictions", link: '/bch/thesaurus/law-jurisdictions' },
         { text: "Biosafety Law - Legislation Agreement Types", link: '/bch/thesaurus/legislation-agreement-types' },
+        { text: "Biosafety Law - Subject Areas", link: '/bch/thesaurus/subject-areas' },
         { text: "CBD Subjects", link: '/bch/thesaurus/cbd-subjects' },
         { text: "CBI Audience", link: '/bch/thesaurus/cbi-audience' },
         { text: "CBI Cats", link: '/bch/thesaurus/cbi-cats' },
@@ -510,13 +521,17 @@ export default {
         { text: "Approving Body", link: '/ort/thesaurus/approving-body' },
         { text: "Approving Status", link: '/ort/thesaurus/approved-status' },
         { text: "Binary Indicator", link: '/ort/thesaurus/binary-indicator' },
+        { text: "GBF Complementary Indicators", link: '/ort/thesaurus/gbf-complementary-indicators' },
+        { text: "GBF Component Indicators", link: '/ort/thesaurus/gbf-component-indicators' },
         { text: "GBF Goals", link: '/ort/thesaurus/gbf-goals' },
         { text: "GBF Headline Indicators", link: '/ort/thesaurus/gbf-headline-indicators' },
         { text: "GBF Target Considerations", link: '/ort/thesaurus/gbf-target-considerations' },
         { text: "GBF Targets", link: '/ort/thesaurus/gbf-targets' },
         { text: "General - Countries", link: '/ort/thesaurus/countries' },
+        { text: "Jurisdictions", link: '/ort/thesaurus/jurisdictions' },
         { text: "Policy Instruments", link: '/ort/thesaurus/policy-instruments' },
-        { text: "Report Status", link: '/ort/thesaurus/report-status' }
+        { text: "Report Status", link: '/ort/thesaurus/report-status' },
+        { text: "Stakeholders", link: '/ort/thesaurus/stakeholders' }
       ]
     }
   ],

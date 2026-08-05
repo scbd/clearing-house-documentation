@@ -23,7 +23,7 @@ const pro: SchemaDescriptor = {
   "duration": { title: "How long does the application process take", type: 'int', example: 3 },
   "durationPeriod": { title: "Days Months Years", type: 'string' },
   "relevantMeasures": { title: "Relevant ABS measure(s)", type: 'reference[]', example: [{"identifier":"A3722021-0CC0-B195-75BE-954F133FF78B@1"}] },
-  "keywords": { title: "Keywords", type: 'term[]', example: [{"identifier":"EC94899F15EE40C6A0F7D0B1F774A521"}] },
+  "keywords": { title: "Keywords", titleLink: '/thesaurus/all-keywords', type: 'term[]', example: [{"identifier":"EC94899F15EE40C6A0F7D0B1F774A521"}] },
   "relevantInformation": { title: "Please use this field to provide any other relevant information that may not have been addressed elsewhere in the record.", type: 'lstring', example: {"en":"<div><!--block-->Test Info</div>"} },
   "relevantDocuments": { title: "Other relevant website addresses and/or attached documents", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google","language":"en"}] }
   }

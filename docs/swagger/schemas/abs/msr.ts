@@ -12,7 +12,7 @@ const msr: SchemaDescriptor = {
   "description": { title: "Brief description of the document including objective and scope (max. 300 words)", type: 'lstring', example: {"en":"<div><!--block-->Test description</div>"} },
   "type": { title: "Type of document/measure", titleLink: '/thesaurus/type-of-documents', type: 'term', mandatory: true, example: {"identifier":"8165BF22-EEF0-4DF8-B3F2-8E0AEED13E2F"} },
   "jurisdiction": { title: "Area of jurisdiction", titleLink: '/thesaurus/jurisdictions', type: 'term', mandatory: true, example: {"identifier":"7437F880-7B12-4F26-AA91-CED37250DD0A"} },
-  "jurisdictionRegions": { title: "Country name(s) and/or Geographical or political/economic group(s)", type: 'term[]', example: {"identifier":"7437F880-7B12-4F26-AA91-CED37250DD0A"} },
+  "jurisdictionRegions": { title: "Country name(s) and/or Geographical or political/economic group(s)", titleLink: '/thesaurus/msr-jurisdictions', type: 'term[]', example: {"identifier":"7437F880-7B12-4F26-AA91-CED37250DD0A"} },
   "jurisdictionName": { title: "Name of the sub-national / community / other jurisdiction", type: 'lstring', example: {"en":"Test information"} },
   "documents": { title: "Document text (in its original language)", type: 'link[]', mandatory: true, example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },
   "documentTranslations": { title: "Translation in one of the official UN languages", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },
