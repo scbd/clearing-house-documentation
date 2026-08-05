@@ -34,7 +34,9 @@ Calls to this endpoint require a bearer token — see [User - Authentication](/a
 
 ## Request Body
 
-The record's fields, wrapped in a `document` object. Two optional fields may accompany it: `additionalInfo` (free text, up to 1000 characters) and `batchId` (up to 100 characters, when multiple records are batched for publishing together).
+<!--@include: @/components/common/workflow-request-body.md-->
+
+The fields of the `document` object are below.
 
 <SchemaTable :schema="cpc" />
 

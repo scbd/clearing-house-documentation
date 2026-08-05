@@ -34,7 +34,9 @@ Calls to this endpoint require a bearer token — see [User - Authentication](/c
 
 ## Request Body
 
-The record's fields, wrapped in a `document` object. Two optional fields may accompany it: `additionalInfo` (free text, up to 1000 characters) and `batchId` (up to 100 characters, when multiple records are batched for publishing together). The `:identifier` path parameter must match the `header.identifier` inside the document. The table below outlines the fields, their types, and whether they are mandatory.
+<!--@include: @/components/common/workflow-request-body.md-->
+
+The fields of the `document` object are below.
 
 <SchemaTable :schema="contact" />
 
