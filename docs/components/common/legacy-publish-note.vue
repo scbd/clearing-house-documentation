@@ -13,8 +13,8 @@ const { clearingHouseBase } = useClearingHouse()
     Publishing through the legacy v2013 API uses the
     <a :href="clearingHouseBase('/general/save-draft')">Save Draft</a>
     endpoint plus a workflow call; new integrations should use this single v2023
-    call instead. The record's other document operations (drafts, locks,
+    call instead. The record's other draft operations (drafts, locks,
     securities, validation, versions) are documented under
-    <a :href="clearingHouseBase('/general/drafts')">Document Operations</a>.
+    <a :href="clearingHouseBase('/general/drafts')">Draft Operations</a>.
   </div>
 </template>

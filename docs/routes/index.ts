@@ -47,7 +47,19 @@ export default {
         { text: "Get", link: '/absch/contact/get' },
         { text: "Create", link: '/absch/contact/create' },
         { text: "Update", link: '/absch/contact/update' },
-        { text: "Delete", link: '/absch/contact/delete' }
+        { text: "Delete", link: '/absch/contact/delete' },
+        {
+          text: 'Draft Operations',
+          collapsed: true,
+          items: [
+          { text: 'Drafts', link: '/absch/general/drafts' },
+          { text: 'Draft Locks', link: '/absch/general/draft-locks' },
+          { text: 'Draft Securities', link: '/absch/general/draft-securities' },
+          { text: 'Document Securities', link: '/absch/general/document-securities' },
+          { text: 'Document Validations', link: '/absch/general/document-validations' },
+          { text: 'Document Versions', link: '/absch/general/documents-versions' }
+          ]
+        }
       ]
     },
     {
@@ -123,7 +135,19 @@ export default {
         { text: "Get", link: '/absch/cpc/get' },
         { text: "Create", link: '/absch/cpc/create' },
         { text: "Update", link: '/absch/cpc/update' },
-        { text: "Delete", link: '/absch/cpc/delete' }
+        { text: "Delete", link: '/absch/cpc/delete' },
+        {
+          text: 'Draft Operations',
+          collapsed: true,
+          items: [
+          { text: 'Drafts', link: '/absch/general/drafts' },
+          { text: 'Draft Locks', link: '/absch/general/draft-locks' },
+          { text: 'Draft Securities', link: '/absch/general/draft-securities' },
+          { text: 'Document Securities', link: '/absch/general/document-securities' },
+          { text: 'Document Validations', link: '/absch/general/document-validations' },
+          { text: 'Document Versions', link: '/absch/general/documents-versions' }
+          ]
+        }
       ]
     },
     {
@@ -145,7 +169,19 @@ export default {
         { text: "Get", link: '/absch/ircc/get' },
         { text: "Create", link: '/absch/ircc/create' },
         { text: "Update", link: '/absch/ircc/update' },
-        { text: "Delete", link: '/absch/ircc/delete' }
+        { text: "Delete", link: '/absch/ircc/delete' },
+        {
+          text: 'Draft Operations',
+          collapsed: true,
+          items: [
+          { text: 'Drafts', link: '/absch/general/drafts' },
+          { text: 'Draft Locks', link: '/absch/general/draft-locks' },
+          { text: 'Draft Securities', link: '/absch/general/draft-securities' },
+          { text: 'Document Securities', link: '/absch/general/document-securities' },
+          { text: 'Document Validations', link: '/absch/general/document-validations' },
+          { text: 'Document Versions', link: '/absch/general/documents-versions' }
+          ]
+        }
       ]
     },
     {
@@ -173,18 +209,6 @@ export default {
         { text: "Field Reference", link: '/absch/pro/fields' },
         { text: "Search", link: '/absch/pro/solr' },
         { text: "Get", link: '/absch/pro/get' }
-      ]
-    },
-    {
-      text: 'Document Operations',
-      collapsed: true,
-      items: [
-        { text: 'Drafts', link: '/absch/general/drafts' },
-        { text: 'Draft Locks', link: '/absch/general/draft-locks' },
-        { text: 'Draft Securities', link: '/absch/general/draft-securities' },
-        { text: 'Document Securities', link: '/absch/general/document-securities' },
-        { text: 'Document Validations', link: '/absch/general/document-validations' },
-        { text: 'Document Versions', link: '/absch/general/documents-versions' }
       ]
     },
     {
@@ -238,7 +262,19 @@ export default {
         { text: "Get", link: '/bch/contact/get' },
         { text: "Create", link: '/bch/contact/create' },
         { text: "Update", link: '/bch/contact/update' },
-        { text: "Delete", link: '/bch/contact/delete' }
+        { text: "Delete", link: '/bch/contact/delete' },
+        {
+          text: 'Draft Operations',
+          collapsed: true,
+          items: [
+          { text: 'Drafts', link: '/bch/general/drafts' },
+          { text: 'Draft Locks', link: '/bch/general/draft-locks' },
+          { text: 'Draft Securities', link: '/bch/general/draft-securities' },
+          { text: 'Document Securities', link: '/bch/general/document-securities' },
+          { text: 'Document Validations', link: '/bch/general/document-validations' },
+          { text: 'Document Versions', link: '/bch/general/documents-versions' }
+          ]
+        }
       ]
     },
     {
@@ -341,18 +377,6 @@ export default {
       ]
     },
     {
-      text: 'Document Operations',
-      collapsed: true,
-      items: [
-        { text: 'Drafts', link: '/bch/general/drafts' },
-        { text: 'Draft Locks', link: '/bch/general/draft-locks' },
-        { text: 'Draft Securities', link: '/bch/general/draft-securities' },
-        { text: 'Document Securities', link: '/bch/general/document-securities' },
-        { text: 'Document Validations', link: '/bch/general/document-validations' },
-        { text: 'Document Versions', link: '/bch/general/documents-versions' }
-      ]
-    },
-    {
       text: 'Files & Attachments',
       collapsed: true,
       items: [
@@ -404,7 +428,19 @@ export default {
         { text: "Get", link: '/chm/contact/get' },
         { text: "Create", link: '/chm/contact/create' },
         { text: "Update", link: '/chm/contact/update' },
-        { text: "Delete", link: '/chm/contact/delete' }
+        { text: "Delete", link: '/chm/contact/delete' },
+        {
+          text: 'Draft Operations',
+          collapsed: true,
+          items: [
+          { text: 'Drafts', link: '/chm/general/drafts' },
+          { text: 'Draft Locks', link: '/chm/general/draft-locks' },
+          { text: 'Draft Securities', link: '/chm/general/draft-securities' },
+          { text: 'Document Securities', link: '/chm/general/document-securities' },
+          { text: 'Document Validations', link: '/chm/general/document-validations' },
+          { text: 'Document Versions', link: '/chm/general/documents-versions' }
+          ]
+        }
       ]
     },
     {
@@ -432,18 +468,6 @@ export default {
         { text: "Field Reference", link: '/chm/cdi/fields' },
         { text: "Search", link: '/chm/cdi/solr' },
         { text: "Get", link: '/chm/cdi/get' }
-      ]
-    },
-    {
-      text: 'Document Operations',
-      collapsed: true,
-      items: [
-        { text: 'Drafts', link: '/chm/general/drafts' },
-        { text: 'Draft Locks', link: '/chm/general/draft-locks' },
-        { text: 'Draft Securities', link: '/chm/general/draft-securities' },
-        { text: 'Document Securities', link: '/chm/general/document-securities' },
-        { text: 'Document Validations', link: '/chm/general/document-validations' },
-        { text: 'Document Versions', link: '/chm/general/documents-versions' }
       ]
     },
     {
@@ -539,19 +563,19 @@ export default {
         { text: "Get", link: '/ort/stakeholderCommitment/get' },
         { text: "Create", link: '/ort/stakeholderCommitment/create' },
         { text: "Update", link: '/ort/stakeholderCommitment/update' },
-        { text: "Delete", link: '/ort/stakeholderCommitment/delete' }
-      ]
-    },
-    {
-      text: 'Document Operations',
-      collapsed: true,
-      items: [
-        { text: 'Drafts', link: '/ort/general/drafts' },
-        { text: 'Draft Locks', link: '/ort/general/draft-locks' },
-        { text: 'Draft Securities', link: '/ort/general/draft-securities' },
-        { text: 'Document Securities', link: '/ort/general/document-securities' },
-        { text: 'Document Validations', link: '/ort/general/document-validations' },
-        { text: 'Document Versions', link: '/ort/general/documents-versions' }
+        { text: "Delete", link: '/ort/stakeholderCommitment/delete' },
+        {
+          text: 'Draft Operations',
+          collapsed: true,
+          items: [
+          { text: 'Drafts', link: '/ort/general/drafts' },
+          { text: 'Draft Locks', link: '/ort/general/draft-locks' },
+          { text: 'Draft Securities', link: '/ort/general/draft-securities' },
+          { text: 'Document Securities', link: '/ort/general/document-securities' },
+          { text: 'Document Validations', link: '/ort/general/document-validations' },
+          { text: 'Document Versions', link: '/ort/general/documents-versions' }
+          ]
+        }
       ]
     },
     {
