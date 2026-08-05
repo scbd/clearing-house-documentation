@@ -22,15 +22,22 @@ Updates an existing Contact record in the Clearing-House Mechanism and re-runs t
 
 **PUT** `/api/v2023/documents/schemas/contact/:identifier`
 
-**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `realm` query parameter)
+## Headers
 
-Calls to this endpoint require a bearer token — see [User - Authentication](/chm/user/authentication).
+<!--@include: @/components/common/workflow-headers.md-->
 
-## URL Parameters
+## Path Parameters
 
 | Parameter | Description |
 | --- | --- |
-| `identifier` | Identifier of the record to update. |
+| `schema` | The record type being updated: `contact`. |
+| `identifier` | The record's unique identifier. Must match the document's `header.identifier`. |
+
+## Query Parameters
+
+| Parameter | Required | Description |
+| --- | --- | --- |
+| `realm` | Yes | The Clearing-House context. For this application and environment: <code>{{ realm }}</code>. May alternatively be sent as the `Realm` HTTP header. |
 
 ## Request Body
 

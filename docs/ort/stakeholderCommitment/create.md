@@ -24,9 +24,22 @@ Creates a new Stakeholder Commitment record in the Online Reporting Tool and ini
 
 The identifier may also be supplied in the path — **POST** `/api/v2023/documents/schemas/stakeholderCommitment/:identifier?` — otherwise it is taken from the document's `header.identifier`.
 
-**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `realm` query parameter`)
+## Headers
 
-Calls to this endpoint require a bearer token — see [User - Authentication](/ort/user/authentication).
+<!--@include: @/components/common/workflow-headers.md-->
+
+## Path Parameters
+
+| Parameter | Description |
+| --- | --- |
+| `schema` | The record type being published: `stakeholderCommitment`. |
+| `identifier` | Optional. The record's unique identifier; when omitted it is taken from the document's `header.identifier`. |
+
+## Query Parameters
+
+| Parameter | Required | Description |
+| --- | --- | --- |
+| `realm` | Yes | The Clearing-House context. For this application and environment: <code>{{ realm }}</code>. May alternatively be sent as the `Realm` HTTP header. |
 
 ## Request Body
 
