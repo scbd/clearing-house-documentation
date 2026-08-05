@@ -30,6 +30,13 @@ by copy-paste; every page is re-derived from a reviewed schema descriptor.
 
 Done means: `.archive/` is empty and every page is descriptor-driven.
 
+**Status 2026-08-05: every record type + the getting-started, authentication,
+thesaurus and general sections are drafted and committed.** Remaining before
+"done": verify playgrounds against dev, then delete the superseded `.archive/`
+files (step 4); the endgame infra task below; and the small review follow-ups
+noted per-row (composite `object` fields, 5 unresolved Term links, the `nfp`→CHM
+scope call).
+
 **Deployment during the rebuild:** once the contact record type is complete,
 `rebuild` merges into `dev` early and often — the dev docs site is the living
 preview where each migrated playground is exercised with dev tokens.
