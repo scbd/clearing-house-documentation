@@ -33,6 +33,10 @@ export default defineConfig({
         link: "/",
       },
       {
+        text: "Thesaurus",
+        link: "/thesaurus/",
+      },
+      {
         text: "Developer hub",
         link: "https://developer.cbd.int/",
       },

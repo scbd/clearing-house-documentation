@@ -406,5 +406,160 @@ export default {
         { text: "Delete", link: '/ort/stakeholderCommitment/delete' }
       ]
     }
+  ],
+  '/thesaurus/': [
+    { text: 'Thesaurus', link: '/thesaurus/' },
+    {
+      text: 'A',
+      collapsed: true,
+      items: [
+        { text: "Authority - ABS Functions", link: '/thesaurus/abs-functions' },
+        { text: "Authority - ABS Genetic Resource Areas", link: '/thesaurus/abs-genetic-resource-areas' },
+        { text: "Authority - ABS Genetic Resource Types", link: '/thesaurus/abs-genetic-resource-types' },
+        { text: "Authority - ABS Jurisdictions", link: '/thesaurus/abs-jurisdictions' },
+        { text: "ABS Subjects", link: '/thesaurus/abs-subjects' },
+        { text: "Aichi Targets", link: '/thesaurus/aichi-targets' },
+        { text: "All Keywords", link: '/thesaurus/all-keywords' },
+        { text: "Approving Status", link: '/thesaurus/approved-status' },
+        { text: "Approving Body", link: '/thesaurus/approving-body' },
+        { text: "Assessment Policy", link: '/thesaurus/assessment-progress' },
+        { text: "Authority - CBP Functions", link: '/thesaurus/cpb-functions' },
+        { text: "Authority - CPB Organism Types", link: '/thesaurus/cpb-organism-types' },
+        { text: "Authority - Keywords", link: '/thesaurus/keywords' }
+      ]
+    },
+    {
+      text: 'B',
+      collapsed: true,
+      items: [
+        { text: "BCH RA Author Affiliation", link: '/thesaurus/bch-ra-author-affiliation' },
+        { text: "BCH RA Subjects", link: '/thesaurus/bch-ra-subjects' },
+        { text: "Binary Indicator", link: '/thesaurus/binary-indicator' },
+        { text: "Biosafety Decision - Decision LMO FFP Subject", link: '/thesaurus/decision-lmo-ffp-subject' },
+        { text: "Biosafety Decision - Decision Results", link: '/thesaurus/decision-results' },
+        { text: "Biosafety Decision - Decision Types", link: '/thesaurus/decision-types' },
+        { text: "Biosafety Law - Law Jurisdictions", link: '/thesaurus/law-jurisdictions' },
+        { text: "Biosafety Law - Legislation Agreement Types", link: '/thesaurus/legislation-agreement-types' },
+        { text: "Biosafety Law - Subject Areas", link: '/thesaurus/subject-areas' },
+        { text: "Biosafety Decision - Transboundary Movement Types", link: '/thesaurus/transboundary-movement-types' },
+        { text: "Biosafety Law - Type of Organisms", link: '/thesaurus/type-of-organisms' }
+      ]
+    },
+    {
+      text: 'C',
+      collapsed: true,
+      items: [
+        { text: "CBD Subjects", link: '/thesaurus/cbd-subjects' },
+        { text: "CBI Audience", link: '/thesaurus/cbi-audience' },
+        { text: "CBI Cats", link: '/thesaurus/cbi-cats' },
+        { text: "CBI CPB Types", link: '/thesaurus/cbi-cpb-types' },
+        { text: "CBI Funding Src", link: '/thesaurus/cbi-funding-src' },
+        { text: "CBI Status", link: '/thesaurus/cbi-status' },
+        { text: "CBI Thematic Areas", link: '/thesaurus/cbi-thematic-areas' },
+        { text: "Checkpoint - CP Jurisdiction", link: '/thesaurus/cp-jurisdiction' },
+        { text: "CPB Thematic Areas", link: '/thesaurus/cpb-thematic-areas' },
+        { text: "Checkpoint Communique - CPC Keywords", link: '/thesaurus/cpc-keywords' }
+      ]
+    },
+    {
+      text: 'D',
+      collapsed: true,
+      items: [
+        { text: "DNA Sequence - DNA Sequence Family", link: '/thesaurus/dna-sequence-family' }
+      ]
+    },
+    {
+      text: 'G',
+      collapsed: true,
+      items: [
+        { text: "General - Countries", link: '/thesaurus/countries' },
+        { text: "GBF Complementary Indicators", link: '/thesaurus/gbf-complementary-indicators' },
+        { text: "GBF Component Indicators", link: '/thesaurus/gbf-component-indicators' },
+        { text: "GBF Degree of Alignment", link: '/thesaurus/gbf-degree-of-alignment' },
+        { text: "GBF Goals", link: '/thesaurus/gbf-goals' },
+        { text: "GBF Headline Indicators", link: '/thesaurus/gbf-headline-indicators' },
+        { text: "GBF Target Considerations", link: '/thesaurus/gbf-target-considerations' },
+        { text: "GBF Targets", link: '/thesaurus/gbf-targets' },
+        { text: "General - Libraries", link: '/thesaurus/libraries' },
+        { text: "General - Other", link: '/thesaurus/other' },
+        { text: "General - Regions", link: '/thesaurus/regions' }
+      ]
+    },
+    {
+      text: 'I',
+      collapsed: true,
+      items: [
+        { text: "Independent Risk Assessment - Risk Assessment Scope", link: '/thesaurus/risk-assessment-scope' }
+      ]
+    },
+    {
+      text: 'J',
+      collapsed: true,
+      items: [
+        { text: "Jurisdictions", link: '/thesaurus/jurisdictions' }
+      ]
+    },
+    {
+      text: 'K',
+      collapsed: true,
+      items: [
+        { text: "Key Areas", link: '/thesaurus/key-areas' }
+      ]
+    },
+    {
+      text: 'M',
+      collapsed: true,
+      items: [
+        { text: "Measure - ABS Measures", link: '/thesaurus/abs-measures' },
+        { text: "Measure - Document Links Ext", link: '/thesaurus/document-links-ext' },
+        { text: "Measure - Languages", link: '/thesaurus/languages' },
+        { text: "MCC Keywords", link: '/thesaurus/mcc-keywords' },
+        { text: "Measure - Jurisdictions", link: '/thesaurus/msr-jurisdictions' },
+        { text: "Modified Organism - Organism Common Uses", link: '/thesaurus/organism-common-uses' },
+        { text: "Measure - Statuses", link: '/thesaurus/statuses' },
+        { text: "Modified Organism - Technique Used", link: '/thesaurus/technique-used' },
+        { text: "Measure - Translation Type", link: '/thesaurus/translation-type' },
+        { text: "Measure - Type of Documents", link: '/thesaurus/type-of-documents' }
+      ]
+    },
+    {
+      text: 'O',
+      collapsed: true,
+      items: [
+        { text: "Organization Types", link: '/thesaurus/organization-types' },
+        { text: "ORT Jurisdictions", link: '/thesaurus/ort-jurisdictions' }
+      ]
+    },
+    {
+      text: 'P',
+      collapsed: true,
+      items: [
+        { text: "Permit - Permit Keywords (Keywords to describe the subject-matter or genetic resource(s) covered by the permit or its equivalent)", link: '/thesaurus/permit-keywords' },
+        { text: "Permit - Permit Usage (Indicate if the permit or its equivalent covers commercial and/or non-commercial use)", link: '/thesaurus/permit-usage' },
+        { text: "Policy Instruments", link: '/thesaurus/policy-instruments' }
+      ]
+    },
+    {
+      text: 'R',
+      collapsed: true,
+      items: [
+        { text: "Report Status", link: '/thesaurus/report-status' },
+        { text: "Resource Type VLR", link: '/thesaurus/resource-type-vlr' }
+      ]
+    },
+    {
+      text: 'S',
+      collapsed: true,
+      items: [
+        { text: "Stakeholders", link: '/thesaurus/stakeholders' }
+      ]
+    },
+    {
+      text: 'T',
+      collapsed: true,
+      items: [
+        { text: "Thematic Areas", link: '/thesaurus/thematic-areas' }
+      ]
+    }
   ]
 } as Record<string, SidebarItem[]>

@@ -15,7 +15,7 @@ export const contactFields: Record<string, Field> = {
   department: { title: 'Department / Division / Unit', type: 'lstring', example: { en: 'Division' } },
   organizationType: {
     title: 'Type of Organization',
-    titleLink: '/thesaurus/authority/organization-types',
+    titleLink: '/thesaurus/organization-types',
     type: 'term',
     example: { identifier: '86D464C3-B5BB-4B02-85E4-1AAD8D64CD27' }
   },
@@ -34,7 +34,7 @@ export const contactFields: Record<string, Field> = {
   type: { title: 'Contact Type', type: 'string', mandatory: true, example: 'person' },
   government: {
     title: 'Country',
-    titleLink: '/thesaurus/general/countries',
+    titleLink: '/thesaurus/countries',
     type: 'term',
     example: { identifier: 'af' }
   },

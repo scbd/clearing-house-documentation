@@ -33,7 +33,7 @@ export const organizationFields: Record<string, Field> = {
   libraries: { title: '', type: 'term[]' },
   organizationType: {
     title: 'Type of organization',
-    titleLink: '/thesaurus/authority/organization-types',
+    titleLink: '/thesaurus/organization-types',
     type: 'term',
     mandatory: true,
     example: { identifier: '86D464C3-B5BB-4B02-85E4-1AAD8D64CD27' }

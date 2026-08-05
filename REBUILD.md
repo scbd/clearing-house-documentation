@@ -70,7 +70,7 @@ verify against the realm configurations before starting each row.
 | national-target-mapping | O | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. `referencePeriod` blank-typed → `object` |
 | nbsap | O | drafted 2026-08-04, schemas **approved 2026-08-05**; read-only set (search/get/fields), matching the archive. |
 | stakeholderCommitment | O | drafted 2026-08-04, schemas **approved 2026-08-05**; publish set (create/update on v2023 + get/delete/list/search/fields). Archive had get/list/delete/solr + workflow; create/update = v2023 publish |
-| thesaurus | A B C O | pending — structurally different (controlled vocabularies); do last. Needs its own design (not the documents descriptor+generator pattern) |
+| thesaurus | (global) | drafted 2026-08-05. **Design decision (approved): one global page per vocabulary**, not the archive's 146 per-record-type duplicates. 68 vocabularies under `/thesaurus/<slug>`, own generator (`thesaurus.ts`) + descriptor list (`swagger/vocabularies/`), global sidebar + top-nav link. Field-title `Term` links now resolve here. Flags: (1) 8 vocab pairs share one backend domain endpoint under different display names — kept as separate pages, review whether to merge; (2) Usages tables only where the archive documented them (6 of 68) — reverse-mapping every `Term` field to its vocab is a follow-up; (3) `/thesaurus/terms/{id}` single-term shape used by one vocab, handled |
 
 **Composite/blank types (review):** several ORT and ABS types had fields the
 archive typed as composites (`Nagoya`, `Biosafety`, `IndicatorData`,
