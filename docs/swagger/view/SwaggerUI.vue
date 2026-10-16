@@ -60,7 +60,10 @@
             </p>
         </div>
       </div>
-      <div :id="spec.domId ? `${spec.domId}-${index}` : `swagger-ui-${index}`"></div>
+      <div
+        :id="spec.domId ? `${spec.domId}-${index}` : `swagger-ui-${index}`"
+        :class="{ 'tryout-locked': spec.protected && (!token || !canRunPlayground) }"
+      ></div>
     </div>
   </div>
   <div v-show="isLoading">
@@ -173,7 +176,9 @@ const initializeSwaggerUI = async () => {
       layout: "BaseLayout",
     });
 
-    // Handling protected APIs with token
+    // Preauthorize protected specs. Hiding the info/auth blocks and disabling
+    // "Try it out" for unauthorized users is done in CSS (see <style>) — the
+    // old per-mutation observers re-ran on every keystroke and caused flicker.
     if (swaggerSpec.protected && token.value) {
       ui.initOAuth({
         scopeSeparator: " ",
@@ -181,60 +186,6 @@ const initializeSwaggerUI = async () => {
       });
       const prefixedAuthToken = `Ticket ${token.value}`;
       ui.preauthorizeApiKey("ApiKeyAuth", prefixedAuthToken);
-
-      const observer = new MutationObserver(() => {
-        const tryOutButtons = document.querySelectorAll(".try-out__btn");
-        tryOutButtons.forEach((button) => {
-          button.disabled = !canRunPlayground.value; // Show Swagger docs but disable "Try it out" for unauthorized users
-        });
-      });
-
-      const targetNode = document.getElementById(domId);
-      if (targetNode) {
-        observer.observe(targetNode, { childList: true, subtree: true });
-      }
-    } else if ( swaggerSpec.protected && !token.value ) {
-      const observer = new MutationObserver(() => {
-        const tryOutButtons = document.querySelectorAll(".try-out__btn");
-        tryOutButtons.forEach((button) => {
-          button.disabled = true;
-        });
-      });
-
-      const targetNode = document.getElementById(domId);
-      if (targetNode) {
-        observer.observe(targetNode, { childList: true, subtree: true });
-      }
-    } else {
-      const observer = new MutationObserver(() => {
-        const tryOut = document.querySelectorAll(".try-out");
-        tryOut.forEach((button) => {
-          button.disabled = true;
-          button.title = "Authorization token is missing";
-        });
-      });
-
-      const targetNode = document.getElementById(domId);
-      if (targetNode) {
-        observer.observe(targetNode, { childList: true, subtree: true });
-      }
-    }
-
-    // Observer for removing unwanted elements
-    const observer = new MutationObserver(() => {
-      const informationContainer = document.querySelector(".information-container.wrapper");
-      if (informationContainer) {
-        informationContainer.parentNode.removeChild(informationContainer);
-      }
-      const authorizeBtn = document.querySelector(".auth-wrapper");
-      if (authorizeBtn) {
-        authorizeBtn.parentNode.removeChild(authorizeBtn);
-      }
-    });
-
-    const targetNode = document.getElementById(domId);
-    if (targetNode) {
-      observer.observe(targetNode, { childList: true, subtree: true });
     }
     return true;
   });
@@ -329,4 +280,16 @@ const lazyLoadSwaggerFiles = async () => {
 </script>
 
 <style scoped>
+/* Replaces the old MutationObserver DOM surgery: hide Swagger's own info and
+   authorize blocks, and disable "Try it out" where the user isn't authorized. */
+:deep(.swagger-ui .information-container),
+:deep(.swagger-ui .auth-wrapper) {
+  display: none;
+}
+
+.tryout-locked :deep(.try-out__btn) {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 </style>
