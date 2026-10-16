@@ -154,12 +154,15 @@ flagged not silently resolved:
       `stakeholderCommitment.jurisdiction` now links to `/thesaurus/jurisdictions`
       (same backend domain). (`gbf-binary-indicator` on the live site is our
       `binary-indicator` — same vocabulary, different slug.)
+- [x] `.archive/` untracked (2026-10-16): the ~811 legacy reference files are
+      `.gitignore`d and kept locally — removed from the repo (and never shipped:
+      the nginx image only copies `dist/`) but still on disk as reference while
+      the rebuild is verified. Replaces the "delete `.archive/`" step; the files
+      can be dropped from disk entirely once verification is complete.
 - [ ] **Remaining to call the rebuild "done":** verify each migrated playground
-      against the dev environment (needs an authenticated dev session), then
-      delete the superseded `.archive/` files (step 4) — `.archive/` still holds
-      ~811 reference files and is the completion bar. Held pending that
-      verification; the archive just helped catch two converter bugs, so a
-      review pass is warranted before deleting it.
+      against the dev environment (needs an authenticated dev session) — the
+      archive just helped catch two converter bugs, so this pass is warranted
+      before the kept-local reference copy is discarded.
 - Parked (out of rebuild scope): `landing/` stays as-is; after parity, dedupe
   its hand-copied styling/GA config. Never hand-copy styles to match it.
 
