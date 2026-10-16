@@ -16,7 +16,7 @@ const stakeholderCommitment: SchemaDescriptor = {
   "organization": { title: "Organization", type: 'lstring', mandatory: true, example: {"en":"Test Organization"} },
   "organizationAcronym": { title: "Organization acronym", type: 'lstring', example: {"en":"CSBD"} },
   "organizationType": { title: "Type of Organization", titleLink: '/thesaurus/organization-types', type: 'term', mandatory: true },
-  "jurisdiction": { title: "Jurisdiction", type: 'term', mandatory: true },
+  "jurisdiction": { title: "Jurisdiction", titleLink: '/thesaurus/jurisdictions', type: 'term', mandatory: true },
   "jurisdictionCountries": { title: "Countries", titleLink: '/thesaurus/countries', type: 'term[]', mandatory: true, example: {"identifier":"af"} },
   "jurisdictionRegions": { title: "Regions", titleLink: '/thesaurus/regions', type: 'term[]', mandatory: true },
   "title": { title: "Title of commitment", type: 'lstring', mandatory: true },

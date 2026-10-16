@@ -145,6 +145,15 @@ flagged not silently resolved:
       recovered (archive used a `<schema-row>` format the converter skipped);
       `cdi` had 18 fields with its archive table's title/field columns swapped.
       Audit found no other empty descriptors or swapped keys.
+- [x] Live-site parity check (2026-10-16): diffed every page on the production
+      site (`developer.cbd.int/clearing-house/`) against the rebuild. All record
+      types, operations, the general/draft operations, and all 68 vocabularies
+      are present. Differences are the intended restructures — `schema`→`fields`,
+      per-app-per-type thesaurus pages → global vocabulary pages, `workflow` →
+      `create`+`update`, `drafts` → `drafts`+`save-draft`. One real gap fixed:
+      `stakeholderCommitment.jurisdiction` now links to `/thesaurus/jurisdictions`
+      (same backend domain). (`gbf-binary-indicator` on the live site is our
+      `binary-indicator` — same vocabulary, different slug.)
 - [ ] **Remaining to call the rebuild "done":** verify each migrated playground
       against the dev environment (needs an authenticated dev session), then
       delete the superseded `.archive/` files (step 4) — `.archive/` still holds
