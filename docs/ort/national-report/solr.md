@@ -1,34 +1,40 @@
 <script setup>
-import SwaggerUI from "@/swagger/view/SwaggerUI.vue";
-
-import nationalReportAllRecordsWithQueryJson from "@/swagger/json/nationalReport/solr/all-record-with-query.json";
-import nationalReportAllRecordsJson from "@/swagger/json/nationalReport/solr/all-record.json";
-import nationalReportAllRecordsWithCountryJson from "@/swagger/json/nationalReport/solr/all-record-with-country.json";
-import nationalReportAllRecordsWithRegionJson from "@/swagger/json/nationalReport/solr/all-record-with-region.json";
-import nationalReportAllRecordsWithSubFiltersJson from "@/swagger/json/nationalReport/solr/all-record-with-subfilters.json";
-
-import swaggerJson from "@/swagger/json/records/solr/base";
+import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
+import nationalReport from "@/swagger/schemas/ort/national-report"
+import { solrSpecs } from "@/swagger/generators/solr"
 import { useClearingHouse } from "@/utils/composables"
 
-import { mergeSwaggerWithBase, deepClone } from "@/utils"
+const { apiUrl, realm } = useClearingHouse()
 
-const baseJson = swaggerJson(useClearingHouse().apiUrl)
-
-const swaggerSpecs = [
-  { json: mergeSwaggerWithBase(deepClone(baseJson), nationalReportAllRecordsJson, ['paths']) ,protected: false },
-  { json: mergeSwaggerWithBase(deepClone(baseJson), nationalReportAllRecordsWithCountryJson, ['paths']) ,protected: false },
-  { json: mergeSwaggerWithBase(deepClone(baseJson), nationalReportAllRecordsWithQueryJson, ['paths']) ,protected: false },
-  { json: mergeSwaggerWithBase(deepClone(baseJson), nationalReportAllRecordsWithRegionJson, ['paths']), protected: false },
-  { json: mergeSwaggerWithBase(deepClone(baseJson), nationalReportAllRecordsWithSubFiltersJson, ["paths"]), protected: false },
-];
-
+const swaggerSpecs = solrSpecs({ apiUrl, realm, schema: nationalReport })
+  .map((json) => ({ json, protected: false }));
 </script>
 
-<!--@include: @/../components/records/solr.md-->
+# National Report - Search
 
-## Environment URLs
-<!--@include: @/../components/common/environment-urls.md-->
+## Overview
+
+Searches public National Report records of the Online Reporting Tool through the Apache Solr index. The playground below shows the common query patterns: all records of the type, filtered by country, by free text, by region, and with combined sub-filters.
+
+## Endpoint
+
+**GET** `/api/v2013/index`
+
+**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header`)
+
+## Query Parameters
+
+Refer to the [Solr query syntax](https://solr.apache.org/guide/8_11/query-syntax-and-parsing.html) for the full expression language.
+
+| Parameter | Description |
+| --- | --- |
+| `q` | The main query, e.g. `schema_s:nationalReport7`. Combine criteria with `AND`, e.g. `schema_s:nationalReport7 AND text_EN_txt:biodiversity`. |
+| `fq` | Filter query applied on top of `q`, e.g. `government_s:ht` (ISO country code) or `regions_ss:africa`. |
+| `fl` | Comma-separated field names to include in the response. |
+| `sort` | Sort order, e.g. `updatedDate_dt desc`. |
+| `start` | Offset of the first result (paging). |
+| `rows` | Number of results to return (default 10). |
 
 ## Playground
 
-<SwaggerUI :swaggerSpecs="swaggerSpecs"/>
+<SwaggerUI :swaggerSpecs="swaggerSpecs" />

@@ -1,61 +1,68 @@
 <script setup>
-import "@/style.css"
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
-import swaggerJson from "@/swagger/json/cpc/create";
+import SchemaTable from "@/components/common/schema-table.vue"
+import cpc from "@/swagger/schemas/abs/cpc"
+import { createSpec } from "@/swagger/generators/documents"
 import { useClearingHouse } from "@/utils/composables"
+import LegacyPublishNote from "@/components/common/legacy-publish-note.vue"
+
+const { apiUrl, realm } = useClearingHouse()
 
 const swaggerSpecs = [
-  { json: swaggerJson(useClearingHouse().apiUrl), protected: true },
+  { json: createSpec({ apiUrl, realm, schema: cpc }), protected: true },
 ];
 </script>
 
-# CPC - Create
+# Checkpoint Communique - Create
 
 ## Overview
-This documentation describes the API endpoint for creating a new CPC (Checkpoint Communiqué) record using the `POST` method. The endpoint allows clients to submit a new record to the system, enabling the creation and storage of compliance certificates or other related documentation.
 
+Creates a new Checkpoint Communique record in the ABS Clearing-House and initiates the publishing workflow — identifier check, securities, validation, draft and workflow — in a single call.
 
 ## Endpoint
 
-**POST** `/api/v2013/documents`
+**POST** `/api/v2023/documents/schemas/absCheckpointCommunique`
 
-This is the endpoint to which the POST request should be made to create a new record.
+The identifier may also be supplied in the path — **POST** `/api/v2023/documents/schemas/absCheckpointCommunique/:identifier?` — otherwise it is taken from the document's `header.identifier`.
 
-## Header
-<!--@include: @/../components/common/header/authorization-realm.md-->
+## Headers
 
-<br>
+<!--@include: @/components/common/workflow-headers.md-->
 
-**Realm Values:**
+## Path Parameters
 
-<table>
-    <thead>
-        <tr>
-            <th>Applications</th>
-            <th>Development Realm</th>
-            <th>Production Realm</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!--@include: @/../components/common/realm/abs.md-->
-    </tbody>
-</table>
+| Parameter | Description |
+| --- | --- |
+| `schema` | The record type being published: `absCheckpointCommunique`. |
+| `identifier` | Optional. The record's unique identifier; when omitted it is taken from the document's `header.identifier`. |
 
 ## Query Parameters
-<!--@include: @/../components/common/query/schema.md-->
 
-## URL Parameters
-<!--@include: @/../components/common/url/uid.md-->
-
-## Validation Errors
-<!--@include: @/../components/common/validation-error.md-->
+| Parameter | Required | Description |
+| --- | --- | --- |
+| `realm` | Yes | The Clearing-House context. For this application and environment: <code>{{ realm }}</code>. May alternatively be sent as the `Realm` HTTP header. |
 
 ## Request Body
-<!--@include: @/../components/cpc/request-body.md-->
 
-## Environment URLs
-<!--@include: @/../components/common/environment-urls.md-->
+<!--@include: @/components/common/workflow-request-body.md-->
+
+The fields of the `document` object are below. The record's identifier is taken from `header.identifier`; publishing fails if a record or draft with that identifier already exists.
+
+<SchemaTable :schema="cpc" />
+
+## Response
+
+A successful call returns the saved draft and the publishing workflow that was started. Validation failures **also return HTTP 200**, with an `errors` array in the body instead — always check the response body, not just the status code.
+
+<!--@include: @/components/common/workflow-validation-errors.md-->
+
+
+## Errors
+
+<!--@include: @/components/common/workflow-request-errors.md-->
 
 ## Playground
 
 <SwaggerUI :swaggerSpecs="swaggerSpecs" />
+
+<LegacyPublishNote />

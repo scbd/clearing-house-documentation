@@ -1,2 +1,1 @@
-<!-- Reference from the components folder -->
-<!--@include: @/../components/records/realms.md-->
+<!--@include: @/components/getting-started/realms.md-->

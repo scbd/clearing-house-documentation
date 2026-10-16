@@ -1,2 +1,7 @@
-<!-- Reference from the components folder -->
-<!--@include: @/../components/records/general/document-attachments.md-->
+<script setup>
+import GeneralTopic from "@/components/common/general-topic.vue"
+</script>
+
+# Document Attachments
+
+<GeneralTopic slug="document-attachments" />

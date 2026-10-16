@@ -1,2 +1,7 @@
-<!-- Reference from the components folder -->
-<!--@include: @/../components/records/general/temporary-file.md-->
+<script setup>
+import GeneralTopic from "@/components/common/general-topic.vue"
+</script>
+
+# Temporary Files
+
+<GeneralTopic slug="temporary-file" />

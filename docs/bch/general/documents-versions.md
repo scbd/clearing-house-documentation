@@ -1,2 +1,7 @@
-<!-- Reference from the components folder -->
-<!--@include: @/../components/records/general/documents-versions.md-->
+<script setup>
+import GeneralTopic from "@/components/common/general-topic.vue"
+</script>
+
+# Document Versions
+
+<GeneralTopic slug="documents-versions" />

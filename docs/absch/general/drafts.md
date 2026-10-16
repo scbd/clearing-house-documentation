@@ -1,2 +1,7 @@
-<!-- Reference from the components folder -->
-<!--@include: @/../components/records/general/drafts.md-->
+<script setup>
+import GeneralTopic from "@/components/common/general-topic.vue"
+</script>
+
+# Drafts
+
+<GeneralTopic slug="drafts" />

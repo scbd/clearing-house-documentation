@@ -1,0 +1,49 @@
+import { APP_CONFIG } from '../app-config'
+
+export function deepClone(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+
+export function getClearingHouseUrl (url: string): string | undefined {
+  const clearingHouse = getClearingHouseFromUrl(url)
+
+  switch (clearingHouse) {
+    case 'abs':
+      return APP_CONFIG.ABS_URL
+    case 'bch':
+      return APP_CONFIG.BCH_URL
+    case 'chm':
+      return APP_CONFIG.CHM_URL
+    case 'ort':
+      return APP_CONFIG.ORT_URL
+    default:
+      return APP_CONFIG.ABS_URL
+  }
+}
+
+// Bare API host. Endpoint generators own their full versioned paths
+// (/api/v2013/..., /api/v2023/...) — there is no global API version.
+export function getClearinghouseApiUrl (clearinghouseUrl: string | undefined): string {
+  return APP_CONFIG.API_URL
+}
+
+// Realm header value for an app, derived from the environment this site was
+// built for: `abs` against api.cbd.int, `abs-dev` against api.cbddev.xyz.
+export function getRealm (clearingHouse: string): string {
+  const isProductionApi = new URL(APP_CONFIG.API_URL).hostname.endsWith('cbd.int')
+  return isProductionApi ? clearingHouse : `${clearingHouse}-dev`
+}
+
+export function getClearingHouseFromUrl (url: string): string | null {
+  if (url.includes('/absch/')) {
+    return 'abs'
+  } else if (url.includes('/bch/')) {
+    return 'bch'
+  } else if (url.includes('/chm/')) {
+    return 'chm'
+  } else if (url.includes('/ort/')) {
+    return 'ort'
+  }
+
+  return null
+}

@@ -1,60 +1,41 @@
 <script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
-import cpcJson from "@/swagger/json/cpc/delete.json";
-import swaggerJson from "@/swagger/json/records/delete";
+import cpc from "@/swagger/schemas/abs/cpc"
+import { deleteSpec } from "@/swagger/generators/documents"
 import { useClearingHouse } from "@/utils/composables"
 
-const baseJson = swaggerJson(useClearingHouse().apiUrl)
-
-function mergeJson(base, specific) {
-  const merged = JSON.parse(JSON.stringify(base));
-  merged.paths["/documents/{uid}"].delete.parameters[1].schema.example = specific.example;
-  return merged;
-}
-
+const { apiUrl, realm } = useClearingHouse()
 
 const swaggerSpecs = [
-  { json: mergeJson(baseJson, cpcJson), protected: true },
+  { json: deleteSpec({ apiUrl, realm, schema: cpc }), protected: true },
 ];
 </script>
 
-# CPC - Delete
+# Checkpoint Communique - Delete
 
 ## Overview
 
-This endpoint is used to delete a specific record from the system using its unique identifier (`uid`). This operation removes the record from the database and can be useful for managing and maintaining the record repository, ensuring that outdated or irrelevant records are removed as needed.
+Deletes a Checkpoint Communique record from the ABS Clearing-House by its unique identifier (`uid`). Use this to remove records that are outdated or no longer relevant.
 
 ## Endpoint
+
 **DELETE** `/api/v2013/documents/:uid`
 
-## Headers
-<!--@include: @/../components/common/header/authorization-realm.md-->
+**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header`)
 
-<br>
-
-**Realm Values:**
-
-<table>
-    <thead>
-        <tr>
-            <th>Applications</th>
-            <th>Development Realm</th>
-            <th>Production Realm</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!--@include: @/../components/common/realm/abs.md-->
-    </tbody>
-</table>
-
-## Query Parameters
-<!--@include: @/../components/common/query/schema.md-->
+Calls to this endpoint require a bearer token — see [User - Authentication](/absch/user/authentication).
 
 ## URL Parameters
-<!--@include: @/../components/common/url/uid.md-->
 
-## Environment URLs
-<!--@include: @/../components/common/environment-urls.md-->
+| Parameter | Description |
+| --- | --- |
+| `uid` | Identifier of the record. The value is case-sensitive. |
+
+## Query Parameters
+
+| Parameter | Description |
+| --- | --- |
+| `schema` | The record type being deleted: `absCheckpointCommunique`. |
 
 ## Playground
 

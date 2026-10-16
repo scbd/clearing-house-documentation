@@ -1,63 +1,66 @@
 <script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
-import swaggerJson from "@/swagger/json/ircc/update";
+import SchemaTable from "@/components/common/schema-table.vue"
+import ircc from "@/swagger/schemas/abs/ircc"
+import { updateSpec } from "@/swagger/generators/documents"
 import { useClearingHouse } from "@/utils/composables"
+import LegacyPublishNote from "@/components/common/legacy-publish-note.vue"
 
-const { apiUrl, clearingHouseBase } = useClearingHouse()
+const { apiUrl, realm } = useClearingHouse()
 
 const swaggerSpecs = [
-  { json: swaggerJson(apiUrl), protected: true },
+  { json: updateSpec({ apiUrl, realm, schema: ircc }), protected: true },
 ];
 </script>
 
-# IRCC - Update
+# Internationally Recognized Certificate of Compliance - Update
 
 ## Overview
 
-This documentation describes the API endpoint for updating an existing IRCC (Internationally Recognized Certificate of Compliance) record using the `PUT` method. This endpoint allows clients to modify the details of a record that is already present in the system. The update operation can be used to change various attributes of the record based on the provided `uid`.
-
-
-<!--@include: @/../components/ircc/introduction.md-->
+Updates an existing Internationally Recognized Certificate of Compliance record in the ABS Clearing-House and re-runs the publishing workflow — identifier check, securities, validation, draft and workflow — in a single call.
 
 ## Endpoint
 
-**PUT** `/api/v2013/documents/:uid`
-
-This is the endpoint to which the PUT request should be made to update an existing record.
+**PUT** `/api/v2023/documents/schemas/absPermit/:identifier`
 
 ## Headers
-<!--@include: @/../components/common/header/authorization-realm.md-->
 
-**Realm Values:**
+<!--@include: @/components/common/workflow-headers.md-->
 
-<table>
-    <thead>
-        <tr>
-            <th>Applications</th>
-            <th>Development Realm</th>
-            <th>Production Realm</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!--@include: @/../components/common/realm/abs.md-->
-    </tbody>
-</table>
+## Path Parameters
+
+| Parameter | Description |
+| --- | --- |
+| `schema` | The record type being updated: `absPermit`. |
+| `identifier` | The record's unique identifier. Must match the document's `header.identifier`. |
 
 ## Query Parameters
-<!--@include: @/../components/common/query/schema.md-->
 
-## URL Parameters
-<!--@include: @/../components/common/url/uid.md-->
-
-## Validation Errors
-<!--@include: @/../components/common/validation-error.md-->
+| Parameter | Required | Description |
+| --- | --- | --- |
+| `realm` | Yes | The Clearing-House context. For this application and environment: <code>{{ realm }}</code>. May alternatively be sent as the `Realm` HTTP header. |
 
 ## Request Body
-<!--@include: @/../components/ircc/request-body.md-->
 
-## Environment URLs
-<!--@include: @/../components/common/environment-urls.md-->
+<!--@include: @/components/common/workflow-request-body.md-->
+
+The fields of the `document` object are below.
+
+<SchemaTable :schema="ircc" />
+
+## Response
+
+A successful call returns the saved draft and the publishing workflow that was started. Validation failures **also return HTTP 200**, with an `errors` array in the body instead — always check the response body, not just the status code.
+
+<!--@include: @/components/common/workflow-validation-errors.md-->
+
+
+## Errors
+
+<!--@include: @/components/common/workflow-request-errors.md-->
 
 ## Playground
 
-<SwaggerUI :swaggerSpecs="swaggerSpecs"/>
+<SwaggerUI :swaggerSpecs="swaggerSpecs" />
+
+<LegacyPublishNote />

@@ -1,7 +1,8 @@
-# Use a node base image
-FROM node:24
+# syntax=docker/dockerfile:1
 
-# Set build arguments and environment variables
+# --- Stage 1: build the static site ---------------------------------------
+FROM node:24 AS builder
+
 ARG BRANCH='master'
 ENV BRANCH=$BRANCH
 
@@ -11,27 +12,29 @@ ENV TAG=$TAG
 ARG COMMIT
 ENV COMMIT=$COMMIT
 
-# Set working directory
 WORKDIR /usr/src/app
 
-# Copy package.json and install dependencies
 COPY package.json ./
 RUN npm install --prefer-offline && \
     npm cache clean --force
 
-# Copy the rest of the application code
 COPY . .
-RUN chmod +x docker-entrypoint.sh
 
-# Build with a placeholder base path; the real path is substituted at
-# container startup by docker-entrypoint.sh, based on $BASE_PATH. Set only
-# for this RUN step, not as an image-level ENV, so it doesn't leak into
-# the runtime default.
-WORKDIR /usr/src/app/docs
-RUN BASE_PATH=/__BASE_PATH__/ npm run build
+# Per-environment image (ADR 0001): the environment (VITE_* URLs, realms) and
+# the base path are baked at build time. BUILD_SCRIPT is "build" for
+# production (master/tags) and "build:dev" for the dev environment. The
+# hosting layout is fixed: landing owns the domain root, docs are always
+# mounted at /clearing-house/.
+ARG BUILD_SCRIPT=build
+ENV BASE_PATH=/clearing-house/
+RUN npm run ${BUILD_SCRIPT}
 
-# Set port and expose it
-ENV PORT=8000
+# --- Stage 2: serve the build with nginx ----------------------------------
+FROM nginx:stable-alpine
+
+# The build already has /clearing-house/ baked into every URL; copy it under a
+# matching directory so nginx's `root` maps request paths straight to files.
+COPY --from=builder /usr/src/app/docs/.vitepress/dist /usr/share/nginx/html/clearing-house
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 EXPOSE 8000
-
-ENTRYPOINT ["/usr/src/app/docker-entrypoint.sh"]

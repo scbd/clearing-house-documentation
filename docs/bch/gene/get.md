@@ -1,47 +1,33 @@
 <script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
-import swaggerJson from "@/swagger/json/ircc/get";
+import gene from "@/swagger/schemas/bch/gene"
+import { getSpec } from "@/swagger/generators/documents"
 import { useClearingHouse } from "@/utils/composables"
 
-const swaggerSpecs = [
-  { json: swaggerJson(useClearingHouse().apiUrl), protected: false },
-];
+const { apiUrl, realm } = useClearingHouse()
 
+const swaggerSpecs = [
+  { json: getSpec({ apiUrl, realm, schema: gene }), protected: false },
+];
 </script>
 
-# GENE - Get
+# Gene / DNA Sequence - Get
 
 ## Overview
 
-This documentation describes the API endpoint for retrieving a specific GENE record using the `GET` method. This endpoint allows clients to fetch detailed information about a record from the system using its unique identifier (`uid`). It is used to retrieve and view the details of an existing record.
+Retrieves a single Gene / DNA Sequence record from the Biosafety Clearing-House by its unique identifier (`uid`). The `Accept` header controls the result format: `*` returns the record raw as submitted, `application/json` casts it to JSON.
 
 ## Endpoint
+
 **GET** `/api/v2013/documents/:uid`
 
-## Headers
-<!--@include: @/../components/common/header/realm-accept.md-->
-
-**Realm Values:**
-
-<table>
-    <thead>
-        <tr>
-            <th>Applications</th>
-            <th>Development Realm</th>
-            <th>Production Realm</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!--@include: @/../components/common/realm/bch.md-->
-    </tbody>
-</table>
-
+**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header`)
 
 ## URL Parameters
-<!--@include: @/../components/common/url/uid.md-->
 
-## Environment URLs
-<!--@include: @/../components/common/environment-urls.md-->
+| Parameter | Description |
+| --- | --- |
+| `uid` | Identifier of the record. The value is case-sensitive. |
 
 ## Playground
 

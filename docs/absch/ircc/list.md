@@ -1,57 +1,39 @@
 <script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
-import irccJson from "@/swagger/json/ircc/list.json";
-import swaggerJson from "@/swagger/json/records/list";
+import ircc from "@/swagger/schemas/abs/ircc"
+import { listSpec } from "@/swagger/generators/documents"
 import { useClearingHouse } from "@/utils/composables"
 
-const baseJson = swaggerJson(useClearingHouse().apiUrl)
-
-function mergeJson(base, specific) {
-  const merged = JSON.parse(JSON.stringify(base));
-  merged.paths["/documents"].get.parameters[0].schema.example = specific.example;
-  return merged;
-}
+const { apiUrl, realm } = useClearingHouse()
 
 const swaggerSpecs = [
-  { json: mergeJson(baseJson, irccJson), protected: true },
+  { json: listSpec({ apiUrl, realm, schema: ircc }), protected: true },
 ];
-
 </script>
 
-# Draft Records
+# Internationally Recognized Certificate of Compliance - List
 
 ## Overview
-This endpoint provides a way to retrieve draft records from the IRCC (Internationally Recognized Certificate of Compliance) system. Draft records are records that are still being prepared or are not yet finalized. This endpoint supports various query parameters to filter, sort, and paginate the results, making it easier to manage and review draft records.
 
+Lists Internationally Recognized Certificate of Compliance records in the ABS Clearing-House with OData-style query parameters for filtering, sorting and paging. Use the `collection` parameter to restrict the query, e.g. `my` for your own records (including drafts).
 
 ## Endpoint
+
 **GET** `/api/v2013/documents`
 
-## Header
-<!--@include: @/../components/common/header/authorization-realm.md-->
+**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header`)
 
-<br>
-
-**Realm Values:**
-
-<table>
-    <thead>
-        <tr>
-            <th>Applications</th>
-            <th>Development Realm</th>
-            <th>Production Realm</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!--@include: @/../components/common/realm/abs.md-->
-    </tbody>
-</table>
+Calls to this endpoint require a bearer token — see [User - Authentication](/absch/user/authentication).
 
 ## Query Parameters
-<!--@include: @/../components/common/query/collection-filter-orderby-top-skip.md-->
 
-## Environment URLs
-<!--@include: @/../components/common/environment-urls.md-->
+| Parameter | Description |
+| --- | --- |
+| `$filter` | Filter expression selecting the record type, e.g. `(type eq 'absPermit')`. |
+| `$orderby` | Sort order of the results, e.g. `updatedOn desc`. |
+| `$top` | Maximum number of records to return. |
+| `$skip` | Number of records to skip (paging). |
+| `collection` | Restrict the query to a collection, e.g. `my` = own records. |
 
 ## Playground
 

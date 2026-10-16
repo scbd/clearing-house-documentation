@@ -1,36 +1,40 @@
 <script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
-
-import geneAllRecordsWithQueryJson from "@/swagger/json/gene/solr/all-record-with-query";
-import geneAllRecordsJson from "@/swagger/json/gene/solr/all-record";
-import geneAllRecordsWithCountryJson from "@/swagger/json/gene/solr/all-record-with-country";
-import geneAllRecordsWithRegionJson from "@/swagger/json/gene/solr/all-record-with-region";
-import geneAllRecordsWithSubFiltersJson from "@/swagger/json/gene/solr/all-record-with-subfilters";
-
-import swaggerJson from "@/swagger/json/records/solr/base";
+import gene from "@/swagger/schemas/bch/gene"
+import { solrSpecs } from "@/swagger/generators/solr"
 import { useClearingHouse } from "@/utils/composables"
 
-import { mergeSwaggerWithBase, deepClone } from "@/utils"
+const { apiUrl, realm } = useClearingHouse()
 
-const clearinghouse = useClearingHouse()
-const baseJson = swaggerJson(clearinghouse.apiUrl)
-
-const swaggerSpecs = [
-  { json: mergeSwaggerWithBase(deepClone(baseJson), geneAllRecordsJson(clearinghouse), ['paths']) ,protected: false },
-  { json: mergeSwaggerWithBase(deepClone(baseJson), geneAllRecordsWithCountryJson(clearinghouse), ['paths']) ,protected: false },
-  { json: mergeSwaggerWithBase(deepClone(baseJson), geneAllRecordsWithQueryJson(clearinghouse), ['paths']) ,protected: false },
-  { json: mergeSwaggerWithBase(deepClone(baseJson), geneAllRecordsWithRegionJson(clearinghouse), ['paths']), protected: false },
-  { json: mergeSwaggerWithBase(deepClone(baseJson), geneAllRecordsWithSubFiltersJson(clearinghouse), ["paths"]), protected: false },
-];
-
-
+const swaggerSpecs = solrSpecs({ apiUrl, realm, schema: gene })
+  .map((json) => ({ json, protected: false }));
 </script>
 
-<!--@include: @/../components/records/solr.md-->
+# Gene / DNA Sequence - Search
 
-## Environment URLs
-<!--@include: @/../components/common/environment-urls.md-->
+## Overview
+
+Searches public Gene / DNA Sequence records of the Biosafety Clearing-House through the Apache Solr index. The playground below shows the common query patterns: all records of the type, filtered by country, by free text, by region, and with combined sub-filters.
+
+## Endpoint
+
+**GET** `/api/v2013/index`
+
+**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header`)
+
+## Query Parameters
+
+Refer to the [Solr query syntax](https://solr.apache.org/guide/8_11/query-syntax-and-parsing.html) for the full expression language.
+
+| Parameter | Description |
+| --- | --- |
+| `q` | The main query, e.g. `schema_s:dnaSequence`. Combine criteria with `AND`, e.g. `schema_s:dnaSequence AND text_EN_txt:biodiversity`. |
+| `fq` | Filter query applied on top of `q`, e.g. `government_s:ht` (ISO country code) or `regions_ss:africa`. |
+| `fl` | Comma-separated field names to include in the response. |
+| `sort` | Sort order, e.g. `updatedDate_dt desc`. |
+| `start` | Offset of the first result (paging). |
+| `rows` | Number of results to return (default 10). |
 
 ## Playground
 
-<SwaggerUI :swaggerSpecs="swaggerSpecs"/>
+<SwaggerUI :swaggerSpecs="swaggerSpecs" />

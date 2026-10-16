@@ -1,46 +1,33 @@
 <script setup>
 import SwaggerUI from "@/swagger/view/SwaggerUI.vue"
-import swaggerJson from "@/swagger/json/ircc/get";
+import nationalReport from "@/swagger/schemas/ort/national-report"
+import { getSpec } from "@/swagger/generators/documents"
 import { useClearingHouse } from "@/utils/composables"
 
-const swaggerSpecs = [
-  { json: swaggerJson(useClearingHouse().apiUrl), protected: false },
-];
+const { apiUrl, realm } = useClearingHouse()
 
+const swaggerSpecs = [
+  { json: getSpec({ apiUrl, realm, schema: nationalReport }), protected: false },
+];
 </script>
 
 # National Report - Get
 
 ## Overview
 
-This documentation describes the API endpoint for retrieving a specific National Report record using the `GET` method. This endpoint allows clients to fetch detailed information about a record from the system using its unique identifier (`uid`). It is used to retrieve and view the details of an existing record.
+Retrieves a single National Report record from the Online Reporting Tool by its unique identifier (`uid`). The `Accept` header controls the result format: `*` returns the record raw as submitted, `application/json` casts it to JSON.
 
 ## Endpoint
+
 **GET** `/api/v2013/documents/:uid`
 
-## Headers
-<!--@include: @/../components/common/header/realm-accept.md-->
-
-**Realm Values:**
-
-<table>
-    <thead>
-        <tr>
-            <th>Applications</th>
-            <th>Development Realm</th>
-            <th>Production Realm</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!--@include: @/../components/common/realm/ort.md-->
-    </tbody>
-</table>
+**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header`)
 
 ## URL Parameters
-<!--@include: @/../components/common/url/uid.md-->
 
-## Environment URLs
-<!--@include: @/../components/common/environment-urls.md-->
+| Parameter | Description |
+| --- | --- |
+| `uid` | Identifier of the record. The value is case-sensitive. |
 
 ## Playground
 

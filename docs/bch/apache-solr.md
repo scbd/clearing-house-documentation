@@ -1,2 +1,1 @@
-<!-- Reference from the components folder -->
-<!--@include: @/../components/records/apache-solr.md-->
+<!--@include: @/components/getting-started/apache-solr.md-->
