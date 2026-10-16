@@ -136,8 +136,21 @@ flagged not silently resolved:
       five legacy variant blocks from one parameterized source.
 - [x] Legacy-notice banner component built
       (`docs/components/common/legacy-notice.vue`).
-- [ ] Endgame: drop redundant `swagger-ui` dep, unpin axios, multi-stage
-      Docker image serving `dist/` via nginx, remove SwaggerUI.vue MutationObserver hacks.
+- [x] Endgame (2026-10-16): dropped redundant `swagger-ui` dep (CSS now from
+      `swagger-ui-dist`), unpinned axios, multi-stage Docker image serving
+      `dist/` via nginx (verified with a local docker build/run), and replaced
+      the `SwaggerUI.vue` MutationObserver hacks with CSS (also fixes the
+      playground input flicker).
+- [x] Converter-artifact fixes (2026-10-16): `stakeholderCommitment` fields
+      recovered (archive used a `<schema-row>` format the converter skipped);
+      `cdi` had 18 fields with its archive table's title/field columns swapped.
+      Audit found no other empty descriptors or swapped keys.
+- [ ] **Remaining to call the rebuild "done":** verify each migrated playground
+      against the dev environment (needs an authenticated dev session), then
+      delete the superseded `.archive/` files (step 4) — `.archive/` still holds
+      ~811 reference files and is the completion bar. Held pending that
+      verification; the archive just helped catch two converter bugs, so a
+      review pass is warranted before deleting it.
 - Parked (out of rebuild scope): `landing/` stays as-is; after parity, dedupe
   its hand-copied styling/GA config. Never hand-copy styles to match it.
 
