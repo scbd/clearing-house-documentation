@@ -263,7 +263,7 @@ const injectLoggedInNavLink = (user) => {
 const lazyLoadSwaggerFiles = async () => {
   const errorString = 'Error loading file:'
 
-  const css = import('swagger-ui/dist/swagger-ui.css')
+  const css = import('swagger-ui-dist/swagger-ui.css')
 
   const bundle = import('swagger-ui-dist/swagger-ui-bundle.js')
     .catch(error => console.error(errorString, error)) // eslint-disable-line no-console -- show error in console
