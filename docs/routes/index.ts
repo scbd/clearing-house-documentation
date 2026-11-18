@@ -341,6 +341,78 @@ export default {
       ]
     },
     {
+      text: "Biosafety Expert",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/expert/fields' },
+        { text: "Search", link: '/bch/expert/solr' },
+        { text: "Get", link: '/bch/expert/get' }
+      ]
+    },
+    {
+      text: "Biosafety News",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/news/fields' },
+        { text: "Search", link: '/bch/news/solr' },
+        { text: "Get", link: '/bch/news/get' }
+      ]
+    },
+    {
+      text: "Country Profile",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/country-profile/fields' },
+        { text: "Search", link: '/bch/country-profile/solr' },
+        { text: "Get", link: '/bch/country-profile/get' }
+      ]
+    },
+    {
+      text: "Laboratory Detection",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/lab/fields' },
+        { text: "Search", link: '/bch/lab/solr' },
+        { text: "Get", link: '/bch/lab/get' }
+      ]
+    },
+    {
+      text: "National Risk Assessment",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/nra/fields' },
+        { text: "Search", link: '/bch/nra/solr' },
+        { text: "Get", link: '/bch/nra/get' }
+      ]
+    },
+    {
+      text: "Organism",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/organism/fields' },
+        { text: "Search", link: '/bch/organism/solr' },
+        { text: "Get", link: '/bch/organism/get' }
+      ]
+    },
+    {
+      text: "Submission",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/submission/fields' },
+        { text: "Search", link: '/bch/submission/solr' },
+        { text: "Get", link: '/bch/submission/get' }
+      ]
+    },
+    {
+      text: "Supplementary Authority",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/supp-auth/fields' },
+        { text: "Search", link: '/bch/supp-auth/solr' },
+        { text: "Get", link: '/bch/supp-auth/get' }
+      ]
+    },
+    {
       text: "Gene / DNA Sequence",
       collapsed: true,
       items: [

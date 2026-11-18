@@ -16,3 +16,11 @@ Record types documented for the Biosafety Clearing-House, with the schema value 
 | [Independent Risk Assessment](/bch/ira/fields) | `independentRiskAssessment` |
 | [Law / Regulation](/bch/law/fields) | `biosafetyLaw` |
 | [Living Modified Organism](/bch/lmo/fields) | `modifiedOrganism` |
+| [Biosafety Expert](/bch/expert/fields) | `biosafetyExpert` |
+| [Biosafety News](/bch/news/fields) | `biosafetyNews` |
+| [Country Profile](/bch/country-profile/fields) | `countryProfile` |
+| [Laboratory Detection](/bch/lab/fields) | `laboratoryDetection` |
+| [National Risk Assessment](/bch/nra/fields) | `nationalRiskAssessment` |
+| [Organism](/bch/organism/fields) | `organism` |
+| [Submission](/bch/submission/fields) | `submission` |
+| [Supplementary Authority](/bch/supp-auth/fields) | `supplementaryAuthority` |
