@@ -18,7 +18,9 @@ const topic = generalTopicBySlug(props.slug)
 const blocks = computed(() =>
   topic.ops.map((op) => ({
     op,
-    specs: [{ json: generalSpec({ apiUrl, realm, op }), protected: op.params.includes("Authorization") }]
+    // Unique domId per op: SwaggerUI mounts into `#<domId>-<index>`, so without
+    // it every block on the page targets `#swagger-ui-0` and they overwrite each other.
+    specs: [{ json: generalSpec({ apiUrl, realm, op }), protected: op.params.includes("Authorization"), domId: `swagger-ui-${props.slug}-${op.key}` }]
   }))
 )
 </script>
