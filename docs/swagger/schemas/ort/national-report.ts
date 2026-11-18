@@ -30,7 +30,6 @@ const nationalReport: SchemaDescriptor = {
   "sectionIV": { title: "", type: 'object', mandatory: true },
   "gbfGoal": { title: "", type: 'term', example: [{"identifier":"ao"},{"identifier":"A23DD6C0-44C5-418D-83B5-461D79D2721A"}] },
   "summaryOfProgress": { title: "Summary of national progress contributing to the global goals", type: 'lstring', example: {"en":"<p>Overall progress towards the global goals is on track, with notable gains in protected area coverage and ecosystem restoration.</p>"} },
-  "indicatorData": { title: "Indicator Data", type: 'object' },
   "sectionV": { title: "", type: 'object', mandatory: true },
   "assessmentSummaryInfo": { title: "", type: 'lstring', mandatory: true, example: {"en":"<p>The assessment indicates that the national target is likely to be achieved by 2030 if current efforts are sustained.</p>"} },
   "annex": { title: "", type: 'object' },
