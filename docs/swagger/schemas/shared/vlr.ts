@@ -33,6 +33,6 @@ export const vlrFields: Record<string, Field> = {
   "biosafety": { title: "Biosafety", type: 'object', example: {"subjects":[{"identifier":"E3E3E362-4E46-4C4A-A2A3-EABBDDAA2DEE"}],"modifiedOrganisms":[{"identifier":"E5DF7EF2-B902-9D55-517E-D400964CB478@8"}],"organisms":[{"identifier":"A4380B39-C757-301E-5C43-0F943B021A3C@1"}],"genes":[{"identifier":"FE2DAF79-6F81-4040-74C6-BA2057E0BB0C@3"}],"addressModifiedOrganisms":true,"addressOrganisms":true,"addressGenes":true} },
   "tags": { title: "", type: 'lstring[]' },
   "adminTags": { title: "", type: 'string[]' },
-  "relevantInformation": { title: "Any other relevant information", type: 'lstring', example: {"en":"<div><!--block-->Test Info</div>"} },
+  "relevantInformation": { title: "Any other relevant information", type: 'lstring', example: {"en":"<div>Test Info</div>"} },
   "relevantDocuments": { title: "Any other relevant documents", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google","language":"en"}] }
 }

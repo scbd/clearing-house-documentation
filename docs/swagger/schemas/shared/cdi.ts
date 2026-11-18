@@ -35,10 +35,10 @@ export const cdiFields: Record<string, Field> = {
   "coreFundingSources": { title: "Primary funding source(s)", type: 'reference[]', example: [{"identifier":"2C86F905-B244-8FDD-4988-5088C023BDE9@1"}] },
   "coFinancingSources": { title: "Co-funding source(s)", type: 'reference[]', example: [{"identifier":"2C86F905-B244-8FDD-4988-5088C023BDE9@1"}] },
   "totalBudget": { title: "Total budget (amount, in US dollars)", type: 'string', example: 1234 },
-  "resultsAchievements": { title: "Main achievements", type: 'lstring', example: {"en":"<div><!--block-->Test Info</div>"} },
+  "resultsAchievements": { title: "Main achievements", type: 'lstring', example: {"en":"<div>Test Info</div>"} },
   "resultsOutputs": { title: "Main outputs", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },
   "resultsReference": { title: "Please select the virtual library record number containing relevant information.", type: 'reference[]', example: [{"identifier":"2E055D01-C58F-3195-D1C1-E53F0FF352AD@1"}] },
-  "bestPractices": { title: "Good practices and lessons learned", type: 'lstring', example: {"en":"<div><!--block-->Test Info</div>"} },
-  "relevantInformation": { title: "Any other relevant information", type: 'lstring', example: {"en":"<div><!--block-->Test Info</div>"} },
+  "bestPractices": { title: "Good practices and lessons learned", type: 'lstring', example: {"en":"<div>Test Info</div>"} },
+  "relevantInformation": { title: "Any other relevant information", type: 'lstring', example: {"en":"<div>Test Info</div>"} },
   "relevantDocuments": { title: "Any other relevant documents", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google","language":"en"}] }
 }

@@ -15,7 +15,7 @@ const dec: SchemaDescriptor = {
   "jurisdictionsDetails": { title: "Jurisdiction", type: 'lstring', example: {"en":"Test Jurisdiction"} },
   "isAmendment": { title: "Is this an amendment to a decision or communication already published on the BCH?", type: 'bool', mandatory: true },
   "amendedRecords": { title: "Please select the record(s) containing the decision or communication being amended", type: 'reference[]', example: [{"identifier":"E2795D50-46AB-E234-96D0-D1164C382C7D@1"}] },
-  "amendmentsDetails": { title: "Please provide a brief summary of the amendment(s)", type: 'lstring', example: {"en":"<div><!--block-->Test Summary</div>"} },
+  "amendmentsDetails": { title: "Please provide a brief summary of the amendment(s)", type: 'lstring', example: {"en":"<div>Test Summary</div>"} },
   "decisionTypes": { title: "Subject of the decision, notification, communication or declaration", titleLink: '/thesaurus/decision-types', type: 'term[]', mandatory: true, example: [{"identifier":"8979219B-330B-424F-A52C-209D4B4B65C0"}] },
   "exporters": { title: "Please provide Exporter’s contact details", type: 'reference[]', example: [{"identifier":"3CBDA8AA-4A16-CA5C-D405-7F4E865A60AA@1"}] },
   "importers": { title: "Please provide Importer’s contact details", type: 'reference[]' },
@@ -55,7 +55,7 @@ const dec: SchemaDescriptor = {
   "riskAssessments": { title: "Risk assessment", type: 'reference[]', example: [{"identifier":"486389BF-3C48-F2C9-2622-AC3D8E119845@4"}] },
   "documents": { title: "Document text", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },
   "expires": { title: "Should this information be confirmed or updated after two years from the date of submission?", type: 'bool', mandatory: true, example: true },
-  "relevantInformation": { title: "Any other relevant information", type: 'lstring', example: {"en":"<div><!--block-->Test Information</div>"} },
+  "relevantInformation": { title: "Any other relevant information", type: 'lstring', example: {"en":"<div>Test Information</div>"} },
   "relevantDocuments": { title: "Any other relevant documents", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google","language":"en"}] }
   }
 }
