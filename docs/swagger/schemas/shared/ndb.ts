@@ -5,9 +5,9 @@ import type { Field } from '../types'
 // encoded there — review gate confirms. Untitled fields are untitled in the archive.
 export const ndbFields: Record<string, Field> = {
   "government": { title: "Country", titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: {"identifier":"af"} },
-  "title": { title: "Website or database name", type: 'lstring', mandatory: true, example: {"en":"Test Info"} },
-  "description": { title: "Description", type: 'lstring', mandatory: true, example: {"en":"<div>Test Description</div>"} },
+  "title": { title: "Website or database name", type: 'lstring', mandatory: true, example: {"en":"National ABS Information Database"} },
+  "description": { title: "Description", type: 'lstring', mandatory: true, example: {"en":"<div>Online database providing access to national ABS measures, permits and contact information</div>"} },
   "websites": { title: "Website address", type: 'link[]', mandatory: true, example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },
-  "relevantInformation": { title: "Any other relevant information", type: 'lstring', example: {"en":"<div>Test Info</div>"} },
+  "relevantInformation": { title: "Any other relevant information", type: 'lstring', example: {"en":"<div>The database is updated quarterly by the competent national authority</div>"} },
   "relevantDocuments": { title: "Any other relevant documents", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google","language":"en"}] }
 }

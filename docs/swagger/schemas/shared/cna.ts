@@ -5,7 +5,7 @@ import type { Field } from '../types'
 // encoded there — review gate confirms. Untitled fields are untitled in the archive.
 export const cnaFields: Record<string, Field> = {
   "government": { title: "Country", titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: {"identifier":"af"} },
-  "name": { title: "Name of the Competent National Authority", type: 'lstring', mandatory: true, example: {"en":"your name"} },
+  "name": { title: "Name of the Competent National Authority", type: 'lstring', mandatory: true, example: {"en":"National Biodiversity Agency"} },
   "websites": { title: "Website address(es)", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },
   "address": { title: "Address", type: 'lstring', example: {"en":"650 Franklin Blvd"} },
   "city": { title: "City", type: 'lstring', mandatory: true, example: {"en":"Cambridge"} },
@@ -16,11 +16,11 @@ export const cnaFields: Record<string, Field> = {
   "faxes": { title: "Fax number(s)", type: 'string[]', example: ["5487899632"] },
   "emails": { title: "Email(s)", type: 'string[]', mandatory: true, example: ["email@cbd.int"] },
   "contacts": { title: "Contact person", type: 'reference[]', example: [{"identifier":"SIMP-A1D0D0A8-65B1-B8D5-FF9F-B7B6B95CDDEB@1"}] },
-  "relevantInformation": { title: "Additional Information", type: 'lstring', example: {"en":"<div>asdfasdf</div>"} },
+  "relevantInformation": { title: "Additional Information", type: 'lstring', example: {"en":"<div>The authority also serves as the national focal point</div>"} },
   "relevantDocuments": { title: "Any other relevant documents", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },
   "responsibleForAll": { title: "Is this the only designated competent national authority (CNA) in your country? If “no”, please describe the responsibilities of this competent national authority (CNA).", type: 'bool', mandatory: true },
-  "responsibilities": { title: "Short description of CNA responsibilities (maximum 300 characters).", type: 'lstring', mandatory: true, example: {"en":"<div>asdfasdf</div>"} },
-  "policyBasisForCompetency": { title: "If needed, provide additional information on the legal, administrative or policy basis for the competence of the CNA.", type: 'lstring', example: {"en":"<div>asdfasdf</div>"} },
+  "responsibilities": { title: "Short description of CNA responsibilities (maximum 300 characters).", type: 'lstring', mandatory: true, example: {"en":"<div>Grants prior informed consent and issues permits for access to genetic resources</div>"} },
+  "policyBasisForCompetency": { title: "If needed, provide additional information on the legal, administrative or policy basis for the competence of the CNA.", type: 'lstring', example: {"en":"<div>Established under the national Act on Access to Genetic Resources and Benefit-sharing</div>"} },
   "policyBasisForCompetencyRef": { title: "Provide a link to any relevant legal, administrative or policy measures.", type: 'reference[]', example: [{"identifier":"A3722021-0CC0-B195-75BE-954F133FF78B@1"}] },
   "absResponsibleForAll": { title: "", type: 'bool' },
   "absPolicyBasisForCompetency": { title: "", type: 'lstring' },

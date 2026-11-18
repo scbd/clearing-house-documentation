@@ -8,8 +8,8 @@ const nationalTargetMapping: SchemaDescriptor = {
   fields: {
   "government": { title: "Government", titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: {"identifier":"af"} },
   "globalGoalOrTarget": { title: "", type: 'term' },
-  "elementOfGlobalTargetsInfo": { title: "Elements of the global targets addressed by national targets (Please also include which aspects of the global targets have not been covered by the national targets)", type: 'lstring', mandatory: true, example: {"en":"<p>Test Info</p>"} },
-  "referencePeriod": { title: "Reference Period", type: 'object', example: [{"headlineIndicator":{"identifier":"GBF-INDICATOR-1.1"},"hasReferencePeriod":true,"referencePeriodInfo":{"en":"<p>TEst Info</p>"}}] },
+  "elementOfGlobalTargetsInfo": { title: "Elements of the global targets addressed by national targets (Please also include which aspects of the global targets have not been covered by the national targets)", type: 'lstring', mandatory: true, example: {"en":"<p>The national targets address ecosystem restoration and protected areas; aspects related to invasive alien species are not yet covered.</p>"} },
+  "referencePeriod": { title: "Reference Period", type: 'object', example: [{"headlineIndicator":{"identifier":"GBF-INDICATOR-1.1"},"hasReferencePeriod":true,"referencePeriodInfo":{"en":"<p>Baseline year 2020, with progress measured against 2030 goals.</p>"}}] },
   "headlineIndicator": { title: "", type: 'reference' },
   "hasReferencePeriod": { title: "Is there a reference period which relates to the headline indicator?", type: 'bool', example: true },
   "referencePeriodInfo": { title: "", type: 'lstring' },

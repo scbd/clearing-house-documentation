@@ -9,13 +9,13 @@ const news: SchemaDescriptor = {
   description: "A Biosafety News record in the Biosafety Clearing-House.",
   fields: {
   "government": { title: "Country", titleLink: '/thesaurus/countries', type: 'term', example: {"identifier":"af"} },
-  "title": { title: "Title", type: 'lstring', example: {"en":"Test title"} },
+  "title": { title: "Title", type: 'lstring', example: {"en":"Workshop on detection and identification of living modified organisms announced"} },
   "nodeAddress": { title: "Node address", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },
-  "newsAbstract": { title: "News abstract", type: 'lstring', example: {"en":"Test information"} },
-  "newsText": { title: "News text", type: 'lstring', example: {"en":"Test information"} },
-  "relevantInformation": { title: "Relevant information", type: 'lstring', example: {"en":"Test information"} },
+  "newsAbstract": { title: "News abstract", type: 'lstring', example: {"en":"A regional workshop on LMO detection will be held next spring for national biosafety practitioners."} },
+  "newsText": { title: "News text", type: 'lstring', example: {"en":"The Secretariat invites Parties to nominate participants for a regional capacity-building workshop on the detection and identification of living modified organisms."} },
+  "relevantInformation": { title: "Relevant information", type: 'lstring', example: {"en":"Further details are available from the national focal point on request."} },
   "relevantDocuments": { title: "Relevant documents", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },
-  "notes": { title: "Notes", type: 'string', example: "Test notes" }
+  "notes": { title: "Notes", type: 'string', example: "Updated following the 2024 review by the national focal point." }
   }
 }
 

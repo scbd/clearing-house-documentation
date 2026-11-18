@@ -6,17 +6,17 @@ const cpp: SchemaDescriptor = {
   name: "Community Protocol",
   description: "A Community Protocol record in the ABS Clearing-House.",
   fields: {
-  "title": { title: "Title", type: 'lstring', mandatory: true, example: {"en":"Test Info"} },
+  "title": { title: "Title", type: 'lstring', mandatory: true, example: {"en":"Community protocol for access to traditional knowledge in the Highlands"} },
   "resourceTypes": { title: "Type of resource", titleLink: '/thesaurus/type-of-documents', type: 'term[]', mandatory: true, example: [{"identifier":"2F193E6A-FE21-447F-8270-BAED8AD0DD5A"},{"identifier":"5DDFFC34-4278-42B3-83D6-449862EC1C16"}] },
-  "authors": { title: "Author(s)", type: 'lstring', mandatory: true, example: {"en":"Test Info"} },
+  "authors": { title: "Author(s)", type: 'lstring', mandatory: true, example: {"en":"Smith, J.; Rodriguez, M."} },
   "organizations": { title: "Reference to the authoring organization(s)", type: 'reference[]', mandatory: true, example: [{"identifier":"DECLARE-ORGANISATION_25562_20241111131557173@1"}] },
-  "publisher": { title: "Publisher", type: 'lstring', example: {"en":"Test Info"} },
-  "source": { title: "Source", type: 'lstring', example: {"en":"Test Info"} },
+  "publisher": { title: "Publisher", type: 'lstring', example: {"en":"Secretariat of the Convention on Biological Diversity"} },
+  "source": { title: "Source", type: 'lstring', example: {"en":"Community consultation process, 2022"} },
   "publicationDate": { title: "Publication Date", type: 'string', mandatory: true },
-  "rights": { title: "Rights", type: 'lstring', example: {"en":"Test Info"} },
+  "rights": { title: "Rights", type: 'lstring', example: {"en":"Copyright held by the community; reproduction requires prior consent"} },
   "resourceLinks": { title: "Link to the resource(s)", type: 'link[]', mandatory: true, example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },
-  "covers": { title: "Cover image(s)", type: 'link[]', example: [{"url":"/api/v2013/documents/48478B9A-EF10-B9A3-008A-A1E149A078C4/attachments/616113/image.jpg","name":"image.jpg","tag":"Test Tag","language":"en"}] },
-  "summary": { title: "Summary, abstract or table of contents (max 300 words)", type: 'lstring', mandatory: true, example: {"en":"Test Info"} },
+  "covers": { title: "Cover image(s)", type: 'link[]', example: [{"url":"/api/v2013/documents/48478B9A-EF10-B9A3-008A-A1E149A078C4/attachments/616113/image.jpg","name":"image.jpg","tag":"cover","language":"en"}] },
+  "summary": { title: "Summary, abstract or table of contents (max 300 words)", type: 'lstring', mandatory: true, example: {"en":"This protocol sets out how the community expects researchers to seek consent, share benefits and respect customary law"} },
   "countryRegions": { title: "Geographical or political/economic group(s)", titleLink: '/thesaurus/countries', type: 'term[]', example: [{"identifier":"af"},{"identifier":"A23DD6C0-44C5-418D-83B5-461D79D2721A"}] },
   "gbfTargets": { title: "", titleLink: '/thesaurus/gbf-targets', type: 'term[]', example: [{"identifier":"GBF-TARGET-01"}] },
   "aichiTargets": { title: "Aichi Targets", type: 'term[]' },
@@ -38,7 +38,7 @@ const cpp: SchemaDescriptor = {
   "biosafety.genes": { title: "Genetic element(s) identification", type: 'reference[]' },
   "tags": { title: "", type: 'lstring[]' },
   "adminTags": { title: "", type: 'string[]' },
-  "relevantInformation": { title: "Any other relevant information", type: 'lstring', example: {"en":"<div>Test Info</div>"} },
+  "relevantInformation": { title: "Any other relevant information", type: 'lstring', example: {"en":"<div>The protocol was developed through a participatory process led by community elders</div>"} },
   "relevantDocuments": { title: "Any other relevant documents", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google","language":"en"}] }
   }
 }
