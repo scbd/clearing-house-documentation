@@ -45,7 +45,6 @@ const dec: SchemaDescriptor = {
   "adverseEffectInformation": { title: "Information about the possible adverse effects on the conservation and sustainable use of biological diversity, taking also into account risks to human health, as well as available information about possible risk management measures", type: 'lstring', example: {"en":"No adverse effects on non-target organisms or human health have been identified; monitoring is ongoing."} },
   "pointOfContact": { title: "A point of contact for further information", type: 'reference[]', example: [{"identifier":"3CBDA8AA-4A16-CA5C-D405-7F4E865A60AA@1"}] },
   "otherTransboundryInformation": { title: "Any other relevant information", type: 'lstring', example: {"en":"Affected neighbouring States were notified within 24 hours of the incident."} },
-  "otherTransboundryInformation": { title: "Any other relevant information", type: 'lstring', example: {"en":"Affected neighbouring States were notified within 24 hours of the incident."} },
   "isForCommercialUse": { title: "Is this decision related to an LMO for commercial use?", type: 'bool', example: true },
   "forwardToOECD": { title: "Should this decision be forwarded to the OECD Secretariat for possible inclusion in the BioTrack Product Database?", type: 'bool', example: true },
   "isForFoodSafety": { title: "Is this decision related to food safety?", type: 'bool', example: true },
