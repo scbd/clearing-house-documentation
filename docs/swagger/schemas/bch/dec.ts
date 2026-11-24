@@ -1,6 +1,10 @@
 import type { SchemaDescriptor } from '../types'
 
 // The Biosafety Clearing-House identity of the `biosafetyDecision` record type.
+// Titles verified against the BCH edit form (absch.cbd.int, 2026-11-25). Only `government`, `authorities`,
+// `title`, `date`, `isAmendment`, `expires` and `decisionTypes` are unconditionally required; the form
+// requires many other fields conditionally (by decision section, `isAmendment`, the chosen result term, …),
+// so those carry no `mandatory` flag here.
 const dec: SchemaDescriptor = {
   schema: 'biosafetyDecision',
   name: "Decision",
@@ -11,15 +15,14 @@ const dec: SchemaDescriptor = {
   "title": { title: "Title / Reference number of the decision or communication", type: 'lstring', mandatory: true, example: {"en":"Decision on the import of LMO maize MON 810 for food, feed and processing"} },
   "date": { title: "Date of the decision", type: 'datetime', mandatory: true },
   "takenPriorEntryIntoForce": { title: "Is the decision taken prior to entry into force of the Protocol?", type: 'bool', example: true },
-  "jurisdictions": { title: "", type: 'term[]' },
   "jurisdictionsDetails": { title: "Jurisdiction", type: 'lstring', example: {"en":"Entire national territory, excluding protected areas"} },
   "isAmendment": { title: "Is this an amendment to a decision or communication already published on the BCH?", type: 'bool', mandatory: true },
   "amendedRecords": { title: "Please select the record(s) containing the decision or communication being amended", type: 'reference[]', example: [{"identifier":"E2795D50-46AB-E234-96D0-D1164C382C7D@1"}] },
   "amendmentsDetails": { title: "Please provide a brief summary of the amendment(s)", type: 'lstring', example: {"en":"<div>The decision was amended to extend its validity by five years and to add a post-approval monitoring requirement.</div>"} },
   "decisionTypes": { title: "Subject of the decision, notification, communication or declaration", titleLink: '/thesaurus/decision-types', type: 'term[]', mandatory: true, example: [{"identifier":"8979219B-330B-424F-A52C-209D4B4B65C0"}] },
   "exporters": { title: "Please provide Exporter’s contact details", type: 'reference[]', example: [{"identifier":"3CBDA8AA-4A16-CA5C-D405-7F4E865A60AA@1"}] },
-  "importers": { title: "Please provide Importer’s contact details", type: 'reference[]' },
-  "receiptDate": { title: "Date on which the notification was received", type: 'datetime', example: [{"identifier":"3CBDA8AA-4A16-CA5C-D405-7F4E865A60AA@1"}] },
+  "importers": { title: "Please provide Importer’s contact details", type: 'reference[]', example: [{"identifier":"3CBDA8AA-4A16-CA5C-D405-7F4E865A60AA@1"}] },
+  "receiptDate": { title: "Date on which the notification was received", type: 'datetime' },
   "receiptAcknowledgementDate": { title: "Date on which acknowledgement of receipt of the notification was sent to the notifier", type: 'datetime' },
   "communicationDate": { title: "Date on which the decision was communicated to the notifier", type: 'datetime' },
   "addressesTransboundaryMovement": { title: "Was the decision triggered by a request for a transboundary movement of LMOs into your country?", type: 'bool', example: true },
@@ -34,7 +37,7 @@ const dec: SchemaDescriptor = {
   "reasons": { title: "Provide reasons", type: 'lstring', example: {"en":"The risk assessment concluded that the LMO is unlikely to have adverse effects on biological diversity or human health."} },
   "extensionPeriod": { title: "Specify the time extension in days", type: 'int', example: 1 },
   "movementAllowedUnderA131A": { title: "Subject of the decision under the simplified procedure", type: 'bool', example: true },
-  "exemptFromAIA": { title: "Decision specifying that the import of the LMO is exempt from the Advance Informed Agreement (AIA) procedure", type: 'bool', example: true },
+  "exemptedFromAIA": { title: "Decision specifying that the import of the LMO is exempt from the Advance Informed Agreement (AIA) procedure", type: 'bool', example: true },
   "appliesToSubsequentImports": { title: "Does the decision apply to subsequent similar imports of LMOs?", type: 'bool', example: true },
   "transboundaryMovementType": { title: "Type of transboundary movement", titleLink: '/thesaurus/transboundary-movement-types', type: 'term', example: {"identifier":"22B915C4-193E-4087-89ED-D104EEEC4330"} },
   "releaseInformation": { title: "Information on the place where the occurrence and/or release occurred", type: 'lstring', example: {"en":"Accidental spillage of maize grain at a port facility during unloading."} },

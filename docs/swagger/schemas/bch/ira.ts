@@ -8,8 +8,8 @@ const ira: SchemaDescriptor = {
   fields: {
   "title": { title: "Title of the risk assessment", type: 'lstring', mandatory: true, example: {"en":"Risk assessment of LMO maize MON 810 for import and use as food, feed and processing"} },
   "date": { title: "Date of the risk assessment", type: 'datetime', mandatory: true },
-  "organizations": { title: "Institution responsible for the risk assessment", type: 'reference[]', example: [{"identifier":"04139A35-1F8B-FC94-45D6-4F3AD7675685@1"}] },
-  "dateOfRaNotAvailable": { title: "Date not available", type: 'bool', mandatory: true },
+  "organizations": { title: "Institution responsible for the risk assessment", type: 'reference[]', mandatory: true, example: [{"identifier":"04139A35-1F8B-FC94-45D6-4F3AD7675685@1"}] },
+  "dateOfRaNotAvailable": { title: "Date not available", type: 'bool' },
   "contacts": { title: "Contact details of the main responsible risk assessor", type: 'reference[]', example: [{"identifier":"3CBDA8AA-4A16-CA5C-D405-7F4E865A60AA@1"}] },
   "modifiedOrganisms": { title: "Living modified organism(s)", type: 'reference[]', mandatory: true, example: [{"identifier":"1E027990-5D44-F3AF-75E3-715B60BFD3CD@8"}] },
   "scopes": { title: "Scope of the risk assessment", titleLink: '/thesaurus/risk-assessment-scope', type: 'term[]', mandatory: true, example: [{"identifier":"D6B59E8A-D82C-4516-917A-A745ACDA5931"},{"identifier":"015737FC-ABC2-460C-A099-06A1B01E649A"},{"identifier":"BEBF757E-E3CC-4913-8D9F-2D165CD63ECE"}] },
@@ -23,7 +23,7 @@ const ira: SchemaDescriptor = {
   "riskManagementStrategies": { title: "Need(s) for further information on specific issues of concern", type: 'lstring', example: {"en":"<div>Further information is needed on long-term effects on non-target arthropods.</div>"} },
   "receivingEnvironment": { title: "Receiving environment(s) considered", type: 'lstring', example: {"en":"<div>Agricultural areas of temperate regions where maize is commonly cultivated.</div>"} },
   "detectionMethod": { title: "LMO detection and identification methods proposed", type: 'lstring', example: {"en":"<div>Event-specific real-time PCR targeting the transgene insert junction.</div>"} },
-  "expires": { title: "Should this information be confirmed or updated after two years from the date of submission?", type: 'bool', example: true },
+  "expires": { title: "Should this information be confirmed or updated after two years from the date of submission?", type: 'bool', mandatory: true, example: true },
   "relevantInformation": { title: "Any other relevant information", type: 'lstring', example: {"en":"<div>The assessment followed the methodology in Annex III of the Cartagena Protocol.</div>"} },
   "relevantDocuments": { title: "Any other relevant documents", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google","language":"en"}] }
   }

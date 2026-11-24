@@ -7,8 +7,7 @@ const law: SchemaDescriptor = {
   description: "A Law / Regulation record in the Biosafety Clearing-House.",
   fields: {
   "government": { title: "Country submitting a law, regulation, guideline or agreement", titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: {"identifier":"af"} },
-  "jurisdiction": { title: "Area of jurisdiction", titleLink: '/thesaurus/law-jurisdictions', type: 'term', example: {"identifier":"7437F880-7B12-4F26-AA91-CED37250DD0A"} },
-  "jurisdictionsDetails": { title: "", type: 'lstring' },
+  "jurisdiction": { title: "Area of jurisdiction", titleLink: '/thesaurus/law-jurisdictions', type: 'term', mandatory: true, example: {"identifier":"7437F880-7B12-4F26-AA91-CED37250DD0A"} },
   "title": { title: "Title of document", type: 'lstring', mandatory: true, example: {"en":"National Biosafety Act"} },
   "description": { title: "Brief description of the document including objective and scope", type: 'lstring', example: {"en":"<div>Establishes the legal framework for the safe handling, transport, use and release of living modified organisms, including its objective and scope.</div>"} },
   "type": { title: "Type of Law / Regulation", titleLink: '/thesaurus/legislation-agreement-types', type: 'term', mandatory: true, example: {"identifier":"57217527-3732-437F-9AD8-45BEF4429FD5"} },
