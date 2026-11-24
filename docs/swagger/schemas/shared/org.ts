@@ -38,10 +38,10 @@ export const organizationFields: Record<string, Field> = {
     mandatory: true,
     example: { identifier: '86D464C3-B5BB-4B02-85E4-1AAD8D64CD27' }
   },
-  thematicAreas: { title: '', type: 'term[]' },
+  thematicAreas: { title: "Related CBD Subject Area(s)", type: 'term[]' },
   absThematicAreas: { title: '', type: 'term[]' },
   areasOfWork: { title: 'Areas of work', type: 'lstring[]', example: [{ en: 'Biodiversity conservation and sustainable use' }] },
-  gbfTargets: { title: '', type: 'term[]' },
+  gbfTargets: { title: "Related Kunming-Montreal Global Biodiversity Framework Target(s)", type: 'term[]' },
   aichiTargets: { title: '', type: 'term[]' },
   coordinates: { title: '', type: 'mapLocation' },
   establishmentGooglePlaceId: { title: '', type: 'string[]' },

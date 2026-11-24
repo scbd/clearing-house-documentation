@@ -7,7 +7,9 @@ const vlr: SchemaDescriptor = {
   name: "Virtual Library Resource",
   description: "A Virtual Library Resource record in the Clearing-House Mechanism.",
   fields: {
-    ...vlrFields
+    ...vlrFields,
+    // Only the CHM form requires CBD subject areas.
+    cbdSubjects: { ...vlrFields.cbdSubjects, mandatory: true }
   }
 }
 
