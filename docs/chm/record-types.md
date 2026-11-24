@@ -4,7 +4,7 @@ Record types documented for the Clearing-House Mechanism, with the schema value 
 
 | Record Type | Schema |
 | --- | --- |
+| [Contact](/chm/contact/fields) | `contact` |
 | [Virtual Library Resource](/chm/vlr/fields) | `resource` |
 | [Organization](/chm/org/fields) | `organization` |
 | [Capacity Development Initiative](/chm/cdi/fields) | `capacityBuildingInitiative` |
-| [Contact](/chm/contact/fields) | `contact` |

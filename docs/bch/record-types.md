@@ -4,6 +4,7 @@ Record types documented for the Biosafety Clearing-House, with the schema value 
 
 | Record Type | Schema |
 | --- | --- |
+| [Contact](/bch/contact/fields) | `contact` |
 | [National Focal Point](/bch/nfp/fields) | `focalPoint` |
 | [Competent National Authority](/bch/cna/fields) | `authority` |
 | [Supplementary Authority](/bch/supp-auth/fields) | `supplementaryAuthority` |
@@ -13,7 +14,6 @@ Record types documented for the Biosafety Clearing-House, with the schema value 
 | [National Website or Database](/bch/ndb/fields) | `database` |
 | [Biosafety Expert](/bch/expert/fields) | `biosafetyExpert` |
 | [Country Profile](/bch/country-profile/fields) | `countryProfile` |
-| [Contact](/bch/contact/fields) | `contact` |
 | [Virtual Library Resource](/bch/vlr/fields) | `resource` |
 | [Organization](/bch/org/fields) | `organization` |
 | [Laboratory Detection](/bch/lab/fields) | `laboratoryDetection` |

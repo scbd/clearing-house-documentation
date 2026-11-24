@@ -4,6 +4,7 @@ Record types documented for the ABS Clearing-House, with the schema value that s
 
 | Record Type | Schema |
 | --- | --- |
+| [Contact](/absch/contact/fields) | `contact` |
 | [National Focal Point](/absch/nfp/fields) | `focalPoint` |
 | [Competent National Authority](/absch/cna/fields) | `authority` |
 | [Measure](/absch/msr/fields) | `measure` |
@@ -17,4 +18,3 @@ Record types documented for the ABS Clearing-House, with the schema value that s
 | [Organization](/absch/org/fields) | `organization` |
 | [Capacity Development Initiative](/absch/cdi/fields) | `capacityBuildingInitiative` |
 | [Community Protocol](/absch/cpp/fields) | `communityProtocol` |
-| [Contact](/absch/contact/fields) | `contact` |

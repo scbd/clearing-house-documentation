@@ -38,6 +38,31 @@ export default {
     gettingStarted('/absch'),
     user('/absch'),
     {
+      text: "Contact",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/absch/contact/fields' },
+        { text: "List", link: '/absch/contact/list' },
+        { text: "Search", link: '/absch/contact/solr' },
+        { text: "Get", link: '/absch/contact/get' },
+        { text: "Create", link: '/absch/contact/create' },
+        { text: "Update", link: '/absch/contact/update' },
+        { text: "Delete", link: '/absch/contact/delete' },
+        {
+          text: 'Draft Operations',
+          collapsed: true,
+          items: [
+          { text: 'Drafts', link: '/absch/general/drafts' },
+          { text: 'Draft Locks', link: '/absch/general/draft-locks' },
+          { text: 'Draft Securities', link: '/absch/general/draft-securities' },
+          { text: 'Document Securities', link: '/absch/general/document-securities' },
+          { text: 'Document Validations', link: '/absch/general/document-validations' },
+          { text: 'Document Versions', link: '/absch/general/documents-versions' }
+          ]
+        }
+      ]
+    },
+    {
       text: "National Focal Point",
       collapsed: true,
       items: [
@@ -187,31 +212,6 @@ export default {
       ]
     },
     {
-      text: "Contact",
-      collapsed: true,
-      items: [
-        { text: "Field Reference", link: '/absch/contact/fields' },
-        { text: "List", link: '/absch/contact/list' },
-        { text: "Search", link: '/absch/contact/solr' },
-        { text: "Get", link: '/absch/contact/get' },
-        { text: "Create", link: '/absch/contact/create' },
-        { text: "Update", link: '/absch/contact/update' },
-        { text: "Delete", link: '/absch/contact/delete' },
-        {
-          text: 'Draft Operations',
-          collapsed: true,
-          items: [
-          { text: 'Drafts', link: '/absch/general/drafts' },
-          { text: 'Draft Locks', link: '/absch/general/draft-locks' },
-          { text: 'Draft Securities', link: '/absch/general/draft-securities' },
-          { text: 'Document Securities', link: '/absch/general/document-securities' },
-          { text: 'Document Validations', link: '/absch/general/document-validations' },
-          { text: 'Document Versions', link: '/absch/general/documents-versions' }
-          ]
-        }
-      ]
-    },
-    {
       text: 'Files & Attachments',
       collapsed: true,
       items: [
@@ -252,6 +252,31 @@ export default {
   '/bch/': [
     gettingStarted('/bch'),
     user('/bch'),
+    {
+      text: "Contact",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/contact/fields' },
+        { text: "List", link: '/bch/contact/list' },
+        { text: "Search", link: '/bch/contact/solr' },
+        { text: "Get", link: '/bch/contact/get' },
+        { text: "Create", link: '/bch/contact/create' },
+        { text: "Update", link: '/bch/contact/update' },
+        { text: "Delete", link: '/bch/contact/delete' },
+        {
+          text: 'Draft Operations',
+          collapsed: true,
+          items: [
+          { text: 'Drafts', link: '/bch/general/drafts' },
+          { text: 'Draft Locks', link: '/bch/general/draft-locks' },
+          { text: 'Draft Securities', link: '/bch/general/draft-securities' },
+          { text: 'Document Securities', link: '/bch/general/document-securities' },
+          { text: 'Document Validations', link: '/bch/general/document-validations' },
+          { text: 'Document Versions', link: '/bch/general/documents-versions' }
+          ]
+        }
+      ]
+    },
     {
       text: "National Focal Point",
       collapsed: true,
@@ -331,31 +356,6 @@ export default {
         { text: "Field Reference", link: '/bch/country-profile/fields' },
         { text: "Search", link: '/bch/country-profile/solr' },
         { text: "Get", link: '/bch/country-profile/get' }
-      ]
-    },
-    {
-      text: "Contact",
-      collapsed: true,
-      items: [
-        { text: "Field Reference", link: '/bch/contact/fields' },
-        { text: "List", link: '/bch/contact/list' },
-        { text: "Search", link: '/bch/contact/solr' },
-        { text: "Get", link: '/bch/contact/get' },
-        { text: "Create", link: '/bch/contact/create' },
-        { text: "Update", link: '/bch/contact/update' },
-        { text: "Delete", link: '/bch/contact/delete' },
-        {
-          text: 'Draft Operations',
-          collapsed: true,
-          items: [
-          { text: 'Drafts', link: '/bch/general/drafts' },
-          { text: 'Draft Locks', link: '/bch/general/draft-locks' },
-          { text: 'Draft Securities', link: '/bch/general/draft-securities' },
-          { text: 'Document Securities', link: '/bch/general/document-securities' },
-          { text: 'Document Validations', link: '/bch/general/document-validations' },
-          { text: 'Document Versions', link: '/bch/general/documents-versions' }
-          ]
-        }
       ]
     },
     {
@@ -491,6 +491,31 @@ export default {
     gettingStarted('/chm'),
     user('/chm'),
     {
+      text: "Contact",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/chm/contact/fields' },
+        { text: "List", link: '/chm/contact/list' },
+        { text: "Search", link: '/chm/contact/solr' },
+        { text: "Get", link: '/chm/contact/get' },
+        { text: "Create", link: '/chm/contact/create' },
+        { text: "Update", link: '/chm/contact/update' },
+        { text: "Delete", link: '/chm/contact/delete' },
+        {
+          text: 'Draft Operations',
+          collapsed: true,
+          items: [
+          { text: 'Drafts', link: '/chm/general/drafts' },
+          { text: 'Draft Locks', link: '/chm/general/draft-locks' },
+          { text: 'Draft Securities', link: '/chm/general/draft-securities' },
+          { text: 'Document Securities', link: '/chm/general/document-securities' },
+          { text: 'Document Validations', link: '/chm/general/document-validations' },
+          { text: 'Document Versions', link: '/chm/general/documents-versions' }
+          ]
+        }
+      ]
+    },
+    {
       text: "Virtual Library Resource",
       collapsed: true,
       items: [
@@ -515,31 +540,6 @@ export default {
         { text: "Field Reference", link: '/chm/cdi/fields' },
         { text: "Search", link: '/chm/cdi/solr' },
         { text: "Get", link: '/chm/cdi/get' }
-      ]
-    },
-    {
-      text: "Contact",
-      collapsed: true,
-      items: [
-        { text: "Field Reference", link: '/chm/contact/fields' },
-        { text: "List", link: '/chm/contact/list' },
-        { text: "Search", link: '/chm/contact/solr' },
-        { text: "Get", link: '/chm/contact/get' },
-        { text: "Create", link: '/chm/contact/create' },
-        { text: "Update", link: '/chm/contact/update' },
-        { text: "Delete", link: '/chm/contact/delete' },
-        {
-          text: 'Draft Operations',
-          collapsed: true,
-          items: [
-          { text: 'Drafts', link: '/chm/general/drafts' },
-          { text: 'Draft Locks', link: '/chm/general/draft-locks' },
-          { text: 'Draft Securities', link: '/chm/general/draft-securities' },
-          { text: 'Document Securities', link: '/chm/general/document-securities' },
-          { text: 'Document Validations', link: '/chm/general/document-validations' },
-          { text: 'Document Versions', link: '/chm/general/documents-versions' }
-          ]
-        }
       ]
     },
     {

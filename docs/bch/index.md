@@ -5,6 +5,7 @@
 ## Documented APIs
 
 - [User - Authentication](/bch/user/authentication) — obtain the bearer token used by protected endpoints.
+- [Contact](/bch/contact/create) — create, read, update, delete, list and search.
 - [National Focal Point](/bch/nfp/fields) — search, get and field reference (read-only).
 - [Competent National Authority](/bch/cna/fields) — search, get and field reference (read-only).
 - [Supplementary Authority](/bch/supp-auth/fields) — search, get and field reference (read-only).
@@ -14,7 +15,6 @@
 - [National Website or Database](/bch/ndb/fields) — search, get and field reference (read-only).
 - [Biosafety Expert](/bch/expert/fields) — search, get and field reference (read-only).
 - [Country Profile](/bch/country-profile/fields) — search, get and field reference (read-only).
-- [Contact](/bch/contact/create) — create, read, update, delete, list and search.
 - [Virtual Library Resource](/bch/vlr/fields) — search, get and field reference (read-only).
 - [Organization](/bch/org/fields) — search, get and field reference (read-only).
 - [Laboratory Detection](/bch/lab/fields) — search, get and field reference (read-only).
