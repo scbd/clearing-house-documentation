@@ -20,7 +20,7 @@ Searches public Virtual Library Resource records of the Clearing-House Mechanism
 
 **GET** `/api/v2013/index`
 
-**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header`)
+**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header)
 
 ## Query Parameters
 

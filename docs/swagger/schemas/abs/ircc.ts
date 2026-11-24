@@ -42,7 +42,7 @@ const ircc: SchemaDescriptor = {
   "permitDescription": { title: "Short description of the attached link(s) and/or file(s)", type: 'lstring', example: {"en":"<div>Scanned copy of the signed permit and the mutually agreed terms</div>"} },
   "relevantInformation": { title: "Additional Information", type: 'lstring', example: {"en":"<div>The permit is valid for three years from the date of issue</div>"} },
   "relevantDocuments": { title: "Other relevant website addresses and/or attached documents", type: 'term[]', example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },
-  "notes": { title: "Notes", type: 'string', example: "[\"[ Blaise Fonseca | Jul 8, 2024 8:10:52 PM ] - this is an inter note\"]" },
+  "notes": { title: "Notes", type: 'string', example: "[\"[ Jane Doe | Jul 8, 2024 8:10:52 PM ] - this is an internal note\"]" },
   "relatedIRCC": { title: "Links to other internationally recognized certificate(s) of compliance (IRCC) that relate(s) to this permit", type: 'reference[]', example: [{"identifier":"8C22B282-BE5A-72D8-C754-932CC49CC9B4@1"}] }
   }
 }

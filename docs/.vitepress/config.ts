@@ -26,7 +26,8 @@ export default defineConfig({
   ],
   // Link previews (Slack, Teams, …) read these; absolute URLs are required by scrapers.
   transformHead({ pageData, siteConfig }) {
-    const site = "https://developer.cbd.int";
+    // Same environment as the VITE_* URLs: api.<domain> -> developer.<domain> (prod default: developer.cbd.int).
+    const site = `https://${new URL(process.env.VITE_API_URL || "https://api.cbd.int").host.replace(/^api\./, "developer.")}`;
     const base = process.env.BASE_PATH || "/";
     const title = pageData.frontmatter.title || pageData.title || "CH documentation";
     const description = pageData.description || pageData.frontmatter.description || siteConfig.site.description;

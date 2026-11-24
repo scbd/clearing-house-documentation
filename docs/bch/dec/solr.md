@@ -20,7 +20,7 @@ Searches public Decision records of the Biosafety Clearing-House through the Apa
 
 **GET** `/api/v2013/index`
 
-**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header`)
+**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header)
 
 ## Query Parameters
 

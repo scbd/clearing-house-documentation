@@ -21,7 +21,7 @@ Retrieves a single Submission record from the Biosafety Clearing-House by its un
 
 **GET** `/api/v2013/documents/:uid`
 
-**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header`)
+**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header)
 
 ## URL Parameters
 

@@ -20,7 +20,7 @@ Searches public National Model Contractual Clause records of the ABS Clearing-Ho
 
 **GET** `/api/v2013/index`
 
-**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header`)
+**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header)
 
 ## Query Parameters
 

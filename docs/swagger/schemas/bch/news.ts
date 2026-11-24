@@ -8,7 +8,7 @@ const news: SchemaDescriptor = {
   name: "Biosafety News",
   description: "A Biosafety News record in the Biosafety Clearing-House.",
   fields: {
-  "government": { title: "Country", titleLink: '/thesaurus/countries', type: 'term', example: {"identifier":"af"} },
+  "country": { title: "Country", titleLink: '/thesaurus/countries', type: 'term', example: {"identifier":"af"} },
   "title": { title: "Title", type: 'lstring', example: {"en":"Workshop on detection and identification of living modified organisms announced"} },
   "nodeAddress": { title: "Node address", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },
   "newsAbstract": { title: "News abstract", type: 'lstring', example: {"en":"A regional workshop on LMO detection will be held next spring for national biosafety practitioners."} },

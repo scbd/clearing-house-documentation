@@ -21,7 +21,7 @@ const nbsap: SchemaDescriptor = {
   "approvingBody": { title: "Approving body", titleLink: '/thesaurus/approving-body', type: 'term', example: {"identifier":"EFAF31F0-1E48-4165-B60B-B55F132DB932"} },
   "approvingBodyInfo": { title: "Please select approving body", type: 'lstring', example: {"en":"<p>Council of Ministers</p>"} },
   "documentText": { title: "", type: 'lstring' },
-  "documentLinks": { title: "NBSAP document(s) and websites, links or other relevant document(s)", type: 'link[]', mandatory: true, example: [{"url":"https://www.google.comm","name":"Google","language":"en"}] },
+  "documentLinks": { title: "NBSAP document(s) and websites, links or other relevant document(s)", type: 'link[]', mandatory: true, example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },
   "relevantInformation": { title: "Please use this field to provide any other relevant information that may not have been addressed elsewhere in the record.", type: 'lstring', example: {"en":"<p>The NBSAP was developed through a multi-stakeholder consultation process held in 2024.</p>"} },
   "relevantDocuments": { title: "", type: 'link[]' }
   }

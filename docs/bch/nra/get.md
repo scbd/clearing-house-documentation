@@ -21,7 +21,7 @@ Retrieves a single National Risk Assessment record from the Biosafety Clearing-H
 
 **GET** `/api/v2013/documents/:uid`
 
-**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header`)
+**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header)
 
 ## URL Parameters
 

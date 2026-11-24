@@ -21,7 +21,7 @@ Retrieves a single National Model Contractual Clause record from the ABS Clearin
 
 **GET** `/api/v2013/documents/:uid`
 
-**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header`)
+**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header)
 
 ## URL Parameters
 

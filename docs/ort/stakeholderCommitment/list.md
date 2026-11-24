@@ -21,7 +21,7 @@ Lists Stakeholder Commitment records in the Online Reporting Tool with OData-sty
 
 **GET** `/api/v2013/documents`
 
-**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header`)
+**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header)
 
 Calls to this endpoint require a bearer token — see [User - Authentication](/ort/user/authentication).
 
