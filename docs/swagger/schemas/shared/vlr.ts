@@ -7,7 +7,7 @@ export const vlrFields: Record<string, Field> = {
   "title": { title: "Title", type: 'lstring', mandatory: true, example: {"en":"Guide to Access and Benefit-sharing for Researchers"} },
   "resourceTypes": { title: "Type of resource", titleLink: '/thesaurus/resource-type-vlr', type: 'term[]', mandatory: true, example: [{"identifier":"7BBF86FE-68E5-4ED8-8174-7DD8D302C583"},{"identifier":"AA04CE23-471C-40E4-A0CC-53C9F49DABD4"}] },
   "authors": { title: "Author name(s)", type: 'lstring', mandatory: true, example: {"en":"Smith, J.; Rodriguez, M."} },
-  "organizations": { title: "Reference to the authoring organization(s)", type: 'reference[]', mandatory: true, example: [{"identifier":"1767A775-F4F9-B597-41AC-CE56536F28F5@2"}] },
+  "organizations": { title: "Reference to the authoring organization(s)", type: 'reference[]', example: [{"identifier":"1767A775-F4F9-B597-41AC-CE56536F28F5@2"}] },
   "publisher": { title: "Publisher", type: 'lstring', example: {"en":"Secretariat of the Convention on Biological Diversity"} },
   "source": { title: "Source", type: 'lstring', example: {"en":"CBD Technical Series No. 85"} },
   "publicationDate": { title: "Publication date", type: 'lstring', mandatory: true },

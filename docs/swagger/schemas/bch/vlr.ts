@@ -1,8 +1,8 @@
 import type { SchemaDescriptor } from '../types'
 import { vlrFields } from '../shared/vlr'
 
-// ABS-only fields (Nagoya Protocol key areas / code-of-conduct keywords): not in the BCH edit form.
-const absOnly = ['nagoya.keyAreas', 'nagoya.mccKeywords']
+// ABS-only fields (Nagoya Protocol key areas / code-of-conduct keywords) and system fields: not in the BCH edit form.
+const absOnly = ['nagoya.keyAreas', 'nagoya.mccKeywords', 'tags', 'adminTags']
 
 // The Biosafety Clearing-House identity of the `resource` record type.
 const vlr: SchemaDescriptor = {

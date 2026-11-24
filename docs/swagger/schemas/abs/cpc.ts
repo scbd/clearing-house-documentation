@@ -9,7 +9,7 @@ const cpc: SchemaDescriptor = {
   fields: {
   "title": { title: "Title of this checkpoint communique", type: 'lstring', mandatory: true, example: {"en":"Checkpoint communique on research collections imported in 2023"} },
   "government": { title: "Country issuing this checkpoint communique", titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: {"identifier":"af"} },
-  "absIRCCs": { title: "Links to internationally recognized certificate(s) of compliance (IRCC) that relate to this communique", type: 'reference[]', mandatory: true, example: [{"identifier":"CB51626B-CF45-2AA0-3A24-459669DDCC34@1"}] },
+  "absIRCCs": { title: "Links to internationally recognized certificate(s) of compliance (IRCC) that relate to this communiqué", type: 'reference[]', example: [{"identifier":"CB51626B-CF45-2AA0-3A24-459669DDCC34@1"}] },
   "absCheckpoints": { title: "Checkpoint/s that collected or received the information", type: 'reference[]', mandatory: true, example: [{"identifier":"3E387C20-E70C-997B-EABB-BC4C9A1E142F@1"}] },
   "absIRCCsNotAvailable": { title: "The internationally recognized certificate of compliance (IRCC) is not available", type: 'bool', example: true },
   "sourceCountries": { title: "Source of the genetic resource", titleLink: '/thesaurus/countries', type: 'term[]', example: [{"identifier":"af"}] },
