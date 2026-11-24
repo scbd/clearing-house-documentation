@@ -8,10 +8,8 @@ const countryProfile: SchemaDescriptor = {
   name: "Country Profile",
   description: "A Country Profile record in the Biosafety Clearing-House.",
   fields: {
-  "government": { title: "Country", titleLink: '/thesaurus/countries', type: 'term', example: {"identifier":"af"} },
-  "profile": { title: "Profile", type: 'lstring', example: {"en":"National overview of the biosafety framework, competent authorities and experience with living modified organisms."} },
-  "relevantInformation": { title: "Relevant information", type: 'lstring', example: {"en":"Further details are available from the national focal point on request."} },
-  "relevantDocuments": { title: "Relevant documents", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },
+  "government": { title: "Country", titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: {"identifier":"af"} },
+  "profile": { title: "Additional information for the country profile", type: 'lstring', mandatory: true, example: {"en":"National overview of the biosafety framework, competent authorities and experience with living modified organisms."} },
   "notes": { title: "Notes", type: 'string', example: "Updated following the 2024 review by the national focal point." }
   }
 }
