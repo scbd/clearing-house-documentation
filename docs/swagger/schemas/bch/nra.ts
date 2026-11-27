@@ -1,0 +1,42 @@
+import type { SchemaDescriptor } from '../types'
+
+// Drafted from the shared C# risk-assessment base (api-examples) plus the national-only fields;
+// field titles are inherited from the independentRiskAssessment descriptor and the five
+// national-only titles are humanized — mandatory flags and titles checked against the BCH edit form (absch.cbd.int, 2026-11-25).
+// The Biosafety Clearing-House identity of the `nationalRiskAssessment` record type.
+const nra: SchemaDescriptor = {
+  schema: 'nationalRiskAssessment',
+  name: "National Risk Assessment",
+  description: "A National Risk Assessment record in the Biosafety Clearing-House.",
+  fields: {
+  "government": { title: "Country", titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: {"identifier":"af"} },
+  "authorities": { title: "Competent National Authority(ies) responsible for the risk assessment", type: 'reference[]', mandatory: true, example: [{"identifier":"78AFAA88-47EA-9333-AD6E-C21BCB17DE21@1"}] },
+  "isForCommercialUse": { title: "Is this risk assessment related to an LMO for commercial use?", type: 'bool', example: true },
+  "forwardToOECD": { title: "Should this risk assessment be forwarded to the OECD Secretariat for possible inclusion in the BioTrack Product Database?", type: 'bool', example: true },
+  "isForFoodSafety": { title: "Is this risk assessment related to food safety?", type: 'bool', example: true },
+  "codexConducted": { title: "Was it conducted in accordance with the Codex Alimentarius Guideline for the Conduct of Food Safety Assessment of Foods Derived from Recombinant-DNA Plants?", type: 'bool', example: true },
+  "forwardToFAO": { title: "Should this information be forwarded to the Secretariat of the FAO GM Foods Platform?", type: 'bool', example: true },
+  "title": { title: "Title of the risk assessment", type: 'lstring', mandatory: true, example: {"en":"Risk assessment of LMO maize MON 810 for import and use as food, feed and processing"} },
+  "date": { title: "Date of the risk assessment", type: 'datetime', mandatory: true },
+  "dateOfRaNotAvailable": { title: "Date not available", type: 'bool' },
+  "contacts": { title: "Contact details of the main responsible risk assessor", type: 'reference[]', example: [{"identifier":"3CBDA8AA-4A16-CA5C-D405-7F4E865A60AA@1"}] },
+  "modifiedOrganisms": { title: "Living modified organism(s)", type: 'reference[]', mandatory: true, example: [{"identifier":"1E027990-5D44-F3AF-75E3-715B60BFD3CD@8"}] },
+  "scopes": { title: "Scope of the risk assessment", titleLink: '/thesaurus/risk-assessment-scope', type: 'term[]', mandatory: true, example: [{"identifier":"D6B59E8A-D82C-4516-917A-A745ACDA5931"},{"identifier":"015737FC-ABC2-460C-A099-06A1B01E649A"},{"identifier":"BEBF757E-E3CC-4913-8D9F-2D165CD63ECE"}] },
+  "documents": { title: "Risk assessment report / summary", type: 'link[]', mandatory: true, example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },
+  "documentsSummary": { title: "Please use this field to provide a summary of the risk assessment.", type: 'lstring', example: {"en":"<div>The assessment evaluated the potential effects of the LMO on biological diversity and human health.</div>"} },
+  "adverseEffects": { title: "Potential adverse effects identified in the risk assessment", type: 'lstring', example: {"en":"<div>Possible effects on non-target lepidopteran species exposed to maize pollen.</div>"} },
+  "adverseEffectsLikelihood": { title: "Likelihood that the potential adverse effects will be realized", type: 'lstring', example: {"en":"<div>The likelihood of exposure of non-target species is considered low.</div>"} },
+  "adverseEffectsConsequence": { title: "Possible consequences", type: 'lstring', example: {"en":"<div>Any consequence would be limited and localized, with no lasting effect on populations.</div>"} },
+  "adverseEffectsOverallRisk": { title: "Estimation of the overall risk", type: 'lstring', example: {"en":"<div>The overall risk is estimated as negligible.</div>"} },
+  "adverseEffectsRecommendation": { title: "Recommendation(s) on whether the risks are acceptable/manageable and any management strategies", type: 'lstring', example: {"en":"<div>The risks are acceptable and manageable through routine monitoring.</div>"} },
+  "riskManagementStrategies": { title: "Need(s) for further information on specific issues of concern", type: 'lstring', example: {"en":"<div>Further information is needed on long-term effects on non-target arthropods.</div>"} },
+  "receivingEnvironment": { title: "Receiving environment(s) considered", type: 'lstring', example: {"en":"<div>Agricultural areas of temperate regions where maize is commonly cultivated.</div>"} },
+  "detectionMethod": { title: "LMO detection and identification methods proposed", type: 'lstring', example: {"en":"<div>Event-specific real-time PCR targeting the transgene insert junction.</div>"} },
+  "expires": { title: "Should this information be confirmed or updated after two years from the date of submission?", type: 'bool', mandatory: true, example: true },
+  "relevantInformation": { title: "Any other relevant information", type: 'lstring', example: {"en":"<div>The assessment followed the methodology in Annex III of the Cartagena Protocol.</div>"} },
+  "relevantDocuments": { title: "Any other relevant documents", type: 'link[]', example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },
+  "notes": { title: "Notes", type: 'string', example: "Updated following the 2024 review by the national focal point." }
+  }
+}
+
+export default nra

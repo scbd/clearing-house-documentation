@@ -194,3 +194,13 @@ html body {
   color: var(--vp-c-text-1) !important;
   border-color: #1d3326 !important;
 }
+
+/* Wide pages (field references): drop the 688px prose column so wide tables use the full content area. */
+.wide-page .VPDoc.VPDoc .container,
+.wide-page .VPDoc.VPDoc .content-container,
+.wide-page .VPDoc.VPDoc .content {
+  max-width: none;
+}
+.wide-page .VPDoc.VPDoc .content {
+  padding-right: 0;
+}

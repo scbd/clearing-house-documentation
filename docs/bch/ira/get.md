@@ -21,7 +21,7 @@ Retrieves a single Independent Risk Assessment record from the Biosafety Clearin
 
 **GET** `/api/v2013/documents/:uid`
 
-**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header`)
+**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header)
 
 ## URL Parameters
 

@@ -20,7 +20,7 @@ Searches public Capacity Development Initiative records of the ABS Clearing-Hous
 
 **GET** `/api/v2013/index`
 
-**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header`)
+**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header)
 
 ## Query Parameters
 

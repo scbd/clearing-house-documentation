@@ -1,3 +1,8 @@
+---
+aside: false
+pageClass: wide-page
+---
+
 <script setup>
 import SchemaTable from "@/components/common/schema-table.vue"
 import gene from "@/swagger/schemas/bch/gene"

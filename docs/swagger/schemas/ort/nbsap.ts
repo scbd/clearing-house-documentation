@@ -7,22 +7,20 @@ const nbsap: SchemaDescriptor = {
   description: "A NBSAP record in the Online Reporting Tool.",
   fields: {
   "government": { title: "Government", titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: {"identifier":"af"} },
-  "title": { title: "Enter NBSAP title", type: 'lstring', mandatory: true, example: {"en":"Test Info"} },
-  "summary": { title: "Summary", type: 'lstring', example: {"en":"<p>Test Info</p>"} },
+  "title": { title: "Enter NBSAP title", type: 'lstring', mandatory: true, example: {"en":"National Biodiversity Strategy and Action Plan 2025-2030"} },
+  "summary": { title: "Summary", type: 'lstring', example: {"en":"<p>The NBSAP sets national priorities to halt biodiversity loss and restore degraded ecosystems by 2030.</p>"} },
   "jurisdiction": { title: "Level of application", titleLink: '/thesaurus/jurisdictions', type: 'term', mandatory: true, example: {"identifier":"7437F880-7B12-4F26-AA91-CED37250DD0A"} },
-  "jurisdictionInfo": { title: "Additional Information (Level of application)", type: 'lstring' },
   "isGbfAligned": { title: "Is the submission in alignment with the Kunming-Montreal Global Biodiversity Framework?", type: 'bool', mandatory: true, example: true },
   "startDate": { title: "From", type: 'datetime', mandatory: true },
   "endDate": { title: "To", type: 'datetime', mandatory: true },
-  "status": { title: "Status", titleLink: '/thesaurus/report-status', type: 'term', mandatory: true, example: {"identifier":"9D17F3A2-EC92-4D31-81EF-A12521873D7F"} },
+  "status": { title: "Status of the document", titleLink: '/thesaurus/report-status', type: 'term', mandatory: true, example: {"identifier":"9D17F3A2-EC92-4D31-81EF-A12521873D7F"} },
   "completionYear": { title: "", type: 'string' },
   "adoptionDate": { title: "Date of completion and adoption", type: 'string' },
   "approvedStatus": { title: "Status of approved document", titleLink: '/thesaurus/approved-status', type: 'term', example: {"identifier":"EE6F3AAE-E365-46C3-B73F-ED5FE3DFAACA"} },
   "approvingBody": { title: "Approving body", titleLink: '/thesaurus/approving-body', type: 'term', example: {"identifier":"EFAF31F0-1E48-4165-B60B-B55F132DB932"} },
-  "approvingBodyInfo": { title: "Please select approving body", type: 'lstring', example: {"en":"<p>Test Info</p>"} },
-  "documentText": { title: "", type: 'lstring' },
-  "documentLinks": { title: "NBSAP document(s) and websites, links or other relevant document(s)", type: 'link[]', mandatory: true, example: [{"url":"https://www.google.comm","name":"Google","language":"en"}] },
-  "relevantInformation": { title: "Please use this field to provide any other relevant information that may not have been addressed elsewhere in the record.", type: 'lstring', example: {"en":"<p>Test Info</p>"} },
+  "approvingBodyInfo": { title: "Approving body information", type: 'lstring', example: {"en":"<p>Council of Ministers</p>"} },
+  "documentLinks": { title: "NBSAP document(s) and websites, links or other relevant document(s)", type: 'link[]', mandatory: true, example: [{"url":"https://www.google.com","name":"Google","language":"en"}] },
+  "relevantInformation": { title: "Please use this field to provide any other relevant information that may not have been addressed elsewhere in the record.", type: 'lstring', example: {"en":"<p>The NBSAP was developed through a multi-stakeholder consultation process held in 2024.</p>"} },
   "relevantDocuments": { title: "", type: 'link[]' }
   }
 }

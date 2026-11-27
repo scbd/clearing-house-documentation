@@ -10,7 +10,7 @@ export const contactFields: Record<string, Field> = {
   lastName: { title: 'Last Name', type: 'string', mandatory: true, example: 'Doe' },
   gender: { title: 'Gender', type: 'term' },
   designation: { title: 'Job Title', type: 'lstring', example: { en: 'Software' } },
-  organization: { title: 'Organization', type: 'lstring', mandatory: true, example: { en: 'Test Organization' } },
+  organization: { title: 'Organization', type: 'lstring', mandatory: true, example: { en: 'Secretariat of the Convention on Biological Diversity' } },
   organizationAcronym: { title: 'Acronym', type: 'lstring', example: { en: 'CSBD' } },
   department: { title: 'Department / Division / Unit', type: 'lstring', example: { en: 'Division' } },
   organizationType: {
@@ -25,7 +25,7 @@ export const contactFields: Record<string, Field> = {
   postalCode: { title: 'Postal Code or Zip', type: 'lstring', example: { en: 'N1R 7Z1' } },
   country: { title: 'Country of Contact', titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: { identifier: 'ca' } },
   phones: { title: 'Phone Number(s)', type: 'string[]', example: ['54825578896'] },
-  faxes: { title: 'Fax Number(s)', type: 'string[]', example: ['123456'] },
+  faxes: { title: 'Fax Number(s)', type: 'string[]', example: ['+1 555 010 0199'] },
   emails: { title: 'Email(s)', type: 'string[]', mandatory: true, example: ['john.doe@example.com'] },
   websites: { title: 'Website Address(es)', type: 'link[]', example: [{ url: 'http://www.example.com' }] },
   addressType: { title: 'Address Type', type: 'string', example: 'organization' },

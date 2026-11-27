@@ -4,6 +4,7 @@ import routes from "../routes/index";
 
 export default defineConfig({
   title: "CH documentation",
+  description: "API documentation for the Convention on Biological Diversity Clearing-Houses (ABSCH, BCH, CHM and ORT): record schemas, search, publishing and authentication, with interactive playgrounds.",
   base: process.env.BASE_PATH || "/",
   // Everything under docs/ that isn't a site page: ADRs are internal
   // documentation; components/swagger/utils/routes are the docs app's
@@ -23,6 +24,24 @@ export default defineConfig({
       },
     ],
   ],
+  // Link previews (Slack, Teams, …) read these; absolute URLs are required by scrapers.
+  transformHead({ pageData, siteConfig }) {
+    // Same environment as the VITE_* URLs: api.<domain> -> developer.<domain> (prod default: developer.cbd.int).
+    const site = `https://${new URL(process.env.VITE_API_URL || "https://api.cbd.int").host.replace(/^api\./, "developer.")}`;
+    const base = process.env.BASE_PATH || "/";
+    const title = pageData.frontmatter.title || pageData.title || "CH documentation";
+    const description = pageData.description || pageData.frontmatter.description || siteConfig.site.description;
+    const url = `${site}${base}${pageData.relativePath.replace(/(^|\/)index\.md$/, "$1").replace(/\.md$/, ".html")}`;
+    return [
+      ["meta", { property: "og:type", content: "website" }],
+      ["meta", { property: "og:site_name", content: "CBD Clearing-House Documentation" }],
+      ["meta", { property: "og:title", content: title }],
+      ["meta", { property: "og:description", content: description }],
+      ["meta", { property: "og:url", content: url }],
+      ["meta", { property: "og:image", content: `${site}${base}logo.png` }],
+      ["meta", { name: "twitter:card", content: "summary" }],
+    ];
+  },
   themeConfig: {
     logo: "/logo.png",
     siteTitle: "CH documentation",

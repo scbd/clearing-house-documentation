@@ -5,8 +5,8 @@ import type { Field } from '../types'
 // differences, if any, were never encoded there — review gate to confirm).
 // Untitled fields are untitled in the archive too.
 export const organizationFields: Record<string, Field> = {
-  acronym: { title: 'Acronym', type: 'lstring', example: { en: 'TestINFO' } },
-  name: { title: 'Name of the organization', type: 'lstring', mandatory: true, example: { en: 'Test Info' } },
+  acronym: { title: 'Acronym', type: 'lstring', example: { en: 'SCBD' } },
+  name: { title: 'Name of the organization', type: 'lstring', mandatory: true, example: { en: 'Secretariat of the Convention on Biological Diversity' } },
   contacts: {
     title: 'Contact person(s)',
     type: 'reference[]',
@@ -17,14 +17,14 @@ export const organizationFields: Record<string, Field> = {
     type: 'reference[]',
     example: [{ identifier: '1767A775-F4F9-B597-41AC-CE56536F28F5@2' }]
   },
-  address: { title: 'Address', type: 'lstring', example: { en: 'Test Info' } },
-  city: { title: 'City', type: 'lstring', mandatory: true, example: { en: 'Test Info' } },
-  state: { title: 'State or Province', type: 'lstring', example: { en: 'Test Info' } },
-  postalCode: { title: 'Postal Code or Zip', type: 'lstring', example: { en: 'TestINFO' } },
+  address: { title: 'Address', type: 'lstring', example: { en: '413 Saint-Jacques Street, Suite 800' } },
+  city: { title: 'City', type: 'lstring', mandatory: true, example: { en: 'Montreal' } },
+  state: { title: 'State or Province', type: 'lstring', example: { en: 'Quebec' } },
+  postalCode: { title: 'Postal Code or Zip', type: 'lstring', example: { en: 'H2Y 1N9' } },
   country: { title: 'Country', titleLink: '/thesaurus/countries', type: 'term', mandatory: true, example: { identifier: 'af' } },
   phones: { title: 'Phone number(s)', type: 'string[]', mandatory: true, example: ['1234561234'] },
   faxes: { title: 'Fax number(s)', type: 'string[]', example: ['1234561234'] },
-  emails: { title: 'Email(s)', type: 'string[]', mandatory: true, example: ['test@email.com'] },
+  emails: { title: 'Email(s)', type: 'string[]', mandatory: true, example: ['info@example.org'] },
   websites: {
     title: 'Website address(es)',
     type: 'link[]',
@@ -38,10 +38,10 @@ export const organizationFields: Record<string, Field> = {
     mandatory: true,
     example: { identifier: '86D464C3-B5BB-4B02-85E4-1AAD8D64CD27' }
   },
-  thematicAreas: { title: '', type: 'term[]' },
+  thematicAreas: { title: "Related CBD Subject Area(s)", type: 'term[]' },
   absThematicAreas: { title: '', type: 'term[]' },
-  areasOfWork: { title: 'Areas of work', type: 'lstring[]', example: [{ en: 'Test Info' }] },
-  gbfTargets: { title: '', type: 'term[]' },
+  areasOfWork: { title: 'Areas of work', type: 'lstring[]', example: [{ en: 'Biodiversity conservation and sustainable use' }] },
+  gbfTargets: { title: "Related Kunming-Montreal Global Biodiversity Framework Target(s)", type: 'term[]' },
   aichiTargets: { title: '', type: 'term[]' },
   coordinates: { title: '', type: 'mapLocation' },
   establishmentGooglePlaceId: { title: '', type: 'string[]' },
@@ -51,9 +51,9 @@ export const organizationFields: Record<string, Field> = {
     type: 'term[]',
     example: [{ identifier: 'CCA4B662-8EF4-418D-B327-0D6F418AA703' }]
   },
-  profile: { title: 'Organization’s profile', type: 'lstring', example: { en: 'Test Info' } },
+  profile: { title: 'Organization’s profile', type: 'lstring', example: { en: 'An international organization supporting implementation of the Convention on Biological Diversity' } },
   profileLink: { title: '', type: 'link[]' },
-  relevantInformation: { title: 'Any other relevant information', type: 'lstring', example: { en: 'Test Info' } },
+  relevantInformation: { title: 'Any other relevant information', type: 'lstring', example: { en: 'Established in 1992' } },
   relevantDocuments: {
     title: 'Any other relevant documents',
     type: 'link[]',

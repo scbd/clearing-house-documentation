@@ -63,30 +63,12 @@ export default {
       ]
     },
     {
-      text: "Organization",
+      text: "National Focal Point",
       collapsed: true,
       items: [
-        { text: "Field Reference", link: '/absch/org/fields' },
-        { text: "Search", link: '/absch/org/solr' },
-        { text: "Get", link: '/absch/org/get' }
-      ]
-    },
-    {
-      text: "Virtual Library Resource",
-      collapsed: true,
-      items: [
-        { text: "Field Reference", link: '/absch/vlr/fields' },
-        { text: "Search", link: '/absch/vlr/solr' },
-        { text: "Get", link: '/absch/vlr/get' }
-      ]
-    },
-    {
-      text: "Capacity Development Initiative",
-      collapsed: true,
-      items: [
-        { text: "Field Reference", link: '/absch/cdi/fields' },
-        { text: "Search", link: '/absch/cdi/solr' },
-        { text: "Get", link: '/absch/cdi/get' }
+        { text: "Field Reference", link: '/absch/nfp/fields' },
+        { text: "Search", link: '/absch/nfp/solr' },
+        { text: "Get", link: '/absch/nfp/get' }
       ]
     },
     {
@@ -99,21 +81,64 @@ export default {
       ]
     },
     {
+      text: "Measure",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/absch/msr/fields' },
+        { text: "Search", link: '/absch/msr/solr' },
+        { text: "Get", link: '/absch/msr/get' }
+      ]
+    },
+    {
+      text: "ABS Procedure",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/absch/pro/fields' },
+        { text: "Search", link: '/absch/pro/solr' },
+        { text: "Get", link: '/absch/pro/get' }
+      ]
+    },
+    {
+      text: "National Model Contractual Clause",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/absch/nmcc/fields' },
+        { text: "Search", link: '/absch/nmcc/solr' },
+        { text: "Get", link: '/absch/nmcc/get' }
+      ]
+    },
+    {
+      text: "Internationally Recognized Certificate of Compliance",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/absch/ircc/fields' },
+        { text: "List", link: '/absch/ircc/list' },
+        { text: "Search", link: '/absch/ircc/solr' },
+        { text: "Get", link: '/absch/ircc/get' },
+        { text: "Create", link: '/absch/ircc/create' },
+        { text: "Update", link: '/absch/ircc/update' },
+        { text: "Delete", link: '/absch/ircc/delete' },
+        {
+          text: 'Draft Operations',
+          collapsed: true,
+          items: [
+          { text: 'Drafts', link: '/absch/general/drafts' },
+          { text: 'Draft Locks', link: '/absch/general/draft-locks' },
+          { text: 'Draft Securities', link: '/absch/general/draft-securities' },
+          { text: 'Document Securities', link: '/absch/general/document-securities' },
+          { text: 'Document Validations', link: '/absch/general/document-validations' },
+          { text: 'Document Versions', link: '/absch/general/documents-versions' }
+          ]
+        }
+      ]
+    },
+    {
       text: "National Website or Database",
       collapsed: true,
       items: [
         { text: "Field Reference", link: '/absch/ndb/fields' },
         { text: "Search", link: '/absch/ndb/solr' },
         { text: "Get", link: '/absch/ndb/get' }
-      ]
-    },
-    {
-      text: "National Focal Point",
-      collapsed: true,
-      items: [
-        { text: "Field Reference", link: '/absch/nfp/fields' },
-        { text: "Search", link: '/absch/nfp/solr' },
-        { text: "Get", link: '/absch/nfp/get' }
       ]
     },
     {
@@ -151,64 +176,39 @@ export default {
       ]
     },
     {
+      text: "Virtual Library Resource",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/absch/vlr/fields' },
+        { text: "Search", link: '/absch/vlr/solr' },
+        { text: "Get", link: '/absch/vlr/get' }
+      ]
+    },
+    {
+      text: "Organization",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/absch/org/fields' },
+        { text: "Search", link: '/absch/org/solr' },
+        { text: "Get", link: '/absch/org/get' }
+      ]
+    },
+    {
+      text: "Capacity Development Initiative",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/absch/cdi/fields' },
+        { text: "Search", link: '/absch/cdi/solr' },
+        { text: "Get", link: '/absch/cdi/get' }
+      ]
+    },
+    {
       text: "Community Protocol",
       collapsed: true,
       items: [
         { text: "Field Reference", link: '/absch/cpp/fields' },
         { text: "Search", link: '/absch/cpp/solr' },
         { text: "Get", link: '/absch/cpp/get' }
-      ]
-    },
-    {
-      text: "Internationally Recognized Certificate of Compliance",
-      collapsed: true,
-      items: [
-        { text: "Field Reference", link: '/absch/ircc/fields' },
-        { text: "List", link: '/absch/ircc/list' },
-        { text: "Search", link: '/absch/ircc/solr' },
-        { text: "Get", link: '/absch/ircc/get' },
-        { text: "Create", link: '/absch/ircc/create' },
-        { text: "Update", link: '/absch/ircc/update' },
-        { text: "Delete", link: '/absch/ircc/delete' },
-        {
-          text: 'Draft Operations',
-          collapsed: true,
-          items: [
-          { text: 'Drafts', link: '/absch/general/drafts' },
-          { text: 'Draft Locks', link: '/absch/general/draft-locks' },
-          { text: 'Draft Securities', link: '/absch/general/draft-securities' },
-          { text: 'Document Securities', link: '/absch/general/document-securities' },
-          { text: 'Document Validations', link: '/absch/general/document-validations' },
-          { text: 'Document Versions', link: '/absch/general/documents-versions' }
-          ]
-        }
-      ]
-    },
-    {
-      text: "Measure",
-      collapsed: true,
-      items: [
-        { text: "Field Reference", link: '/absch/msr/fields' },
-        { text: "Search", link: '/absch/msr/solr' },
-        { text: "Get", link: '/absch/msr/get' }
-      ]
-    },
-    {
-      text: "National Model Contractual Clause",
-      collapsed: true,
-      items: [
-        { text: "Field Reference", link: '/absch/nmcc/fields' },
-        { text: "Search", link: '/absch/nmcc/solr' },
-        { text: "Get", link: '/absch/nmcc/get' }
-      ]
-    },
-    {
-      text: "ABS Procedure",
-      collapsed: true,
-      items: [
-        { text: "Field Reference", link: '/absch/pro/fields' },
-        { text: "Search", link: '/absch/pro/solr' },
-        { text: "Get", link: '/absch/pro/get' }
       ]
     },
     {
@@ -278,30 +278,12 @@ export default {
       ]
     },
     {
-      text: "Organization",
+      text: "National Focal Point",
       collapsed: true,
       items: [
-        { text: "Field Reference", link: '/bch/org/fields' },
-        { text: "Search", link: '/bch/org/solr' },
-        { text: "Get", link: '/bch/org/get' }
-      ]
-    },
-    {
-      text: "Virtual Library Resource",
-      collapsed: true,
-      items: [
-        { text: "Field Reference", link: '/bch/vlr/fields' },
-        { text: "Search", link: '/bch/vlr/solr' },
-        { text: "Get", link: '/bch/vlr/get' }
-      ]
-    },
-    {
-      text: "Capacity Development Initiative",
-      collapsed: true,
-      items: [
-        { text: "Field Reference", link: '/bch/cdi/fields' },
-        { text: "Search", link: '/bch/cdi/solr' },
-        { text: "Get", link: '/bch/cdi/get' }
+        { text: "Field Reference", link: '/bch/nfp/fields' },
+        { text: "Search", link: '/bch/nfp/solr' },
+        { text: "Get", link: '/bch/nfp/get' }
       ]
     },
     {
@@ -314,48 +296,12 @@ export default {
       ]
     },
     {
-      text: "National Website or Database",
+      text: "Supplementary Authority",
       collapsed: true,
       items: [
-        { text: "Field Reference", link: '/bch/ndb/fields' },
-        { text: "Search", link: '/bch/ndb/solr' },
-        { text: "Get", link: '/bch/ndb/get' }
-      ]
-    },
-    {
-      text: "National Focal Point",
-      collapsed: true,
-      items: [
-        { text: "Field Reference", link: '/bch/nfp/fields' },
-        { text: "Search", link: '/bch/nfp/solr' },
-        { text: "Get", link: '/bch/nfp/get' }
-      ]
-    },
-    {
-      text: "Decision",
-      collapsed: true,
-      items: [
-        { text: "Field Reference", link: '/bch/dec/fields' },
-        { text: "Search", link: '/bch/dec/solr' },
-        { text: "Get", link: '/bch/dec/get' }
-      ]
-    },
-    {
-      text: "Gene / DNA Sequence",
-      collapsed: true,
-      items: [
-        { text: "Field Reference", link: '/bch/gene/fields' },
-        { text: "Search", link: '/bch/gene/solr' },
-        { text: "Get", link: '/bch/gene/get' }
-      ]
-    },
-    {
-      text: "Independent Risk Assessment",
-      collapsed: true,
-      items: [
-        { text: "Field Reference", link: '/bch/ira/fields' },
-        { text: "Search", link: '/bch/ira/solr' },
-        { text: "Get", link: '/bch/ira/get' }
+        { text: "Field Reference", link: '/bch/supp-auth/fields' },
+        { text: "Search", link: '/bch/supp-auth/solr' },
+        { text: "Get", link: '/bch/supp-auth/get' }
       ]
     },
     {
@@ -368,12 +314,138 @@ export default {
       ]
     },
     {
+      text: "Decision",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/dec/fields' },
+        { text: "Search", link: '/bch/dec/solr' },
+        { text: "Get", link: '/bch/dec/get' }
+      ]
+    },
+    {
+      text: "National Risk Assessment",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/nra/fields' },
+        { text: "Search", link: '/bch/nra/solr' },
+        { text: "Get", link: '/bch/nra/get' }
+      ]
+    },
+    {
+      text: "National Website or Database",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/ndb/fields' },
+        { text: "Search", link: '/bch/ndb/solr' },
+        { text: "Get", link: '/bch/ndb/get' }
+      ]
+    },
+    {
+      text: "Biosafety Expert",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/expert/fields' },
+        { text: "Search", link: '/bch/expert/solr' },
+        { text: "Get", link: '/bch/expert/get' }
+      ]
+    },
+    {
+      text: "Country Profile",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/country-profile/fields' },
+        { text: "Search", link: '/bch/country-profile/solr' },
+        { text: "Get", link: '/bch/country-profile/get' }
+      ]
+    },
+    {
+      text: "Virtual Library Resource",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/vlr/fields' },
+        { text: "Search", link: '/bch/vlr/solr' },
+        { text: "Get", link: '/bch/vlr/get' }
+      ]
+    },
+    {
+      text: "Organization",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/org/fields' },
+        { text: "Search", link: '/bch/org/solr' },
+        { text: "Get", link: '/bch/org/get' }
+      ]
+    },
+    {
+      text: "Laboratory Detection",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/lab/fields' },
+        { text: "Search", link: '/bch/lab/solr' },
+        { text: "Get", link: '/bch/lab/get' }
+      ]
+    },
+    {
       text: "Living Modified Organism",
       collapsed: true,
       items: [
         { text: "Field Reference", link: '/bch/lmo/fields' },
         { text: "Search", link: '/bch/lmo/solr' },
         { text: "Get", link: '/bch/lmo/get' }
+      ]
+    },
+    {
+      text: "Gene / DNA Sequence",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/gene/fields' },
+        { text: "Search", link: '/bch/gene/solr' },
+        { text: "Get", link: '/bch/gene/get' }
+      ]
+    },
+    {
+      text: "Organism",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/organism/fields' },
+        { text: "Search", link: '/bch/organism/solr' },
+        { text: "Get", link: '/bch/organism/get' }
+      ]
+    },
+    {
+      text: "Independent Risk Assessment",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/ira/fields' },
+        { text: "Search", link: '/bch/ira/solr' },
+        { text: "Get", link: '/bch/ira/get' }
+      ]
+    },
+    {
+      text: "Submission",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/submission/fields' },
+        { text: "Search", link: '/bch/submission/solr' },
+        { text: "Get", link: '/bch/submission/get' }
+      ]
+    },
+    {
+      text: "Capacity Development Initiative",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/cdi/fields' },
+        { text: "Search", link: '/bch/cdi/solr' },
+        { text: "Get", link: '/bch/cdi/get' }
+      ]
+    },
+    {
+      text: "Biosafety News",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/bch/news/fields' },
+        { text: "Search", link: '/bch/news/solr' },
+        { text: "Get", link: '/bch/news/get' }
       ]
     },
     {
@@ -444,21 +516,21 @@ export default {
       ]
     },
     {
-      text: "Organization",
-      collapsed: true,
-      items: [
-        { text: "Field Reference", link: '/chm/org/fields' },
-        { text: "Search", link: '/chm/org/solr' },
-        { text: "Get", link: '/chm/org/get' }
-      ]
-    },
-    {
       text: "Virtual Library Resource",
       collapsed: true,
       items: [
         { text: "Field Reference", link: '/chm/vlr/fields' },
         { text: "Search", link: '/chm/vlr/solr' },
         { text: "Get", link: '/chm/vlr/get' }
+      ]
+    },
+    {
+      text: "Organization",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/chm/org/fields' },
+        { text: "Search", link: '/chm/org/solr' },
+        { text: "Get", link: '/chm/org/get' }
       ]
     },
     {
@@ -500,30 +572,12 @@ export default {
     gettingStarted('/ort'),
     user('/ort'),
     {
-      text: "National Report",
+      text: "NBSAP",
       collapsed: true,
       items: [
-        { text: "Field Reference", link: '/ort/national-report/fields' },
-        { text: "Search", link: '/ort/national-report/solr' },
-        { text: "Get", link: '/ort/national-report/get' }
-      ]
-    },
-    {
-      text: "National Report Binary Indicator Data",
-      collapsed: true,
-      items: [
-        { text: "Field Reference", link: '/ort/national-report-binary-indicator-data/fields' },
-        { text: "Search", link: '/ort/national-report-binary-indicator-data/solr' },
-        { text: "Get", link: '/ort/national-report-binary-indicator-data/get' }
-      ]
-    },
-    {
-      text: "National Report Indicator Data",
-      collapsed: true,
-      items: [
-        { text: "Field Reference", link: '/ort/national-report-indicator-data/fields' },
-        { text: "Search", link: '/ort/national-report-indicator-data/solr' },
-        { text: "Get", link: '/ort/national-report-indicator-data/get' }
+        { text: "Field Reference", link: '/ort/nbsap/fields' },
+        { text: "Search", link: '/ort/nbsap/solr' },
+        { text: "Get", link: '/ort/nbsap/get' }
       ]
     },
     {
@@ -545,12 +599,30 @@ export default {
       ]
     },
     {
-      text: "NBSAP",
+      text: "National Report",
       collapsed: true,
       items: [
-        { text: "Field Reference", link: '/ort/nbsap/fields' },
-        { text: "Search", link: '/ort/nbsap/solr' },
-        { text: "Get", link: '/ort/nbsap/get' }
+        { text: "Field Reference", link: '/ort/national-report/fields' },
+        { text: "Search", link: '/ort/national-report/solr' },
+        { text: "Get", link: '/ort/national-report/get' }
+      ]
+    },
+    {
+      text: "National Report Indicator Data",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/ort/national-report-indicator-data/fields' },
+        { text: "Search", link: '/ort/national-report-indicator-data/solr' },
+        { text: "Get", link: '/ort/national-report-indicator-data/get' }
+      ]
+    },
+    {
+      text: "National Report Binary Indicator Data",
+      collapsed: true,
+      items: [
+        { text: "Field Reference", link: '/ort/national-report-binary-indicator-data/fields' },
+        { text: "Search", link: '/ort/national-report-binary-indicator-data/solr' },
+        { text: "Get", link: '/ort/national-report-binary-indicator-data/get' }
       ]
     },
     {

@@ -21,7 +21,7 @@ Retrieves a single ABS Procedure record from the ABS Clearing-House by its uniqu
 
 **GET** `/api/v2013/documents/:uid`
 
-**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header`)
+**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header)
 
 ## URL Parameters
 

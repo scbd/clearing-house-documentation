@@ -20,7 +20,7 @@ const nationalReportIndicatorData: SchemaDescriptor = {
   "unit": { title: "Unit", type: 'string' },
   "value": { title: "Value", type: 'decimal', example: 0.01 },
   "footnote": { title: "Footnote", type: 'string' },
-  "comments": { title: "Comments", type: 'lstring', example: {"en":"<p>Test Info</p>"} }
+  "comments": { title: "Comments", type: 'lstring', example: {"en":"<p>Data sourced from the national forest inventory, 2023 cycle.</p>"} }
   }
 }
 

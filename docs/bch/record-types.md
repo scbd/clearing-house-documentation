@@ -5,14 +5,22 @@ Record types documented for the Biosafety Clearing-House, with the schema value 
 | Record Type | Schema |
 | --- | --- |
 | [Contact](/bch/contact/fields) | `contact` |
-| [Organization](/bch/org/fields) | `organization` |
-| [Virtual Library Resource](/bch/vlr/fields) | `resource` |
-| [Capacity Development Initiative](/bch/cdi/fields) | `capacityBuildingInitiative` |
-| [Competent National Authority](/bch/cna/fields) | `authority` |
-| [National Website or Database](/bch/ndb/fields) | `database` |
 | [National Focal Point](/bch/nfp/fields) | `focalPoint` |
-| [Decision](/bch/dec/fields) | `biosafetyDecision` |
-| [Gene / DNA Sequence](/bch/gene/fields) | `dnaSequence` |
-| [Independent Risk Assessment](/bch/ira/fields) | `independentRiskAssessment` |
+| [Competent National Authority](/bch/cna/fields) | `authority` |
+| [Supplementary Authority](/bch/supp-auth/fields) | `supplementaryAuthority` |
 | [Law / Regulation](/bch/law/fields) | `biosafetyLaw` |
+| [Decision](/bch/dec/fields) | `biosafetyDecision` |
+| [National Risk Assessment](/bch/nra/fields) | `nationalRiskAssessment` |
+| [National Website or Database](/bch/ndb/fields) | `database` |
+| [Biosafety Expert](/bch/expert/fields) | `biosafetyExpert` |
+| [Country Profile](/bch/country-profile/fields) | `countryProfile` |
+| [Virtual Library Resource](/bch/vlr/fields) | `resource` |
+| [Organization](/bch/org/fields) | `organization` |
+| [Laboratory Detection](/bch/lab/fields) | `laboratoryDetection` |
 | [Living Modified Organism](/bch/lmo/fields) | `modifiedOrganism` |
+| [Gene / DNA Sequence](/bch/gene/fields) | `dnaSequence` |
+| [Organism](/bch/organism/fields) | `organism` |
+| [Independent Risk Assessment](/bch/ira/fields) | `independentRiskAssessment` |
+| [Submission](/bch/submission/fields) | `submission` |
+| [Capacity Development Initiative](/bch/cdi/fields) | `capacityBuildingInitiative` |
+| [Biosafety News](/bch/news/fields) | `biosafetyNews` |

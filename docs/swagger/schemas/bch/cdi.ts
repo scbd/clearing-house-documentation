@@ -7,7 +7,9 @@ const cdi: SchemaDescriptor = {
   name: "Capacity Development Initiative",
   description: "A Capacity Development Initiative record in the Biosafety Clearing-House.",
   fields: {
-    ...cdiFields
+    ...cdiFields,
+    // Required in the BCH form.
+    cpbThematicAreas: { ...cdiFields.cpbThematicAreas, mandatory: true }
   }
 }
 

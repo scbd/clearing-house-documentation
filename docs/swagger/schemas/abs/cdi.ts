@@ -7,7 +7,9 @@ const cdi: SchemaDescriptor = {
   name: "Capacity Development Initiative",
   description: "A Capacity Development Initiative record in the ABS Clearing-House.",
   fields: {
-    ...cdiFields
+    ...cdiFields,
+    // Always required in the ABS form (only conditionally in CHM and BCH).
+    absKeyAreas: { ...cdiFields.absKeyAreas, mandatory: true }
   }
 }
 

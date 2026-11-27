@@ -21,7 +21,7 @@ Lists Checkpoint Communique records in the ABS Clearing-House with OData-style q
 
 **GET** `/api/v2013/documents`
 
-**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header`)
+**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header)
 
 Calls to this endpoint require a bearer token — see [User - Authentication](/absch/user/authentication).
 

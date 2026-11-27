@@ -21,7 +21,7 @@ Deletes a Stakeholder Commitment record from the Online Reporting Tool by its un
 
 **DELETE** `/api/v2013/documents/:uid`
 
-**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header`)
+**Realm for this application and environment:** <code>{{ realm }}</code> (sent as the `Realm` HTTP header)
 
 Calls to this endpoint require a bearer token — see [User - Authentication](/ort/user/authentication).
 
